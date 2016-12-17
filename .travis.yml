@@ -21,5 +21,8 @@ install:
   - npm install
   - bower install
 
+after_success:
+  - ember surge
+
 script:
   - npm test
