@@ -1,0 +1,32 @@
+{{#if data}}
+
+<form class="ui form">
+
+  {{#each data.campos as |campo|}}
+
+    {{suite-form-input
+          nombre=campo.nombre
+          ejemplo=campo.ejemplo
+          etiqueta=campo.etiqueta
+    }}
+  {{/each}}
+
+
+
+  {{#if data.textos.guardar}}
+    <div class="ui submit button">{{data.textos.guardar}}</div>
+  {{else}}
+    <div class="ui submit button">Guardar</div>
+  {{/if}}
+
+  <div class="ui error message"></div>
+
+</form>
+
+{{else}}
+
+  <div class="ui ignored warning message">
+    El formulario ha sido inicializado incorrectamente, defina un valor para el parametro data.
+  </div>
+
+{{/if}}
