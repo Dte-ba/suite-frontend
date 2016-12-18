@@ -1,4 +1,4 @@
-# suite-frontend
+# SUITE 2 - Frontend
 
 [![Build Status](https://travis-ci.org/Dte-ba/suite-frontend.svg?branch=master)](https://travis-ci.org/Dte-ba/suite-frontend)
 
