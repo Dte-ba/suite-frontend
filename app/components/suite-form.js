@@ -2,11 +2,17 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   data: null,
+  autofocus: true,
 
   didRender() {
     if (this.get('data.campos')) {
       let fields = this._obtenerCamposDeFormulario();
       this.$('.ui.form').form(fields);
+
+      // Intenta hacer foco en el primer input.
+      if (this.get('autofocus')) {
+        this.$('input').first().focus();
+      }
     }
   },
 
