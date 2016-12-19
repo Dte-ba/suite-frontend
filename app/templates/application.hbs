@@ -1,7 +1,23 @@
-<div class="ui container">
+<div class="ui container main">
 
-<div>
-  {{#link-to "index"}}index{{/link-to}} | {{#link-to "prueba"}}prueba{{/link-to}}
+<div class="ui top fixed menu">
+
+  <div class="item">
+    <!--<img src="logo.png"> -->
+    Suite
+  </div>
+
+  {{#link-to "index" class="item"}}Escritorio{{/link-to}}
+  {{#link-to "prueba" class="item"}}Prueba{{/link-to}}
+
+  <div class="right menu">
+    <a class="item">
+      <img class="ui circular image" src="imagenes/user.jpg">
+      &nbsp;
+      Don Pepe
+    </a>
+  </div>
+
 </div>
 
 {{outlet}}
