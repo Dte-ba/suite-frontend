@@ -1,14 +1,14 @@
 <div class="ui container main">
 
-<div class="ui top fixed menu">
+<div class="ui fixed menu inverted">
 
   <div class="item">
     <!--<img src="logo.png"> -->
     Suite
   </div>
 
-  {{#link-to "index" class="item"}}Escritorio{{/link-to}}
-  {{#link-to "ui.index" class="item"}}Galería de componentes UI{{/link-to}}
+  {{#link-to "index" class="item"}}<i class="bar chart icon"></i> Escritorio{{/link-to}}
+  {{#link-to "ui.index" class="item"}}<i class="book icon"></i> Galería de componentes UI{{/link-to}}
 
   <div class="right menu">
     <a class="item">
@@ -19,6 +19,7 @@
   </div>
 
 </div>
+
 
 {{outlet}}
 
