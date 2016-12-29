@@ -1,0 +1,45 @@
+{{outlet}}
+
+<h1>Formularios</h1>
+
+<p>Los formularios permiten ingresar datos a los
+  usuarios pero de manera segura. El componente <strong>suite-formulario</strong>
+  incluye los validadores de datos más comunes.</p>
+
+<p>Por ejemplo, el siguiente formulario permite ingresar
+  el nombre completo de una persona, pero asegurando que
+  tiene al menos 5 letras:</p>
+
+
+{{#suite-panel}}
+  {{suite-form data=data}}
+{{/suite-panel}}
+
+<p>Esto se implementa usando el componente y pasándole
+  una estructura de datos desde un controlador o
+  similar:</p>
+
+
+{{#suite-codigo}}
+  \{{suite-form data=data}}
+{{/suite-codigo}}
+
+
+
+<p>Donde <code>data</code>, en este caso, se definió como:</p>
+
+{{#suite-codigo}}
+data: {
+  campos: [{
+      nombre: "nombreCompleto",
+      etiqueta: "Nombre completo",
+      ejemplo: "Juan Perez",
+      tipo: "input",
+      validaciones: ['novacio', 'masde5letras']
+    }
+  ],
+  textos: {
+    guardar: "Crear el registro de la persona"
+  }
+}
+{{/suite-codigo}}

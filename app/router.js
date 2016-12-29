@@ -7,7 +7,10 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('prueba');
+  this.route('ui', function() {
+    this.route('tabla');
+    this.route('formularios');
+  });
 });
 
 export default Router;
