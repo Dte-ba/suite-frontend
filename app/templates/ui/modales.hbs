@@ -1,0 +1,37 @@
+{{outlet}}
+
+<h1>Modales</h1>
+
+<p>Para incluir diálogos modales
+estamos usando <code>ember-remodal</code>, así que
+podemos usar y tomar ideas del
+<a href="http://sethbrasile.github.io/ember-remodal/" target="_blank">sitio oficial del complemento</a>
+para incluir en suite.</p>
+
+
+<p>Por ejemplo, el siguiente botón abre un dialogo
+  modal muy sencillo:</p>
+
+<p><button class="ui button" {{action "abrirModalConPreferenciasDeUsuario"}}>Abrir preferencias de usuario</button></p>
+
+
+{{#ember-remodal forService=true name='modalConPreferenciasDeUsuario'}}
+  <h1>Preferencias de usuario</h1>
+
+  <p>Este es un dialogo modal ilustrativo, no altera ninguna
+    configuración realmente.</p>
+
+  <p>
+  {{ui-checkbox class="toggle" label="Recordar acceso" checked=true onChange=(action (mut pre_checked))}}
+  </p>
+
+  <p>
+  {{ui-checkbox class="toggle" label="Habilitar animaciones visuales" checked=false onChange=(action (mut pre_checked))}}
+  </p>
+
+  <p class="modal-barra-de-botones">
+    <button class="ui button" {{action "cerrarDialogo"}}>Guardar</button>
+    <button class="ui button" {{action "cerrarDialogo"}}>Cancelar</button>
+  </p>
+
+{{/ember-remodal}}

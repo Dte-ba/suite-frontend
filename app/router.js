@@ -10,6 +10,8 @@ Router.map(function() {
   this.route('ui', function() {
     this.route('tabla');
     this.route('formularios');
+    this.route('modales');
+    this.route('otros');
   });
 });
 

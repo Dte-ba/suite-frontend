@@ -1,3 +1,7 @@
+body {
+  overflow: scroll;
+}
+
 .main {
   padding-top: 4em;
 }
@@ -21,4 +25,18 @@
 
 .ui.inverted.menu .active.item.logo-container {
   background: none;
+}
+
+.menu-rutas-ui {
+  width: 100% !important;
+}
+
+.ember-remodal {
+  text-align: left;
+}
+
+
+.modal-barra-de-botones {
+  text-align: right;
+  padding-top: 4em;
 }
