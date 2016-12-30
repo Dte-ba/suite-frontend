@@ -40,3 +40,7 @@ body {
   text-align: right;
   padding-top: 4em;
 }
+
+.user-avatar {
+  height: 23px;
+}
