@@ -9,3 +9,16 @@
 }
 
 */
+
+.logo-container {
+  height: 50px;
+  cursor: pointer;
+}
+
+.isologo {
+  margin-right: 4px !important;
+}
+
+.ui.inverted.menu .active.item.logo-container {
+  background: none;
+}

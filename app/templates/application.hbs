@@ -2,13 +2,14 @@
 
 <div class="ui fixed menu inverted">
 
-  <div class="item">
-    <!--<img src="logo.png"> -->
+
+  {{#link-to "index" tagName="div" class="item logo-container" current-when=""}}<
+    <img class="isologo" src="/isologo.png">
     Suite
-  </div>
+  {{/link-to}}
 
   {{#link-to "index" class="item"}}<i class="bar chart icon"></i> Escritorio{{/link-to}}
-  {{#link-to "ui.index" class="item" currentWhen="ui"}}<i class="book icon"></i> Galería de componentes UI{{/link-to}}
+  {{#link-to "ui.index" class="item" current-when="ui"}}<i class="book icon"></i> Galería de componentes UI{{/link-to}}
 
   <div class="right menu">
     <a class="item">
