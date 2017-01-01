@@ -7,19 +7,29 @@ moduleForComponent('suite-tabla', 'Integration | Component | suite tabla', {
 
 test('it renders', function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('rows', [
+    {nombre: 'Pepe', id: 20},
+    {nombre: 'Toto', id: 30},
+  ]);
 
-  this.render(hbs`{{suite-tabla}}`);
+  this.set('cols', [
+    {
+      "propertyName": "id",
+      "title": "Identificador"
+    },
 
-  assert.equal(this.$().text().trim(), '');
+    {
+      "propertyName": "nombre",
+      "title": "Nombre Completo"
+    },
+  ]);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#suite-tabla}}
-      template block text
-    {{/suite-tabla}}
-  `);
+  this.render(hbs`{{suite-tabla columnas=cols filas=rows}}`);
+  let texto = this.$().text().trim();
+  //console.log(texto);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.ok(texto.indexOf("Mostrando") > -1);
+  assert.ok(texto.indexOf("Pepe") > -1);
+  assert.ok(texto.indexOf("Toto") > -1);
+  assert.ok(texto.indexOf("1 hasta 2") > -1);
 });

@@ -44,3 +44,16 @@ body {
 .user-avatar {
   height: 23px;
 }
+
+th.table-header {
+  cursor: pointer !important;
+}
+
+.models-table {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.models-table-global-filter {
+  padding-bottom: 0.5em;
+}

@@ -1,0 +1,57 @@
+<div class='models-table'>
+
+  {{#if showGlobalFilter}}
+    {{partial globalFilterTemplate}}
+  {{/if}}
+
+  {{#if showColumnsDropdown}}
+    {{partial columnsDropdownTemplate}}
+  {{/if}}
+
+  <table class="ui celled table selectable">
+
+    <thead>
+      {{#if groupedHeaders.length}}
+        {{partial headerGroupedRowsTemplate}}
+      {{/if}}
+
+      {{partial headerSortingRowTemplate}}
+
+      {{#if useFilteringByColumns}}
+        {{partial headerFilteringRowTemplate}}
+      {{/if}}
+    </thead>
+
+    <tbody>
+
+      {{#if allColumnsAreHidden}}
+        <tr><td colspan={{processedColumns.length}} class="{{classes.noDataCell}}">{{{messages.allColumnsAreHidden}}}</td></tr>
+      {{else}}
+        {{#if visibleContent.length}}
+          {{#each visibleContent as |record index|}}
+            {{partial rowTemplate}}
+          {{/each}}
+        {{else}}
+          <tr><td colspan="{{visibleProcessedColumns.length}}">{{{messages.noDataToShow}}}</td></tr>
+        {{/if}}
+      {{/if}}
+
+    </tbody>
+
+    <tfoot>
+      {{partial tableFooterTemplate}}
+
+      <tr>
+        <th colspan="3">
+          {{#if showComponentFooter}}
+          {{partial componentFooterTemplate}}
+          {{/if}}
+        </th>
+      </tr>
+    </tfoot>
+
+  </table>
+
+  {{yield}}
+
+</div>
