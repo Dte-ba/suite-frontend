@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   didInsertElement() {
     this.$()
       .popup({
-        popup: $('.popup'),
+        popup: '.popup',
         on: 'click',
       });
   }
