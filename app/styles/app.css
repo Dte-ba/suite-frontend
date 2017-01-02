@@ -45,6 +45,10 @@ body {
   height: 23px;
 }
 
+.user-avatar-large {
+  height: 64px;
+}
+
 th.table-header {
   cursor: pointer !important;
 }
@@ -56,4 +60,14 @@ th.table-header {
 
 .models-table-global-filter {
   padding-bottom: 0.5em;
+}
+
+
+.suite-usuario {
+  cursor: pointer;
+}
+
+
+.user-avatar-name {
+  padding-left: 10px;
 }

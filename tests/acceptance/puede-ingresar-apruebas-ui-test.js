@@ -18,7 +18,7 @@ test('visiting /ui', function(assert) {
   visit('/ui');
 
   andThen(function() {
-    assert.equal(currentURL(), '/ui');
+    assert.equal(currentURL(), '/ui', "Cambió correctamente de ruta");
     esperar();
   });
 
