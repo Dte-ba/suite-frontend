@@ -6,11 +6,6 @@ moduleForComponent('suite-usuario', 'Integration | Component | suite usuario', {
 });
 
 test('it renders', function(assert) {
-
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
   this.render(hbs`{{suite-usuario}}`);
-
-  assert.equal(this.$().text());
+  assert.ok(this.$().text());
 });
