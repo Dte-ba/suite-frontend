@@ -1,0 +1,26 @@
+{{#if media.isMobile}}
+
+  <div class="ui sidebar inverted vertical menu">
+    {{suite-lista-de-rutas}}
+  </div>
+
+  <a class="launch icon item" {{action "mostrarMenuLateral"}}>
+    <i class="content icon"></i>
+  </a>
+
+{{else}}
+
+  {{#link-to "index" tagName="div" class="item logo-container" current-when=""}}<
+    <img class="isologo" src="/isologo.png">
+    Suite
+  {{/link-to}}
+
+  {{suite-lista-de-rutas}}
+
+{{/if}}
+
+{{yield}}
+
+<div class="right menu">
+  {{suite-usuario}}
+</div>

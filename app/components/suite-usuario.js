@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagElement: 'a',
+  tagName: 'a',
   classNames: ['item', 'suite-usuario'],
 
   didInsertElement() {
@@ -9,6 +9,7 @@ export default Ember.Component.extend({
       .popup({
         popup: '.popup',
         on: 'click',
+        closeable: true,
       });
   }
 });

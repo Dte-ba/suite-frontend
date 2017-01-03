@@ -71,3 +71,13 @@ th.table-header {
 .user-avatar-name {
   padding-left: 10px;
 }
+
+.center-row {
+  text-align: center;
+  padding: 5px;
+}
+
+/* Arreglo para que el panel de usuario se vea más un poquito hacia la izquierda */
+.ui.bottom.right.popup {
+  margin-right: 1em !important;
+}

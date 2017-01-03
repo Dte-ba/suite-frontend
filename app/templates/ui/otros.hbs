@@ -2,24 +2,62 @@
 
 <h1>Otros</h1>
 
-
 <p>Estos son los componentes más sencillos, que
   preferimos listar todos juntos.</p>
-
-<h2>suite-spinner</h2>
-
-<p>Sirve para representar demoras, generalmente es
-de uso interno en las rutas loading:</p>
-
-
-{{#suite-codigo}}
-\{{suite-spinner}}
-{{/suite-codigo}}
-
-{{#suite-panel}}
-  {{suite-spinner}}
-{{/suite-panel}}
+  <div class="ui stackable menu">
+    <a class="item">Left Item 1</a>
+    <a class="item">Left Item 2</a>
+    <div class="right menu">
+    </div>
+    <a class="item">Right Item 1</a>
+    <a class="item">Right Item 2</a>
+  </div>
 
 
 
-{{suite-usuario}}
+
+asdasd
+        {{#if media.isDesktop}}
+          Desktop view!
+        {{/if}}
+
+
+        {{#if media.isJumbo}}
+          <div class="block block-red">
+            <code>&#123;&#123;media.isJumbo&#125;&#125;</code> is <code>true</code>
+          </div>
+        {{else}}
+          <div class="block">
+            <code>&#123;&#123;media.isJumbo&#125;&#125;</code> is <code>false</code>
+          </div>
+        {{/if}}
+
+        {{#if media.isDesktop}}
+          <div class="block block-orange">
+            <code>&#123;&#123;media.isDesktop&#125;&#125;</code> is <code>true</code>
+          </div>
+        {{else}}
+          <div class="block">
+            <code>&#123;&#123;media.isDesktop&#125;&#125;</code> is <code>false</code>
+          </div>
+        {{/if}}
+
+        {{#if media.isTablet}}
+          <div class="block block-yellow">
+            <code>&#123;&#123;media.isTablet&#125;&#125;</code> is <code>true</code>
+          </div>
+        {{else}}
+          <div class="block">
+            <code>&#123;&#123;media.isTablet&#125;&#125;</code> is <code>false</code>
+          </div>
+        {{/if}}
+
+        {{#if media.isMobile}}
+          <div class="block block-blue">
+            <code>&#123;&#123;media.isMobile&#125;&#125;</code> is <code>true</code>
+          </div>
+        {{else}}
+          <div class="block">
+            <code>&#123;&#123;media.isMobile&#125;&#125;</code> is <code>false</code>
+          </div>
+        {{/if}}

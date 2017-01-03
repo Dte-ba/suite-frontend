@@ -1,22 +1,6 @@
 <div class="ui container main">
 
-<div class="ui fixed menu inverted">
-
-
-  {{#link-to "index" tagName="div" class="item logo-container" current-when=""}}<
-    <img class="isologo" src="/isologo.png">
-    Suite
-  {{/link-to}}
-
-  {{#link-to "index" class="item"}}<i class="bar chart icon"></i> Escritorio{{/link-to}}
-  {{#link-to "ui.index" class="item" current-when="ui"}}<i class="book icon"></i> Galería de componentes UI{{/link-to}}
-
-  <div class="right menu">
-    {{suite-usuario}}
-  </div>
-
-</div>
-
+  {{suite-barra-de-navegacion}}
 
 {{outlet}}
 
