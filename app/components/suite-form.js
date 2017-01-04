@@ -22,11 +22,9 @@ export default Ember.Component.extend({
 
     // Convirte la lista de campos en la definición de formulario que espera Semantic-ui
     campos.forEach((campo) => {
-      fields = {
-        name: {
-          identifier: campo.nombre,
-          rules: this._obtenerListaDeValidaciones(campo.validaciones),
-        }
+      fields[campo.nombre] = {
+        identifier: campo.nombre,
+        rules: this._obtenerListaDeValidaciones(campo.validaciones),
       };
     });
 
@@ -69,6 +67,14 @@ export default Ember.Component.extend({
       }
     };
 
+    /* Si este campo no tiene atajos, retorna una lista de validaciones nula. */
+
+    /*
+    if (!atajoDeValidaciones) {
+      return [];
+    }
+    */
+
     // Busca errores o inconsistencias en la lista de atajos:
     atajoDeValidaciones.map((atajo) => {
       if (!(atajo in diccionarioDeValidaciones)) {
@@ -81,6 +87,12 @@ export default Ember.Component.extend({
     return atajoDeValidaciones.map((atajo) => {
       return diccionarioDeValidaciones[atajo];
     });
+  },
+
+  actions: {
+    onSubmit() {
+      alert("El formulario no tiene errores de validación !");
+    }
   }
 
 });

@@ -1,14 +1,32 @@
 {{#if data}}
 
-<form class="ui form">
+<form class="ui form" {{action "onSubmit" on="submit"}}>
 
   {{#each data.campos as |campo|}}
 
-    {{suite-form-input
-          nombre=campo.nombre
-          ejemplo=campo.ejemplo
-          etiqueta=campo.etiqueta
-    }}
+    {{#if (eq campo.tipo "input")}}
+
+      {{suite-form-input
+        nombre=campo.nombre
+        ejemplo=campo.ejemplo
+        etiqueta=campo.etiqueta
+      }}
+
+    {{else if (eq campo.tipo "dropdown")}}
+
+
+      {{suite-form-dropdown
+        nombre=campo.nombre
+        ejemplo=campo.ejemplo
+        opciones=campo.opciones
+        etiqueta=campo.etiqueta
+      }}
+
+    {{else}}
+      ERROR, no se sabe que componente dibujar para el tipo de campo
+      {{campo.tipo}}
+    {{/if}}
+
   {{/each}}
 
 

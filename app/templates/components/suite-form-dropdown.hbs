@@ -1,0 +1,10 @@
+<label>{{etiqueta}}</label>
+
+<select name="{{nombre}}" class="ui fluid dropdown">
+  <option value="" disabled selected>{{ejemploComoTexto}}</option>
+
+  {{#each opciones as |opcion|}}
+    <!--selected={{eq vehicle vehicleChoice}}-->
+    <option value={{opcion}}>{{opcion}}</option>
+  {{/each}}
+</select>

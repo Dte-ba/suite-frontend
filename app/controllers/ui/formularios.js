@@ -8,6 +8,14 @@ export default Ember.Controller.extend({
         ejemplo: "Juan Perez",
         tipo: "input",
         validaciones: ['novacio', 'masde5letras']
+      },
+      {
+        nombre: "region",
+        etiqueta: "Región",
+        ejemplo: "Región 1",
+        tipo: "dropdown",
+        validaciones: ['novacio'],
+        opciones: ['Región 1', 'Región 2', 'Región 3', 'otro ejemplo']
       }
     ],
     textos: {
