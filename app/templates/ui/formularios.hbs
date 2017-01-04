@@ -12,7 +12,7 @@
 
 
 {{#suite-panel}}
-  {{suite-form data=data}}
+  {{suite-form data=data autofocus=false}}
 {{/suite-panel}}
 
 <p>Esto se implementa usando el componente y pasándole
@@ -21,7 +21,7 @@
 
 
 {{#suite-codigo}}
-  \{{suite-form data=data}}
+  \{{suite-form data=data autofocus=false}}
 {{/suite-codigo}}
 
 
@@ -43,3 +43,9 @@ data: {
   }
 }
 {{/suite-codigo}}
+
+
+{{#suite-dt titulo="Parámetros"}}
+  data: La definición del formulario en sí.
+  autofocus: Solicita que se haga foco automáticamente en el primer input.
+{{/suite-dt}}
