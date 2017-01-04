@@ -1,7 +1,15 @@
-<div class="ui container main">
+<div class="ui pushable segment component context">
 
-  {{suite-barra-de-navegacion}}
+  {{#ui-sidebar class="inverted menu left inline vertical" context=".component.context" id="sub-sidebar"}}
+    {{suite-lista-de-rutas}}
+  {{/ui-sidebar}}
 
-{{outlet}}
+  <div class="pusher">
 
+    <div class="ui container main">
+      {{suite-barra-de-navegacion}}
+
+      {{outlet}}
+    </div>
+  </div>
 </div>
