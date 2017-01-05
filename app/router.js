@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('formularios');
     this.route('modales');
     this.route('otros');
+    this.route('planilla');
   });
 });
 

@@ -8,6 +8,10 @@ module.exports = function(defaults) {
   });
 
   app.import('vendor/tablesort.js');
+
+  app.import('bower_components/handsontable/dist/handsontable.full.css');
+  app.import('bower_components/handsontable/dist/handsontable.full.js');
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //
