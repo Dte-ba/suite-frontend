@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   didInsertElement() {
     $("#sub-sidebar a").off('click');
 
-    $("#sub-sidebar a").on('click', function(e) {
+    $("#sub-sidebar a").on('click', function() {
       $('#sub-sidebar').sidebar('hide');
     });
   }
