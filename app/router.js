@@ -7,12 +7,15 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('ui', function() {
-    this.route('tabla');
-    this.route('formularios');
-    this.route('modales');
-    this.route('otros');
-    this.route('planilla');
+  this.route('login');
+  this.route('app', function() {
+    this.route('ui', function() {
+      this.route('tabla');
+      this.route('formularios');
+      this.route('modales');
+      this.route('otros');
+      this.route('planilla');
+    });
   });
 });
 

@@ -18,7 +18,7 @@ export default Ember.Component.extend({
       this.$().popup('hide');
     },
     cerrarLaSesion() {
-      alert("Esta funcionalidad aún no está implementada.");
+      this.sendAction('cuandoQuiereCerrarSesion');
       this.$().popup('hide');
     }
   }

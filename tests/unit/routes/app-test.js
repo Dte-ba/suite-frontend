@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('route:ui/formularios', 'Unit | Route | ui/formularios', {
+moduleFor('route:app', 'Unit | Route | app', {
   // Specify the other units that are required for this test.
   // needs: ['controller:foo']
 });

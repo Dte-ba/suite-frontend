@@ -86,3 +86,19 @@ th.table-header {
 body > .ember-view {
   height: 100%;
 }
+
+.login-page {
+  padding-top: 5em;
+}
+
+.center {
+  text-align: center;
+}
+
+.padding {
+  padding: 1em;
+}
+
+.large-padding {
+  padding: 4em;
+}

@@ -10,7 +10,7 @@
 
 {{else}}
 
-  {{#link-to "index" tagName="div" class="item logo-container" current-when=""}}<
+  {{#link-to "app.index" tagName="div" class="item logo-container" current-when=""}}
     <img class="isologo" src="/isologo.png">
     Suite
   {{/link-to}}
@@ -22,5 +22,5 @@
 {{yield}}
 
 <div class="right menu">
-  {{suite-usuario}}
+  {{suite-usuario nombre=nombre cuandoQuiereCerrarSesion=cuandoQuiereCerrarSesion}}
 </div>
