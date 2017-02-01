@@ -1,0 +1,15 @@
+<div class="ui pushable segment component context">
+
+  {{#ui-sidebar class="inverted menu left inline vertical" context=".component.context" id="sub-sidebar"}}
+    {{suite-lista-de-rutas}}
+  {{/ui-sidebar}}
+
+  <div class="pusher">
+
+    <div class="ui container main">
+      {{suite-barra-de-navegacion nombre=sesion.nombre cuandoQuiereCerrarSesion=(action "logout")}}
+
+      {{outlet}}
+    </div>
+  </div>
+</div>

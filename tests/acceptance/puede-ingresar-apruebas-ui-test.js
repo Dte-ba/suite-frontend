@@ -15,11 +15,11 @@ function clickSobreElTexto(texto) {
   $(`a:contains("${texto}")`).click();
 }
 
-test('visiting /ui', function(assert) {
-  visit('/ui');
+test('visiting /app/ui', function(assert) {
+  visit('/app/ui');
 
   andThen(function() {
-    assert.equal(currentURL(), '/ui', "Cambió correctamente de ruta");
+    assert.equal(currentURL(), '/app/ui', "Cambió correctamente de ruta");
     assert.equal($(".main h1").text(), "Galería UI", "Aparece el título de la sección de pruebas.");
     esperar();
   });
