@@ -1,0 +1,64 @@
+{{outlet}}
+
+<div class="ui secondary pointing fluid menu">
+  <h2 class="ui header">Agenda</h2>
+
+    <div class="right menu">
+
+      <div class='ui item'> <span class='box orange'></span> Pedidos </div>
+      <div class='ui item'> <span class='box green'></span> Completos </div>
+      <div class='ui item'> <span class='box red'></span> Sin acta </div>
+
+
+    </div>
+
+</div>
+
+
+
+<div class="barra-de-botones">
+  <button class="ui button green" {{action "abrirModalParaCreacion"}}><i class='ui plus icon'></i> Crear un evento nuevo</button>
+
+  <span class='text-orange'><i class='ui exclamation circle icon'></i> Hay 3 pedidos</span>
+</div>
+
+{{#ember-remodal forService=true}}
+  {{#if debeMostrarCrearEvento}}
+    <h2>Crear un evento (id={{eventoActual.id}})</h2>
+
+    <p>Title: {{input autofocus=true value=eventoActual.title}}</p>
+
+    <p>Start: {{input value=eventoActual.start}}</p>
+    <p>End: {{input value=eventoActual.end}}</p>
+
+    <button class="ui button success" {{action 'crearEvento' eventoActual}}>Crear evento</button>
+  {{else}}
+    <h2>Modificar un evento (id={{eventoActual.id}})</h2>
+
+    <p>Title: {{input autofocus=true value=eventoActual.title}}</p>
+
+    <p>Start: {{input value=eventoActual.start}}</p>
+    <p>End: {{input value=eventoActual.end}}</p>
+
+    <button class="ui button success" {{action 'guardarEvento' eventoActual}}>Guardar evento</button>
+  {{/if}}
+{{/ember-remodal}}
+
+
+
+{{#if model.eventos}}
+
+
+{{full-calendar
+    header=header
+    businessHours=true
+    locale='es'
+    eventLimit=true
+    events=eventos
+
+    viewRender=(action 'viewRender')
+    dayClick=(action 'dayClicked')
+    eventClick=(action 'clicked')
+}}
+
+{{/if}}

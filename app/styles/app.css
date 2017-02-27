@@ -102,3 +102,60 @@ body > .ember-view {
 .large-padding {
   padding: 4em;
 }
+
+
+/* Hace que la barra de navegación tenga color gris. */
+.ui.inverted.menu {
+  background: #333;
+}
+
+.ui.menu .item > img:not(.ui) {
+  width: initial;
+}
+
+
+.fc-state-default {
+  background: #f5f5f5 !important;
+}
+
+
+.box {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+.box.orange {
+  background-color: orange;
+}
+
+.box.green {
+  background-color: green;
+}
+
+.box.red {
+  background-color: red;
+}
+
+.barra-de-botones {
+  margin-bottom: 10px;
+}
+
+.text-orange {
+  color: orange;
+}
+
+
+.fc-list-item-title {
+  cursor: pointer;
+}
+
+
+.fc-event-container {
+  cursor: pointer;
+}
+
+.fc-event-container:hover {
+  opacity: 0.8;
+}

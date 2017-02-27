@@ -4,6 +4,9 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
+    emberFullCalendar: {
+      scheduler: false
+    }
     // Add options here
   });
 
@@ -11,6 +14,7 @@ module.exports = function(defaults) {
 
   app.import('bower_components/handsontable/dist/handsontable.full.css');
   app.import('bower_components/handsontable/dist/handsontable.full.js');
+  app.import('vendor/es.js');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
