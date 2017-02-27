@@ -1,1 +1,20 @@
 {{outlet}}
+
+
+<div class="ui secondary pointing fluid menu">
+  <h2 class="ui header">Usuarios</h2>
+
+    <div class="right menu">
+      <div class='ui item'> <a href>referencias</a></div>
+    </div>
+
+</div>
+
+<div class="barra-de-botones">
+  <button class="ui button" {{action (route-action "crearUnUsuarioNuevo")}}>Crear un usuario nuevo</button>
+</div>
+
+{{suite-tabla
+  filas=model.usuarios
+  columnas=model.columnas
+}}

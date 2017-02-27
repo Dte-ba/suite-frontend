@@ -1,4 +1,5 @@
 export default function(server) {
   server.loadFixtures('eventos');
-  // server.createList('post', 10);
+  server.loadFixtures('users');
+  server.loadFixtures('perfiles');
 }

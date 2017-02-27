@@ -159,3 +159,19 @@ body > .ember-view {
 .fc-event-container:hover {
   opacity: 0.8;
 }
+
+.ui.table thead th.header-filter {
+  padding: 4px;
+}
+
+.ui.table thead th.header-filter .ui.input {
+  width: 100%;
+}
+
+.ui.table thead th.header-filter .ui.input input {
+  opacity: 0.6;
+}
+
+.ui.table thead th.header-filter .ui.input input:focus {
+  opacity: 1;
+}

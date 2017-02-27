@@ -18,7 +18,9 @@ Router.map(function() {
       this.route('planilla');
     });
 
-    this.route('usuarios', function() {});
+    this.route('usuarios', function() {
+      this.route('crear');
+    });
     this.route('agenda', function() {});
   });
 });
