@@ -23,7 +23,7 @@ export default Ember.Controller.extend({
         color: e.get('color'),
         allDay: e.get('fechainicio') === e.get('fechafin'),
         borderColor: e.get('borderColor')
-      }
+      };
     });
   }),
 
@@ -58,7 +58,7 @@ export default Ember.Controller.extend({
         titulo:       this.get('eventoActual.title'),
         fechainicio:  this.get('eventoActual.start'),
         fechafin:     this.get('eventoActual.end'),
-      }).save().then((data) => {
+      }).save().then(() => {
         this.set('model.eventos', this.store.findAll('evento'));
       });
 
@@ -74,7 +74,7 @@ export default Ember.Controller.extend({
         record.set('fechainicio', this.get('eventoActual.start'));
         record.set('fechafin', this.get('eventoActual.end'));
 
-        record.save().then((data) => {
+        record.save().then(() => {
           // TODO: se dispara la búsqueda completa para actualizar la vista.
           this.set('model.eventos', this.store.findAll('evento'));
         });
@@ -84,11 +84,11 @@ export default Ember.Controller.extend({
       this.send('cerrarModal');
     },
 
-    dayClicked: function(date, jsEvent, view) {
+    dayClicked: function(date /*, jsEvent, view*/) {
       this.send('abrirModalParaCreacion', date.format());
     },
 
-    clicked(eventoSeleccionado, jsEvent /*, view*/) {
+    clicked(eventoSeleccionado /*, jsEvent, view*/) {
       this.send('abrirModalParaEdicion', eventoSeleccionado);
     },
 
@@ -97,7 +97,7 @@ export default Ember.Controller.extend({
      * En este punto deberíamos volver a solicitar la lista
      * de eventos.
      */
-    viewRender(view, element) {
+    viewRender(view /*, element*/) {
       console.log(view.intervalStart);
     }
   }

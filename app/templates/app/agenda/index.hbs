@@ -24,7 +24,7 @@
 
 {{#ember-remodal forService=true}}
   {{#if debeMostrarCrearEvento}}
-    <h2>Crear un evento (id={{eventoActual.id}})</h2>
+    <h2>Crear un evento</h2>
 
     <p>Title: {{input autofocus=true value=eventoActual.title}}</p>
 
@@ -33,7 +33,7 @@
 
     <button class="ui button success" {{action 'crearEvento' eventoActual}}>Crear evento</button>
   {{else}}
-    <h2>Modificar un evento (id={{eventoActual.id}})</h2>
+    <h2>Modificar un evento</h2>
 
     <p>Title: {{input autofocus=true value=eventoActual.title}}</p>
 
