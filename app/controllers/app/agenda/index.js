@@ -1,16 +1,23 @@
 import Ember from 'ember';
+import {validatePresence, validateLength} from 'ember-changeset-validations/validators';
 
 export default Ember.Controller.extend({
   queryParams: ['crearEventoVisible'],
   remodal: Ember.inject.service(),
-  eventoActual: null,
+  eventoActual: {},
   debeMostrarCrearEvento: false,  // true si debe mostrar el modal para crear un evento y false para un modal de edición.
 
   header: {
     left:   'prev,next today',
 		center: 'title',
 		right:  'month,agendaWeek,listMonth'
+  },
 
+  validaciones: {
+    title: [
+      validatePresence(true),
+      validateLength({min: 2})
+    ],
   },
 
   eventos: Ember.computed('model.eventos.@each', function() {
@@ -53,11 +60,11 @@ export default Ember.Controller.extend({
       this.get('remodal').close();
     },
 
-    crearEvento() {
+    crearEvento(changeset) {
       this.store.createRecord('evento', {
-        titulo:       this.get('eventoActual.title'),
-        fechainicio:  this.get('eventoActual.start'),
-        fechafin:     this.get('eventoActual.end'),
+        titulo:       changeset.get('title'),
+        fechainicio:  changeset.get('start'),
+        fechafin:     changeset.get('end'),
       }).save().then(() => {
         this.set('model.eventos', this.store.findAll('evento'));
       });
@@ -65,14 +72,14 @@ export default Ember.Controller.extend({
       this.send('cerrarModal');
     },
 
-    guardarEvento() {
-      let evento = this.get('eventoActual');
+    guardarEvento(changeset) {
+      let evento = changeset;
 
-      this.store.findRecord('evento', evento.id).then((record) => {
+      this.store.findRecord('evento', evento.get('id')).then((record) => {
 
-        record.set('titulo', evento.title);
-        record.set('fechainicio', this.get('eventoActual.start'));
-        record.set('fechafin', this.get('eventoActual.end'));
+        record.set('titulo', evento.get('title'));
+        record.set('fechainicio', evento.get('start'));
+        record.set('fechafin', evento.get('end'));
 
         record.save().then(() => {
           // TODO: se dispara la búsqueda completa para actualizar la vista.

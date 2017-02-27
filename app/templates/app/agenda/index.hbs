@@ -23,24 +23,56 @@
 </div>
 
 {{#ember-remodal forService=true}}
+
   {{#if debeMostrarCrearEvento}}
+
     <h2>Crear un evento</h2>
 
-    <p>Title: {{input autofocus=true value=eventoActual.title}}</p>
+    {{#validated-form
+      model        = (changeset eventoActual validaciones)
+      on-submit    = (action "crearEvento")
+      submit-label = 'Crear evento' as |f|}}
 
-    <p>Start: {{input value=eventoActual.start}}</p>
-    <p>End: {{input value=eventoActual.end}}</p>
+      {{f.input label="Título" name="title"}}
 
-    <button class="ui button success" {{action 'crearEvento' eventoActual}}>Crear evento</button>
+      <div class="ui two column grid">
+        <div class="row">
+          <div class="column">
+            {{f.input label="Fecha comienzo" name="start"}}
+          </div>
+          <div class="column">
+            {{f.input label="Fecha de finalización" name="end"}}
+          </div>
+        </div>
+      </div>
+
+
+    {{/validated-form}}
+
   {{else}}
+
     <h2>Modificar un evento</h2>
 
-    <p>Title: {{input autofocus=true value=eventoActual.title}}</p>
+    {{#validated-form
+      model        = (changeset eventoActual validaciones)
+      on-submit    = (action "guardarEvento")
+      submit-label = 'Guardar el evento' as |f|}}
 
-    <p>Start: {{input value=eventoActual.start}}</p>
-    <p>End: {{input value=eventoActual.end}}</p>
+      {{f.input label="Título" name="title"}}
 
-    <button class="ui button success" {{action 'guardarEvento' eventoActual}}>Guardar evento</button>
+      <div class="ui two column grid">
+        <div class="row">
+          <div class="column">
+            {{f.input label="Fecha comienzo" name="start"}}
+          </div>
+          <div class="column">
+            {{f.input label="Fecha de finalización" name="end"}}
+          </div>
+        </div>
+      </div>
+
+    {{/validated-form}}
+
   {{/if}}
 {{/ember-remodal}}
 

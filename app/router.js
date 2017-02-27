@@ -9,6 +9,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
   this.route('app', function() {
+
     this.route('ui', function() {
       this.route('tabla');
       this.route('formularios');
@@ -16,6 +17,7 @@ Router.map(function() {
       this.route('otros');
       this.route('planilla');
     });
+
     this.route('usuarios', function() {});
     this.route('agenda', function() {});
   });
