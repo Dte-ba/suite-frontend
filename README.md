@@ -24,3 +24,22 @@ ember serve
 ```
 
 (si no tenés instalado ember en tu sistema, ejecutá `npm install -g ember-cli`)
+
+
+## Deploy
+
+Para realizar el deploy de la aplicación estamos usando dokku sobre
+el dominio http://dtelab.com.ar
+
+Para realizar el deploy deberías tener configurado un remote de git
+similar al siguiente:
+
+```
+git remote add dokku dokku@dtelab.com.ar:testing-suite
+```
+
+y luego ejecutar
+
+```
+git push dokku master
+```
