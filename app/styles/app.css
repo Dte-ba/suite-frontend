@@ -183,3 +183,9 @@ body > .ember-view {
   background-color: rgba(255, 228, 89, 0.22);
   /** input is not empty */
 }
+
+.aviso-mirage {
+  color: rgba(179, 179, 179, 0.61);
+  padding: 15px;
+  font-size: x-small
+}

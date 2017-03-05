@@ -21,5 +21,10 @@
 {{yield}}
 
 <div class="right menu">
+
+  {{#if usandoMirage}}
+    <span class="aviso-mirage">Usando Mirage en modo local</span>
+  {{/if}}
+
   {{suite-usuario nombre=nombre cuandoQuiereCerrarSesion=cuandoQuiereCerrarSesion}}
 </div>

@@ -46,15 +46,7 @@ module.exports = function(environment) {
     ENV['ember-cli-mirage'] = {
       enabled: false
     };
-
   }
-
-  if (environment === 'production-con-mirage') {
-    ENV['ember-cli-mirage'] = {
-      enabled: true
-    };
-  }
-
 
   return ENV;
 };
