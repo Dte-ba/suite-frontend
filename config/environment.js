@@ -6,6 +6,7 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'hash',
+    API_URL: 'http://testing-suite-admin.dtelab.com.ar',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
