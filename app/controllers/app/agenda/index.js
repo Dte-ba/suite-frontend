@@ -40,6 +40,7 @@ export default Ember.Controller.extend({
       this.set('debeMostrarCrearEvento', true);
       fechaPropuesta = fechaPropuesta || '2017-02-27';
 
+
       this.set('eventoActual', {
         title: "Título propuesto",
         color: 'blue',
@@ -51,6 +52,10 @@ export default Ember.Controller.extend({
     },
 
     abrirModalParaEdicion(eventoSeleccionado) {
+
+      //eventoSeleccionado.start = eventoSeleccionado.start.format('Y/M/D');
+      //eventoSeleccionado.end = eventoSeleccionado.end.format('Y/M/D');
+
       this.set('debeMostrarCrearEvento', false);
       this.set('eventoActual', eventoSeleccionado);
       this.get('remodal').open();
@@ -65,7 +70,7 @@ export default Ember.Controller.extend({
         titulo:       changeset.get('title'),
         fechainicio:  changeset.get('start'),
         fechafin:     changeset.get('end'),
-      }).save().then(() => {
+      }).save().then((data) => {
         this.set('model.eventos', this.store.findAll('evento'));
       });
 
@@ -104,8 +109,8 @@ export default Ember.Controller.extend({
      * En este punto deberíamos volver a solicitar la lista
      * de eventos.
      */
-    viewRender(view /*, element*/) {
-      console.log(view.intervalStart);
+    viewRender(/* view , element */) {
+      //console.log(view.intervalStart);
     }
   }
 });

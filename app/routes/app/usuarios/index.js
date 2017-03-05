@@ -3,15 +3,19 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
-      usuarios: this.store.findAll('user'),
+      perfiles: this.store.findAll('perfil'),
       columnas: [
           {
-            "propertyName": "id",
-            "title": "Identificador"
+            "propertyName": "dni",
+            "title": "DNI"
           },
           {
-            "propertyName": "username",
-            "title": "Nombre de usuario"
+            "propertyName": "nombre",
+            "title": "Nombre"
+          },
+          {
+            "propertyName": "apellido",
+            "title": "Apellido"
           },
           {
             "title": "Acciones",

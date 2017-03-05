@@ -1,7 +1,15 @@
 .main {
-  padding-top: 4em;
-  padding-bottom: 4em;
+  padding-top: 5em;
+  padding-bottom: 5em;
 }
+
+path:hover {
+    fill: red !important;
+}
+
+.footer {
+}
+
 
 .pusher {
   width: calc(100vw - 34px);
@@ -197,4 +205,8 @@ body > .ember-view {
 
 .centered {
   text-align: center;
+}
+
+.user-big-avatar {
+  border-radius: 50%;
 }

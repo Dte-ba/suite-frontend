@@ -1,0 +1,18 @@
+{{outlet}}
+
+<div class="ui stackable grid">
+
+  <div class="four wide column">
+    {{ember-initials class='user-big-avatar' name=(concat model.nombre " " model.apellido) size=160}}
+  </div>
+
+  <div class="twelve wide column">
+    <h1>{{model.nombre}} {{model.apellido}}</h1>
+
+
+    <p>Datos Personales</p>
+
+
+  </div>
+
+</div>
