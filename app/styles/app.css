@@ -189,3 +189,12 @@ body > .ember-view {
   padding: 15px;
   font-size: x-small
 }
+
+
+.suite-error-container {
+  margin-top: 4em !important;
+}
+
+.centered {
+  text-align: center;
+}
