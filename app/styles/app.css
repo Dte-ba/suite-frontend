@@ -168,10 +168,18 @@ body > .ember-view {
   width: 100%;
 }
 
+/*
 .ui.table thead th.header-filter .ui.input input {
   opacity: 0.6;
 }
 
 .ui.table thead th.header-filter .ui.input input:focus {
   opacity: 1;
+}
+
+*/
+
+.ui.table thead th.header-filter .ui.input input:not(:placeholder-shown)  {
+  background-color: rgba(255, 228, 89, 0.22);
+  /** input is not empty */
 }

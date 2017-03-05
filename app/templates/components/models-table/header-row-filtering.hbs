@@ -13,9 +13,8 @@
                 {{#if column.filterWithSelect}}
                   {{models-select options=column.filterOptions cssPropertyName=column.cssPropertyName value=column.filterString class=(concat classes.input " changeFilterForColumn")}}
                 {{else}}
-                  {{input type="text" value=column.filterString class=classes.input enter="" placeholder=column.filterPlaceholder}}
+                  {{input type="text" value=column.filterString class=classes.input enter="" placeholder=" "}}
                 {{/if}}
-
 
                 <!--
                 {{#if column.filterUsed}}
