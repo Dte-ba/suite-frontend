@@ -6,6 +6,7 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'hash',
+    usingMirage: false,
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -49,7 +50,10 @@ module.exports = function(environment) {
     };
 
     ENV.API_URL = 'http://testing-suite-admin.dtelab.com.ar';
+    ENV.usingMirage = false;
   }
+
+
 
   return ENV;
 };

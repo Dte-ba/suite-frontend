@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import ENV from '../config/environment';
 
-const MIRAGE_ENABLED = (ENV['ember-cli-mirage'] && (ENV['ember-cli-mirage'].enabled || ENV['ember-cli-mirage'].usingProxy === false));
+const MIRAGE_ENABLED = ENV['usingMirage'];
 
 export default Ember.Component.extend({
   classNames: ["ui", "fixed", "menu", "inverted"],
