@@ -1,0 +1,20 @@
+<form class="ui form {{if submitted 'submitted'}}" {{action "submit" on="submit"}}>
+  {{yield (hash
+    input=(component 'validated-input' model=model submitted=submitted config=config)
+  )}}
+
+  <p>
+
+    {{#if on-submit}}
+      {{#if cargando}}
+        <button class="ui button disbled"><div class="ui mini active inline loader"></div> {{_submitLabel}}</button>
+      {{else}}
+        <button class="ui button" type="submit">{{_submitLabel}}</button>
+      {{/if}}
+    {{/if}}
+
+    {{#if on-cancel}}
+      <button class="ui button" {{action on-cancel}}>{{_cancelLabel}}</button>
+    {{/if}}
+  </p>
+</form>

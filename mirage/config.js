@@ -1,6 +1,6 @@
 export default function() {
-  // this.urlPrefix = '';
-  // this.namespace = '';
+  this.urlPrefix = 'api';
+  //this.namespace = '';
   //this.timing = 1400;
 
   this.get('/eventos');

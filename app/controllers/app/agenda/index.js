@@ -66,7 +66,7 @@ export default Ember.Controller.extend({
     },
 
     crearEvento(changeset) {
-      this.store.createRecord('evento', {
+      let retorno = this.store.createRecord('evento', {
         titulo:       changeset.get('title'),
         fechainicio:  changeset.get('start'),
         fechafin:     changeset.get('end'),
@@ -75,6 +75,7 @@ export default Ember.Controller.extend({
       });
 
       this.send('cerrarModal');
+      return retorno;
     },
 
     guardarEvento(changeset) {
