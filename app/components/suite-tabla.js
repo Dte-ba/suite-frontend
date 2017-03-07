@@ -14,6 +14,7 @@ const customMessages = Ember.Object.create({
 
 export default Ember.Component.extend({
   customMessages: customMessages,
+  cantidad: 10,
   columnas: [],
   filas: []
 });
