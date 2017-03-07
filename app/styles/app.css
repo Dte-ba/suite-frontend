@@ -170,10 +170,23 @@ body > .ember-view {
 
 .ui.table thead th.header-filter {
   padding: 4px;
+  background-color: white !important;
 }
 
 .ui.table thead th.header-filter .ui.input {
   width: 100%;
+}
+
+.ui.table thead th.table-header {
+  background-color: #DDF3FF;
+}
+
+/* Agrega un borde de color al pie de las tablas */
+
+.ui.table tfoot tr:first-child > th:only-child {
+    border-radius: 0em 0em 0.28571429rem 0.28571429rem;
+    border-color: #DDF3FF;
+    border: 1px solid #DDF3FF;
 }
 
 /*
