@@ -223,3 +223,11 @@ body > .ember-view {
 .user-big-avatar {
   border-radius: 50%;
 }
+
+.barra-de-navegacion .item, .barra-de-navegacion .item.active.ember-transitioning-out {
+  border-bottom: 3px solid #333333;
+}
+
+.barra-de-navegacion .item.active, .barra-de-navegacion .item.ember-transitioning-in {
+  border-bottom: 3px solid #C7E235;
+}
