@@ -22,9 +22,16 @@ Router.map(function() {
       this.route('detalle', {path: ':perfil_id'});
     });
     this.route('agenda', function() {});
-    
+
     this.route('regiones', function() {
       this.route('mapa');
+      this.route('detalle', {path: ':region_id'});
+    });
+  });
+
+  this.route('tablas', function() {
+    this.route('regiones', function() {
+      this.route('acciones');
     });
   });
 });

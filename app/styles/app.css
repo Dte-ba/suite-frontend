@@ -183,11 +183,13 @@ body > .ember-view {
 
 /* Agrega un borde de color al pie de las tablas */
 
+/*
 .ui.table tfoot tr:first-child > th:only-child {
     border-radius: 0em 0em 0.28571429rem 0.28571429rem;
     border-color: #DDF3FF;
     border: 1px solid #DDF3FF;
 }
+*/
 
 /*
 .ui.table thead th.header-filter .ui.input input {
@@ -230,6 +232,10 @@ body > .ember-view {
 
 .barra-de-navegacion .item.active, .barra-de-navegacion .item.ember-transitioning-in {
   border-bottom: 3px solid #C7E235;
+}
+
+.barra-de-navegacion a.item:hover {
+  border-bottom: 3px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 .ui.button.primario {

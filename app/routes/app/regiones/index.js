@@ -16,7 +16,7 @@ export default Ember.Route.extend({
           },
           {
             "title": "Acciones",
-            "template": "tablas/usuarios/acciones"
+            "template": "tablas/regiones/acciones"
           }
       ]
     });
