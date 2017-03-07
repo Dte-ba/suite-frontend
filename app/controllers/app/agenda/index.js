@@ -72,9 +72,9 @@ export default Ember.Controller.extend({
         fechafin:     changeset.get('end'),
       }).save().then((data) => {
         this.set('model.eventos', this.store.findAll('evento'));
+        this.send('cerrarModal');
       });
 
-      this.send('cerrarModal');
       return retorno;
     },
 
@@ -90,11 +90,11 @@ export default Ember.Controller.extend({
         record.save().then(() => {
           // TODO: se dispara la búsqueda completa para actualizar la vista.
           this.set('model.eventos', this.store.findAll('evento'));
+          this.send('cerrarModal');
         });
 
       });
 
-      this.send('cerrarModal');
     },
 
     dayClicked: function(date /*, jsEvent, view*/) {

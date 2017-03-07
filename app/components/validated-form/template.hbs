@@ -7,14 +7,14 @@
 
     {{#if on-submit}}
       {{#if cargando}}
-        <button class="ui button disbled"><div class="ui mini active inline loader"></div> {{_submitLabel}}</button>
+        <button class="ui button primario disabled"><div class="ui mini active inline loader"></div> {{_submitLabel}}</button>
       {{else}}
-        <button class="ui button" type="submit">{{_submitLabel}}</button>
+        <button class="ui button primario" type="submit">{{_submitLabel}}</button>
       {{/if}}
     {{/if}}
 
     {{#if on-cancel}}
-      <button class="ui button" {{action on-cancel}}>{{_cancelLabel}}</button>
+      <button class="ui button primario" {{action on-cancel}}>{{_cancelLabel}}</button>
     {{/if}}
   </p>
 </form>

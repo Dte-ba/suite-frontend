@@ -231,3 +231,8 @@ body > .ember-view {
 .barra-de-navegacion .item.active, .barra-de-navegacion .item.ember-transitioning-in {
   border-bottom: 3px solid #C7E235;
 }
+
+.ui.button.primario {
+  background-color: #ADC12E;
+  color: white;
+}
