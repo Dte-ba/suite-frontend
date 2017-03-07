@@ -7,10 +7,20 @@
   </div>
 
   <div class="twelve wide column">
+
     <h1>{{model.nombre}} {{model.apellido}}</h1>
 
+    {{suite-detalle
+        titulo="Datos administrativos"
+        model=model
+        filas=model.filaDatosAdministrativos
+    }}
 
-    <p>Datos Personales</p>
+    {{suite-detalle
+        titulo="Datos personales"
+        model=model
+        filas=model.filaDatosPersonales
+    }}
 
 
   </div>

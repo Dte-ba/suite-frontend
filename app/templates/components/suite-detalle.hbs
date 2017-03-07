@@ -1,0 +1,18 @@
+{{yield}}
+
+{{#if titulo}}
+  <h2 class="suite-detalle">{{titulo}}:</h2>
+{{/if}}
+
+<table class="ui definition celled table segment tabla-definicion">
+  <tbody>
+
+    {{#each filas as |fila|}}
+      <tr>
+        <td>{{fila.titulo}}</td>
+        <td>{{get model fila.id}}</td>
+      </tr>
+    {{/each}}
+
+  </tbody>
+</table>

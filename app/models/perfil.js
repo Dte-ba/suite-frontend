@@ -5,5 +5,6 @@ export default DS.Model.extend({
   apellido: DS.attr('string'),
   dni: DS.attr('string'),
   cuit: DS.attr('string'),
-  fechadenacimiento: DS.attr('string')
+  fechadenacimiento: DS.attr('string'),
+  fechaDeIngreso: DS.attr('string')
 });

@@ -236,3 +236,12 @@ body > .ember-view {
   background-color: #ADC12E;
   color: white;
 }
+
+h1, h2, h3 {
+  font-weight: 300;
+}
+
+
+h2.suite-detalle {
+  padding-top: 2em;
+}
