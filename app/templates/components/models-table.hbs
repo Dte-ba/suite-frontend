@@ -42,7 +42,7 @@
       {{partial tableFooterTemplate}}
 
       <tr>
-        <th colspan="3">
+        <th colspan={{processedColumns.length}}>
           {{#if showComponentFooter}}
           {{partial componentFooterTemplate}}
           {{/if}}
