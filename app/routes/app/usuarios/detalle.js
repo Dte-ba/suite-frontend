@@ -2,17 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   afterModel(model) {
-    model.filaDatosAdministrativos = [
+    model.set('filaDatosAdministrativos', [
       {
-        titulo: 'Nombre',
-        id: 'nombre',
-      }, {
-        titulo: 'Apellido',
-        id: 'apellido',
-      }
-    ];
+        titulo: 'Fecha de ingreso',
+        id: 'fechaDeIngreso',
+      },
+    ]);
 
-    model.filaDatosPersonales = [
+    model.set('filaDatosPersonales', [
       {
         titulo: 'Fecha de nacimiento',
         id: 'fechadenacimiento',
@@ -28,7 +25,7 @@ export default Ember.Route.extend({
         titulo: 'CUIT/CUIL',
         id: 'cuit',
       },
-    ];
+    ]);
 
     return model;
   }
