@@ -1,0 +1,24 @@
+{{#validated-form
+  model        = model
+  on-submit    = on-submit
+  submit-label = texto as |f|
+}}
+
+  {{f.input label="Título" name="title"}}
+
+  <div class="ui two column grid">
+    <div class="row">
+      <div class="column">
+        {{f.input type='date' label="Fecha comienzo" name="start"}}
+      </div>
+
+      <div class="column">
+        {{f.input type='date' label="Fecha de finalización" name="end"}}
+      </div>
+    </div>
+  </div>
+
+
+
+
+      {{/validated-form}}

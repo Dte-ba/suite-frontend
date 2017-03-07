@@ -22,64 +22,35 @@
   <span class='text-orange'><i class='ui exclamation circle icon'></i> Hay 3 pedidos</span>
 </div>
 
+
 {{#ember-remodal forService=true}}
 
   {{#if debeMostrarCrearEvento}}
 
     <h2>Crear un evento</h2>
 
-    {{#validated-form
+    {{suite-formularios/evento
       model        = (changeset eventoActual validaciones)
       on-submit    = (action "crearEvento")
-      submit-label = 'Crear evento' as |f|}}
-
-      {{f.input label="Título" name="title"}}
-
-      <div class="ui two column grid">
-        <div class="row">
-          <div class="column">
-            {{f.input type='date' label="Fecha comienzo" name="start"}}
-          </div>
-
-          <div class="column">
-            {{f.input type='date' label="Fecha de finalización" name="end"}}
-          </div>
-        </div>
-      </div>
-
-
-    {{/validated-form}}
+      texto = 'Crear evento'
+    }}
 
   {{else}}
 
     <h2>Modificar un evento</h2>
 
-    {{#validated-form
+    {{suite-formularios/evento
       model        = (changeset eventoActual validaciones)
       on-submit    = (action "guardarEvento")
-      submit-label = 'Guardar el evento' as |f|}}
-
-      {{f.input label="Título" name="title"}}
-
-      <div class="ui two column grid">
-        <div class="row">
-          <div class="column">
-            {{f.input label="Fecha comienzo" name="start"}}
-          </div>
-          <div class="column">
-            {{f.input label="Fecha de finalización" name="end"}}
-          </div>
-        </div>
-      </div>
-
-    {{/validated-form}}
+      submit-label = 'Guardar el evento'
+    }}
 
   {{/if}}
+  
 {{/ember-remodal}}
 
 
 
-{{#if model.eventos}}
 
 
 {{full-calendar
@@ -93,5 +64,3 @@
     dayClick=(action 'dayClicked')
     eventClick=(action 'clicked')
 }}
-
-{{/if}}
