@@ -235,8 +235,13 @@ body > .ember-view {
 }
 
 .barra-de-navegacion a.item:hover {
-  border-bottom: 3px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.08);
 }
+
+.barra-de-navegacion .item.active:hover {
+  border-bottom: 3px solid #C7E235;
+}
+
 
 .ui.button.primario {
   background-color: #ADC12E;
