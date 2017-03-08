@@ -14,7 +14,13 @@ export default Component.extend({
 
         this.set('cargando', true);
 
-        this.attrs['on-submit'](model).then(() => {
+        let action = this.attrs['on-submit'](model);
+
+        if (!action.then) {
+          console.error("Cuidado, la acción enviada a on-submit no retorna una promesa...");
+        }
+
+        action.then(() => {
           this.set('cargando', false);
         });
 

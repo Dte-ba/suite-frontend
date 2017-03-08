@@ -5,7 +5,8 @@
     "window",
     "-Promise",
     "$",
-    "Handsontable"
+    "Handsontable",
+    "moment"
   ],
   "browser": true,
   "boss": true,

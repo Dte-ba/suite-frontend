@@ -38,8 +38,7 @@ export default Ember.Controller.extend({
 
     abrirModalParaCreacion(fechaPropuesta) {
       this.set('debeMostrarCrearEvento', true);
-      fechaPropuesta = fechaPropuesta || '2017-02-27';
-
+      fechaPropuesta = fechaPropuesta || moment(new Date()).format("YYYY-MM-DD");
 
       this.set('eventoActual', {
         title: "Título propuesto",
@@ -53,8 +52,13 @@ export default Ember.Controller.extend({
 
     abrirModalParaEdicion(eventoSeleccionado) {
 
-      //eventoSeleccionado.start = eventoSeleccionado.start.format('Y/M/D');
-      //eventoSeleccionado.end = eventoSeleccionado.end.format('Y/M/D');
+      eventoSeleccionado.start = eventoSeleccionado.start.format("YYYY-MM-DD");
+
+      if (!eventoSeleccionado.end) {
+        eventoSeleccionado.end = eventoSeleccionado.start;
+      } else {
+        eventoSeleccionado.end = eventoSeleccionado.end.format("YYYY-MM-DD");
+      }
 
       this.set('debeMostrarCrearEvento', false);
       this.set('eventoActual', eventoSeleccionado);
@@ -81,7 +85,7 @@ export default Ember.Controller.extend({
     guardarEvento(changeset) {
       let evento = changeset;
 
-      this.store.findRecord('evento', evento.get('id')).then((record) => {
+      let retorno = this.store.findRecord('evento', evento.get('id')).then((record) => {
 
         record.set('titulo', evento.get('title'));
         record.set('fechainicio', evento.get('start'));
@@ -95,6 +99,7 @@ export default Ember.Controller.extend({
 
       });
 
+      return retorno;
     },
 
     dayClicked: function(date /*, jsEvent, view*/) {
