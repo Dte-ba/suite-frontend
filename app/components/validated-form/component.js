@@ -14,7 +14,7 @@ export default Component.extend({
 
         this.set('cargando', true);
 
-        this.attrs['on-submit'](model).then((data) => {
+        this.attrs['on-submit'](model).then(() => {
           this.set('cargando', false);
         });
 

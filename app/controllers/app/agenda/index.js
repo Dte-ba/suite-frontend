@@ -70,7 +70,7 @@ export default Ember.Controller.extend({
         titulo:       changeset.get('title'),
         fechainicio:  changeset.get('start'),
         fechafin:     changeset.get('end'),
-      }).save().then((data) => {
+      }).save().then(() => {
         this.set('model.eventos', this.store.findAll('evento'));
         this.send('cerrarModal');
       });
