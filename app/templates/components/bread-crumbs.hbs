@@ -1,0 +1,9 @@
+{{#link-to 'app.index' class="section"}}<i class='ui home icon'></i>{{/link-to}}
+/
+{{#each routeHierarchy as |route|}}
+  {{#if hasBlock}}
+    {{yield this route}}
+  {{else}}
+    {{bread-crumb route=route breadCrumbs=this}}
+  {{/if}}
+{{/each}}

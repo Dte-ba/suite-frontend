@@ -251,3 +251,17 @@ h1, h2, h3 {
 h2.suite-detalle {
   padding-top: 2em;
 }
+
+
+.ui.breadcrumb li:after {
+    content: "/";
+    color: gray;
+}
+
+.ui.breadcrumb li:last-child:after {
+    content: "";
+}
+
+.ui.breadcrumb {
+  margin-bottom: 1.5em;
+}

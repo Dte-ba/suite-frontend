@@ -27,6 +27,9 @@ export default Ember.Route.extend({
       },
     ]);
 
+    let apellido = model.get('apellido');
+    this.set('breadCrumb', {title: `Usuario ${apellido}`});
+
     return model;
   }
 });

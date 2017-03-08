@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  breadCrumb: {
+    title: 'Detalle'
+  },
+
   afterModel(model) {
     let columnas = [
       {
@@ -14,6 +18,10 @@ export default Ember.Route.extend({
     ];
 
     model.set('columnas', columnas);
+
+    let numero = model.get('numero');
+    this.set('breadCrumb', {title: `Detalle de la región ${numero}`});
+
     return model;
   }
 });

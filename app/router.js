@@ -27,6 +27,7 @@ Router.map(function() {
       this.route('mapa');
       this.route('detalle', {path: ':region_id'});
     });
+    this.route('escritorio', function() {});
   });
 
   this.route('tablas', function() {
