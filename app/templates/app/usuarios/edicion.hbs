@@ -1,0 +1,9 @@
+{{outlet}}
+
+{{suite-titulo titulo="Edición de usuario"}}
+
+{{suite-formularios/usuario
+  model        = (changeset model.usuario model.validaciones)
+  on-submit    = (action "guardar")
+  submit-label = 'Guardar'
+}}

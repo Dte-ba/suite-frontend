@@ -1,14 +1,31 @@
 {{outlet}}
 
+{{suite-titulo titulo="Detalle de usuario"}}
+
+<div class="barra-de-botones">
+  {{#link-to "app.usuarios.edicion" model class="ui button primario"}}Editar{{/link-to}}
+</div>
+
 <div class="ui stackable grid">
 
   <div class="four wide column">
-    {{ember-initials class='user-big-avatar' name=(concat model.nombre " " model.apellido) size=160}}
+
+    {{#if model.image}}
+      <img src={{model.image}} width="100%" class="avatar-img">
+    {{else}}
+      {{ember-initials class='user-big-avatar' name=(concat model.nombre " " model.apellido) size=160}}
+    {{/if}}
+
+    <!--
+      {{#x-file-input class="avatar-file-uploader"}}
+        Subir imagen
+      {{/x-file-input}}
+    -->
+
+
   </div>
 
   <div class="twelve wide column">
-
-    <h1>{{model.nombre}} {{model.apellido}}</h1>
 
     {{suite-detalle
         titulo="Datos administrativos"

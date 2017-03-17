@@ -14,6 +14,11 @@ export default Component.extend({
 
         this.set('cargando', true);
 
+        if (!this.attrs['on-submit']) {
+          console.error("No hay una acción asociada a la propiedad on-submit");
+          return;
+        }
+
         let action = this.attrs['on-submit'](model);
 
         if (!action.then) {

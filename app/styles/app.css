@@ -147,7 +147,9 @@ body > .ember-view {
 }
 
 .barra-de-botones {
-  margin-bottom: 10px;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+  text-align: left;
 }
 
 .text-orange {
@@ -269,4 +271,39 @@ h2.suite-detalle {
 
 .ui.breadcrumb {
   margin-bottom: 1.5em;
+}
+
+
+.avatar-upload {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto;
+  border-radius: 100%;
+  border: 1px solid #d3d3d3;
+}
+
+.avatar-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+}
+
+.avatar-file-uploader label {
+  display: block;
+  width: 160px;
+  margin-top: 9px;
+  text-align: center;
+}
+
+.avatar-file-uploader label:hover {
+  opacity: 0.6;
+}
+
+.ui.header:first-child {
+  font-weight: 200;
+  font-size: xx-large;
+  margin-top: 0.25em;
 }

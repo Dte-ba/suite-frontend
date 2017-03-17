@@ -1,6 +1,6 @@
 {{#if data}}
 
-<form class="ui form" {{action "onSubmit" on="submit"}}>
+<form class="ui form"  {{action "onSubmit" on="submit"}}>
 
   {{#each data.campos as |campo|}}
 
@@ -29,6 +29,7 @@
 
   {{/each}}
 
+  {{yield}}
 
 
   {{#if data.textos.guardar}}

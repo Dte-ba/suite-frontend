@@ -1,0 +1,22 @@
+{{yield}}
+
+{{#validated-form
+  model        = model
+  on-submit    = on-submit
+  submit-label = texto as |f|
+}}
+
+{{f.input label="Nombre" name="nombre"}}
+{{f.input label="Apellido" name="apellido"}}
+{{f.input label="DNI" name="dni"}}
+{{f.input label="CUIT/CUIL" name="cuit"}}
+
+{{f.input label="Fecha de nacimiento" name="fechadenacimiento"}}
+{{f.input label="Fecha de ingreso" name="fechaDeIngreso"}}
+
+{{f.input label="image" name="image"}}
+
+{{f.input type="file" name='demo'}}
+
+
+{{/validated-form}}

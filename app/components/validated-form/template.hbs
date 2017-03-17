@@ -1,4 +1,4 @@
-<form class="ui form {{if submitted 'submitted'}}" {{action "submit" on="submit"}}>
+<form class="ui form {{if submitted 'submitted'}}" enctype="multipart/form-data" {{action "submit" on="submit"}}>
   {{yield (hash
     input=(component 'validated-input' model=model submitted=submitted config=config)
   )}}

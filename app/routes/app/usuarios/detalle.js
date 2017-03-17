@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  breadCrumb: {title: "Detalle de usuario"},
+
   afterModel(model) {
     model.set('filaDatosAdministrativos', [
       {
@@ -11,11 +13,16 @@ export default Ember.Route.extend({
 
     model.set('filaDatosPersonales', [
       {
-        titulo: 'Fecha de nacimiento',
-        id: 'fechadenacimiento',
-      }, {
+        titulo: 'Nombre',
+        id: 'nombre',
+      },
+      {
         titulo: 'Apellido',
         id: 'apellido',
+      },
+      {
+        titulo: 'Fecha de nacimiento',
+        id: 'fechadenacimiento',
       },
       {
         titulo: 'DNI',
@@ -26,9 +33,6 @@ export default Ember.Route.extend({
         id: 'cuit',
       },
     ]);
-
-    let apellido = model.get('apellido');
-    this.set('breadCrumb', {title: `Usuario ${apellido}`});
 
     return model;
   }
