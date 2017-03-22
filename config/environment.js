@@ -54,6 +54,7 @@ module.exports = function(environment) {
   }
 
 
+	ENV.SRI.paranoidCheck = false;
 
   return ENV;
 };
