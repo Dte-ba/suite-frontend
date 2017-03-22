@@ -307,3 +307,29 @@ h2.suite-detalle {
   font-size: xx-large;
   margin-top: 0.25em;
 }
+
+.pull-right {
+  float: right;
+}
+
+.columns-dropdown {
+  margin-bottom: 20px;
+}
+
+.custom.popup {
+  text-align: left;
+}
+
+.custom.popup .item {
+  margin: 0 !important;
+}
+
+
+.models-table th.ui.form {
+  background-color: #DDF3FF;
+}
+
+.column-icon-box {
+  display: inline-block;
+  width: 25px;
+}
