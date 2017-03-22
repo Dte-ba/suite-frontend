@@ -48,7 +48,7 @@
     "ember-remodal": "2.0.0",
     "ember-resolver": "^2.0.3",
     "ember-route-action-helper": "2.0.2",
-    "ember-semantic-ui-models-table": "1.11.2",
+    "ember-semantic-ui-models-table": "1.11.3",
     "ember-truth-helpers": "1.3.0",
     "ember-validated-form": "git+https://github.com/hugoruscitti/ember-validated-form.git",
     "emberx-file-input": "1.1.1",
