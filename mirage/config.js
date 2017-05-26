@@ -23,4 +23,11 @@ export default function() {
   this.del('/perfiles/:id');
   this.post('/perfiles');
   this.patch('/perfiles/:id');
+
+  this.get('/regiones');
+  this.get('/regiones/:id');
+  this.put('/regiones/:id');
+  this.del('/regiones/:id');
+  this.post('/regiones');
+  this.patch('/regiones/:id');
 }

@@ -19,7 +19,7 @@ Router.map(function() {
       this.route('upload');
     });
 
-    this.route('usuarios', function() {
+    this.route('personas', function() {
       this.route('crear');
       this.route('detalle', {path: 'detalle/:perfil_id'});
       this.route('edicion', {path: 'edicion/:perfil_id'});
