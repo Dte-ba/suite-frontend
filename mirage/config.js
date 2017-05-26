@@ -30,4 +30,11 @@ export default function() {
   this.del('/regiones/:id');
   this.post('/regiones');
   this.patch('/regiones/:id');
+
+  this.get('/municipios');
+  this.get('/municipios/:id');
+  this.put('/municipios/:id');
+  this.del('/municipios/:id');
+  this.post('/municipios');
+  this.patch('/municipios/:id');
 }
