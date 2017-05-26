@@ -16,6 +16,11 @@ module.exports = function(defaults) {
   app.import('bower_components/handsontable/dist/handsontable.full.js');
   app.import('vendor/es.js');
 
+  app.import('vendor/roboto/Roboto-Bold.ttf');
+  app.import('vendor/roboto/Roboto-Italic.ttf');
+  app.import('vendor/roboto/Roboto-Light.ttf');
+  app.import('vendor/roboto/Roboto-Medium.ttf');
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

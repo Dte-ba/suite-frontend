@@ -306,6 +306,28 @@ h2.suite-detalle {
   font-weight: 200;
   font-size: xx-large;
   margin-top: 0.25em;
+  font-family: 'Roboto Light';
+}
+
+
+@font-face {
+  font-family: 'Roboto Bold';
+  src: url('/roboto/Roboto-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto Medium';
+  src: url('/roboto/Roboto-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto Italic';
+  src: url('/roboto/Roboto-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto Light';
+  src: url('/roboto/Roboto-Light.ttf') format('truetype');
 }
 
 .pull-right {
@@ -324,6 +346,13 @@ h2.suite-detalle {
   margin: 0 !important;
 }
 
+a.item {
+  font-family: 'Roboto Light' !important;
+}
+
+li.section {
+  font-family: 'Roboto Light' !important;
+}
 
 .models-table th.ui.form {
   background-color: #DDF3FF;
@@ -336,6 +365,9 @@ h2.suite-detalle {
 
 p {
   margin-top: 2em;
+  font-family: 'Roboto';
+  font-size: medium;
+  line-height: 1.7;
 }
 
 .suite-grupo {

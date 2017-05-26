@@ -13,7 +13,7 @@ export default Ember.Route.extend({
       let re = new RegExp('image/*');
 
       if (re.test(lista_de_archivos[0].type)) {
-        let controller = this.controllerFor('application');
+        //let controller = this.controllerFor('application');
         this.set('model.url_imagen', lista_de_archivos[0].name);
 
         let reader = new FileReader();
@@ -30,7 +30,7 @@ export default Ember.Route.extend({
             var progress = parseInt( ((data.loaded / data.total) * 100), 10 );
             console.log(progress);
           }
-        }
+        };
 
         reader.readAsDataURL(lista_de_archivos[0]);
       } else {
