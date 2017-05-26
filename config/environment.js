@@ -21,7 +21,19 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    'ember-validated-form': {
+      css: {
+        form: 'ui form',
+        radio: 'ui radio',
+        help: 'ui pointing red basic label',
+        checkbox: 'ui checkbox',
+        button: 'ui button',
+        group: 'field',
+        error: 'error'
+      }
+    },
   };
 
   if (environment === 'development') {

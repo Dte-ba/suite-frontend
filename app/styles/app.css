@@ -337,3 +337,23 @@ h2.suite-detalle {
 p {
   margin-top: 2em;
 }
+
+.suite-grupo {
+  margin-top: 2em;
+}
+
+.suite-grupo-numero {
+  color: gray;
+  font-weight: 100;
+  display: inline-block;
+  font-size: 40pt;
+  vertical-align: top;
+}
+
+.suite-grupo-titulo {
+  font-size: x-large;
+  color: gray;
+  font-weight: 100;
+  letter-spacing: 1px;
+  display: inline-block;
+}

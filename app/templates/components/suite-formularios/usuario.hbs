@@ -3,20 +3,29 @@
 {{#validated-form
   model        = model
   on-submit    = on-submit
-  submit-label = texto as |f|
+  as |f|
 }}
 
-{{f.input label="Nombre" name="nombre"}}
-{{f.input label="Apellido" name="apellido"}}
-{{f.input label="DNI" name="dni"}}
-{{f.input label="CUIT/CUIL" name="cuit"}}
+{{#suite-grupo numero=1 titulo="Datos personales"}}
 
-{{f.input label="Fecha de nacimiento" name="fechadenacimiento"}}
+  {{f.input label="Nombre" name="nombre"}}
+  {{f.input label="Apellido" name="apellido"}}
+
+  {{f.input label="Fecha de nacimiento" name="fechadenacimiento"}}
+
+  {{f.input label="DNI" name="dni"}}
+  {{f.input label="CUIT/CUIL" name="cuit"}}
+
+{{/suite-grupo}}
+
+
+<!--
 {{f.input label="Fecha de ingreso" name="fechaDeIngreso"}}
 
 {{f.input label="image" name="image"}}
 
 {{f.input type="file" name='demo'}}
+-->
 
-
+ {{f.submit label="Guardar"}}
 {{/validated-form}}
