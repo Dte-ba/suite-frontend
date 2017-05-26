@@ -333,3 +333,7 @@ h2.suite-detalle {
   display: inline-block;
   width: 25px;
 }
+
+p {
+  margin-top: 2em;
+}
