@@ -1,14 +1,15 @@
 machine:
   node:
     version: "stable"
-
 dependencies:
   pre:
     - npm install -g bower
+    - sudo apt-get update; sudo apt-get install -y --only-upgrade google-chrome-
   post:
-    - npm install
     - bower install
-
-test:
-  override:
-    - npm test
+deployment:
+  production:
+    branch: master
+    commands:
+      - git remote add dokku dokku@dtelab.com.ar:suite-beta
+      - git push dokku master:master
