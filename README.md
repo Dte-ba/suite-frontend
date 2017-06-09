@@ -1,6 +1,6 @@
 # SUITE - Frontend
 
-[![Build Status](https://travis-ci.org/Dte-ba/suite-frontend.svg?branch=master)](https://travis-ci.org/Dte-ba/suite-frontend)
+[![CircleCI](https://circleci.com/gh/Dte-ba/suite-frontend.svg?style=svg)](https://circleci.com/gh/Dte-ba/suite-frontend)
 
 - Dirección de prueba: http://suite-beta.dtelab.com.ar/
 
