@@ -6,20 +6,9 @@ moduleForComponent('suite-formularios/evento', 'Integration | Component | suite 
 });
 
 test('it renders', function(assert) {
-
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
   this.render(hbs`{{suite-formularios/evento}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.ok(this.$().text().trim().indexOf('Título') > -1, 'Tiene que tener título');
+  assert.ok(this.$().text().trim().indexOf('Fecha') > -1, 'Tiene que tener fecha de comienzo');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#suite-formularios/evento}}
-      template block text
-    {{/suite-formularios/evento}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });

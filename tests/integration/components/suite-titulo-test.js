@@ -6,20 +6,9 @@ moduleForComponent('suite-titulo', 'Integration | Component | suite titulo', {
 });
 
 test('it renders', function(assert) {
-
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
   this.render(hbs`{{suite-titulo}}`);
+  assert.ok(this.$().text().trim().indexOf('Sin título') > -1, 'Muestra sin título si no especifica otra cosa');
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#suite-titulo}}
-      template block text
-    {{/suite-titulo}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.render(hbs`{{suite-titulo titulo="demo"}}`);
+  assert.ok(this.$().text().trim().indexOf('demo') > -1, 'Puede dibujar un título');
 });

@@ -49,12 +49,12 @@ test('visiting /app/ui', function(assert) {
 
   andThen(function() {
     assert.equal($(".pagination a.active").text(), '1', "Logra visitar la página 1 de la tabla");
-    clickSobreElTexto("Modal");
+    clickSobreElTexto("Modales");
     esperar();
   });
 
   andThen(function() {
-    assert.equal(currentURL(), '/ui/modales', "Cambió correctamente a la ruta de los modales.");
+    assert.equal(currentURL(), '/app/ui/modales', "Cambió correctamente a la ruta de los modales.");
     esperar();
   });
 

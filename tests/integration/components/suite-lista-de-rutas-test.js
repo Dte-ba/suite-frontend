@@ -7,9 +7,6 @@ moduleForComponent('suite-lista-de-rutas', 'Integration | Component | suite list
 
 test('it renders', function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
   this.render(hbs`{{suite-lista-de-rutas}}`);
-  assert.equal(this.$('a').length, 2, "Hay solo dos rutas en la lista de links.");
+  assert.ok(this.$('a').length > 2, "Hay al menos dos rutas en la lista de links.");
 });

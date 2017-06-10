@@ -6,20 +6,8 @@ moduleForComponent('suite-formularios/usuario', 'Integration | Component | suite
 });
 
 test('it renders', function(assert) {
-
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
   this.render(hbs`{{suite-formularios/usuario}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.ok(this.$().text().trim().indexOf('Datos personales') > -1, 'Tiene que el texto Datos Personales');
 
-  // Template block usage:
-  this.render(hbs`
-    {{#suite-formularios/usuario}}
-      template block text
-    {{/suite-formularios/usuario}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
 });
