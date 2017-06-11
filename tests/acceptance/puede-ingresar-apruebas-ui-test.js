@@ -12,7 +12,12 @@ function esperar() {
 
 function clickSobreElTexto(texto) {
   console.log(`Hace click sobre "${texto}"`);
-  $(`a:contains("${texto}")`).click();
+
+  let boton = $(`button:contains("${texto}")`);
+  let ahref = $(`a:contains("${texto}")`);
+
+  boton.click();
+  ahref.click();
 }
 
 test('visiting /app/ui', function(assert) {
@@ -21,6 +26,7 @@ test('visiting /app/ui', function(assert) {
   andThen(function() {
     assert.equal(currentURL(), '/login');
     clickSobreElTexto("Ingresar como dte");
+    esperar();
   });
 
   andThen(function() {
@@ -28,7 +34,7 @@ test('visiting /app/ui', function(assert) {
   });
 
   andThen(function() {
-    assert.equal(currentURL(), '/app/ui', "Cambió correctamente de ruta");
+    assert.equal(currentURL(), '/app/ui');
     assert.equal($(".main h1").text(), "Galería UI", "Aparece el título de la sección de pruebas.");
     esperar();
   });
@@ -39,13 +45,7 @@ test('visiting /app/ui', function(assert) {
   });
 
   andThen(function() {
-    assert.equal($(".main table").length, 2, "Aparecen las dos tablas");
-    clickSobreElTexto("2");
-    esperar();
-  });
-
-  andThen(function() {
-    assert.equal($(".pagination a.active").text(), '2', "Logra visitar la página 2 de la tabla");
+    assert.equal($(".pagination a.active").text(), '1');
     clickSobreElTexto("3");
     esperar();
   });
