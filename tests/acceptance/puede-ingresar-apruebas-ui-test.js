@@ -16,9 +16,10 @@ function clickSobreElTexto(texto) {
 }
 
 test('visiting /app/ui', function(assert) {
-  visit('/app/ui');
+  visit('/login');
 
   andThen(function() {
+    assert.equal(currentURL(), '/login');
     clickSobreElTexto("Ingresar como dte");
   });
 
