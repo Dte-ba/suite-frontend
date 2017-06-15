@@ -1,20 +1,19 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Component.extend({
-  classNames: ['field'],
+  classNames: ["field"],
 
   didInsertElement() {
     this.$(".dropdown").dropdown();
   },
 
-  ejemploComoTexto: Ember.computed('ejemplo', function() {
-    let ejemplo = this.get('ejemplo');
+  ejemploComoTexto: Ember.computed("ejemplo", function() {
+    let ejemplo = this.get("ejemplo");
 
     if (ejemplo) {
       return `Por ejemplo: ${ejemplo}`;
     } else {
       return "";
     }
-
   })
 });

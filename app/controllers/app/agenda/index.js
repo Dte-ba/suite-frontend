@@ -1,57 +1,56 @@
-import Ember from 'ember';
-import {validatePresence, validateLength} from 'ember-changeset-validations/validators';
+import Ember from "ember";
+import {
+  validatePresence,
+  validateLength
+} from "ember-changeset-validations/validators";
 
 export default Ember.Controller.extend({
-  queryParams: ['crearEventoVisible'],
+  queryParams: ["crearEventoVisible"],
   remodal: Ember.inject.service(),
   eventoActual: {},
-  debeMostrarCrearEvento: false,  // true si debe mostrar el modal para crear un evento y false para un modal de edición.
+  debeMostrarCrearEvento: false, // true si debe mostrar el modal para crear un evento y false para un modal de edición.
 
   header: {
-    left:   'prev,next today',
-		center: 'title',
-		right:  'month,agendaWeek,listMonth'
+    left: "prev,next today",
+    center: "title",
+    right: "month,agendaWeek,listMonth"
   },
 
   validaciones: {
-    title: [
-      validatePresence(true),
-      validateLength({min: 2})
-    ],
+    title: [validatePresence(true), validateLength({ min: 2 })]
   },
 
-  eventos: Ember.computed('model.eventos.@each', function() {
-    return this.get('model.eventos').map((e) => {
+  eventos: Ember.computed("model.eventos.@each", function() {
+    return this.get("model.eventos").map(e => {
       return {
-        id: e.get('id'),
-        title: e.get('titulo'),
-        start: e.get('fechainicio'),
-        end: e.get('fechafin'),
-        color: e.get('color'),
-        allDay: e.get('fechainicio') === e.get('fechafin'),
-        borderColor: e.get('borderColor')
+        id: e.get("id"),
+        title: e.get("titulo"),
+        start: e.get("fechainicio"),
+        end: e.get("fechafin"),
+        color: e.get("color"),
+        allDay: e.get("fechainicio") === e.get("fechafin"),
+        borderColor: e.get("borderColor")
       };
     });
   }),
 
   actions: {
-
     abrirModalParaCreacion(fechaPropuesta) {
-      this.set('debeMostrarCrearEvento', true);
-      fechaPropuesta = fechaPropuesta || moment(new Date()).format("YYYY-MM-DD");
+      this.set("debeMostrarCrearEvento", true);
+      fechaPropuesta =
+        fechaPropuesta || moment(new Date()).format("YYYY-MM-DD");
 
-      this.set('eventoActual', {
+      this.set("eventoActual", {
         title: "Título propuesto",
-        color: 'blue',
+        color: "blue",
         start: fechaPropuesta,
         end: fechaPropuesta
       });
 
-      this.get('remodal').open();
+      this.get("remodal").open();
     },
 
     abrirModalParaEdicion(eventoSeleccionado) {
-
       eventoSeleccionado.start = eventoSeleccionado.start.format("YYYY-MM-DD");
 
       if (!eventoSeleccionado.end) {
@@ -60,24 +59,27 @@ export default Ember.Controller.extend({
         eventoSeleccionado.end = eventoSeleccionado.end.format("YYYY-MM-DD");
       }
 
-      this.set('debeMostrarCrearEvento', false);
-      this.set('eventoActual', eventoSeleccionado);
-      this.get('remodal').open();
+      this.set("debeMostrarCrearEvento", false);
+      this.set("eventoActual", eventoSeleccionado);
+      this.get("remodal").open();
     },
 
     cerrarModal() {
-      this.get('remodal').close();
+      this.get("remodal").close();
     },
 
     crearEvento(changeset) {
-      let retorno = this.store.createRecord('evento', {
-        titulo:       changeset.get('title'),
-        fechainicio:  changeset.get('start'),
-        fechafin:     changeset.get('end'),
-      }).save().then(() => {
-        this.set('model.eventos', this.store.findAll('evento'));
-        this.send('cerrarModal');
-      });
+      let retorno = this.store
+        .createRecord("evento", {
+          titulo: changeset.get("title"),
+          fechainicio: changeset.get("start"),
+          fechafin: changeset.get("end")
+        })
+        .save()
+        .then(() => {
+          this.set("model.eventos", this.store.findAll("evento"));
+          this.send("cerrarModal");
+        });
 
       return retorno;
     },
@@ -85,29 +87,29 @@ export default Ember.Controller.extend({
     guardarEvento(changeset) {
       let evento = changeset;
 
-      let retorno = this.store.findRecord('evento', evento.get('id')).then((record) => {
+      let retorno = this.store
+        .findRecord("evento", evento.get("id"))
+        .then(record => {
+          record.set("titulo", evento.get("title"));
+          record.set("fechainicio", evento.get("start"));
+          record.set("fechafin", evento.get("end"));
 
-        record.set('titulo', evento.get('title'));
-        record.set('fechainicio', evento.get('start'));
-        record.set('fechafin', evento.get('end'));
-
-        record.save().then(() => {
-          // TODO: se dispara la búsqueda completa para actualizar la vista.
-          this.set('model.eventos', this.store.findAll('evento'));
-          this.send('cerrarModal');
+          record.save().then(() => {
+            // TODO: se dispara la búsqueda completa para actualizar la vista.
+            this.set("model.eventos", this.store.findAll("evento"));
+            this.send("cerrarModal");
+          });
         });
-
-      });
 
       return retorno;
     },
 
     dayClicked: function(date /*, jsEvent, view*/) {
-      this.send('abrirModalParaCreacion', date.format());
+      this.send("abrirModalParaCreacion", date.format());
     },
 
     clicked(eventoSeleccionado /*, jsEvent, view*/) {
-      this.send('abrirModalParaEdicion', eventoSeleccionado);
+      this.send("abrirModalParaEdicion", eventoSeleccionado);
     },
 
     /*

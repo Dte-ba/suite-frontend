@@ -1,7 +1,7 @@
-import DS from 'ember-data';
+import DS from "ember-data";
 
 export default DS.Model.extend({
-  numero: DS.attr('string'),
-  nombre: DS.attr('string'),
-  region: DS.belongsTo('region')
+  numero: DS.attr("string"),
+  nombre: DS.attr("string"),
+  region: DS.belongsTo("region")
 });

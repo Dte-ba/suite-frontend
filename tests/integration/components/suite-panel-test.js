@@ -1,18 +1,17 @@
-import { moduleForComponent, test } from 'ember-qunit';
-import hbs from 'htmlbars-inline-precompile';
+import { moduleForComponent, test } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
 
-moduleForComponent('suite-panel', 'Integration | Component | suite panel', {
+moduleForComponent("suite-panel", "Integration | Component | suite panel", {
   integration: true
 });
 
-test('it renders', function(assert) {
-
+test("it renders", function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
   this.render(hbs`{{suite-panel}}`);
 
-  assert.equal(this.$().text().trim(), '');
+  assert.equal(this.$().text().trim(), "");
 
   // Template block usage:
   this.render(hbs`
@@ -21,5 +20,5 @@ test('it renders', function(assert) {
     {{/suite-panel}}
   `);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), "template block text");
 });

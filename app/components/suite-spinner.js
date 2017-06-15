@@ -1,5 +1,5 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Component.extend({
-  classNames: ['ui', 'active', 'inline', 'loader']
+  classNames: ["ui", "active", "inline", "loader"]
 });

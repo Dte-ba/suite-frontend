@@ -1,4 +1,3 @@
-import Component from 'ember-fullcalendar/components/full-calendar';
+import Component from "ember-fullcalendar/components/full-calendar";
 
-export default Component.extend({
-});
+export default Component.extend({});

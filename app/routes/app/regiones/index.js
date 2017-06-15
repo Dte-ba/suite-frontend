@@ -1,23 +1,23 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
-      regiones: this.store.findAll('region'),
-      municipios: this.store.findAll('municipio'),
+      regiones: this.store.findAll("region"),
+      municipios: this.store.findAll("municipio"),
       columnas: [
-          {
-            "propertyName": "numero",
-            "title": "Número"
-          },
-          {
-            "propertyName": "municipiosComoCadena",
-            "title": "Municipios"
-          },
-          {
-            "title": "Acciones",
-            "template": "tablas/regiones/acciones"
-          }
+        {
+          propertyName: "numero",
+          title: "Número"
+        },
+        {
+          propertyName: "municipiosComoCadena",
+          title: "Municipios"
+        },
+        {
+          title: "Acciones",
+          template: "tablas/regiones/acciones"
+        }
       ]
     });
   }

@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Component.extend({
   didInsertElement() {
@@ -10,7 +10,7 @@ export default Ember.Component.extend({
 
     let lineas = contenido.split("\n");
 
-    let lineas_con_html = lineas.map((e) => {
+    let lineas_con_html = lineas.map(e => {
       let valores = e.split(":");
       let clave = valores[0];
       let valor = valores[1];
@@ -19,6 +19,5 @@ export default Ember.Component.extend({
     });
 
     this.$(".contenido").html(lineas_con_html);
-
   }
 });

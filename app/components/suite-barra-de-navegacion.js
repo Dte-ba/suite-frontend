@@ -1,7 +1,7 @@
-import Ember from 'ember';
-import ENV from '../config/environment';
+import Ember from "ember";
+import ENV from "../config/environment";
 
-const MIRAGE_ENABLED = ENV['usingMirage'];
+const MIRAGE_ENABLED = ENV["usingMirage"];
 
 export default Ember.Component.extend({
   classNames: ["ui", "fixed", "menu", "inverted", "barra-de-navegacion"],
@@ -9,7 +9,7 @@ export default Ember.Component.extend({
 
   actions: {
     toggle: function(id) {
-      $(`#${id}`).sidebar('toggle');
+      $(`#${id}`).sidebar("toggle");
     }
   }
 });

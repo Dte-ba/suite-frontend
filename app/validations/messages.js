@@ -1,8 +1,8 @@
 export default {
-  invalid: '{description} is inválido',
-  empty:  "{description} no puede quedar vacío",
-  blank:  '{description} debe quedar en blanco',
-  present:  "{description} no puede quedar en blanco",
+  invalid: "{description} is inválido",
+  empty: "{description} no puede quedar vacío",
+  blank: "{description} debe quedar en blanco",
+  present: "{description} no puede quedar en blanco"
   /*
   inclusion: // '{description} is not included in the list',
   exclusion: // '{description} is reserved',

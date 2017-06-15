@@ -1,27 +1,23 @@
-import { moduleForComponent, test } from 'ember-qunit';
-import hbs from 'htmlbars-inline-precompile';
+import { moduleForComponent, test } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
 
-moduleForComponent('suite-tabla', 'Integration | Component | suite tabla', {
+moduleForComponent("suite-tabla", "Integration | Component | suite tabla", {
   integration: true
 });
 
-test('it renders', function(assert) {
+test("it renders", function(assert) {
+  this.set("rows", [{ nombre: "Pepe", id: 20 }, { nombre: "Toto", id: 30 }]);
 
-  this.set('rows', [
-    {nombre: 'Pepe', id: 20},
-    {nombre: 'Toto', id: 30},
-  ]);
-
-  this.set('cols', [
+  this.set("cols", [
     {
-      "propertyName": "id",
-      "title": "Identificador"
+      propertyName: "id",
+      title: "Identificador"
     },
 
     {
-      "propertyName": "nombre",
-      "title": "Nombre Completo"
-    },
+      propertyName: "nombre",
+      title: "Nombre Completo"
+    }
   ]);
 
   this.render(hbs`{{suite-tabla columnas=cols filas=rows}}`);

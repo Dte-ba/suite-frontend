@@ -1,11 +1,10 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Route.extend({
-  breadCrumb: {title: `Edición`},
+  breadCrumb: { title: `Edición` },
 
   afterModel(model) {
-    model.set('usuario', model);
-    model.set('validaciones', []);
-  },
-
+    model.set("usuario", model);
+    model.set("validaciones", []);
+  }
 });

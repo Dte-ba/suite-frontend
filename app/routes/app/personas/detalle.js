@@ -1,37 +1,37 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Route.extend({
-  breadCrumb: {title: "Detalle de usuario"},
+  breadCrumb: { title: "Detalle de usuario" },
 
   afterModel(model) {
-    model.set('filaDatosAdministrativos', [
+    model.set("filaDatosAdministrativos", [
       {
-        titulo: 'Fecha de ingreso',
-        id: 'fechaDeIngreso',
-      },
+        titulo: "Fecha de ingreso",
+        id: "fechaDeIngreso"
+      }
     ]);
 
-    model.set('filaDatosPersonales', [
+    model.set("filaDatosPersonales", [
       {
-        titulo: 'Nombre',
-        id: 'nombre',
+        titulo: "Nombre",
+        id: "nombre"
       },
       {
-        titulo: 'Apellido',
-        id: 'apellido',
+        titulo: "Apellido",
+        id: "apellido"
       },
       {
-        titulo: 'Fecha de nacimiento',
-        id: 'fechadenacimiento',
+        titulo: "Fecha de nacimiento",
+        id: "fechadenacimiento"
       },
       {
-        titulo: 'DNI',
-        id: 'dni',
+        titulo: "DNI",
+        id: "dni"
       },
       {
-        titulo: 'CUIT/CUIL',
-        id: 'cuit',
-      },
+        titulo: "CUIT/CUIL",
+        id: "cuit"
+      }
     ]);
 
     return model;
