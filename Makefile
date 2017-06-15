@@ -18,11 +18,12 @@ comandos:
 	@echo "    ${G}iniciar${N}             Instala todas las dependencias."
 	@echo "    ${G}test${N}                Ejecuta los tests."
 	@echo "    ${G}ejecutar${N}            Ejecuta el servidor en modo desarrollo."
+	@echo "    ${G}prettier${N}            Corrige el formato y la sintaxis de todos los archivos."
 	@echo ""
 	@echo ""
 
 
-dependencias: 
+dependencias:
 	npm install
 	bower install
 
@@ -33,9 +34,13 @@ test:
 
 ejecutar: serve
 
-serve: 
+serve:
 	${BIN_EMBER} serve
 
 s: serve
 server: serve
 
+
+prettier:
+	./node_modules/.bin/prettier --write 'app/**/*.js'
+	./node_modules/.bin/prettier --write 'tests/**/*.js'
