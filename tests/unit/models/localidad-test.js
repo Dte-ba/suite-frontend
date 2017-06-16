@@ -1,11 +1,10 @@
-import { moduleForModel, test } from 'ember-qunit';
+import { moduleForModel, test } from "ember-qunit";
 
-moduleForModel('localidad', 'Unit | Model | localidad', {
-  // Specify the other units that are required for this test.
-  needs: []
+moduleForModel("localidad", "Unit | Model | localidad", {
+  needs: ["model:distrito"]
 });
 
-test('it exists', function(assert) {
+test("it exists", function(assert) {
   let model = this.subject();
   // let store = this.store();
   assert.ok(!!model);
