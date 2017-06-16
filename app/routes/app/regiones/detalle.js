@@ -8,12 +8,12 @@ export default Ember.Route.extend({
   afterModel(model) {
     let columnas = [
       {
-        title: "Número",
-        propertyName: "numero"
-      },
-      {
         title: "Nombre",
         propertyName: "nombre"
+      },
+      {
+        title: "Localidades",
+        propertyName: "localidadesComoCadena"
       }
     ];
 

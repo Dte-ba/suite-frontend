@@ -8,6 +8,8 @@ let initializer = {
     const inflector = Ember.Inflector.inflector;
 
     inflector.irregular("region", "regiones");
+    inflector.irregular("distrito", "distritos");
+    inflector.irregular("localidad", "localidades");
     inflector.irregular("perfil", "perfiles");
   }
 };
