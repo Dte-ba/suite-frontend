@@ -1,1 +1,16 @@
 {{outlet}}
+<div class="ui secondary pointing fluid menu">
+  <h2 class="ui header">Escuelas</h2>
+
+    <div class="right menu">
+      {{#link-to "app.escuelas.index" class="ui item"}}Listado{{/link-to}}
+      <!-- {{#link-to "app.regiones.mapa" class="ui item"}}Mapa{{/link-to}} -->
+    </div>
+
+</div>
+
+{{suite-tabla
+  cantidad=25
+  filas=model.escuelas
+  columnas=model.columnas
+}}

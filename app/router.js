@@ -36,7 +36,9 @@ Router.map(function() {
     this.route('distritos', function() {
       this.route('detalle', { path: "detalle/:distrito_id" });
     });
-    this.route('escuelas', function() {});
+    this.route('escuelas', function() {
+      this.route('detalle');
+    });
   });
 
   this.route("tablas", function() {

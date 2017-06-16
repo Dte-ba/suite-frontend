@@ -11,6 +11,10 @@ let initializer = {
     inflector.irregular("distrito", "distritos");
     inflector.irregular("localidad", "localidades");
     inflector.irregular("perfil", "perfiles");
+    inflector.irregular("nivel", "niveles");
+    inflector.irregular("programa", "programas");
+    inflector.irregular("area", "areas");
+    inflector.irregular("escuela", "escuelas");
   }
 };
 
