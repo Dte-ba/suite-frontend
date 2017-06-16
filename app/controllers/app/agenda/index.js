@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
         start: e.get("fechainicio"),
         end: e.get("fechafin"),
         color: e.get("color"),
-        allDay: e.get("fechainicio") === e.get("fechafin"),
+        allDay: e.get("todoElDia"),
         borderColor: e.get("borderColor")
       };
     });

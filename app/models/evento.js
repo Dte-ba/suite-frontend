@@ -7,6 +7,8 @@ export default DS.Model.extend({
   fechainicio: DS.attr("string"),
   fechafin: DS.attr("string"),
 
+  todoElDia: DS.attr("boolean"),
+
   color: Ember.computed("titulo", function() {
     return "white";
   }),
