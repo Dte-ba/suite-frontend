@@ -4,11 +4,16 @@ import Ember from "ember";
 export default Component.extend({
   didInsertElement() {
     this._super();
-    //this.set("fc", this.$());
+    this.forceResize();
   },
 
   alternarFinesDeSemana: Ember.observer("mostrarFinesDeSemana", function() {
     const fc = this.$();
     fc.fullCalendar("option", "weekends", this.get("mostrarFinesDeSemana"));
-  })
+    this.forceResize();
+  }),
+
+  forceResize() {
+    $(window).resize();
+  }
 });
