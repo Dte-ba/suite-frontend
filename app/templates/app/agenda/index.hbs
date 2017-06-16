@@ -19,6 +19,21 @@
 <div class="barra-de-botones">
   <button class="ui button green" {{action "abrirModalParaCreacion"}}><i class='ui plus icon'></i> Crear un evento nuevo</button>
 
+
+  <div class='pull-right'>
+
+    <label>
+      {{input type="checkbox"
+      id="checkbox-policy"
+      name="checkboxPolicy"
+      class="ui checkbox"
+      checked=model.mostrarFinesDeSemana
+    }}
+
+    Mostrar fines de semana
+    </label>
+  </div>
+
   <!--span class='text-orange'><i class='ui exclamation circle icon'></i> Hay 3 pedidos</span-->
 </div>
 
@@ -42,14 +57,12 @@
     {{suite-formularios/evento
       model        = (changeset eventoActual validaciones)
       on-submit    = (action "guardarEvento")
-      submit-label = 'Guardar el evento'
+      texto = 'Guardar el evento'
     }}
 
   {{/if}}
 
 {{/ember-remodal}}
-
-
 
 
 
@@ -59,6 +72,8 @@
     locale='es'
     eventLimit=true
     events=eventos
+
+    mostrarFinesDeSemana=model.mostrarFinesDeSemana
 
     viewRender=(action 'viewRender')
     dayClick=(action 'dayClicked')
