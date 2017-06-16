@@ -8,10 +8,10 @@ export default DS.Model.extend({
   fechafin: DS.attr("string"),
 
   color: Ember.computed("titulo", function() {
-    return "orange";
+    return "white";
   }),
 
   borderColor: Ember.computed("titulo", function() {
-    return "orange";
+    return "#ccc";
   })
 });

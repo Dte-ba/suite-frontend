@@ -119,6 +119,23 @@ export default Ember.Controller.extend({
      */
     viewRender(/* view , element */) {
       //console.log(view.intervalStart);
+    },
+
+    eventRender(evento, element) {
+      element.addClass("evento-con-acta");
+
+      element.html(`
+        <b>${evento.title}</b>
+
+        <p>
+          Nombre Autor
+        </p>
+
+        <p>
+          <a href="/" class="color-gris"><i class="ui file icon"></i></a>
+        </p>
+
+        `);
     }
   }
 });
