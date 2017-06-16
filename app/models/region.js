@@ -3,9 +3,9 @@ import Ember from "ember";
 
 export default DS.Model.extend({
   numero: DS.attr("number"),
-  municipios: DS.hasMany("municipio"),
+  distritos: DS.hasMany("distrito"),
 
-  municipiosComoCadena: Ember.computed("municipios", function() {
-    return this.get("municipios").map(e => e.get("nombre")).join(", ");
+  distritosComoCadena: Ember.computed("distritos", function() {
+    return this.get("distritos").map(e => e.get("nombre")).join(", ");
   })
 });

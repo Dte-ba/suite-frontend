@@ -3,11 +3,11 @@
 <h1>Región {{model.numero}}</h1>
 
 <p>La región {{model.numero}} está conformada
-  por los siguientes municipios:</p>
+  por los siguientes distritos:</p>
 
-{{#if model.municipios}}
+{{#if model.distritos}}
   {{suite-tabla
-    filas=model.municipios
+    filas=model.distritos
     columnas=model.columnas
   }}
 {{/if}}

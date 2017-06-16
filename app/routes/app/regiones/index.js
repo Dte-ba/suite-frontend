@@ -4,15 +4,15 @@ export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
       regiones: this.store.findAll("region"),
-      municipios: this.store.findAll("municipio"),
+      distritos: this.store.findAll("distrito"),
       columnas: [
         {
           propertyName: "numero",
           title: "Número"
         },
         {
-          propertyName: "municipiosComoCadena",
-          title: "Municipios"
+          propertyName: "distritosComoCadena",
+          title: "Distritos"
         },
         {
           title: "Acciones",
