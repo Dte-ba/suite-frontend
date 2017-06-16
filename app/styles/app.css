@@ -402,3 +402,7 @@ p {
 a.color-gris, .color-gris {
   color: gray !important;
 }
+
+.header-filter input {
+  width: 20px;
+}
