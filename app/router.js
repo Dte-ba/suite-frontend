@@ -32,6 +32,10 @@ Router.map(function() {
     });
 
     this.route("escritorio", function() {});
+
+    this.route('distritos', function() {
+      this.route('detalle', { path: "detalle/:distrito_id" });
+    });
   });
 
   this.route("tablas", function() {

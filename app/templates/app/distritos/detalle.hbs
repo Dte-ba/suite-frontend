@@ -1,0 +1,13 @@
+{{outlet}}
+
+<h1>Distrito {{model.nombre}}</h1>
+
+<p>El distrito {{model.nombre}} está conformado
+  por las siguientes localidades:</p>
+
+{{#if model.localidades}}
+  {{suite-tabla
+    filas=model.localidades
+    columnas=model.columnas
+  }}
+{{/if}}

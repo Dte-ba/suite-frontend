@@ -10,18 +10,14 @@ export default Ember.Route.extend({
       {
         title: "Nombre",
         propertyName: "nombre"
-      },
-      {
-        title: "Acciones",
-        template: "tablas/distritos/acciones"
       }
     ];
 
     model.set("columnas", columnas);
 
-    let numero = model.get("numero");
-    this.set("breadCrumb", { title: `Detalle de la región ${numero}` });
+    let nombre = model.get("nombre");
+    // this.set("breadCrumb", { title: `Detalle del distrito ${nombre}` });
 
-    return this.get("store").findAll("localidad");
+    // return this.get("store").findAll("localidad");
   }
 });
