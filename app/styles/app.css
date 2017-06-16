@@ -363,6 +363,7 @@ p {
 
 .suite-grupo {
   margin-top: 2em;
+  font-family: 'Roboto Light';
 }
 
 .suite-grupo-numero {
@@ -371,6 +372,7 @@ p {
   display: inline-block;
   font-size: 40pt;
   vertical-align: top;
+  font-family: 'Roboto Light';
 }
 
 .suite-grupo-titulo {

@@ -17,9 +17,7 @@ module.exports = function(defaults) {
   app.import('vendor/es.js');
 
   app.import('vendor/roboto/Roboto-Bold.ttf');
-  app.import('vendor/roboto/Roboto-Italic.ttf');
   app.import('vendor/roboto/Roboto-Light.ttf');
-  app.import('vendor/roboto/Roboto-Medium.ttf');
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
