@@ -15,7 +15,7 @@ export default Ember.Route.extend({
 
     model.set("columnas", columnas);
 
-    let nombre = model.get("nombre");
+    //let nombre = model.get("nombre");
     // this.set("breadCrumb", { title: `Detalle del distrito ${nombre}` });
 
     // return this.get("store").findAll("localidad");
