@@ -10,12 +10,8 @@ export default Ember.Route.extend({
           title: "DNI"
         },
         {
-          propertyName: "nombre",
-          title: "Nombre"
-        },
-        {
-          propertyName: "apellido",
-          title: "Apellido"
+          propertyName: "nombreCompleto",
+          title: "Nombre completo"
         },
         {
           title: "Acciones",

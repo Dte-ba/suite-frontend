@@ -7,5 +7,12 @@ export default DS.Model.extend({
   cuit: DS.attr("string"),
   fechadenacimiento: DS.attr("string"),
   fechaDeIngreso: DS.attr("string"),
-  image: DS.attr("string")
+  image: DS.attr("string"),
+
+  nombreCompleto: Ember.computed("nombre", "apellido", function() {
+    let apellido = this.get("apellido");
+    let nombre = this.get("nombre");
+
+    return `${apellido}, ${nombre}`;
+  })
 });
