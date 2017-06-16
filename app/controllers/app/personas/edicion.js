@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
       return new Ember.RSVP.Promise(sucess => {
         model.set("demo", 123123123);
         model.save();
+        this.transitionToRoute("app.personas.index");
         sucess();
       });
     }
