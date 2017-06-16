@@ -1,4 +1,5 @@
-import DS from 'ember-data';
+import DS from "ember-data";
+import Ember from "ember";
 
 export default DS.Model.extend({
   cue: DS.attr("number"),
@@ -9,7 +10,7 @@ export default DS.Model.extend({
   latitud: DS.attr("number"),
   longitud: DS.attr("number"),
   localidad: DS.belongsTo("localidad"),
-  // tipoDeFinanciamiento: DS.belongsTo("tipoDeFinanciamiento"),
+  tipoDeFinanciamiento: DS.belongsTo("tipoDeFinanciamiento"),
   tipoDeGestion: DS.belongsTo("tipoDeGestion"),
   nivel: DS.belongsTo("nivel"),
   area: DS.belongsTo("area"),

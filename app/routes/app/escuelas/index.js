@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Route.extend({
   model() {
@@ -32,7 +32,7 @@ export default Ember.Route.extend({
         },
         {
           propertyName: "tipoDeFinanciamiento.nombre",
-          title: "Finan"
+          title: "Financiamiento"
         },
         // {
         //   propertyName: "direccion",
@@ -54,8 +54,8 @@ export default Ember.Route.extend({
           title: "Acciones",
           template: "tablas/regiones/acciones"
         }
-      ]
+      ],
+      programas: this.get("store").findAll("programa")
     });
-    return this.get("store").findAll("programas");
   }
 });
