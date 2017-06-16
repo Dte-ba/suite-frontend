@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
     left: "prev,next today",
     center: "title",
     //right: "month,agendaWeek,listMonth"
-    right: "month,agendaWeek"
+    right: "month,basicWeek,agendaDay"
   },
 
   validaciones: {
