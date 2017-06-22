@@ -257,6 +257,8 @@ body > .ember-view {
 .barra-de-navegacion .item.active,
 .barra-de-navegacion .item.ember-transitioning-in {
   border-bottom: 3px solid #C7E235;
+  color: #C7E235 !important;
+  background: none;
 }
 
 .barra-de-navegacion a.item:hover {
@@ -281,8 +283,8 @@ h2.suite-detalle {
 }
 
 .ui.breadcrumb li:after {
-  content: "/";
-  color: gray;
+  content: ">";
+  color: #2e2e2e;
 }
 
 .ui.breadcrumb li:last-child:after {
@@ -291,6 +293,14 @@ h2.suite-detalle {
 
 .ui.breadcrumb {
   margin-bottom: 1.5em;
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.ui.breadcrumb a {
+  color: #2e2e2e;
+  font-weight: bold;
 }
 
 .avatar-upload {
