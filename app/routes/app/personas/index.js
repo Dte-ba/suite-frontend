@@ -6,12 +6,36 @@ export default Ember.Route.extend({
       perfiles: this.store.findAll("perfil"),
       columnas: [
         {
-          propertyName: "dni",
-          title: "DNI"
-        },
-        {
           propertyName: "nombreCompleto",
           title: "Nombre completo"
+        },
+        {
+          propertyName: "regionComoCadena",
+          title: "Región"
+        },
+        {
+          propertyName: "cargo",
+          title: "Cargo"
+        },
+        {
+          propertyName: "cuit",
+          title: "CUIL/CUIT"
+        },
+        {
+          propertyName: "email",
+          title: "E-mail"
+        },
+        {
+          propertyName: "telefonoCelular",
+          title: "Celular"
+        },
+        {
+          propertyName: "contrato",
+          title: "Programa/Contrato"
+        },
+        {
+          propertyName: "fechaDeIngreso",
+          title: "Fecha de ingreso"
         },
         {
           title: "Acciones",
