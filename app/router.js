@@ -37,7 +37,7 @@ Router.map(function() {
       this.route('detalle', { path: "detalle/:distrito_id" });
     });
     this.route('escuelas', function() {
-      this.route('detalle');
+      this.route('detalle', { path: "detalle/:escuela_id" });
     });
   });
 

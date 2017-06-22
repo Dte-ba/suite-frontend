@@ -52,7 +52,7 @@ export default Ember.Route.extend({
         },
         {
           title: "Acciones",
-          template: "tablas/regiones/acciones"
+          template: "tablas/escuelas/acciones"
         }
       ],
       programas: this.get("store").findAll("programa")
