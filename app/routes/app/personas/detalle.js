@@ -37,14 +37,6 @@ export default Ember.Route.extend({
 
     model.set("filaDatosPersonales", [
       {
-        titulo: "Nombre",
-        id: "nombre"
-      },
-      {
-        titulo: "Apellido",
-        id: "apellido"
-      },
-      {
         titulo: "Fecha de nacimiento",
         id: "fechadenacimiento"
       },

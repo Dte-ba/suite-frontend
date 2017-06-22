@@ -1,0 +1,17 @@
+{{yield}}
+  <div class="four wide column">
+    <span class="personas-seccion">{{numero}} <small>{{titulo}}</small></span>
+  </div>
+  <div class="twelve wide column">
+    <table class="ui very basic compact table tabla-definicion tabla-detalle-personas">
+      <tbody>
+        {{#each filas as |fila|}}
+          <tr>
+            <td class="five wide"><b>{{fila.titulo}}:</b></td>
+            <td class="eleven wide">{{get model fila.id}}</td>
+          </tr>
+        {{/each}}
+
+      </tbody>
+    </table>
+  </div>

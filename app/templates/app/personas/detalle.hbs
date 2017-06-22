@@ -7,44 +7,43 @@
 </div>
 
 <div class="ui stackable grid">
+  <div class="ui row segment">
+    <div class="six wide column">
+      <h2 class="ui header">
+      {{#if model.image}}
+          <img src={{model.image}} width="100%" class="ui circular image avatar-img">
+          {{model.nombre}} {{model.apellido}}
+      {{else}}
+        {{ember-initials class='user-big-avatar' name=(concat model.nombre " " model.apellido) size=80}}
+      {{/if}}
+      </h2>
 
-  <div class="six wide column">
-    <h2 class="ui header">
-    {{#if model.image}}
-        <img src={{model.image}} width="100%" class="ui circular image avatar-img">
-        {{model.nombre}} {{model.apellido}}
-    {{else}}
-      {{ember-initials class='user-big-avatar' name=(concat model.nombre " " model.apellido) size=80}}
-    {{/if}}
-    </h2>
-
-    <!--
-      {{#x-file-input class="avatar-file-uploader"}}
-        Subir imagen
-      {{/x-file-input}}
-    -->
+      <!--
+        {{#x-file-input class="avatar-file-uploader"}}
+          Subir imagen
+        {{/x-file-input}}
+      -->
+    </div>
+    <div class="eight wide column"></div>
+    <div class="two wide column">
+      {{#link-to "app.personas.edicion" model class="ui button primario"}}Editar{{/link-to}}
+    </div>
   </div>
-  <div class="eight wide column">
-
-  </div>
-  <div class="two wide column">
-    {{#link-to "app.personas.edicion" model class="ui button primario"}}Editar{{/link-to}}
-  </div>
-
-  <div class="twelve wide column">
-
-    {{suite-detalle
+  <div class="ui row segment">
+    {{suite-detalle-personas
+        numero="1"
         titulo="Datos personales"
         model=model
         filas=model.filaDatosPersonales
     }}
-
-    {{suite-detalle
+  </div>
+  <div class="ui row segment">
+    {{suite-detalle-personas
+        numero="2"
         titulo="Datos administrativos"
         model=model
         filas=model.filaDatosAdministrativos
     }}
-
   </div>
 
 </div>

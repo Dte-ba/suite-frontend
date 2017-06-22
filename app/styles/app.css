@@ -178,6 +178,33 @@ body > .ember-view {
   background-color: #DDF3FF;
 }
 
+/* Personas */
+
+.ui.segment {
+  border: 0;
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.ui.basic.table.tabla-detalle-personas tbody tr,
+.ui.basic.table.tabla-detalle-personas tbody tr td {
+  border-bottom: 0;
+  border-top: 0;
+}
+
+.personas-seccion {
+  font-size: 3.2rem;
+  font-weight: 100;
+  color: #878787;
+}
+
+.personas-seccion small {
+  font-size: 1.2rem;
+  vertical-align: top;
+  color: #272727;
+}
+
 /* Agrega un borde de color al pie de las tablas */
 
 /*
