@@ -278,9 +278,9 @@ h2.suite-detalle {
 }
 
 .avatar-img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
+  width: 90px !important;
+  height: 90px !important;
+  /*border-radius: 50%;*/
 }
 
 .avatar-file-uploader label {

@@ -6,8 +6,32 @@ export default Ember.Route.extend({
   afterModel(model) {
     model.set("filaDatosAdministrativos", [
       {
+        titulo: "Rol en la SUITE",
+        id: ""
+      },
+      {
+        titulo: "Región",
+        id: "regionComoCadena"
+      },
+      {
+        titulo: "Cargo",
+        id: "cargo"
+      },
+      {
+        titulo: "Contrato",
+        id: "contrato"
+      },
+      {
+        titulo: "Expediente",
+        id: "expediente"
+      },
+      {
         titulo: "Fecha de ingreso",
         id: "fechaDeIngreso"
+      },
+      {
+        titulo: "Email Laboral",
+        id: "emailLaboral"
       }
     ]);
 
@@ -25,12 +49,36 @@ export default Ember.Route.extend({
         id: "fechadenacimiento"
       },
       {
+        titulo: "Título",
+        id: "titulo"
+      },
+      {
         titulo: "DNI",
         id: "dni"
       },
       {
         titulo: "CUIT/CUIL",
         id: "cuit"
+      },
+      {
+        titulo: "CBU",
+        id: "cbu"
+      },
+      {
+        titulo: "Email personal",
+        id: "email"
+      },
+      {
+        titulo: "Dirección",
+        id: "direccionCompleta"
+      },
+      {
+        titulo: "Celular",
+        id: "telefonoCelular"
+      },
+      {
+        titulo: "Teléfono",
+        id: "telefonoAlternativo"
       }
     ]);
 
