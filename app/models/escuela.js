@@ -15,6 +15,7 @@ export default DS.Model.extend({
   nivel: DS.belongsTo("nivel"),
   area: DS.belongsTo("area"),
   programas: DS.hasMany("programa"),
+  piso: DS.belongsTo("piso"),
 
   programasComoCadena: Ember.computed("programas", function() {
     return this.get("programas").map(e => e.get("nombre")).join(", ");

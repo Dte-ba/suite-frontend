@@ -7,23 +7,23 @@ export default Ember.Route.extend({
     model.set("filaPiso", [
       {
         titulo: "Marca",
-        id: ""
+        id: "piso.servidor"
       },
       {
         titulo: "Serie",
-        id: ""
+        id: "piso.serie"
       },
       {
         titulo: "UPS",
-        id: ""
+        id: "piso.ups"
       },
       {
         titulo: "Rack",
-        id: ""
+        id: "piso.rack"
       },
       {
         titulo: "Estado",
-        id: ""
+        id: "piso.estado"
       }
     ]);
 
