@@ -8,6 +8,7 @@ export default DS.Model.extend({
   apellido: DS.attr("string"),
   fechadenacimiento: DS.attr("string"),
   titulo: DS.attr("string"),
+  experiencia: DS.belongsTo('experiencia'),
   dni: DS.attr("string"),
   cuit: DS.attr("string"),
   cbu: DS.attr("string"),
@@ -24,8 +25,8 @@ export default DS.Model.extend({
 
   // 2) Datos administrativos
   region: DS.belongsTo("region"),
-  cargo: DS.attr("string"),
-  contrato: DS.attr("string"),
+  cargo: DS.belongsTo("cargo"),
+  contrato: DS.belongsTo("contrato"),
   expediente: DS.attr("string"),
   fechaDeIngreso: DS.attr("string"),
   fechaDeRenuncia: DS.attr("string"),
@@ -33,6 +34,18 @@ export default DS.Model.extend({
 
   regionComoCadena: Ember.computed("region.{numero}", function() {
     return this.get("region.numero");
+  }),
+
+  cargoComoCadena: Ember.computed("cargo.{nombre}", function() {
+    return this.get("cargo.nombre");
+  }),
+
+  experienciaComoCadena: Ember.computed("experiencia.{nombre}", function() {
+    return this.get("experiencia.nombre");
+  }),
+
+  contratoComoCadena: Ember.computed("contrato.{nombre}", function() {
+    return this.get("contrato.nombre");
   }),
 
   nombreCompleto: Ember.computed("nombre", "apellido", function() {

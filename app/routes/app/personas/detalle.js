@@ -15,11 +15,11 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Cargo",
-        id: "cargo"
+        id: "cargoComoCadena"
       },
       {
         titulo: "Contrato",
-        id: "contrato"
+        id: "contratoComoCadena"
       },
       {
         titulo: "Expediente",
@@ -43,6 +43,10 @@ export default Ember.Route.extend({
       {
         titulo: "Título",
         id: "titulo"
+      },
+      {
+        titulo: "Perfil",
+        id: "experienciaComoCadena"
       },
       {
         titulo: "DNI",

@@ -1,11 +1,4 @@
 {{outlet}}
-
-{{suite-titulo titulo="Detalle de usuario"}}
-
-<div class="barra-de-botones">
-  <!-- {{#link-to "app.personas.edicion" model class="ui button primario"}}Editar{{/link-to}} -->
-</div>
-
 <div class="ui stackable grid">
   <div class="ui row middle aligned segment">
     <div class="six wide column">
@@ -15,6 +8,7 @@
           {{model.nombre}} {{model.apellido}}
       {{else}}
         {{ember-initials class='user-big-avatar' name=(concat model.nombre " " model.apellido) size=80}}
+        {{model.nombre}} {{model.apellido}}
       {{/if}}
       </h2>
 

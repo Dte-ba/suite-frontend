@@ -16,6 +16,9 @@ let initializer = {
     inflector.irregular("area", "areas");
     inflector.irregular("escuela", "escuelas");
     inflector.irregular("tipo-de-financiamiento", "tipos-de-financiamiento");
+    inflector.irregular("cargo", "cargos");
+    inflector.irregular("contrato", "contratos");
+    inflector.irregular("experiencia", "experiencias");
   }
 };
 

@@ -14,7 +14,7 @@ export default Ember.Route.extend({
           title: "Región"
         },
         {
-          propertyName: "cargo",
+          propertyName: "cargoComoCadena",
           title: "Cargo"
         },
         {
@@ -30,7 +30,7 @@ export default Ember.Route.extend({
           title: "Celular"
         },
         {
-          propertyName: "contrato",
+          propertyName: "contratoComoCadena",
           title: "Programa/Contrato"
         },
         {
