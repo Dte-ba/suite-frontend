@@ -254,7 +254,7 @@ body > .ember-view {
   border-bottom: 3px solid #333333;
 }
 
-.barra-de-navegacion .item.active,
+.ui.inverted.menu .active.item,
 .barra-de-navegacion .item.ember-transitioning-in {
   border-bottom: 3px solid #C7E235;
   color: #C7E235 !important;
