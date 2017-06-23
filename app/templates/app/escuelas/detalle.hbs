@@ -1,1 +1,33 @@
 {{outlet}}
+<div class="ui stackable grid">
+  <div class="ui row middle aligned segment">
+    <div class="six wide column">
+      <h2 class="ui header">
+        {{model.nombre}} - {{model.cue}}
+      </h2>
+    </div>
+    <div class="eight wide column"></div>
+    <div class="two wide column">
+      {{#link-to "app.personas.edicion" model class="ui button primario"}}Editar{{/link-to}}
+    </div>
+  </div>
+    {{suite-detalle-personas
+        numero="1"
+        titulo="Piso"
+        model=model
+        filas=model.filaPiso
+    }}
+    {{suite-detalle-personas
+        numero="2"
+        titulo="Información"
+        model=model
+        filas=model.filaInformacion
+    }}
+    {{suite-detalle-personas
+        numero="3"
+        titulo="Datos de contacto"
+        model=model
+        filas=model.filaDatosDeContacto
+    }}
+
+</div>

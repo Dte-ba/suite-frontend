@@ -23,21 +23,17 @@
       {{#link-to "app.personas.edicion" model class="ui button primario"}}Editar{{/link-to}}
     </div>
   </div>
-  <div class="ui row segment">
     {{suite-detalle-personas
         numero="1"
         titulo="Datos personales"
         model=model
         filas=model.filaDatosPersonales
     }}
-  </div>
-  <div class="ui row segment">
     {{suite-detalle-personas
         numero="2"
         titulo="Datos administrativos"
         model=model
         filas=model.filaDatosAdministrativos
     }}
-  </div>
 
 </div>
