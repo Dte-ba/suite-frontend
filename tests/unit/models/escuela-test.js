@@ -8,7 +8,8 @@ moduleForModel("escuela", "Unit | Model | escuela", {
     "model:tipoDeGestion",
     "model:nivel",
     "model:area",
-    "model:programa"
+    "model:programa",
+    "model:piso"
   ]
 });
 
