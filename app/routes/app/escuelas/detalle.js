@@ -15,15 +15,15 @@ export default Ember.Route.extend({
       },
       {
         titulo: "UPS",
-        id: "piso.ups"
+        id: "piso.upsComoCadena"
       },
       {
         titulo: "Rack",
-        id: "piso.rack"
+        id: "piso.rackComoCadena"
       },
       {
         titulo: "Estado",
-        id: "piso.estado"
+        id: "piso.estadoComoCadena"
       }
     ]);
 

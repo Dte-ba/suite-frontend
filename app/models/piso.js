@@ -5,5 +5,32 @@ export default DS.Model.extend({
   serie: DS.attr("string"),
   ups: DS.attr("boolean"),
   rack: DS.attr("boolean"),
-  estado: DS.attr("boolean")
+  estado: DS.attr("boolean"),
+  upsComoCadena: Ember.computed("ups", function() {
+    let ups = this.get("ups");
+    if (ups === true) {
+      ups = "Si";
+    } else {
+      ups = "No";
+    }
+    return ups;
+  }),
+  rackComoCadena: Ember.computed("rack", function() {
+    let rack = this.get("rack");
+    if (rack === true) {
+      rack = "Si";
+    } else {
+      rack = "No";
+    }
+    return rack;
+  }),
+  estadoComoCadena: Ember.computed("estado", function() {
+    let estado = this.get("estado");
+    if (estado === true) {
+      estado = "Funcionando";
+    } else {
+      estado = "No funciona";
+    }
+    return estado;
+  })
 });
