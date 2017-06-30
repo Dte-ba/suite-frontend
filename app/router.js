@@ -38,6 +38,7 @@ Router.map(function() {
     });
     this.route("escuelas", function() {
       this.route("detalle", { path: "detalle/:escuela_id" });
+      this.route('mapa');
     });
   });
 
