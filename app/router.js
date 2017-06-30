@@ -33,11 +33,11 @@ Router.map(function() {
 
     this.route("escritorio", function() {});
 
-    this.route('distritos', function() {
-      this.route('detalle', { path: "detalle/:distrito_id" });
+    this.route("distritos", function() {
+      this.route("detalle", { path: "detalle/:distrito_id" });
     });
-    this.route('escuelas', function() {
-      this.route('detalle', { path: "detalle/:escuela_id" });
+    this.route("escuelas", function() {
+      this.route("detalle", { path: "detalle/:escuela_id" });
     });
   });
 

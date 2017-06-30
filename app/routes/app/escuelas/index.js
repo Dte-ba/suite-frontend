@@ -1,9 +1,17 @@
 import Ember from "ember";
+import { task } from "ember-concurrency";
 
 export default Ember.Route.extend({
+  obtenerEscuelas: task(function*(query) {
+    let data = yield this.store.query("escuela", query);
+    let meta = data.get("meta");
+    return { data, meta };
+  }).drop(),
+
   model() {
     return Ember.RSVP.hash({
-      escuelas: this.store.findAll("escuela"),
+      tareaEscuelas: this.get("obtenerEscuelas"),
+      //escuelas: this.store.findAll("escuela"),
       // localidades: this.store.findAll("localidad"),
       columnas: [
         {
@@ -54,8 +62,8 @@ export default Ember.Route.extend({
           title: "Acciones",
           template: "tablas/escuelas/acciones"
         }
-      ],
-      programas: this.get("store").findAll("programa")
+      ]
+      //programas: this.get("store").findAll("programa")
     });
   }
 });

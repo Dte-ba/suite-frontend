@@ -1,0 +1,19 @@
+{{yield}}
+
+{{#if meta}}
+
+  Hay {{meta.pagination.count}} registros en total. Viendo la página {{paginaActual}} de {{cantidadDePaginas}} páginas.
+
+  {{#if puedeRetroceder}}
+    <button class="ui button" {{action "mostrarPaginaAnterior"}}><i class="chevron left icon"></i></button>
+  {{else}}
+    <button class="ui button" disabled><i class="chevron left icon"></i></button>
+  {{/if}}
+
+  {{#if puedeAvanzar }}
+    <button class="ui button" {{action "mostrarSiguientePagina"}}><i class="chevron right icon"></i></button>
+  {{else}}
+    <button class="ui button" disabled><i class="chevron right icon"></i></button>
+  {{/if}}
+
+{{/if}}

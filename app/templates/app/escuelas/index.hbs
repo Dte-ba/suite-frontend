@@ -9,8 +9,37 @@
 
 </div>
 
+{{suite-tabla-escuelas tarea=model.tareaEscuelas}}
+
+<!--
+
+{{#data-table data=model.escuelas classNames='ui celled table selectable' as |t|}}
+    {{#t.column propertyName='cue' defaultHeader=true name='CUE' as |col|}}
+      {{#link-to "app.escuelas.detalle" col.row}}{{col.row.cue}}{{/link-to}}
+    {{/t.column}}
+
+    {{t.column propertyName='nombre' name='Nombre'}}
+    {{t.column propertyName='position' name='Position'}}
+
+    {{#t.column propertyName='team' defaultHeader=true name='Team' as |col|}}
+      {{col.row.cue}}
+    {{/t.column}}
+
+{{/data-table}}
+
+
+{{suite-tabla-paginador}}
+
+<p>Sin datos para mostrar</p>
+
+
+
+
+
 {{suite-tabla
   cantidad=25
   filas=model.escuelas
   columnas=model.columnas
 }}
+
+-->

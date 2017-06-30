@@ -443,3 +443,21 @@ a.color-gris, .color-gris {
 .header-filter input {
   width: 20px;
 }
+
+.suite-tabla-error-de-api {
+  color: red;
+  height: 200px;
+  border: 1px solid red;
+  overflow: scroll;
+  padding: 1em;
+  white-space: pre;
+}
+
+.suite-tabla-paginador {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+  display: block;
+}
