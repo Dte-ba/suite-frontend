@@ -1,13 +1,12 @@
 {{yield}}
+
 {{#if tarea}}
 
-{{#if tarea.last.isRunning}}
-  {{suite-tabla-spinner}}
-{{else if tarea.last.isError}}
+{{#if tarea.last.isError}}
   {{suite-tabla-error-de-api error=tarea.last.error}}
 {{else}}
 
-  {{#data-table data=tarea.last.value.data classNames='ui celled table selectable' as |t|}}
+  {{#data-table data=tarea.lastSuccessful.value.data classNames='ui celled table selectable' as |t|}}
 
       {{#t.column propertyName='cue' defaultHeader=true name='CUE' as |col|}}
         {{#link-to "app.escuelas.detalle" col.row}}{{col.row.cue}}{{/link-to}}
@@ -33,8 +32,13 @@
 
   {{/data-table}}
 
-  {{suite-tabla-paginador meta=tarea.last.value.meta tarea=tarea}}
+  {{suite-tabla-paginador meta=tarea.lastSuccessful.value.meta tarea=tarea}}
+
+  {{#if tarea.last.isRunning}}
+    <div class="overlay-spinner">
+      {{suite-tabla-spinner}}
+    </div>
+  {{/if}}
 
 {{/if}}
-
 {{/if}}
