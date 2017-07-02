@@ -24,6 +24,16 @@ export default function() {
   this.post("/perfiles");
   this.patch("/perfiles/:id");
 
+  this.get("/escuelas");
+  this.get("/escuelas/:id");
+  this.put("/escuelas/:id");
+  this.del("/escuelas/:id");
+  this.post("/escuelas");
+  this.patch("/escuelas/:id");
+
+  this.get("/tipos-de-financiamiento");
+  this.get("/tipos-de-financiamiento/:id");
+
   this.get("/regiones");
   this.get("/regiones/:id");
 
