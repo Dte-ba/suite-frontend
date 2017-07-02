@@ -2,7 +2,10 @@
 
 {{#power-select
   options=opciones
+  disabled=deshabilitado
   selected=seleccionado
+  noMatchesMessage=noMatchesMessage
+  searchEnabled=conBusqueda
   onchange=(action "cuandoCambia") as |opcion|}}
-  {{opcion.nombre}}
+  {{get opcion etiquetaDelModelo}}
 {{/power-select}}

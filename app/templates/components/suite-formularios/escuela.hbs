@@ -6,29 +6,42 @@
   as |f|
 }}
 
-{{#suite-grupo numero=1 titulo="Piso"}}
-{{/suite-grupo}}
+  {{#suite-grupo numero=1 titulo="Piso"}}
+    <p>Aún sin datos ...</p>
+  {{/suite-grupo}}
 
-{{#suite-grupo numero=2 titulo="Información"}}
-  {{f.input label="CUE" name="cue" disabled=true}}
-  {{f.input label="Nombre" name="nombre"}}
-{{/suite-grupo}}
+  {{#suite-grupo numero=2 titulo="Información"}}
+    {{f.input label="CUE" name="cue" disabled=true}}
+    {{f.input label="Nombre" name="nombre"}}
+  {{/suite-grupo}}
 
-{{#suite-grupo numero=3 titulo="Datos personales"}}
-  {{f.input label="Teléfono" name="telefono"}}
-  {{f.input label="Dirección" name="direccion"}}
+  {{#suite-grupo numero=3 titulo="Datos personales"}}
 
-  {{#f.input label="Tipo de financiamiento" name="tipoDeFinanciamiento" as |fi|}}
-    {{suite-dropdown
-        seleccionado=f.model.tipoDeFinanciamiento
-        opciones=model.tiposDeFinanciamiento
-        cuandoSelecciona=fi.update
-    }}
-  {{/f.input}}
+    {{#f.input label="Tipo de financiamiento" name="tipoDeFinanciamiento" as |fi|}}
+      {{suite-dropdown
+          conBusqueda=false
+          seleccionado=f.model.tipoDeFinanciamiento
+          opciones=model.tiposDeFinanciamiento
+          etiquetaDelModelo='nombre'
+          cuandoSelecciona=fi.update
+      }}
+    {{/f.input}}
 
-{{/suite-grupo}}
+    {{#f.input label="Localidad" name="localidad" as |fi|}}
+      {{suite-dropdown
+          conBusqueda=true
+          seleccionado=f.model.localidad
+          opciones=model.localidades
+          cuandoSelecciona=fi.update
+      }}
+    {{/f.input}}
+
+    {{f.input label="Teléfono" name="telefono"}}
+    {{f.input label="Dirección" name="direccion"}}
+
+  {{/suite-grupo}}
 
 
-{{f.submit label="Guardar"}}
+  {{f.submit label="Guardar"}}
 
 {{/validated-form}}

@@ -30,6 +30,13 @@ export default function(server) {
     distrito: distrito
   });
 
+  /* Algunas localidades adicionales, no se usan. Solo se agregan
+     para probar los combos de localidades. */
+  server.create("localidad", {
+    nombre: "Berisso",
+    distrito: distrito
+  });
+
   server.create("escuela", {
     CUE: "123123",
     nombre: "Escuela N° 10 - General José de San Martín",

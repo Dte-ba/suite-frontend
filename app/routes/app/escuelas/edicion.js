@@ -6,6 +6,8 @@ export default Ember.Route.extend({
       "tiposDeFinanciamiento",
       this.store.findAll("tipoDeFinanciamiento")
     );
+
+    model.set("localidades", this.store.findAll("localidad"));
   },
   actions: {
     guardar(modelo) {
