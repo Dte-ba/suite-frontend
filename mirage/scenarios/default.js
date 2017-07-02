@@ -7,6 +7,15 @@ export default function(server) {
     nombre: "Estatal"
   });
 
+  /* Otros tipos de financiamiento para probar dropdown. */
+  server.create("tipoDeFinanciamiento", {
+    nombre: "Privado"
+  });
+
+  server.create("tipoDeFinanciamiento", {
+    nombre: "Especial"
+  });
+
   var region = server.create("region", {
     numero: 1
   });
@@ -21,9 +30,11 @@ export default function(server) {
     distrito: distrito
   });
 
-  /*var escuela =*/ server.create("escuela", {
+  server.create("escuela", {
     CUE: "123123",
-    nombre: "Demo",
+    nombre: "Escuela N° 10 - General José de San Martín",
+    direccion: "Av. Montevideo y El Ombú",
+    telefono: "462-0411",
     localidad: localidad,
     tipoDeFinanciamiento: tipoDeFinanciamiento
   });

@@ -1,5 +1,6 @@
 import DS from "ember-data";
 import Ember from "ember";
+import { validatePresence } from "ember-changeset-validations/validators";
 
 export default DS.Model.extend({
   cue: DS.attr("number"),
@@ -19,5 +20,10 @@ export default DS.Model.extend({
 
   programasComoCadena: Ember.computed("programas", function() {
     return this.get("programas").map(e => e.get("nombre")).join(", ");
-  })
+  }),
+
+  validaciones: {
+    nombre: [validatePresence(true)],
+    cue: [validatePresence(true)]
+  }
 });

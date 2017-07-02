@@ -34,11 +34,11 @@
 
   {{suite-tabla-paginador meta=tarea.lastSuccessful.value.meta tarea=tarea}}
 
-  {{#if tarea.last.isRunning}}
-    <div class="overlay-spinner">
-      {{suite-tabla-spinner}}
-    </div>
-  {{/if}}
+    {{#if tarea.last.isRunning}}
+      <div class="overlay-spinner">
+        {{suite-tabla-spinner}}
+      </div>
+    {{/if}}
 
 {{/if}}
 {{/if}}

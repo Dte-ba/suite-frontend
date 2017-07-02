@@ -1,0 +1,25 @@
+{{yield}}
+
+{{#validated-form
+  model = model
+  on-submit = on-submit
+  as |f|
+}}
+
+{{#suite-grupo numero=1 titulo="Piso"}}
+{{/suite-grupo}}
+
+{{#suite-grupo numero=2 titulo="Información"}}
+  {{f.input label="CUE" name="cue" disabled=true}}
+  {{f.input label="Nombre" name="nombre"}}
+{{/suite-grupo}}
+
+{{#suite-grupo numero=3 titulo="Datos personales"}}
+  {{f.input label="Teléfono" name="telefono"}}
+  {{f.input label="Dirección" name="direccion"}}
+{{/suite-grupo}}
+
+
+{{f.submit label="Guardar"}}
+
+{{/validated-form}}

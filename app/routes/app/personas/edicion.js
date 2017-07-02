@@ -6,5 +6,6 @@ export default Ember.Route.extend({
   afterModel(model) {
     model.set("usuario", model);
     model.set("validaciones", []);
+    model.set("contratos", this.store.findAll("contrato"));
   }
 });

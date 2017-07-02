@@ -1,0 +1,10 @@
+{{outlet}}
+
+<h1>Edición de escuela</h1>
+
+{{suite-formularios/escuela
+  model        = (changeset model model.validaciones)
+  contratos    = model.contratos
+  on-submit    = (route-action "guardar")
+  submit-label = 'Guardar'
+}}
