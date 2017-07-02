@@ -17,6 +17,15 @@
 {{#suite-grupo numero=3 titulo="Datos personales"}}
   {{f.input label="Teléfono" name="telefono"}}
   {{f.input label="Dirección" name="direccion"}}
+
+  {{#f.input label="Tipo de financiamiento" name="tipoDeFinanciamiento" as |fi|}}
+    {{suite-dropdown
+        seleccionado=f.model.tipoDeFinanciamiento
+        opciones=model.tiposDeFinanciamiento
+        cuandoSelecciona=fi.update
+    }}
+  {{/f.input}}
+
 {{/suite-grupo}}
 
 
