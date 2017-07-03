@@ -4,6 +4,7 @@
 
 {{suite-formularios/usuario
   model        = (changeset model.usuario model.validaciones)
+  contratos    = model.contratos
   on-submit    = (action "guardar")
   submit-label = 'Guardar'
 }}

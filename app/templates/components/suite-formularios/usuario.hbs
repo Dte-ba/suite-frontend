@@ -19,13 +19,20 @@
 {{/suite-grupo}}
 
 
-<!--
-{{f.input label="Fecha de ingreso" name="fechaDeIngreso"}}
+{{#suite-grupo numero=2 titulo="Datos administrativos"}}
 
-{{f.input label="image" name="image"}}
+  {{#f.input label="Contrato" name="contrato" as |fi|}}
+    {{suite-dropdown
+        conBusqueda=false
+        seleccionado=f.model.contrato
+        opciones=contratos
+        etiquetaDelModelo='nombre'
+        cuandoSelecciona=fi.update
+    }}
+  {{/f.input}}
 
-{{f.input type="file" name='demo'}}
--->
+{{/suite-grupo}}
+
 
  {{f.submit label="Guardar"}}
 {{/validated-form}}
