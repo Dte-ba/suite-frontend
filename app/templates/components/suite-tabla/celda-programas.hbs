@@ -1,0 +1,12 @@
+{{yield}}
+{{#if cargando}}
+  <div class="ui active inline mini loader"></div>
+{{else}}
+  {{#each valor as |programa|}}
+    {{#if programa.nombre}}
+      {{suite-programa programa=programa}}
+    {{/if}}
+  {{else}}
+    Sin programas
+  {{/each}}
+{{/if}}
