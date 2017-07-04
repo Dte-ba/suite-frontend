@@ -1,7 +1,12 @@
 {{outlet}}
 
+<h1>Agenda</h1>
+
 <div class="ui secondary pointing fluid menu">
-  <h2 class="ui header">Agenda</h2>
+    <div class="menu">
+      {{#link-to "app.agenda.index" class="ui item"}}Calendario{{/link-to}}
+      {{#link-to "app.agenda.lista" class="ui item"}}Lista de eventos{{/link-to}}
+    </div>
 </div>
 
 
