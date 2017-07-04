@@ -1,11 +1,6 @@
 import Ember from "ember";
 
 export default Ember.Controller.extend({
-  queryParams: ["crearEventoVisible"],
-  remodal: Ember.inject.service(),
-  eventoActual: {},
-  debeMostrarCrearEvento: false, // true si debe mostrar el modal para crear un evento y false para un modal de edición.
-
   header: {
     left: "prev,next today",
     center: "title",
