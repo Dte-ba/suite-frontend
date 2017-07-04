@@ -1,0 +1,11 @@
+{{outlet}}
+
+<h2>Crear un evento</h2>
+
+{{suite-formularios/evento
+  model        = (changeset model model.validaciones)
+  on-submit    = (route-action "guardarEvento")
+  texto = 'Crear evento'
+}}
+
+<button class="ui button" {{action (route-action "cancelar")}}>Cancelar</button>

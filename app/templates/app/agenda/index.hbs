@@ -2,20 +2,11 @@
 
 <div class="ui secondary pointing fluid menu">
   <h2 class="ui header">Agenda</h2>
-
-
-
-  <div class="menu">
-    <a href="#" class="ui item active">Agenda</a>
-    <a href="#" class="ui item disabled">Lista</a>
-  </div>
-
 </div>
 
 
-
 <div class="barra-de-botones">
-  <button class="ui button green" {{action "abrirModalParaCreacion"}}><i class='ui plus icon'></i> Crear un evento nuevo</button>
+  <button class="ui button green" {{action (route-action "crearUnEventoNuevo")}}><i class='ui plus icon'></i> Crear un evento nuevo</button>
 
 
   <div class='pull-right'>
@@ -32,36 +23,7 @@
     </label>
   </div>
 
-  <!--span class='text-orange'><i class='ui exclamation circle icon'></i> Hay 3 pedidos</span-->
 </div>
-
-
-{{#ember-remodal forService=true}}
-
-  {{#if debeMostrarCrearEvento}}
-
-    <h2>Crear un evento</h2>
-
-    {{suite-formularios/evento
-      model        = (changeset eventoActual validaciones)
-      on-submit    = (action "crearEvento")
-      texto = 'Crear evento'
-    }}
-
-  {{else}}
-
-    <h2>Modificar un evento</h2>
-
-    {{suite-formularios/evento
-      model        = (changeset eventoActual validaciones)
-      on-submit    = (action "guardarEvento")
-      texto = 'Guardar el evento'
-    }}
-
-  {{/if}}
-
-{{/ember-remodal}}
-
 
 
 {{full-calendar
@@ -76,6 +38,6 @@
 
     viewRender=(action 'viewRender')
     dayClick=(action 'dayClicked')
-    eventClick=(action 'clicked')
+    eventClick=(route-action 'editarUnEvento')
     eventRender=(action 'eventRender')
 }}

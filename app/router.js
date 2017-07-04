@@ -24,7 +24,10 @@ Router.map(function() {
       this.route("edicion", { path: "edicion/:perfil_id" });
     });
 
-    this.route("agenda", function() {});
+    this.route("agenda", function() {
+      this.route("crear");
+      this.route("editar", { path: "editar/:id" });
+    });
 
     this.route("regiones", function() {
       this.route("mapa");
