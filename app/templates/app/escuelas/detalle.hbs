@@ -11,23 +11,29 @@
       {{#link-to "app.escuelas.edicion" model class="ui button primario"}}Editar{{/link-to}}
     </div>
   </div>
-    {{suite-detalle-personas
+    {{suite-detalle-escuelas
         numero="1"
         titulo="Piso"
         model=model
         filas=model.filaPiso
     }}
-    {{suite-detalle-personas
+    {{suite-detalle-escuelas
         numero="2"
         titulo="Información"
         model=model
         filas=model.filaInformacion
     }}
-    {{suite-detalle-personas
+    {{#suite-detalle-escuelas
         numero="3"
         titulo="Datos de contacto"
         model=model
         filas=model.filaDatosDeContacto
     }}
+    <div class="five wide column g-map">
+      {{#g-map lat=model.latitud lng=model.longitud zoom=16 as |context|}}
+        {{g-map-marker context lat=model.latitud lng=model.longitud}}
+      {{/g-map}}
+    </div>
+    {{/suite-detalle-escuelas}}
 
 </div>

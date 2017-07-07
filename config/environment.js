@@ -35,6 +35,10 @@ module.exports = function(environment) {
       }
     },
   };
+  ENV['g-map'] = {
+    libraries: ['places'],
+    key: 'AIzaSyAEemsVtmvQNkC1C-iZ_fk2peWAZkewcBQ'
+  };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

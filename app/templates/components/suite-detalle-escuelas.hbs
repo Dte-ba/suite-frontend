@@ -1,0 +1,20 @@
+<div class="ui row segment">
+  <div class="five wide column">
+    <div class="suite-grupo-numero">{{numero}}</div>
+    <div class="suite-grupo-titulo">{{titulo}}</div>
+  </div>
+  <div class="six wide column">
+    <table class="ui very basic compact table tabla-definicion tabla-detalle-personas">
+      <tbody>
+        {{#each filas as |fila|}}
+          <tr>
+            <td class="four wide"><b>{{fila.titulo}}:</b></td>
+            <td class="twelve wide">{{get model fila.id}}</td>
+          </tr>
+        {{/each}}
+
+      </tbody>
+    </table>
+  </div>
+  {{yield}}
+</div>

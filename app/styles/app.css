@@ -536,3 +536,13 @@ iframe.mapa {
   padding-left: 6px;
   padding-right: 6px;
 }
+
+/*Mapa de escuelas*/
+
+.g-map{
+  height: 100%;
+}
+.g-map-canvas {
+  width: 100%;
+  height: 200%;
+}
