@@ -16,9 +16,11 @@
 
   <div class="eight wide column">
 
-    <ul>
-      <li>Demo</li>
-    </ul>
+    <h2>Referencia:</h2>
+
+    {{#each model as |region|}}
+      <li>Región {{region.numero}}</li>
+    {{/each}}
 
   </div>
 </div>

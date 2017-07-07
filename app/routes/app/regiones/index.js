@@ -8,15 +8,12 @@ export default Ember.Route.extend({
       columnas: [
         {
           propertyName: "numero",
-          title: "Número"
+          title: "Número",
+          template: "tablas/regiones/numero"
         },
         {
           propertyName: "distritosComoCadena",
           title: "Distritos"
-        },
-        {
-          title: "Acciones",
-          template: "tablas/regiones/acciones"
         }
       ]
     });
