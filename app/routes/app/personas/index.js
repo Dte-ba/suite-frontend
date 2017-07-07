@@ -7,8 +7,10 @@ export default Ember.Route.extend({
       columnas: [
         {
           propertyName: "nombreCompleto",
-          title: "Nombre completo"
+          title: "Nombre completo",
+          template: "tablas/usuarios/nombre"
         },
+        /*
         {
           propertyName: "regionComoCadena",
           title: "Región"
@@ -17,17 +19,14 @@ export default Ember.Route.extend({
           propertyName: "cargoComoCadena",
           title: "Cargo"
         },
+        */
+        {
+          propertyName: "dni",
+          title: "DNI"
+        },
         {
           propertyName: "cuit",
           title: "CUIL/CUIT"
-        },
-        {
-          propertyName: "email",
-          title: "E-mail"
-        },
-        {
-          propertyName: "telefonoCelular",
-          title: "Celular"
         },
         {
           propertyName: "contratoComoCadena",
@@ -36,10 +35,6 @@ export default Ember.Route.extend({
         {
           propertyName: "fechaDeIngreso",
           title: "Fecha de ingreso"
-        },
-        {
-          title: "Acciones",
-          template: "tablas/usuarios/acciones"
         }
       ]
     });

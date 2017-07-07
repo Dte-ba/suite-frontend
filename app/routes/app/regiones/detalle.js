@@ -9,11 +9,8 @@ export default Ember.Route.extend({
     let columnas = [
       {
         title: "Nombre",
-        propertyName: "nombre"
-      },
-      {
-        title: "Acciones",
-        template: "tablas/distritos/acciones"
+        propertyName: "nombre",
+        template: "tablas/distritos/nombre"
       }
     ];
 
