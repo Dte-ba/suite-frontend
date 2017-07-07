@@ -17,10 +17,20 @@ export default DS.Model.extend({
   area: DS.belongsTo("area"),
   programas: DS.hasMany("programa"),
   piso: DS.belongsTo("piso"),
+  contactos: DS.hasMany("contacto"),
 
   programasComoCadena: Ember.computed("programas", function() {
     return this.get("programas").map(e => e.get("nombre")).join(", ");
   }),
+
+  contactosComoCadena: Ember.computed("contactos.@each", function() {
+    return this.get("contactos").map(e => {
+      return {
+        nombre: e.get("nombre"),
+        title: e.get("titulo")
+      };
+    });
+  })
 
   validaciones: {
     nombre: [validatePresence(true)],
