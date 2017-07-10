@@ -6,8 +6,15 @@ module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     emberFullCalendar: {
       scheduler: false
+    },
+
+
+   minifyJS: {
+      enabled: false
+    },
+    minifyCSS: {
+      enabled: false
     }
-    // Add options here
   });
 
   app.import('vendor/tablesort.js');
