@@ -65,7 +65,7 @@ module.exports = function(environment) {
       enabled: false
     };
 
-    ENV.API_URL = "http://suite-backend.enjambrelab.com.ar/api";
+    ENV.API_URL = "http://suite-backend.enjambrelab.com.ar";
     ENV.usingMirage = false;
   }
 
