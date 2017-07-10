@@ -6,6 +6,12 @@
   {{suite-tabla-error-de-api error=tarea.last.error}}
 {{else}}
 
+  <div class="ui action input">
+    {{input type="text" value=filtro_temporal action=(action "alIngresarFiltro")}}
+    <button class="ui button" {{action "alIngresarFiltro"}}><i class="search icon"></i> Buscar</button>
+  </div>
+
+
   {{#data-table data=tarea.lastSuccessful.value.data classNames='ui celled table selectable' as |t|}}
 
       {{#t.column propertyName='cue' defaultHeader=true name='CUE' as |col|}}
@@ -30,9 +36,17 @@
         {{suite-tabla/celda-programas valor=col.row.programas}}
       {{/t.column}}
 
+
   {{/data-table}}
 
-  {{suite-tabla-paginador meta=tarea.lastSuccessful.value.meta tarea=tarea}}
+  {{#unless tarea.lastSuccessful.value.data}}
+    <div class="centrado">Sin datos para mostrar</div>
+  {{/unless}}
+
+  {{suite-tabla-paginador
+      meta=tarea.lastSuccessful.value.meta
+      cuandoCambiaPagina=(action "cambiarPagina")
+      pagina=pagina}}
 
     {{#if tarea.last.isRunning}}
       <div class="overlay-spinner">

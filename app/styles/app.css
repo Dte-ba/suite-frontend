@@ -539,10 +539,14 @@ iframe.mapa {
 
 /*Mapa de escuelas*/
 
-.g-map{
+.g-map {
   height: 100%;
 }
 .g-map-canvas {
   width: 100%;
   height: 200%;
+}
+
+.centrado {
+  text-align: center;
 }

@@ -25,6 +25,21 @@ export default function() {
   this.patch("/perfiles/:id");
 
   this.get("/escuelas");
+
+  /*
+  this.get("/escuelas", function(db, request) {
+    let escuelas = db.escuelas.all().models;
+
+    return {
+      data: escuelas.map(attrs => ({
+        type: "escuela",
+        id: attrs.id,
+        attributes: attrs
+      }))
+    };
+  });
+  */
+
   this.get("/escuelas/:id");
   this.put("/escuelas/:id");
   this.del("/escuelas/:id");

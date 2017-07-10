@@ -45,4 +45,13 @@ export default function(server) {
     localidad: localidad,
     tipoDeFinanciamiento: tipoDeFinanciamiento
   });
+
+  server.create("escuela", {
+    CUE: "203030",
+    nombre: "Escuela N° 3 - Don José de San Martín",
+    direccion: "French 103",
+    telefono: "462-0411",
+    localidad: localidad,
+    tipoDeFinanciamiento: tipoDeFinanciamiento
+  });
 }

@@ -30,7 +30,7 @@ export default DS.Model.extend({
         title: e.get("titulo")
       };
     });
-  })
+  }),
 
   validaciones: {
     nombre: [validatePresence(true)],

@@ -18,10 +18,10 @@ export default Ember.Component.extend({
 
   actions: {
     mostrarPaginaAnterior() {
-      return this.get("tarea").perform({ page: this.get("paginaActual") - 1 });
+      this.sendAction("cuandoCambiaPagina", this.get("paginaActual") - 1);
     },
     mostrarSiguientePagina() {
-      return this.get("tarea").perform({ page: this.get("paginaActual") + 1 });
+      this.sendAction("cuandoCambiaPagina", this.get("paginaActual") + 1);
     }
   }
 });
