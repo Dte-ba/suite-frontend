@@ -2,10 +2,10 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'suite-frontend',
+    modulePrefix: "suite-frontend",
     environment: environment,
-    rootURL: '/',
-    locationType: 'hash',
+    rootURL: "/",
+    locationType: "hash",
     usingMirage: false,
     EmberENV: {
       FEATURES: {
@@ -23,52 +23,51 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    'ember-validated-form': {
+    "ember-validated-form": {
       css: {
-        form: 'ui form',
-        radio: 'ui radio',
-        help: 'ui pointing red basic label',
-        checkbox: 'ui checkbox',
-        button: 'ui button',
-        group: 'field',
-        error: 'error'
+        form: "ui form",
+        radio: "ui radio",
+        help: "ui pointing red basic label",
+        checkbox: "ui checkbox",
+        button: "ui button",
+        group: "field",
+        error: "error"
       }
-    },
+    }
   };
-  ENV['g-map'] = {
-    libraries: ['places'],
-    key: 'AIzaSyAEemsVtmvQNkC1C-iZ_fk2peWAZkewcBQ'
+  ENV["g-map"] = {
+    libraries: ["places"],
+    key: "AIzaSyAEemsVtmvQNkC1C-iZ_fk2peWAZkewcBQ"
   };
 
-  if (environment === 'development') {
+  if (environment === "development") {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.API_URL = '';
+    ENV.API_URL = "";
   }
 
-  if (environment === 'test') {
+  if (environment === "test") {
     // Testem prefers this...
-    ENV.locationType = 'none';
+    ENV.locationType = "none";
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.rootElement = "#ember-testing";
   }
 
-  if (environment === 'production') {
-    ENV['ember-cli-mirage'] = {
+  if (environment === "production") {
+    ENV["ember-cli-mirage"] = {
       enabled: false
     };
 
-    ENV.API_URL = 'http://testing-suite-admin.dtelab.com.ar';
+    ENV.API_URL = "http://suite-backend.enjambrelab.com.ar/api";
     ENV.usingMirage = false;
   }
-
 
   return ENV;
 };
