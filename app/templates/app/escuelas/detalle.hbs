@@ -1,14 +1,22 @@
 {{outlet}}
 <div class="ui stackable grid">
   <div class="ui row middle aligned segment">
-    <div class="six wide column">
-      <h2 class="ui header">
+    <div class="ten wide column">
+      <h3 class="ui header">
         {{model.nombre}} - {{model.cue}}
-      </h2>
+      </h3>
     </div>
-    <div class="eight wide column"></div>
+    <div class="four wide column"></div>
     <div class="two wide column">
       {{#link-to "app.escuelas.edicion" model class="ui button primario"}}Editar{{/link-to}}
+    </div>
+  </div>
+  <div class="ui equal width row middle aligned segment">
+    <div class="column">
+      <i class="ui check circle icon"></i> Abierta
+    </div>
+    <div class="column">
+      <i class="ui server icon"></i> Piso: {{model.piso.estadoComoCadena}}
     </div>
   </div>
     {{suite-detalle-escuelas
@@ -35,6 +43,7 @@
       {{/g-map}}
     </div>
     {{/suite-detalle-escuelas}}
+    {{#if model.contactos}}
     <div class="ui row segment">
       <div class="four wide column">
         <div class="suite-grupo-numero">4</div>
@@ -44,7 +53,6 @@
         <table class="ui very basic compact table tabla-definicion tabla-detalle-personas">
           <tbody>
             {{#each model.contactos as |contacto|}}
-            <div class="ui segment">
               <tr>
                 <td class="five wide"><b>Nombre:</b></td>
                 <td class="eleven wide">{{contacto.nombre}}</td>
@@ -69,12 +77,13 @@
                 <td class="five wide"><b>Horario:</b></td>
                 <td class="eleven wide">{{contacto.horario}}</td>
               </tr>
-            </div>
+              <br>
             {{/each}}
           </tbody>
         </table>
       </div>
     </div>
+    {{/if}}
 
 
 

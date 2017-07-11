@@ -12,7 +12,7 @@
   </div>
 
 
-  {{#data-table data=tarea.lastSuccessful.value.data classNames='ui celled table selectable' as |t|}}
+  {{#data-table data=tarea.lastSuccessful.value.data classNames='ui celled striped table selectable' as |t|}}
 
       {{#t.column propertyName='cue' defaultHeader=true name='CUE' as |col|}}
         {{#link-to "app.escuelas.detalle" col.row}}{{col.row.cue}}{{/link-to}}
@@ -26,6 +26,10 @@
 
       {{#t.column defaultHeader=true name='Localidad' as |col|}}
         {{suite-promesa valor=col.row.localidad.nombre}}
+      {{/t.column}}
+
+      {{#t.column defaultHeader=true name='Nivel' as |col|}}
+        {{suite-promesa valor=col.row.nivel.nombre}}
       {{/t.column}}
 
       {{#t.column name='Financiamiento' defaultHeader=true as |col|}}
