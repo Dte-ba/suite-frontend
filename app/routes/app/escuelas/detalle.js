@@ -82,17 +82,6 @@ export default Ember.Route.extend({
       {
         titulo: "Región",
         id: "localidad.distrito.region.numero"
-      },
-      {
-        titulo: "Contactos",
-        id: "contactosComoCadena"
-      }
-    ]);
-
-    model.set("filaContactos", [
-      {
-        titulo: "Nombre",
-        id: "contactosComoCadena"
       }
     ]);
 

@@ -23,15 +23,6 @@ export default DS.Model.extend({
     return this.get("programas").map(e => e.get("nombre")).join(", ");
   }),
 
-  contactosComoCadena: Ember.computed("contactos.@each", function() {
-    return this.get("contactos").map(e => {
-      return {
-        nombre: e.get("nombre"),
-        title: e.get("titulo")
-      };
-    });
-  }),
-
   validaciones: {
     nombre: [validatePresence(true)],
     cue: [validatePresence(true)]

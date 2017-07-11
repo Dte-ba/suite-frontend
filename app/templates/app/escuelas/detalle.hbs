@@ -35,12 +35,46 @@
       {{/g-map}}
     </div>
     {{/suite-detalle-escuelas}}
-    {{suite-detalle-escuelas
-      numero="4"
-      titulo="Autoridades"
-      model=model
-      model=model.filaContactos
-    }}
+    <div class="ui row segment">
+      <div class="four wide column">
+        <div class="suite-grupo-numero">4</div>
+        <div class="suite-grupo-titulo">Personal</div>
+      </div>
+      <div class="seven wide column">
+        <table class="ui very basic compact table tabla-definicion tabla-detalle-personas">
+          <tbody>
+            {{#each model.contactos as |contacto|}}
+            <div class="ui segment">
+              <tr>
+                <td class="five wide"><b>Nombre:</b></td>
+                <td class="eleven wide">{{contacto.nombre}}</td>
+              </tr>
+              <tr>
+                <td class="five wide"><b>Cargo:</b></td>
+                <td class="eleven wide">{{contacto.cargo.nombre}}</td>
+              </tr>
+              <tr>
+                <td class="five wide"><b>Teléfono particular:</b></td>
+                <td class="eleven wide">{{contacto.telefono-particular}}</td>
+              </tr>
+              <tr>
+                <td class="five wide"><b>Teléfono celular:</b></td>
+                <td class="eleven wide">{{contacto.telefono-celular}}</td>
+              </tr>
+              <tr>
+                <td class="five wide"><b>Email:</b></td>
+                <td class="eleven wide">{{contacto.email}}</td>
+              </tr>
+              <tr>
+                <td class="five wide"><b>Horario:</b></td>
+                <td class="eleven wide">{{contacto.horario}}</td>
+              </tr>
+            </div>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
 
 
 

@@ -20,6 +20,7 @@ let initializer = {
     inflector.irregular("contrato", "contratos");
     inflector.irregular("experiencia", "experiencias");
     inflector.irregular("piso", "pisos");
+    inflector.irregular("cargo-escolar", "cargos-escolares");
   }
 };
 
