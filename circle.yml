@@ -11,5 +11,5 @@ deployment:
   production:
     branch: master
     commands:
-      - git remote add dokku dokku@dtelab.com.ar:suite-beta
+      - git remote add dokku dokku@enjambrelab.com.ar:suite
       - git push dokku master:master
