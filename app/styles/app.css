@@ -398,7 +398,7 @@ li.section {
 
 p {
   margin-top: 2em;
-  font-family: 'Roboto';
+  font-family: 'Roboto Light' !important;
   font-size: medium;
   line-height: 1.7;
 }
