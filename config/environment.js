@@ -1,9 +1,10 @@
-/* jshint node: true */
+/* eslint-env node */
+"use strict";
 
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     modulePrefix: "suite-frontend",
-    environment: environment,
+    environment,
     rootURL: "/",
     locationType: "hash",
     usingMirage: false,
@@ -22,7 +23,6 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-
     "ember-validated-form": {
       css: {
         form: "ui form",
@@ -35,6 +35,7 @@ module.exports = function(environment) {
       }
     }
   };
+
   ENV["g-map"] = {
     libraries: ["places"],
     key: "AIzaSyAEemsVtmvQNkC1C-iZ_fk2peWAZkewcBQ"

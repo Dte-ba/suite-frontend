@@ -11,8 +11,6 @@ function esperar() {
 }
 
 function clickSobreElTexto(texto) {
-  console.log(`Hace click sobre "${texto}"`);
-
   let boton = $(`button:contains("${texto}")`);
   let ahref = $(`a:contains("${texto}")`);
 

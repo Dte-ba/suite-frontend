@@ -78,7 +78,7 @@ export default Ember.Component.extend({
     atajoDeValidaciones.map(atajo => {
       if (!(atajo in diccionarioDeValidaciones)) {
         let atajosValidos = Object.keys(diccionarioDeValidaciones);
-        console.warn(
+        throw new Error(
           `Cuidado, el atajo '${atajo}' es inválido, no existe un atajo con ese nombre. Los únicos atajos que existen son: ${atajosValidos}`
         );
       }

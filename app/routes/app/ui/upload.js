@@ -16,18 +16,16 @@ export default Ember.Route.extend({
         this.set("model.url_imagen", lista_de_archivos[0].name);
 
         let reader = new FileReader();
-        console.log(lista_de_archivos[0].name);
 
         reader.onloadend = () => {
-          console.log(this.currentModel);
           this.currentModel.set("url_imagen", reader.result);
           //controller.set('photoPreviewUrl', reader.result);
         };
 
         reader.onprogress = function(data) {
           if (data.lengthComputable) {
-            var progress = parseInt(data.loaded / data.total * 100, 10);
-            console.log(progress);
+            let progress = parseInt(data.loaded / data.total * 100, 10);
+            this.set("theProgress", progress);
           }
         };
 

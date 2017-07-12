@@ -10,7 +10,8 @@ moduleForModel("escuela", "Unit | Model | escuela", {
     "model:area",
     "model:programa",
     "model:piso",
-    "model:contacto"
+    "model:contacto",
+    "model:nivel"
   ]
 });
 
