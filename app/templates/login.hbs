@@ -18,7 +18,13 @@
       </div>
 
       <div class="field">
-        <button class="ui button large fluid green" onclick={{action "authenticate"}}>Ingresar</button>
+        {{#if cargando}}
+          <button class="ui button disabled large fluid green">
+            <div class="ui active inverted mini inline loader"></div>
+          </button>
+        {{else}}
+          <button class="ui button large fluid green" onclick={{action "authenticate"}}>Ingresar</button>
+        {{/if}}
       </div>
 
       <div class="field">

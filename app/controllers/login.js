@@ -2,10 +2,13 @@ import Ember from "ember";
 
 export default Ember.Controller.extend({
   session: Ember.inject.service("session"),
+  cargando: false,
 
   actions: {
     authenticate() {
+      this.set("cargando", true);
       let { username, password } = this.getProperties("username", "password");
+
       this.get("session")
         .authenticate(
           "authenticator:drf-token-authenticator",
@@ -14,6 +17,7 @@ export default Ember.Controller.extend({
         )
         .catch(reason => {
           try {
+            this.set("cargando", false);
             let errors = JSON.parse(reason);
 
             if (errors.non_field_errors) {
@@ -22,6 +26,7 @@ export default Ember.Controller.extend({
               this.set("error", reason);
             }
           } catch (e) {
+            this.set("cargando", false);
             this.set("error", reason);
           }
         });

@@ -1,5 +1,2 @@
 {{yield}}
-
-{{#if session.isAuthenticated}}
-  <a {{action 'invalidateSession'}}>Cerrar sesión</a>
-{{/if}}
+<a {{action 'invalidateSession'}}>Cerrar sesión</a>

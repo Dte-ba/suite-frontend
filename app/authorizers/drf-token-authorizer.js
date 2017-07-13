@@ -5,10 +5,9 @@ export default Base.extend({
   session: Ember.inject.service("session"),
 
   authorize: function(sessionData, block) {
-    if (
-      this.get("session.isAuthenticated") &&
-      !Ember.isEmpty(sessionData.token)
-    ) {
+    let autentidated = this.get("session.isAuthenticated");
+
+    if (autentidated && !Ember.isEmpty(sessionData.token)) {
       block("Authorization", "Token " + sessionData.token);
     }
   }
