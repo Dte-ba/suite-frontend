@@ -8,7 +8,7 @@ let model = Ember.Object.create({
 });
 
 export default Ember.Component.extend({
-  localClassNames: ["login-contenedor"],
+  classNames: ["login-contenedor"],
   session: Ember.inject.service("session"),
 
   model: model,
