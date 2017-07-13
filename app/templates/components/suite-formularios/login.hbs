@@ -1,0 +1,26 @@
+{{yield}}
+
+<h2 class="header form-head">Suite</h2>
+
+    {{#validated-form
+      model        = (changeset model validaciones)
+      on-submit    = submit
+      as |f|}}
+
+      {{f.input disabled=submit.last.isRunning label="Usuario" id="username" name="usuario"}}
+      {{f.input disabled=submit.last.isRunning label="Contraseña" type="password" id="password"  name="clave"}}
+
+
+      {{#if submit.last.isRunning}}
+        <button class="ui disabled button large fluid green"><div class="ui active inverted tiny inline loader"></div> Ingresando </button>
+      {{else}}
+        {{f.submit label="Ingresar" class="ui button large fluid green"}}
+      {{/if}}
+    {{/validated-form}}
+
+
+      <div class="{{local-class 'login-error'}}">
+        {{#if error}}
+          <p>{{error}}</p>
+        {{/if}}
+      </div>

@@ -9,8 +9,8 @@ test("visiting /app", function(assert) {
   andThen(function() {
     assert.equal(currentURL(), "/login");
 
-    fillIn("#username", "demo");
-    fillIn("#password", "demo");
+    fillIn("input[name='usuario']", "demo");
+    fillIn("input[name='clave']", "demo");
     click(".button");
   });
 

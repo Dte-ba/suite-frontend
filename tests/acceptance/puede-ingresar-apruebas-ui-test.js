@@ -26,8 +26,8 @@ test("visiting /", function(assert) {
 
   andThen(function() {
     assert.equal(currentURL(), "/login", "Ingreso correctamente");
-    fillIn("#username", "demo");
-    fillIn("#password", "demo");
+    fillIn("input[name='usuario']", "demo");
+    fillIn("input[name='clave']", "demo");
     esperar();
     click(".button");
   });
