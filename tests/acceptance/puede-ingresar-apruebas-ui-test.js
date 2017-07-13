@@ -11,20 +11,25 @@ function esperar() {
 }
 
 function clickSobreElTexto(texto) {
-  let boton = $(`button:contains("${texto}")`);
   let ahref = $(`a:contains("${texto}")`);
+  let boton = $(`button:contains("${texto}")`);
 
-  boton.click();
-  ahref.click();
+  if (ahref) {
+    ahref.click();
+  } else {
+    boton.click();
+  }
 }
 
-test("visiting /app/ui", function(assert) {
-  visit("/login");
+test("visiting /", function(assert) {
+  visit("/");
 
   andThen(function() {
-    assert.equal(currentURL(), "/login");
-    clickSobreElTexto("Ingresar como dte");
+    assert.equal(currentURL(), "/login", "Ingreso correctamente");
+    fillIn("#username", "demo");
+    fillIn("#password", "demo");
     esperar();
+    click(".button");
   });
 
   andThen(function() {

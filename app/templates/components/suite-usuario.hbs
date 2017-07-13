@@ -1,24 +1,5 @@
 {{yield}}
 
-<!--
-<img class="ui circular image user-avatar" src="/imagenes/user.jpg">
--->
-<span class="user-avatar-name">{{nombre}}</span>
-
-<div class="ui popup inverted">
-
-  <!--
-    <div class="center-row">
-      <img class="ui circular image user-avatar-large centered" src="/imagenes/user.jpg">
-    </div>
-  -->
-
-    <div class="center-row">
-      <button class="ui button mini" {{action "abrirPreferencias"}}>Preferencias</button>
-    </div>
-
-    <div class="center-row">
-      <button class="ui button orange mini" {{action "cerrarLaSesion"}}>Cerrar sesión</button>
-    </div>
-
-</div>
+{{#if session.isAuthenticated}}
+  <a {{action 'invalidateSession'}}>Cerrar sesión</a>
+{{/if}}

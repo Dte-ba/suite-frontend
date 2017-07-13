@@ -1,26 +1,30 @@
 import Ember from "ember";
 
 export default Ember.Controller.extend({
-  sesion: Ember.inject.service(),
-
-  ingresarComo(nombre) {
-    return this.store
-      .createRecord("sesion", {
-        usuario: nombre
-      })
-      .save()
-      .then(() => {
-        this.get("sesion").login(nombre);
-        this.transitionToRoute("app.index");
-      });
-  },
+  session: Ember.inject.service("session"),
 
   actions: {
-    loginProgramador() {
-      return this.ingresarComo("Programador");
-    },
-    loginDTE() {
-      return this.ingresarComo("DTE");
+    authenticate() {
+      let { username, password } = this.getProperties("username", "password");
+      this.get("session")
+        .authenticate(
+          "authenticator:drf-token-authenticator",
+          username,
+          password
+        )
+        .catch(reason => {
+          try {
+            let errors = JSON.parse(reason);
+
+            if (errors.non_field_errors) {
+              this.set("error", errors.non_field_errors);
+            } else {
+              this.set("error", reason);
+            }
+          } catch (e) {
+            this.set("error", reason);
+          }
+        });
     }
   }
 });

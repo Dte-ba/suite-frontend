@@ -1,14 +1,6 @@
 {{outlet}}
 
-
-<div class="ui secondary pointing fluid menu">
-  <h2 class="ui header">Personas</h2>
-
-    <div class="right menu">
-      {{#link-to "app.personas.index" class="ui item"}}Listado{{/link-to}}
-    </div>
-
-</div>
+{{suite-titulo titulo="Personas"}}
 
 <div class="barra-de-botones">
   <button class="ui button primario " disabled {{action (route-action "crearUnUsuarioNuevo")}}>Crear un usuario nuevo</button>

@@ -40,6 +40,15 @@ export default function() {
   });
   */
 
+  this.post("/auth", (schema, request) => {
+    if (request.requestBody !== '{"username":"demo","password":"demo"}') {
+      return "Estás usando una versión con datos de prueba, ingresá con el usuario 'demo' y contraseña 'demo'";
+    } else {
+      return {
+        token: "tokendemo"
+      };
+    }
+  });
   this.get("/escuelas/:id");
   this.put("/escuelas/:id");
   this.del("/escuelas/:id");

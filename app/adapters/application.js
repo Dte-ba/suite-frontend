@@ -3,5 +3,6 @@ import ENV from "../config/environment";
 
 export default DS.JSONAPIAdapter.extend({
   host: ENV.API_URL,
-  namespace: "api"
+  namespace: "api",
+  authorizer: "authorizer:drf-token-authorizer"
 });
