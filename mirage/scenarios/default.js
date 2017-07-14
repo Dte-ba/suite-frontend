@@ -54,4 +54,14 @@ export default function(server) {
     localidad: localidad,
     tipoDeFinanciamiento: tipoDeFinanciamiento
   });
+
+  server.create("perfil", {
+    nombre: "Usuario",
+    apellido: "Ejemplo"
+  });
+
+  server.create("perfil", {
+    nombre: "Demo",
+    apellido: "Demo"
+  });
 }

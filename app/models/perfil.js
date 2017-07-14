@@ -8,7 +8,7 @@ export default DS.Model.extend({
   apellido: DS.attr("string"),
   fechadenacimiento: DS.attr("string"),
   titulo: DS.attr("string"),
-  experiencia: DS.belongsTo('experiencia'),
+  experiencia: DS.belongsTo("experiencia"),
   dni: DS.attr("string"),
   cuit: DS.attr("string"),
   cbu: DS.attr("string"),
@@ -55,22 +55,32 @@ export default DS.Model.extend({
     return `${apellido}, ${nombre}`;
   }),
 
-  direccionCompleta: Ember.computed("direccionCalle", "direccionAltura", "direccionPiso", "direccionDepto", "direccionTorre", "localidad.{nombre}", "codigoPostal", function() {
-    let direccionCalle = this.get("direccionCalle");
-    let direccionAltura = this.get("direccionAltura");
-    let direccionPiso = this.get("direccionPiso");
-    let direccionDepto = this.get("direccionDepto");
-    let direccionTorre = this.get("direccionTorre");
-    if (direccionTorre === "") {
-      direccionTorre = "";
-    } else {
-      direccionTorre = "- Torre ${direccionTorre}";
+  direccionCompleta: Ember.computed(
+    "direccionCalle",
+    "direccionAltura",
+    "direccionPiso",
+    "direccionDepto",
+    "direccionTorre",
+    "localidad.{nombre}",
+    "codigoPostal",
+    function() {
+      let direccionCalle = this.get("direccionCalle") || "";
+      let direccionAltura = this.get("direccionAltura") || "";
+      let direccionPiso = this.get("direccionPiso") || "";
+      let direccionDepto = this.get("direccionDepto") || "";
+      let direccionTorre = this.get("direccionTorre") || "";
+
+      if (direccionTorre === "") {
+        direccionTorre = "";
+      } else {
+        direccionTorre = "- Torre ${direccionTorre}";
+      }
+
+      let localidad = this.get("localidad.nombre");
+
+      let codigoPostal = this.get("codigoPostal");
+
+      return `${direccionCalle} ${direccionAltura} - Piso ${direccionPiso} - Dpto ${direccionDepto} ${direccionTorre} - ${localidad} - ${codigoPostal}`;
     }
-
-    let localidad = this.get("localidad.nombre");
-
-    let codigoPostal = this.get("codigoPostal");
-
-    return `${direccionCalle} ${direccionAltura} - Piso ${direccionPiso} - Dpto ${direccionDepto} ${direccionTorre} - ${localidad} - ${codigoPostal}`;
-  })
+  )
 });

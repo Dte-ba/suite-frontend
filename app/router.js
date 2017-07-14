@@ -45,6 +45,7 @@ Router.map(function() {
       this.route("mapa");
       this.route("edicion", { path: "edicion/:escuela_id" });
     });
+    this.route('mi-perfil');
   });
 
   this.route("tablas", function() {

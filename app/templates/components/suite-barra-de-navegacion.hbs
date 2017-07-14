@@ -22,9 +22,6 @@
 
 <div class="right menu">
 
-  {{#if usandoMirage}}
-    <span class="aviso-mirage">Usando Mirage en modo local</span>
-  {{/if}}
-
-  {{suite-usuario nombre=nombre cuandoQuiereCerrarSesion=cuandoQuiereCerrarSesion}}
+  {{#link-to "app.mi-perfil" class="ui item"}}{{ember-initials class="user-big-avatar icon" name="Hugo Ruscitti" size=20}} &nbsp; Preferencias{{/link-to}}
+  {{suite-usuario cuandoQuiereCerrarSesion=cuandoQuiereCerrarSesion}}
 </div>

@@ -3,9 +3,9 @@ import AuthenticatedRouteMixin from "ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   breadCrumb: null,
-  perfil: Ember.inject.service()
+  perfil: Ember.inject.service(),
 
-  //afterModel() {
-  //  return this.get("perfil").cargar();
-  //}
+  afterModel() {
+    return this.get("perfil").cargar();
+  }
 });

@@ -23,6 +23,10 @@ export default DS.Model.extend({
     return this.get("programas").map(e => e.get("nombre")).join(", ");
   }),
 
+  tieneDatosGeolocalizacion: Ember.computed("latitud", "longitud", function() {
+    return this.get("latitud") && this.get("longitud");
+  }),
+
   validaciones: {
     nombre: [validatePresence(true)],
     cue: [validatePresence(true)]

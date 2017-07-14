@@ -1,7 +1,7 @@
 export default function() {
   this.urlPrefix = "api";
   //this.namespace = '';
-  //this.timing = 1400;
+  this.timing = 1000;
 
   this.get("/eventos");
   this.get("/eventos/:id");
@@ -50,45 +50,48 @@ export default function() {
     }
   });
 
-  this.get("/mi-perfil", (/*schema, request*/) => {
-    return {
-      data: {
-        username: "hugoruscitti",
-        apellido: "Ruscitti",
-        grupos: [{ nombre: "coordinador", id: 1 }],
-        idPerfil: 2,
-        permisosComoLista: [
-          {
-            titulo: "Can delete tipo de financiamiento",
-            identificador: "tipodefinanciamiento.delete_tipodefinanciamiento",
-            aplicacion: "escuelas",
-            modulo: "tipodefinanciamiento",
-            nombre: "delete_tipodefinanciamiento"
-          },
-          {
-            titulo: "Can add tipo de gestion",
-            identificador: "tipodegestion.add_tipodegestion",
-            aplicacion: "escuelas",
-            modulo: "tipodegestion",
-            nombre: "add_tipodegestion"
-          },
-          {
-            titulo: "Can change tipo de gestion",
-            identificador: "tipodegestion.change_tipodegestion",
-            aplicacion: "escuelas",
-            modulo: "tipodegestion",
-            nombre: "change_tipodegestion"
+  this.get(
+    "/mi-perfil",
+    (/*schema, request*/) => {
+      return {
+        data: {
+          username: "hugoruscitti",
+          apellido: "Ruscitti",
+          grupos: [{ nombre: "coordinador", id: 1 }],
+          idPerfil: 2,
+          permisosComoLista: [
+            {
+              titulo: "Can delete tipo de financiamiento",
+              identificador: "tipodefinanciamiento.delete_tipodefinanciamiento",
+              aplicacion: "escuelas",
+              modulo: "tipodefinanciamiento",
+              nombre: "delete_tipodefinanciamiento"
+            },
+            {
+              titulo: "Can add tipo de gestion",
+              identificador: "tipodegestion.add_tipodegestion",
+              aplicacion: "escuelas",
+              modulo: "tipodegestion",
+              nombre: "add_tipodegestion"
+            },
+            {
+              titulo: "Can change tipo de gestion",
+              identificador: "tipodegestion.change_tipodegestion",
+              aplicacion: "escuelas",
+              modulo: "tipodegestion",
+              nombre: "change_tipodegestion"
+            }
+          ],
+          nombre: "Hugo",
+          permisos: {
+            "tipodegestion.add_tipodegestion": true,
+            "tipodefinanciamiento.delete_tipodefinanciamiento": true,
+            "tipodegestion.change_tipodegestion": true
           }
-        ],
-        nombre: "Hugo",
-        permisos: {
-          "tipodegestion.add_tipodegestion": true,
-          "tipodefinanciamiento.delete_tipodefinanciamiento": true,
-          "tipodegestion.change_tipodegestion": true
         }
-      }
-    };
-  });
+      };
+    }
+  );
 
   this.get("/escuelas/:id");
   this.put("/escuelas/:id");
