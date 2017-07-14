@@ -37,5 +37,11 @@ module.exports = function(defaults) {
   app.import("vendor/roboto/Roboto-Bold.ttf");
   app.import("vendor/roboto/Roboto-Light.ttf");
 
+  app.import("vendor/daterangepicker.min.css");
+  app.import("vendor/jquery.daterangepicker.js");
+
+  app.import("vendor/jquery.timepicker.min.js");
+  app.import("vendor/jquery.timepicker.css");
+
   return app.toTree();
 };
