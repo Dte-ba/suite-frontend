@@ -5,6 +5,12 @@ export default Ember.Service.extend({
   ajax: Ember.inject.service(),
   data: {},
 
+  nombreCompleto: Ember.computed("data.nombre", "data.apellido", function() {
+    let nombre = this.get("data.nombre");
+    let apellido = this.get("data.apellido");
+    return `${nombre} ${apellido}`;
+  }),
+
   // Se llamará desde la ruta principal app.
   cargar() {
     let url = ENV.API_URL + "/api/mi-perfil";
