@@ -2,7 +2,7 @@ import Ember from "ember";
 
 export default Ember.Route.extend({
   model() {
-    let hoy = moment(new Date()).format("YYYY-MM-DD");
+    let hoy = "2017-10-10T20:00";
     return this.store.createRecord("evento", {
       fechainicio: hoy,
       fechafin: hoy,

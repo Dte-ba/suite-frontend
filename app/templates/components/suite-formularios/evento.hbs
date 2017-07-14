@@ -9,17 +9,17 @@
   <div class="ui two column grid">
     <div class="row">
       <div class="column">
-        {{f.input type='date' label="Fecha comienzo" name="fechainicio"}}
+        {{f.input label="Fecha comienzo" name="fechainicio"}}
       </div>
 
       <div class="column">
-        {{f.input type='date' label="Fecha de finalización" name="fechafin"}}
+        {{f.input label="Fecha de finalización" name="fechafin"}}
       </div>
     </div>
   </div>
 
-  <hr/>
 
-  {{f.submit label=texto}}
+  {{f.submit label=texto class="ui button green"}}
+  {{yield}}
 
 {{/validated-form}}
