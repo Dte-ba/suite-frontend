@@ -53,6 +53,7 @@ Router.map(function() {
       this.route("acciones");
     });
   });
+  this.route('logout');
 });
 
 export default Router;
