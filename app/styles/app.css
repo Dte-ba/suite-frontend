@@ -490,10 +490,6 @@ iframe.mapa {
   height: 100% !important;
 }
 
-.suite-tabla-escuelas {
-  position: relative;
-}
-
 .suite2-tabla {
   position: relative;
 }
@@ -591,4 +587,8 @@ iframe.mapa {
 
 .reducir-dimmer {
   opacity: 0.6 !important;
+}
+
+.filtros {
+  margin-bottom: 1em;
 }
