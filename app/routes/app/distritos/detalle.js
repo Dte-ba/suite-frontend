@@ -8,7 +8,7 @@ export default Ember.Route.extend({
     return { data, meta };
   }).drop(),
 
-  model(params) {
+  model() {
     return Ember.RSVP.hash({
       tarea: this.get("obtenerLocalidades"),
       columnas: [
