@@ -5,6 +5,7 @@ import { UnauthorizedError } from "ember-ajax/errors";
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   breadCrumb: null,
   perfil: Ember.inject.service(),
+  authenticationRoute: "login",
 
   afterModel() {
     return this.get("perfil")

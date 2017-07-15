@@ -3,6 +3,7 @@ import ApplicationRouteMixin from "ember-simple-auth/mixins/application-route-mi
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   sesion: Ember.inject.service(),
+  routeAfterAuthentication: "app",
 
   model() {
     return this.store.findAll("sesion").then(data => {

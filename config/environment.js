@@ -35,11 +35,7 @@ module.exports = function(environment) {
         error: "error"
       }
     },
-    "ember-simple-auth": {
-      authenticationRoute: "login",
-      routeAfterAuthentication: "app",
-      routeIfAlreadyAuthenticated: "app"
-    }
+    "ember-simple-auth": {}
   };
 
   ENV["g-map"] = {
