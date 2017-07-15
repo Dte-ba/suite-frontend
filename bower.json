@@ -2,6 +2,7 @@
   "name": "suite-frontend",
   "dependencies": {
     "semantic-ui": "^2.2.11",
-    "remodal": "1.1.0"
+    "remodal": "1.1.0",
+    "semantic-ui-calendar": "^0.0.8"
   }
 }

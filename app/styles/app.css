@@ -82,11 +82,6 @@ th.table-header {
   padding: 5px;
 }
 
-/* Arreglo para que el panel de usuario se vea más un poquito hacia la izquierda */
-.ui.bottom.right.popup {
-  margin-right: 1em !important;
-}
-
 body > .ember-view {
   height: 100%;
   font-size: 100%;
@@ -465,11 +460,6 @@ a.color-gris,
 
 .suite-tabla-paginador {
   text-align: right;
-}
-
-.center {
-  text-align: center;
-  display: block;
 }
 
 iframe.mapa {
