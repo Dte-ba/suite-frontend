@@ -1,9 +1,13 @@
 import { moduleForComponent, test } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 
-moduleForComponent("suite-tabla", "Integration | Component | suite tabla", {
-  integration: true
-});
+moduleForComponent(
+  "suite-tabla-con-filtros",
+  "Integration | Component | suite tabla con filtros",
+  {
+    integration: true
+  }
+);
 
 test("it renders", function(assert) {
   this.set("rows", [{ nombre: "Pepe", id: 20 }, { nombre: "Toto", id: 30 }]);
@@ -20,7 +24,7 @@ test("it renders", function(assert) {
     }
   ]);
 
-  this.render(hbs`{{suite-tabla columnas=cols filas=rows}}`);
+  this.render(hbs`{{suite-tabla-con-filtros columnas=cols filas=rows}}`);
   let texto = this.$().text().trim();
   //console.log(texto);
 

@@ -1,19 +1,21 @@
 import Ember from "ember";
+import { task } from "ember-concurrency";
 
 export default Ember.Route.extend({
+  obtenerRegiones: task(function*(query) {
+    let data = yield this.store.query("region", query);
+    let meta = data.get("meta");
+    return { data, meta };
+  }).drop(),
+
   model() {
     return Ember.RSVP.hash({
-      regiones: this.store.findAll("region"),
-      distritos: this.store.findAll("distrito"),
+      tarea: this.get("obtenerRegiones"),
       columnas: [
         {
-          propertyName: "numero",
-          title: "Número",
-          template: "tablas/regiones/numero"
-        },
-        {
-          propertyName: "distritosComoCadena",
-          title: "Distritos"
+          atributo: "numero",
+          titulo: "Número de región",
+          ruta: "app.regiones.detalle"
         }
       ]
     });

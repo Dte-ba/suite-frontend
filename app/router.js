@@ -15,7 +15,6 @@ Router.map(function() {
       this.route("modales");
       this.route("otros");
       this.route("planilla");
-      this.route("upload");
     });
 
     this.route("personas", function() {
@@ -27,7 +26,7 @@ Router.map(function() {
     this.route("agenda", function() {
       this.route("crear");
       this.route("editar", { path: "editar/:id" });
-      this.route('lista');
+      this.route("lista");
     });
 
     this.route("regiones", function() {
@@ -45,7 +44,7 @@ Router.map(function() {
       this.route("mapa");
       this.route("edicion", { path: "edicion/:escuela_id" });
     });
-    this.route('mi-perfil');
+    this.route("mi-perfil");
   });
 
   this.route("tablas", function() {
@@ -53,7 +52,7 @@ Router.map(function() {
       this.route("acciones");
     });
   });
-  this.route('logout');
+  this.route("logout");
 });
 
 export default Router;

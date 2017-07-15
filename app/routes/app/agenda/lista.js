@@ -26,7 +26,7 @@ export default Ember.Route.extend({
         },
         {
           atributo: "todoElDia",
-          titulo: "Todo El día",
+          titulo: "Día completo",
           template: "suite-tabla/celda-sino"
         }
       ]

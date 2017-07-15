@@ -1,23 +1,23 @@
 import Ember from "ember";
+import { task } from "ember-concurrency";
 
 export default Ember.Route.extend({
-  breadCrumb: {
-    title: "Detalle"
-  },
+  obtenerLocalidades: task(function*(query) {
+    let data = yield this.store.query("localidad", query);
+    let meta = data.get("meta");
+    return { data, meta };
+  }).drop(),
 
-  afterModel(model) {
-    let columnas = [
-      {
-        title: "Nombre",
-        propertyName: "nombre"
-      }
-    ];
-
-    model.set("columnas", columnas);
-
-    //let nombre = model.get("nombre");
-    // this.set("breadCrumb", { title: `Detalle del distrito ${nombre}` });
-
-    // return this.get("store").findAll("localidad");
+  model(params) {
+    return Ember.RSVP.hash({
+      tarea: this.get("obtenerLocalidades"),
+      columnas: [
+        {
+          atributo: "nombre",
+          titulo: "Nombre"
+          //ruta: "app.localidad.detalle"
+        }
+      ]
+    });
   }
 });
