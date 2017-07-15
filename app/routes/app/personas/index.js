@@ -1,40 +1,30 @@
 import Ember from "ember";
+import { task } from "ember-concurrency";
 
 export default Ember.Route.extend({
+  obtenerPersonas: task(function*(query) {
+    let data = yield this.store.query("perfil", query);
+    let meta = data.get("meta");
+    return { data, meta };
+  }).drop(),
+
   model() {
     return Ember.RSVP.hash({
-      perfiles: this.store.findAll("perfil"),
+      tareaPersonas: this.get("obtenerPersonas"),
       columnas: [
         {
-          propertyName: "nombreCompleto",
-          title: "Nombre completo",
-          template: "tablas/usuarios/nombre"
-        },
-        /*
-        {
-          propertyName: "regionComoCadena",
-          title: "Región"
+          atributo: "nombre",
+          titulo: "Nombre",
+          ruta: "app.personas.detalle"
         },
         {
-          propertyName: "cargoComoCadena",
-          title: "Cargo"
-        },
-        */
-        {
-          propertyName: "dni",
-          title: "DNI"
+          atributo: "apellido",
+          titulo: "Apellido",
+          ruta: "app.personas.detalle"
         },
         {
-          propertyName: "cuit",
-          title: "CUIL/CUIT"
-        },
-        {
-          propertyName: "contratoComoCadena",
-          title: "Programa/Contrato"
-        },
-        {
-          propertyName: "fechaDeIngreso",
-          title: "Fecha de ingreso"
+          atributo: "dni",
+          titulo: "DNI"
         }
       ]
     });

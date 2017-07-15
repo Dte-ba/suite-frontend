@@ -261,8 +261,8 @@ body > .ember-view {
 
 .ui.inverted.menu .active.item,
 .barra-de-navegacion .item.ember-transitioning-in {
-  border-bottom: 3px solid #C7E235;
-  color: #C7E235 !important;
+  border-bottom: 3px solid #c7e235;
+  color: #c7e235 !important;
   background: none;
 }
 
@@ -271,15 +271,17 @@ body > .ember-view {
 }
 
 .barra-de-navegacion .item.active:hover {
-  border-bottom: 3px solid #C7E235;
+  border-bottom: 3px solid #c7e235;
 }
 
 .ui.button.primario {
-  background-color: #ADC12E;
+  background-color: #adc12e;
   color: white;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 300;
 }
 
@@ -388,7 +390,7 @@ li.section {
 }
 
 .models-table th.ui.form {
-  background-color: #DDF3FF;
+  background-color: #ddf3ff;
 }
 
 .column-icon-box {
@@ -431,7 +433,8 @@ p {
   padding: 5px;
 }
 
-.fc-event, .fc-event:hover {
+.fc-event,
+.fc-event:hover {
   color: black;
   text-decoration: none;
 }
@@ -442,7 +445,8 @@ p {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-a.color-gris, .color-gris {
+a.color-gris,
+.color-gris {
   color: gray !important;
 }
 
@@ -490,6 +494,10 @@ iframe.mapa {
   position: relative;
 }
 
+.suite2-tabla {
+  position: relative;
+}
+
 .overlay-spinner {
   position: absolute;
   top: 48px;
@@ -526,9 +534,9 @@ iframe.mapa {
 }
 
 .ember-power-select-trigger:focus {
-  border-color: #85B7D9;
+  border-color: #85b7d9;
   border-radius: 0.28571429rem;
-  background: #FFFFFF;
+  background: #ffffff;
   box-shadow: 0px 0em 0em 0em rgba(34, 36, 38, 0.35) inset;
 }
 

@@ -6,12 +6,10 @@
   <button class="ui button primario " disabled {{action (route-action "crearUnUsuarioNuevo")}}>Crear un usuario nuevo</button>
 </div>
 
-{{!suite-tabla
-  filas=model.perfiles
+{{suite2-tabla
+  pagina=pagina
   columnas=model.columnas
-}}
-
-{{ember-ui-table
-  rows=model.perfiles
-  cols=model.columnas
+  filtro=filtro
+  tarea=model.tareaPersonas
+  paginacion=true
 }}

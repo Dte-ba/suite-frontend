@@ -1,0 +1,66 @@
+{{yield}}
+
+{{#if tarea}}
+
+  {{#if tarea.last.isError}}
+    {{suite-tabla-error-de-api error=tarea.last.error}}
+  {{else}}
+
+    {{#data-table data=tarea.lastSuccessful.value.data classNames='ui celled striped table selectable' as |t|}}
+
+      {{#each columnas as |columna|}}
+
+        {{#t.column propertyName=columna.atributo defaultHeader=true name=columna.titulo as |col|}}
+
+          {{#if columna.template}}
+            {{component columna.template valor=(get col.row columna.atributo)}}
+          {{else}}
+
+            {{#if columna.promesa}}
+              {{suite-espera-promesa promesa=(get col.row columna.promesa)}}
+            {{/if}}
+
+            {{#if columna.ruta}}
+              {{#link-to columna.ruta col.row}} {{get col.row columna.atributo}} {{/link-to}}
+            {{else}}
+              {{get col.row columna.atributo}}
+            {{/if}}
+
+
+
+
+          {{/if}}
+
+        {{/t.column}}
+
+      {{else}}
+        Imposible dibujar la tabla, no especificó el atributo 'columnas'.
+      {{/each}}
+
+        <!--
+        {{#t.column defaultHeader=true name='Región' as |col|}}
+          {{suite-promesa promesa=col.row.localidad.distrito.region atributo="numero"}}
+        {{/t.column}}
+      -->
+
+    {{/data-table}}
+
+    {{#unless tarea.lastSuccessful.value.data}}
+      <div class="centrado">Sin datos para mostrar</div>
+    {{/unless}}
+
+    {{#if paginacion}}
+      {{suite-tabla-paginador
+          meta=tarea.lastSuccessful.value.meta
+          cuandoCambiaPagina=(action "cambiarPagina")
+          pagina=pagina}}
+    {{/if}}
+
+      {{#if tarea.last.isRunning}}
+        <div class="overlay-spinner">
+          {{suite-tabla-spinner}}
+        </div>
+      {{/if}}
+
+  {{/if}}
+{{/if}}

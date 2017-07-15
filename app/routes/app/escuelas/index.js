@@ -6,6 +6,7 @@ export default Ember.Route.extend({
     pagina: { replace: true, refreshModel: true },
     filtro: { replace: true }
   },
+
   obtenerEscuelas: task(function*(query) {
     let data = yield this.store.query("escuela", query);
     let meta = data.get("meta");
@@ -15,59 +16,42 @@ export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
       tareaEscuelas: this.get("obtenerEscuelas"),
-      //escuelas: this.store.findAll("escuela"),
-      // localidades: this.store.findAll("localidad"),
       columnas: [
         {
-          propertyName: "nombre",
-          title: "Nombre"
+          atributo: "cue",
+          titulo: "CUE",
+          ruta: "app.escuelas.detalle"
         },
         {
-          propertyName: "cue",
-          title: "CUE"
+          atributo: "nombre",
+          titulo: "Nombre"
         },
         {
-          propertyName: "localidad.distrito.region.numero",
-          title: "Región"
+          atributo: "localidad.distrito.region.numero",
+          titulo: "Region",
+          promesa: "localidad.distrito.region"
         },
         {
-          propertyName: "localidad.nombre",
-          title: "Localidad"
-        },
-        // {
-        //   propertyName: "localidad.distrito.nombre",
-        //   title: "Distrito"
-        // },
-        {
-          propertyName: "nivel.nombre",
-          title: "Nivel"
+          atributo: "localidad.nombre",
+          titulo: "Region",
+          promesa: "localidad"
         },
         {
-          propertyName: "tipoDeFinanciamiento.nombre",
-          title: "Financiamiento"
-        },
-        // {
-        //   propertyName: "direccion",
-        //   title: "Dirección"
-        // },
-        // {
-        //   propertyName: "tipoDeGestion.nombre",
-        //   title: "Tipo de Gestión"
-        // },
-        // {
-        //   propertyName: "area.nombre",
-        //   title: "Área"
-        // },
-        {
-          propertyName: "programasComoCadena",
-          title: "Programas"
+          atributo: "nivel.nombre",
+          titulo: "Nivel",
+          promesa: "nivel"
         },
         {
-          title: "Acciones",
-          template: "tablas/escuelas/acciones"
+          atributo: "tipoDeFinanciamiento.nombre",
+          titulo: "Financiamiento",
+          promesa: "tipoDeFinanciamiento"
+        },
+        {
+          atributo: "programas",
+          titulo: "Programas",
+          template: "suite-tabla/celda-programas"
         }
       ]
-      //programas: this.get("store").findAll("programa")
     });
   }
 });
