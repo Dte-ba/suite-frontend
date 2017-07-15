@@ -21,19 +21,19 @@
       {{t.column propertyName='nombre' name='Nombre'}}
 
       {{#t.column defaultHeader=true name='Región' as |col|}}
-        {{suite-promesa valor=col.row.localidad.distrito.region.numero}}
+        {{suite-promesa promesa=col.row.localidad.distrito.region atributo="numero"}}
       {{/t.column}}
 
       {{#t.column defaultHeader=true name='Localidad' as |col|}}
-        {{suite-promesa valor=col.row.localidad.nombre}}
+        {{suite-promesa promesa=col.row.localidad atributo="nombre"}}
       {{/t.column}}
 
       {{#t.column defaultHeader=true name='Nivel' as |col|}}
-        {{suite-promesa valor=col.row.nivel.nombre}}
+        {{suite-promesa promesa=col.row.nivel atributo="nombre"}}
       {{/t.column}}
 
       {{#t.column name='Financiamiento' defaultHeader=true as |col|}}
-        {{suite-promesa valor=col.row.tipoDeFinanciamiento.nombre}}
+        {{suite-promesa promesa=col.row.tipoDeFinanciamiento atributo="nombre"}}
       {{/t.column}}
 
       {{#t.column name='Programas' defaultHeader=true as |col|}}
