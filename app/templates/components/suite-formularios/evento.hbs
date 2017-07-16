@@ -24,6 +24,27 @@
     </div>
   </div>
 
+
+  <div class="ui one column grid">
+    <div class="row">
+      <div class="column">
+        {{#f.input label="Responsable" name="responsable" as |f|}}
+
+          {{#power-select
+            search=(perform buscarPersonas)
+            selected=selected
+            onchange=(action (mut selected))
+            as |item|
+          }}
+            {{item.nombre}} {{item.apellido}} <small class="gray">DNI: {{item.dni}}</small>
+          {{/power-select}}
+
+        {{/f.input}}
+      </div>
+    </div>
+  </div>
+
+
   {{f.submit label=texto class="ui button green"}}
   {{yield}}
 
