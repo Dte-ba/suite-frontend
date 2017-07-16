@@ -30,9 +30,7 @@ export default Ember.Controller.extend({
      * En este punto deberíamos volver a solicitar la lista
      * de eventos.
      */
-    viewRender(/* view , element */) {
-      //console.log(view.intervalStart);
-    },
+    viewRender(/* view , element */) {},
 
     eventRender(evento, element) {
       element.addClass("evento-con-acta");
