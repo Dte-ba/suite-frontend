@@ -32,6 +32,8 @@ export default DS.Model.extend({
   fechaDeRenuncia: DS.attr("string"),
   emailLaboral: DS.attr("string"),
 
+  eventos: DS.belongsTo("evento"),
+
   regionComoCadena: Ember.computed("region.{numero}", function() {
     return this.get("region.numero");
   }),

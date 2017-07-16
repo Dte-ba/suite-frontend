@@ -8,10 +8,13 @@ import {
 export default DS.Model.extend({
   titulo: DS.attr("string"),
 
-  fechainicio: DS.attr("string"),
-  fechafin: DS.attr("string"),
+  fecha: DS.attr("string"),
+
+  inicio: DS.attr("string"),
+  fin: DS.attr("string"),
 
   todoElDia: DS.attr("boolean"),
+  responsable: DS.belongsTo("perfil"),
 
   color: Ember.computed("titulo", function() {
     return "white";

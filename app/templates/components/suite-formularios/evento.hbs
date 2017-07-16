@@ -9,17 +9,21 @@
   <div class="ui three column grid">
     <div class="row">
       <div class="column">
-        {{#f.input label="Fecha" name="fechainicio" as |f|}}
-          {{ui-calendar type="date" date=f.value onChange=fi.update placeholder="Select date"}}
+        {{#f.input label="Fecha" name="fecha" as |f|}}
+          {{ui-calendar type="date" date=f.value onChange=f.update placeholder="Seleccione fecha"}}
         {{/f.input}}
       </div>
 
       <div class="column">
-        ...
+        {{#f.input label="Hora de inicio" name="inicio" as |f|}}
+          {{ui-calendar type="time" icon="time" date=f.value onChange=f.update placeholder="Seleccione hora"}}
+        {{/f.input}}
       </div>
 
       <div class="column">
-        {{f.input label="Fecha de finalización" name="fechafin"}}
+        {{#f.input label="Hora de finalización" name="fin" as |f|}}
+          {{ui-calendar type="time" icon="time" date=f.value onChange=f.update placeholder="Seleccione hora"}}
+        {{/f.input}}
       </div>
     </div>
   </div>

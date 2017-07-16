@@ -274,9 +274,7 @@ body > .ember-view {
   color: white;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   font-weight: 300;
 }
 
@@ -428,8 +426,7 @@ p {
   padding: 5px;
 }
 
-.fc-event,
-.fc-event:hover {
+.fc-event, .fc-event:hover {
   color: black;
   text-decoration: none;
 }
@@ -440,8 +437,7 @@ p {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-a.color-gris,
-.color-gris {
+a.color-gris, .color-gris {
   color: gray !important;
 }
 
@@ -585,4 +581,24 @@ iframe.mapa {
 
 .gray {
   color: #bbbbbb;
+}
+
+.ember-basic-dropdown-trigger {
+  height: 38px;
+  overflow: hidden;
+}
+
+.cancelar {
+  background: none !important;
+}
+
+.ember-power-select-search-input:focus {
+  outline: 0;
+  border: 1px solid #85b7d9;
+  color: rgba(0, 0, 0, .87);
+  border-radius: .28571429rem;
+}
+
+.ember-power-select-trigger:focus {
+  outline: 0;
 }
