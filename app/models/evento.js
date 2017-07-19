@@ -11,7 +11,7 @@ export default DS.Model.extend({
   inicio: DS.attr("string"),
   fin: DS.attr("string"),
   todoElDia: DS.attr("boolean"),
-  
+
   responsable: DS.belongsTo("perfil"),
   escuela: DS.belongsTo("escuela"),
 
@@ -28,6 +28,7 @@ export default DS.Model.extend({
     fecha: [validatePresence(true)],
     inicio: [validatePresence(true)],
     fin: [validatePresence(true)],
-    responsable: [validatePresence(true)]
+    responsable: [validatePresence(true)],
+    escuela: [validatePresence(true)]
   }
 });
