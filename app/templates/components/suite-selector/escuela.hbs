@@ -1,0 +1,27 @@
+{{yield}}
+
+{{#power-select
+  disabled=disabled
+  search=(perform buscarEscuelas)
+  selected=valor
+  onchange=(action "cuandoSeleccionaEscuela")
+  as |item|
+}}
+  {{item.nombre}} <small class="gray">cue: {{item.cue}}</small>
+
+  <div class="etiquetas-a-derecha">
+
+    <div class="ui basic tiny label">
+      Localidad
+      <div class="detail">{{item.localidad.nombre}}</div>
+    </div>
+
+    <div class="ui basic tiny label">
+      Region
+      {{item.localidad.distrito.region.numero}}
+    </div>
+  </div>
+
+
+
+{{/power-select}}
