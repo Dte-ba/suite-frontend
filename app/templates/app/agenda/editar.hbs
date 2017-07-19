@@ -2,10 +2,20 @@
 
 <h2>Editar un evento</h2>
 
-{{suite-formularios/evento
+{{#suite-formularios/evento
   model        = (changeset model model.validaciones)
   on-submit    = (route-action "guardarEvento")
   texto = 'Crear evento'
 }}
 
-<button class="ui button" {{action (route-action "cancelar")}}>Cancelar</button>
+<button class="ui cancelar button" {{action (route-action "cancelar")}}>Cancelar</button>
+
+{{/suite-formularios/evento}}
+
+{{#if errors}}
+  <div class="ui negative message">
+    {{#each errors as |error|}}
+      <p><strong>{{error.campo}}</strong> - {{error.detalle}}</p>
+    {{/each}}
+  </div>
+{{/if}}

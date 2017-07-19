@@ -4,52 +4,41 @@
   submit-label = texto as |f|
 }}
 
-  {{f.input label="Título" name="titulo"}}
+  {{#suite-grupo numero=1 titulo="Datos de la acción"}}
 
-  <div class="ui three column grid">
-    <div class="row">
-      <div class="column">
-        {{#f.input label="Fecha" name="fecha" as |f|}}
-          {{ui-calendar type="date" date=f.value onChange=f.update placeholder="Seleccione fecha"}}
-        {{/f.input}}
-      </div>
+    {{f.input label="Título" name="titulo"}}
 
+    {{#f.input label="Fecha" name="fecha" as |f|}}
+      {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
+    {{/f.input}}
+
+    <div class="ui two column grid">
       <div class="column">
         {{#f.input label="Hora de inicio" name="inicio" as |f|}}
-          {{ui-calendar type="time" icon="time" date=f.value onChange=f.update placeholder="Seleccione hora"}}
+          {{suite-campo/hora hora=f.value cuandoCambia=f.update}}
         {{/f.input}}
       </div>
 
       <div class="column">
         {{#f.input label="Hora de finalización" name="fin" as |f|}}
-          {{ui-calendar type="time" icon="time" date=f.value onChange=f.update placeholder="Seleccione hora"}}
+          {{suite-campo/hora hora=f.value cuandoCambia=f.update}}
         {{/f.input}}
       </div>
     </div>
-  </div>
+
+  {{/suite-grupo}}
 
 
-  <div class="ui one column grid">
-    <div class="row">
-      <div class="column">
-        {{#f.input label="Responsable" name="responsable" as |f|}}
+  {{#suite-grupo numero=2 titulo="¿Quiénes participan?"}}
 
-          {{#power-select
-            search=(perform buscarPersonas)
-            selected=selected
-            onchange=(action (mut selected))
-            as |item|
-          }}
-            {{item.nombre}} {{item.apellido}} <small class="gray">DNI: {{item.dni}}</small>
-          {{/power-select}}
+    {{#f.input label="Responsable" name="responsable" as |f|}}
+      {{suite-selector/perfil valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
 
-        {{/f.input}}
-      </div>
-    </div>
-  </div>
+  {{/suite-grupo}}
 
-
-  {{f.submit label=texto class="ui button green"}}
-  {{yield}}
+  {{#suite-grupo titulo=""}}
+    {{f.submit label=texto class="ui button green"}} {{yield}}
+  {{/suite-grupo}}
 
 {{/validated-form}}

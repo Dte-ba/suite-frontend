@@ -17,12 +17,16 @@ export default Ember.Route.extend({
           titulo: "Título"
         },
         {
-          atributo: "fechainicio",
-          titulo: "Fecha Inicio"
+          atributo: "fecha",
+          titulo: "Fecha"
         },
         {
-          atributo: "fechafin",
-          titulo: "Fecha Fin"
+          atributo: "inicio",
+          titulo: "Hora de inicio"
+        },
+        {
+          atributo: "fin",
+          titulo: "Hora de finalización"
         },
         {
           atributo: "todoElDia",

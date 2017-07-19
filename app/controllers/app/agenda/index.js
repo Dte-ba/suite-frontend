@@ -13,8 +13,8 @@ export default Ember.Controller.extend({
       return {
         id: e.get("id"),
         title: e.get("titulo"),
-        start: e.get("fechainicio"),
-        end: e.get("fechafin"),
+        start: e.get("fecha"),
+        end: e.get("fecha"),
         color: e.get("color"),
         allDay: e.get("todoElDia"),
         borderColor: e.get("borderColor")
@@ -36,15 +36,15 @@ export default Ember.Controller.extend({
       element.addClass("evento-con-acta");
 
       element.html(`
-        <b>${evento.title}</b>
+        <p>${evento.title}</p>
 
-        <p>
-          Nombre Autor
-        </p>
+        <!--
+        <p><small>Nombre Autor</small></p>
 
         <p>
           <a href="/" class="color-gris"><i class="ui file icon"></i></a>
         </p>
+        -->
 
         `);
     }

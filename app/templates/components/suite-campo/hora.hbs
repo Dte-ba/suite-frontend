@@ -1,0 +1,7 @@
+{{yield}}
+
+{{#unless disabled}}
+  {{ui-calendar disabled=disabled type="time" icon="time" date=horaInicial onChange=(action "cuandoCambiaHora") placeholder="Seleccione hora"}}
+{{else}}
+  <input class="ui disabled input" value={{horaInicial}}>
+{{/unless}}

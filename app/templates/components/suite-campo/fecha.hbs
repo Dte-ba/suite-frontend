@@ -1,0 +1,7 @@
+{{yield}}
+
+{{#unless disabled}}
+  {{ui-calendar type="date" date=fecha onChange=(action "cuandoCambiaFecha") placeholder="Seleccione fecha"}}
+{{else}}
+  <input class="ui disabled input" value={{fecha}}>
+{{/unless}}

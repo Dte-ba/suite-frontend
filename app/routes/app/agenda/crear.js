@@ -1,21 +1,13 @@
 import Ember from "ember";
 
-import { task, timeout } from "ember-concurrency";
-
 export default Ember.Route.extend({
   model() {
-    let hoy = "2017-10-10T20:00";
+    let hoy = moment().format("YYYY-MM-DD");
+
     return this.store.createRecord("evento", {
-      fechainicio: hoy,
-      fechafin: hoy,
-      titulo: "demo 123123"
+      fecha: hoy
     });
   },
-
-  buscarPersonas: task(function*(term) {
-    yield timeout(200);
-    return this.store.query("perfil", { search: term });
-  }),
 
   afterModel(model) {
     model.set("buscarPersonas", this.get("buscarPersonas"));
