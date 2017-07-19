@@ -29,11 +29,6 @@ Router.map(function() {
       this.route("lista");
     });
 
-    this.route("regiones", function() {
-      this.route("mapa");
-      this.route("detalle", { path: "detalle/:region_id" });
-    });
-
     this.route("escritorio", function() {});
 
     this.route("distritos", function() {
