@@ -1,6 +1,6 @@
 import Component from "ember-fullcalendar/components/full-calendar";
 import Ember from "ember";
-import { task, timeout } from "ember-concurrency";
+//import { task, timeout } from "ember-concurrency";
 
 export default Component.extend({
   didInsertElement() {

@@ -1,12 +1,23 @@
 import Ember from "ember";
+import QueryParamsResetRouteMixin from "ember-query-params-reset/mixins/query-params-reset-route";
 
-export default Ember.Route.extend({
-  model() {
+export default Ember.Route.extend(QueryParamsResetRouteMixin, {
+  queryParams: {
+    escuela_id: {}
+  },
+
+  model(params) {
     let hoy = moment().format("YYYY-MM-DD");
+    let opciones = { fecha: hoy };
 
-    return this.store.createRecord("evento", {
-      fecha: hoy
-    });
+    if (params.escuela_id) {
+      return this.store.findRecord("escuela", params.escuela_id).then(data => {
+        opciones.escuela = data;
+        return this.store.createRecord("evento", opciones);
+      });
+    }
+
+    return this.store.createRecord("evento", opciones);
   },
 
   afterModel(model) {
@@ -24,6 +35,7 @@ export default Ember.Route.extend({
         this.get("currentModel").deleteRecord();
       }
     },
+
     cancelar() {
       return this.transitionTo("app.agenda.index");
     }

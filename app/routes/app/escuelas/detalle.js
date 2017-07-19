@@ -86,5 +86,14 @@ export default Ember.Route.extend({
     ]);
 
     return model;
+  },
+
+  actions: {
+    crearEventoParaEstaEscuela() {
+      let model = this.modelFor("app.escuelas.detalle");
+      return this.transitionTo("app.agenda.crear", {
+        queryParams: { escuela_id: model.id }
+      });
+    }
   }
 });
