@@ -602,3 +602,9 @@ iframe.mapa {
 .ember-power-select-trigger:focus {
   outline: 0;
 }
+
+.etiquetas-a-derecha {
+  float: right;
+  margin-top: -3px;
+  margin-right: 10px;
+}
