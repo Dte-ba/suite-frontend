@@ -6,7 +6,13 @@ export default Ember.Component.extend({
 
   buscarPersonas: task(function*(term) {
     yield timeout(200);
-    return this.get("store").query("perfil", { search: term });
+    let query =  { search: term };
+
+    if (this.get('region')) {
+      query.region__numero = this.get('region');
+    }
+
+    return this.get("store").query("perfil", query);
   }),
 
   actions: {
