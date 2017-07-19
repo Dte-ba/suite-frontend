@@ -6,16 +6,18 @@ export default Component.extend({
   didInsertElement() {
     this._super();
     this.sincronizar();
-    this.get("temporizador").perform();
+    //this.get("temporizador").perform();
   },
 
+  /*
   temporizador: task(function*() {
-    /*eslint no-constant-condition: ["error", { "checkLoops": false }]*/
+    // eslint no-constant-condition: ["error", { "checkLoops": false }]
     while (true) {
       yield timeout(2000);
       this.forceResize();
     }
   }),
+  */
 
   alternarFinesDeSemana: Ember.observer("mostrarFinesDeSemana", function() {
     this.sincronizar();
