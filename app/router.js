@@ -40,6 +40,9 @@ Router.map(function() {
       this.route("edicion", { path: "edicion/:escuela_id" });
     });
     this.route("mi-perfil");
+    this.route('tareas', function() {
+      this.route('detalle', { path: "detalle/:tarea_id" });
+    });
   });
 
   this.route("tablas", function() {

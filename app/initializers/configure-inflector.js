@@ -21,6 +21,10 @@ let initializer = {
     inflector.irregular("experiencia", "experiencias");
     inflector.irregular("piso", "pisos");
     inflector.irregular("cargo-escolar", "cargos-escolares");
+    inflector.irregular("tarea", "tareas");
+    // inflector.irregular("prioridad-de-tarea", "prioridades-de-tarea");
+    inflector.irregular("motivo-de-tarea", "motivos-de-tarea");
+    inflector.irregular("estado-de-tarea", "estados-de-tarea");
   }
 };
 
