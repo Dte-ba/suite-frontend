@@ -18,6 +18,11 @@ export default Ember.Route.extend({
       tareaTareas: this.get("obtenerTareas"),
       columnas: [
         {
+          atributo: "prioridadDeTarea.nombre",
+          titulo: "Prioridad",
+          promesa: "prioridadDeTarea"
+        },
+        {
           atributo: "titulo",
           titulo: "Título",
           ruta: "app.tareas.detalle"
@@ -29,16 +34,26 @@ export default Ember.Route.extend({
         {
           atributo: "autor.nombreCompleto",
           titulo: "autor",
-          promesa: "autor.nombreCompleto"
+          promesa: "autor"
         },
         {
           atributo: "responsable.nombreCompleto",
           titulo: "Responsable",
-          promesa: "responsable.nombreCompleto"
+          promesa: "responsable"
         },
         {
           atributo: "descripcion",
           titulo: "Descripción",
+        },
+        {
+          atributo: "motivoDeTarea.nombre",
+          titulo: "Categoría",
+          promesa: "motivoDeTarea"
+        },
+        {
+          atributo: "estadoDeTarea.nombre",
+          titulo: "Estado",
+          promesa: "estadoDeTarea"
         }
       ]
     });
