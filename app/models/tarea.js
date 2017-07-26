@@ -8,7 +8,7 @@ export default DS.Model.extend({
   descripcion: DS.attr('string'),
   motivoDeTarea: DS.belongsTo('motivoDeTarea'),
   estadoDeTarea: DS.belongsTo('estadoDeTarea'),
-  prioridadDeTarea: DS.belongsTo('prioridadDeTarea'),
-  escuela: DS.belongsTo('escuela'),
+  prioridadestTarea: DS.belongsTo('prioridadDeTarea'),
+  escuela: DS.belongsTo('escuela')
 
 });
