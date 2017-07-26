@@ -41,6 +41,10 @@ export default Ember.Route.extend({
         id: "nivel.nombre"
       },
       {
+        titulo: "Gestión",
+        id: "tipoDeGestion.nombre"
+      },
+      {
         titulo: "Modalidad",
         id: ""
       },

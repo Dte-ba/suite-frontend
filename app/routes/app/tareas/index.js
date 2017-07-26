@@ -46,9 +46,9 @@ export default Ember.Route.extend({
           titulo: "Descripción",
         },
         {
-          atributo: "motivoDeTarea.nombre",
+          atributo: "motivoTarea.nombre",
           titulo: "Categoría",
-          promesa: "motivoDeTarea"
+          promesa: "motivoTarea"
         },
         {
           atributo: "estadoDeTarea.nombre",
