@@ -35,5 +35,39 @@
         model=model
         filas=model.filaEscuela
     }}
+    {{#if model.comentariosDeTarea}}
+    <div class="ui row segment">
+      <div class="four wide column">
+        <div class="suite-grupo-numero">3</div>
+        <div class="suite-grupo-titulo">Comentarios</div>
+      </div>
+      <div class="seven wide column">
+        <div class="ui feed">
+          {{#each model.comentariosDeTarea as |comentario|}}
+            <div class="event">
+              <div class="label">
+                {{#if comentario.autor.image}}
+                    <img src="{{comentario.autor.image}}">
+                {{else}}
+                  {{ember-initials class='user-big-avatar' name=(concat comentario.autor.nombre " " comentario.autor.apellido) size=80}}
+                {{/if}}
+              </div>
+              <div class="content">
+                <div class="summary">
+                  {{comentario.autor.nombreCompleto}} comentó
+                  <div class="date">
+                    {{comentario.fechaDeAlta}}
+                  </div>
+                </div>
+                <div class="extra text">
+                  {{{comentario.comentario}}}
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
 
 </div>

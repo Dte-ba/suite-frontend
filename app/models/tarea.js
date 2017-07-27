@@ -9,6 +9,7 @@ export default DS.Model.extend({
   motivoDeTarea: DS.belongsTo('motivoDeTarea'),
   estadoDeTarea: DS.belongsTo('estadoDeTarea'),
   prioridadDeTarea: DS.belongsTo('prioridadDeTarea'),
-  escuela: DS.belongsTo('escuela')
+  escuela: DS.belongsTo('escuela'),
+  comentariosDeTarea: DS.hasMany('comentarioDeTarea')
 
 });
