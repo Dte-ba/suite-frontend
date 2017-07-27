@@ -5,7 +5,7 @@ moduleForModel('tarea', 'Unit | Model | tarea', {
   needs: [
     "model:prioridadDeTarea",
     "model:estadoDeTarea",
-    "model:motivoTarea",
+    "model:motivoDeTarea",
     "model:perfil",
     "model:escuela"
   ]
