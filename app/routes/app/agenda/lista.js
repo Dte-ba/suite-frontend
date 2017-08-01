@@ -13,20 +13,32 @@ export default Ember.Route.extend({
       tarea: this.get("obtenerEventos"),
       columnas: [
         {
+          atributo: "fecha_inicio",
+          titulo: "Inicio"
+        },
+        {
+          atributo: "fecha_fin",
+          titulo: "Fin"
+        },
+        {
           atributo: "titulo",
           titulo: "Título"
         },
         {
-          atributo: "fecha",
-          titulo: "Fecha"
+          atributo: "escuela.localidad.distrito.region.numero",
+          titulo: "Region"
         },
         {
-          atributo: "inicio",
-          titulo: "Hora de inicio"
+          atributo: "escuela.nombre",
+          titulo: "Ubicación"
         },
         {
-          atributo: "fin",
-          titulo: "Hora de finalización"
+          atributo: "escuela.cue",
+          titulo: "CUE"
+        },
+        {
+          atributo: "responsable.nombreCompleto",
+          titulo: "responsable"
         },
         {
           atributo: "todoElDia",

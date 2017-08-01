@@ -8,12 +8,27 @@ import {
 export default DS.Model.extend({
   titulo: DS.attr("string"),
   fecha: DS.attr("string"),
+  fechaFin: DS.attr("string"),
   inicio: DS.attr("string"),
   fin: DS.attr("string"),
   todoElDia: DS.attr("boolean"),
 
   responsable: DS.belongsTo("perfil"),
   escuela: DS.belongsTo("escuela"),
+
+  fecha_inicio: Ember.computed("fecha", "inicio", function() {
+    let fecha = this.get("fecha");
+    let hora = this.get("inicio");
+
+    return `${fecha} - ${hora}`;
+  }),
+
+  fecha_fin: Ember.computed("fechaFin", "fin", function() {
+    let fecha = this.get("fechaFin");
+    let hora = this.get("fin");
+
+    return `${fecha} - ${hora}`;
+  }),
 
   color: Ember.computed("titulo", function() {
     return "white";
