@@ -46,6 +46,14 @@
 
   {{/suite-grupo}}
 
+  {{#suite-grupo numero=4 titulo="Prueba ..."}}
+
+    {{#f.input label="Categoria" name="categoria" as |f|}}
+      {{suite-selector/agrupable valores=model.categorias valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
+
+  {{/suite-grupo}}
+
   {{#suite-grupo titulo=""}}
     {{f.submit label=texto class="ui button green"}} {{yield}}
   {{/suite-grupo}}

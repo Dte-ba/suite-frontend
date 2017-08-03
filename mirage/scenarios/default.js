@@ -63,4 +63,16 @@ export default function(server) {
     nombre: "Demo",
     apellido: "Demo"
   });
+
+  server.create("categoriaDeEvento", {
+    nombre: "Capacitación/Para docentes"
+  });
+
+  server.create("categoriaDeEvento", {
+    nombre: "Capacitación/Para alumnos"
+  });
+
+  server.create("categoriaDeEvento", {
+    nombre: "Sin categoría"
+  });
 }

@@ -26,6 +26,8 @@ export default function() {
 
   this.get("/escuelas");
 
+  this.get("/categorias-de-eventos");
+
   /*
   this.get("/escuelas", function(db, request) {
     let escuelas = db.escuelas.all().models;

@@ -1,0 +1,11 @@
+{{yield}}
+
+{{#power-select
+  options=opciones
+  selected=valor
+  searchEnabled=false
+  onchange=cuandoSelecciona
+  as |opcion|
+}}
+  {{opcion.nombreSinCategoria}}
+{{/power-select}}

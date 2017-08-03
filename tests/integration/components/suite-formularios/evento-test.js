@@ -10,7 +10,10 @@ moduleForComponent(
 );
 
 test("it renders", function(assert) {
-  this.render(hbs`{{suite-formularios/evento}}`);
+  this.set("model", {
+    categorias: []
+  });
+  this.render(hbs`{{suite-formularios/evento model=model}}`);
 
   assert.ok(
     this.$().text().trim().indexOf("Título") > -1,
