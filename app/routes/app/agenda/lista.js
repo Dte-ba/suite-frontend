@@ -22,7 +22,8 @@ export default Ember.Route.extend({
         },
         {
           atributo: "titulo",
-          titulo: "Título"
+          titulo: "Título",
+          ruta: "app.agenda.detalle"
         },
         {
           atributo: "escuela.localidad.distrito.region.numero",

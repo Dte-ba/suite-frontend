@@ -1,0 +1,65 @@
+{{outlet}}
+<div class="ui stackable grid">
+
+  <div class="ui row middle aligned segment">
+    <div class="ten wide column">
+      <h3 class="ui header">
+        {{model.titulo}} - {{model.cue}}
+      </h3>
+    </div>
+    <div class="four wide column"></div>
+    <div class="two wide column">
+      {{#link-to "app.agenda.editar" model class="ui button primario"}}Editar{{/link-to}}
+    </div>
+  </div>
+
+  <div class="ui equal width row middle aligned segment">
+    <div class="column">
+      <i class="ui file icon"></i> Con acta
+    </div>
+    <div class="column">
+      <i class="ui comment icon"></i> 3
+    </div>
+    <div class="column">
+      <i class="ui check icon"></i> Autorizada
+    </div>
+    <div class="column">
+      <i class="ui car icon"></i> Requiere traslado
+    </div>
+  </div>
+
+
+      {{suite-detalle-escuelas
+          numero="1"
+          titulo="Datos de la accion"
+          model=model
+          filas=model.filaDatosDeAccion
+      }}
+      {{suite-detalle-escuelas
+          numero="2"
+          titulo="Responsable y acompañantes"
+          model=model
+          filas=model.filaUsuarios
+      }}
+      {{#if model.acompaniantes}}
+      <div class="ui row segment">
+        <div class="four wide column">
+          <!-- <div class="suite-grupo-numero">4</div>
+          <div class="suite-grupo-titulo">Comentarios</div> -->
+        </div>
+        <div class="seven wide column">
+            {{#each model.acompaniantes as |acompaniante|}}
+              {{acompaniante.nombreCompleto}}
+            {{/each}}
+        </div>
+      </div>
+      {{/if}}
+      {{suite-detalle-escuelas
+          numero="3"
+          titulo="Se realizará en"
+          model=model
+          filas=model.filaEscuela
+      }}
+
+
+  </div>

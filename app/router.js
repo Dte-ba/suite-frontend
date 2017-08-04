@@ -27,6 +27,7 @@ Router.map(function() {
       this.route("crear");
       this.route("editar", { path: "editar/:id" });
       this.route("lista");
+      this.route('detalle', { path: "detalle/:id" });
     });
 
     this.route("escritorio", function() {});
