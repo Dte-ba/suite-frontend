@@ -16,10 +16,51 @@
   {{f.input label="DNI" name="dni"}}
   {{f.input label="CUIT/CUIL" name="cuit"}}
 
+  {{f.input label="CBU" name="cbu"}}
+  {{f.input label="Email Personal" name="email"}}
+
+  {{f.input label="Calle" name="direccionCalle"}}
+  {{f.input label="Altura" name="direccionAltura"}}
+  {{f.input label="Piso" name="direccionPiso"}}
+  {{f.input label="Depto" name="direccionDepto"}}
+  {{f.input label="Torre" name="direccionTorre"}}
+  {{f.input label="Código Postal" name="codigoPostal"}}
+  {{#f.input label="Localidad" name="localidad" as |fi|}}
+    {{suite-dropdown
+        conBusqueda=true
+        seleccionado=f.model.localidad
+        opciones=model.localidades
+        cuandoSelecciona=fi.update
+    }}
+  {{/f.input}}
+  {{f.input label="Celular " name="telefonoCelular"}}
+  {{f.input label="Teléfono Alternativo " name="telefonoAlternativo"}}
+
+
 {{/suite-grupo}}
 
 
 {{#suite-grupo numero=2 titulo="Datos administrativos"}}
+
+  {{#f.input label="Region" name="region" as |fi|}}
+    {{suite-dropdown
+        conBusqueda=false
+        seleccionado=f.model.region
+        opciones=regiones
+        etiquetaDelModelo='numero'
+        cuandoSelecciona=fi.update
+    }}
+  {{/f.input}}
+
+  {{#f.input label="Cargo" name="cargo" as |fi|}}
+    {{suite-dropdown
+        conBusqueda=false
+        seleccionado=f.model.cargo
+        opciones=cargos
+        etiquetaDelModelo='nombre'
+        cuandoSelecciona=fi.update
+    }}
+  {{/f.input}}
 
   {{#f.input label="Contrato" name="contrato" as |fi|}}
     {{suite-dropdown
@@ -30,6 +71,12 @@
         cuandoSelecciona=fi.update
     }}
   {{/f.input}}
+
+  {{f.input label="Expediente " name="expediente"}}
+  {{f.input label="Fecha de Ingreso " name="fechaDeIngreso"}}
+  {{f.input label="Fecha de Renuncia " name="fechaDeRenuncia"}}
+  {{f.input label="Email Laboral" name="emailLaboral"}}
+
 
 {{/suite-grupo}}
 
