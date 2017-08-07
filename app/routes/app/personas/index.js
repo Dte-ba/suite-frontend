@@ -13,18 +13,37 @@ export default Ember.Route.extend({
       tareaPersonas: this.get("obtenerPersonas"),
       columnas: [
         {
-          atributo: "nombre",
-          titulo: "Nombre",
+          atributo: "nombreCompleto",
+          titulo: "Apellido y nombre",
           ruta: "app.personas.detalle"
         },
         {
-          atributo: "apellido",
-          titulo: "Apellido",
-          ruta: "app.personas.detalle"
+          atributo: "region.numero",
+          titulo: "Región"
         },
         {
-          atributo: "dni",
-          titulo: "DNI"
+          atributo: "cargo.nombre",
+          titulo: "Cargo"
+        },
+        {
+          atributo: "cuit",
+          titulo: "CUIL/CUIT"
+        },
+        {
+          atributo: "email",
+          titulo: "Email"
+        },
+        {
+          atributo: "telefonoCelular",
+          titulo: "Celular"
+        },
+        {
+          atributo: "contrato.nombre",
+          titulo: "Contrato"
+        },
+        {
+          atributo: "fechaDeIngreso",
+          titulo: "Fecha de Ingreso"
         }
       ]
     });

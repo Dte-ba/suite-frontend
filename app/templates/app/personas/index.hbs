@@ -6,6 +6,8 @@
   <button class="ui button primario " disabled {{action (route-action "crearUnUsuarioNuevo")}}>Crear un usuario nuevo</button>
 </div>
 
+{{suite-filtros/escuelas filtro=filtro pagina=pagina tarea=model.tareaPersonas}}
+
 {{suite2-tabla
   pagina=pagina
   columnas=model.columnas
