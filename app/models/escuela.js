@@ -19,6 +19,9 @@ export default DS.Model.extend({
   piso: DS.belongsTo("piso"),
   contactos: DS.hasMany("contacto"),
   eventos: DS.hasMany("evento"),
+  parent_id: DS.belongsTo("escuela"),
+  fechaConformacion: DS.attr("string"),
+  motivoDeConformacion: DS.belongsTo("motivoDeConformacion"),
 
   programasComoCadena: Ember.computed("programas", function() {
     return this.get("programas").map(e => e.get("nombre")).join(", ");

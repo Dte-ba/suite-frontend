@@ -27,6 +27,7 @@ let initializer = {
     inflector.irregular("prioridad-de-tarea", "prioridades-de-tarea");
     inflector.irregular("comentario-de-tarea", "comentarios-de-tarea");
     inflector.irregular("categoria-de-evento", "categorias-de-eventos");
+    inflector.irregular("motivo-de-conformacion", "motivos-de-conformacion");
 
     inflector.irregular("tarea", "tareas");
   }
