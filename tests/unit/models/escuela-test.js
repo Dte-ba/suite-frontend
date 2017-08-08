@@ -12,7 +12,8 @@ moduleForModel("escuela", "Unit | Model | escuela", {
     "model:piso",
     "model:contacto",
     "model:nivel",
-    "model:evento"
+    "model:evento",
+    "model:motivoDeConformacion",
   ]
 });
 
