@@ -24,10 +24,10 @@ export default DS.Model.extend({
   }),
 
   fecha_fin: Ember.computed("fechaFin", "fin", function() {
-    let fecha = this.get("fechaFin");
+    let fecha_fin = this.get("fechaFin");
     let hora = this.get("fin");
 
-    return `${fecha} - ${hora}`;
+    return `${fecha_fin} - ${hora}`;
   }),
 
   color: Ember.computed("titulo", function() {
@@ -41,6 +41,7 @@ export default DS.Model.extend({
   validaciones: {
     titulo: [validatePresence(true), validateLength({ min: 2 })],
     fecha: [validatePresence(true)],
+    fecha_fin: [validatePresence(true)],
     inicio: [validatePresence(true)],
     fin: [validatePresence(true)],
     responsable: [validatePresence(true)],
