@@ -2,6 +2,11 @@ import Ember from "ember";
 import { task } from "ember-concurrency";
 
 export default Ember.Route.extend({
+  queryParams: {
+    pagina: { replace: true, refreshModel: true },
+    filtro: { replace: true }
+  },
+
   obtenerEventos: task(function*(query) {
     let data = yield this.store.query("evento", query);
     let meta = data.get("meta");
@@ -10,7 +15,7 @@ export default Ember.Route.extend({
 
   model() {
     return Ember.RSVP.hash({
-      tarea: this.get("obtenerEventos"),
+      tareaEventos: this.get("obtenerEventos"),
       columnas: [
         {
           atributo: "fecha_inicio",
@@ -39,7 +44,23 @@ export default Ember.Route.extend({
         },
         {
           atributo: "responsable.nombreCompleto",
-          titulo: "responsable"
+          titulo: "Responsable"
+        },
+        {
+          atributo: "",
+          titulo: "Traslado"
+        },
+        {
+          atributo: "",
+          titulo: "Acta"
+        },
+        {
+          atributo: "",
+          titulo: "Autorización"
+        },
+        {
+          atributo: "",
+          titulo: "Comentarios"
         },
         {
           atributo: "todoElDia",
@@ -48,5 +69,11 @@ export default Ember.Route.extend({
         }
       ]
     });
+  },
+
+  actions: {
+    alIngresarFiltro() {
+      this.get("obtenerEventos").perform({});
+    }
   }
 });

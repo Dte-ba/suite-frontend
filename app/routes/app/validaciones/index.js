@@ -26,6 +26,10 @@ export default Ember.Route.extend({
           titulo: "Cantidad pedidas"
         },
         {
+          atributo: "",
+          titulo: "Cantidad validadas"
+        },
+        {
           atributo: "autor.nombreCompleto",
           titulo: "Pedida por",
           promesa: "autor"

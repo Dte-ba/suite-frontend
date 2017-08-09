@@ -1,6 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
+  breadCrumb: { title: "Acciones territoriales" },
   model() {
     return Ember.RSVP.hash({
       eventos: this.store.findAll("evento"),
