@@ -32,6 +32,13 @@
       </div>
     </div>
 
+    {{#f.input label="Categoria" name="categoria" as |f|}}
+      {{suite-selector/agrupable valores=model.categorias valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
+
+    {{f.input type="textarea" label="Objetivo" name="objetivo"}}
+
+
   {{/suite-grupo}}
 
 
@@ -41,21 +48,17 @@
       {{suite-selector/perfil valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
+    {{f.input label="Cant. participantes" name="cantidadDeParticipantes"}}
+
   {{/suite-grupo}}
 
 
   {{#suite-grupo numero=3 titulo="¿Dónde se realizará?"}}
 
+    {{f.input type="checkbox" label="¿Requiere traslado?" name="requiereTraslado"}}
+
     {{#f.input label="Escuela" name="escuela" as |f|}}
       {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
-    {{/f.input}}
-
-  {{/suite-grupo}}
-
-  {{#suite-grupo numero=4 titulo="Prueba ..."}}
-
-    {{#f.input label="Categoria" name="categoria" as |f|}}
-      {{suite-selector/agrupable valores=model.categorias valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
   {{/suite-grupo}}

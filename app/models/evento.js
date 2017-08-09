@@ -12,6 +12,9 @@ export default DS.Model.extend({
   inicio: DS.attr("string"),
   fin: DS.attr("string"),
   todoElDia: DS.attr("boolean"),
+  objetivo: DS.attr("string"),
+  cantidadDeParticipantes: DS.attr("string"),
+  requiereTraslado: DS.attr("boolean"),
 
   responsable: DS.belongsTo("perfil"),
   escuela: DS.belongsTo("escuela"),
