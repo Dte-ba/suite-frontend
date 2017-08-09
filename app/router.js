@@ -44,6 +44,9 @@ Router.map(function() {
     this.route('tareas', function() {
       this.route('detalle', { path: "detalle/:tarea_id" });
     });
+    this.route('validaciones', function() {
+      this.route('detalle', { path: "edicion/:escuela_id" });
+    });
   });
 
   this.route("tablas", function() {

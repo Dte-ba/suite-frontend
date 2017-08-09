@@ -29,6 +29,9 @@ let initializer = {
     inflector.irregular("categoria-de-evento", "categorias-de-eventos");
     inflector.irregular("motivo-de-conformacion", "motivos-de-conformacion");
 
+    inflector.irregular("estado-de-validacion", "estados-de-validacion");
+    inflector.irregular("validacion", "validaciones");
+
     inflector.irregular("tarea", "tareas");
   }
 };
