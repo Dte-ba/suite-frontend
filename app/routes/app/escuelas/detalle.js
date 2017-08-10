@@ -41,6 +41,10 @@ export default Ember.Route.extend({
         id: "nivel.nombre"
       },
       {
+        titulo: "Financiamiento",
+        id: "tipoDeFinanciamiento.nombre"
+      },
+      {
         titulo: "Gestión",
         id: "tipoDeGestion.nombre"
       },

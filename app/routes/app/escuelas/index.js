@@ -18,13 +18,13 @@ export default Ember.Route.extend({
       tareaEscuelas: this.get("obtenerEscuelas"),
       columnas: [
         {
-          atributo: "cue",
-          titulo: "CUE",
+          atributo: "nombre",
+          titulo: "Nombre",
           ruta: "app.escuelas.detalle"
         },
         {
-          atributo: "nombre",
-          titulo: "Nombre"
+          atributo: "cue",
+          titulo: "CUE"
         },
         {
           atributo: "localidad.distrito.region.numero",
@@ -38,18 +38,18 @@ export default Ember.Route.extend({
         },
         {
           atributo: "nivel.nombre",
-          titulo: "Nivel",
+          titulo: "Modalidad",
           promesa: "nivel"
-        },
-        {
-          atributo: "tipoDeFinanciamiento.nombre",
-          titulo: "Financiamiento",
-          promesa: "tipoDeFinanciamiento"
         },
         {
           atributo: "programas",
           titulo: "Programas",
           template: "suite-tabla/celda-programas"
+        },
+        {
+          atributo: "piso.estado",
+          titulo: "Piso",
+          template: "suite-tabla/celda-pisos"
         }
       ]
     });
