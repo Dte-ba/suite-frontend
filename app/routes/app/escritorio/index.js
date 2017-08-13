@@ -3,7 +3,16 @@ import { task } from "ember-concurrency";
 
 
 export default Ember.Route.extend({
-  tarea: null,
+  queryParams: {
+    pagina: { replace: true, refreshModel: true },
+    filtro: { replace: true }
+  },
+
+  validaciones: [
+    { label: 'Objetadas', value: 300 },
+    { label: 'Pendientes', value: 750 },
+    { label: 'Aprobadas', value: 2500 }
+  ],
 
   obtenerValidaciones: task(function*(query) {
     let data = yield this.store.query("validacion", query);
@@ -13,7 +22,7 @@ export default Ember.Route.extend({
 
   model() {
     return Ember.RSVP.hash({
-      validaciones: this.get("obtenerValidaciones"),
+      validaciones: this.get("validaciones"),
     })
   },
 });
