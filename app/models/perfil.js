@@ -22,6 +22,16 @@ export default DS.Model.extend({
   localidad: DS.belongsTo("localidad"),
   telefonoCelular: DS.attr("string"),
   telefonoAlternativo: DS.attr("string"),
+  estado: DS.attr("boolean"),
+  estadoComoCadena: Ember.computed("estado", function() {
+    let estado = this.get("estado");
+    if (estado === true) {
+      estado = "Activo";
+    } else {
+      estado = "Bloqueado";
+    }
+    return estado;
+  }),
 
   // 2) Datos administrativos
   region: DS.belongsTo("region"),

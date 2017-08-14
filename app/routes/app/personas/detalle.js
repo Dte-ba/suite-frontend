@@ -32,7 +32,12 @@ export default Ember.Route.extend({
       {
         titulo: "Email Laboral",
         id: "emailLaboral"
+      },
+      {
+        titulo: "Estado",
+        id: "estadoComoCadena"
       }
+      
     ]);
 
     model.set("filaDatosPersonales", [
