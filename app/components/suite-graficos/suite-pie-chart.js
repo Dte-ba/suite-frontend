@@ -1,33 +1,51 @@
-import Ember from 'ember';
-import { select } from 'd3-selection';
-import { scaleLinear, scaleBand, scaleOrdinal } from 'd3-scale';
-import { svg, arc, pie } from 'd3-shape';
+import Ember from "ember";
+import { select } from "d3-selection";
+import { scaleOrdinal } from "d3-scale";
+import { arc, pie } from "d3-shape";
 
 export default Ember.Component.extend({
-
-
-  data: [
-    {label:"one", value:20},
-    {label:"two", value:50},
-    {label:"three", value:30}
-  ],
-
   didInsertElement() {
+    var _svg = select(this.$("svg")[0]);
 
-    var w = 300,                        //width
-        h = 300,                            //height
-        r = 100,                            //radius
-        color = scaleOrdinal.category20c;     //builtin range of colors
+    let width = 200;
+    let height = 200;
+    let radius = Math.min(width, height) / 2;
 
-    var svg = select(this.$('svg')[0]);
+    let dataset = this.get("data");
 
-    svg.attr("width", w)           //set the width and height of our visualization (these will be attributes of the <svg> tag
-      .attr("height", h)
-      .append('g')
-      .attr("transform", "translate(" + r + "," + r + ")")    //move the center of the pie chart from 0, 0 to radius, radius
+    let g = _svg
+      .append("g")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    var arc = arc().outerRadius(r);              //this will create <path> elements for us using arc data
-    var pie = layout.pie()           //this will create arc data for us given a list of values
-        .value(function(d) { return d.value; });    //we must tell it out to access the value of each element in our data array
+    var _arc = arc().innerRadius(0).outerRadius(radius);
+
+    let label = arc().outerRadius(radius - 40).innerRadius(radius - 40);
+
+    var _pie = pie()
+      .value(function(d) {
+        return d.count;
+      })
+      .sort(null);
+
+    var color = scaleOrdinal().range(["blue", "green", "#B3F2C9"]);
+
+    var _path = g.selectAll("path").data(_pie(dataset)).enter();
+
+    _path.append("path").attr("d", _arc).attr("fill", function(d) {
+      return color(d.data.label);
+    });
+
+    _path
+      .append("text")
+      .attr("dy", "0.35em")
+      .attr("transform", function(d) {
+        let posicion = label.centroid(d);
+        return `translate(${posicion})`;
+      })
+      .text(function(d) {
+        return d.data.label;
+      });
+
+    this.$().transition("fade in");
   }
 });

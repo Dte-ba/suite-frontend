@@ -3,10 +3,28 @@
 <p>Esta es una versión preliminar de <strong>suite 2</strong>, seleccione
   alguna de las secciones que aparencen en pantalla para continuar.</p>
 
+
+{{#if model.validaciones.isRunning}}
+  {{suite-spinner}}
+{{else if model.validaciones.error}}
+  <p>Error: {{model.validaciones.error}}</p>
+{{else}}
+
+  {{#each model.validaciones.value as | d|}}
+    <li>{{d.label}} -- {{d.count}}</li>
+  {{/each}}
+
+    {{suite-graficos/suite-pie-chart data=model.validaciones.value}}
+
+{{/if}}
+
+<!--
 <h4>Validaciones (wip)</h4>
-<!-- {{suite-graficos/suite-bars}} -->
+{{!suite-graficos/suite-bars}}
 <div class="chart-container">
-  {{pie-chart data=model.validaciones selectedSeedColor="rgb(200, 0, 0)"}}
+  {{!pie-chart data=model.validaciones selectedSeedColor="rgb(200, 0, 0)"}}
 </div>
+
+-->
 
 {{outlet}}

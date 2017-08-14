@@ -1,28 +1,31 @@
 import Ember from "ember";
 import { task } from "ember-concurrency";
-
+import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
+  ajax: Ember.inject.service(),
+
   queryParams: {
     pagina: { replace: true, refreshModel: true },
     filtro: { replace: true }
   },
 
-  validaciones: [
-    { label: 'Objetadas', value: 300 },
-    { label: 'Pendientes', value: 750 },
-    { label: 'Aprobadas', value: 2500 }
-  ],
-
   obtenerValidaciones: task(function*(query) {
-    let data = yield this.store.query("validacion", query);
-    let meta = data.get("meta");
-    return { data, meta };
+    let url = ENV.API_URL + "/api/validaciones/estadistica";
+    let resultado = yield this.get("ajax").request(url);
+
+    let dataset = [
+      { label: "Aprobadas", count: resultado.data.aprobadas },
+      { label: "Objetadas", count: resultado.data.objetadas },
+      { label: "Pendientes", count: resultado.data.pendientes }
+    ];
+
+    return dataset;
   }).drop(),
 
   model() {
-    return Ember.RSVP.hash({
-      validaciones: this.get("validaciones"),
-    })
-  },
+    return {
+      validaciones: this.get("obtenerValidaciones").perform()
+    };
+  }
 });

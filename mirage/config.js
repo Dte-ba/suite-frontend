@@ -112,4 +112,10 @@ export default function() {
 
   this.get("/localidades");
   this.get("/localidades/:id");
+
+  this.get("/validaciones/estadistica", () => {
+    return {
+      data: { objetadas: 609, pendientes: 18, aprobadas: 3710 }
+    };
+  });
 }

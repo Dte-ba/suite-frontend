@@ -1,25 +1,21 @@
-import { moduleForComponent, test } from 'ember-qunit';
-import hbs from 'htmlbars-inline-precompile';
+import { moduleForComponent, test } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
 
-moduleForComponent('suite-graficos/suite-pie-chart', 'Integration | Component | suite graficos/suite pie chart', {
-  integration: true
-});
+moduleForComponent(
+  "suite-graficos/suite-pie-chart",
+  "Integration | Component | suite graficos/suite pie chart",
+  {
+    integration: true
+  }
+);
 
-test('it renders', function(assert) {
+test("it renders", function(assert) {
+  this.set("data", [{ label: "demo", count: "demo" }]);
+  this.render(hbs`{{suite-graficos/suite-pie-chart data=data}}`);
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
-  this.render(hbs`{{suite-graficos/suite-pie-chart}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#suite-graficos/suite-pie-chart}}
-      template block text
-    {{/suite-graficos/suite-pie-chart}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(
+    this.$().find("text").text(),
+    "demo",
+    "El elemento generado dice demo"
+  );
 });
