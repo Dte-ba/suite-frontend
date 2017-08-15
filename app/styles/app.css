@@ -619,6 +619,16 @@ iframe.mapa {
 }
 
 /* Estadisticas de seccion */
+.ui.statistic>.label,
+.ui.statistics .statistic>.label {
+  text-transform: none;
+  font-weight: 200;
+}
+
+.ui.statistics .statistics>.label,
+.ui.statistics .statistic>.label~.value {
+  font-family: 'Roboto Light';
+}
 .ui.statistics .statistic>.label~.value {
   margin-top: 0.8rem;
   font-weight: 100;
