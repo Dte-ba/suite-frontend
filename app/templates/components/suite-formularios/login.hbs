@@ -1,6 +1,8 @@
 {{yield}}
 
-<h2 class="header form-head">Suite</h2>
+<div class="login-form">
+
+    <img src='/imagenes/logo-suite.png'>
 
     {{#validated-form
       model        = (changeset model validaciones)
@@ -24,3 +26,5 @@
           <p>{{error}}</p>
         {{/if}}
       </div>
+
+</div>
