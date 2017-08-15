@@ -1,7 +1,10 @@
 import Ember from "ember";
 import { task } from "ember-concurrency";
+import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
+  ajax: Ember.inject.service(),
+
   queryParams: {
     pagina: { replace: true, refreshModel: true },
     filtro: { replace: true }
@@ -13,8 +16,15 @@ export default Ember.Route.extend({
     return { data, meta };
   }).drop(),
 
+  obtenerEstadisticas: task(function*() {
+    let url = ENV.API_URL + "/api/tareas/estadistica";
+    let resultado = yield this.get("ajax").request(url);
+    return resultado;
+  }).drop(),
+
   model() {
     return Ember.RSVP.hash({
+      estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaTareas: this.get("obtenerTareas"),
       columnas: [
         {

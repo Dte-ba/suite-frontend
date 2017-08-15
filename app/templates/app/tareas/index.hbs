@@ -1,4 +1,31 @@
+<div class="ui grid">
+  <div class="five wide column">
+    {{suite-titulo titulo="Tareas"}}
+    <button class='ui button primario disabled'><i class="ui plus icon"></i> Nueva tarea</button>
+  </div>
+  <div class="eleven wide column">
+    <div class="ui four statistics">
+      <div class="ui statistic">
+        <div class="label">Total</div>
+        <div class="value">{{model.estadisticas.data.total}}</div>
+      </div>
+      <div class="ui statistic">
+        <div class="label">Pendientes</div>
+        <div class="value">{{model.estadisticas.data.pendientes}}</div>
+      </div>
+      <div class="ui statistic">
+        <div class="label">En progreso</div>
+        <div class="value">{{model.estadisticas.data.enProgreso}}</div>
+      </div>
+      <div class="ui statistic">
+        <div class="label">Prioridad Alta</div>
+        <div class="value">{{model.estadisticas.data.prioridadAlta}}</div>
+      </div>
+    </div>
+  </div>
+</div>
 {{outlet}}
+<div class="ui divider"></div>
 
 {{suite-filtros/tareas filtro=filtro pagina=pagina tarea=model.tareaTareas}}
 
