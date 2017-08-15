@@ -1,10 +1,28 @@
+<div class="ui grid">
+  <div class="five wide column">
+    {{suite-titulo titulo="Personas"}}
+      <button class="ui button primario " disabled {{action (route-action "crearUnUsuarioNuevo")}}><i class="ui plus icon"></i> Agregar persona</button>
+  </div>
+  <div class="eleven wide column">
+    <div class="ui three statistics">
+      <div class="ui statistic">
+        <div class="label">Total</div>
+        <div class="value">{{model.estadisticas.data.total}}</div>
+      </div>
+        <div class="ui statistic">
+          <div class="label">En territorio</div>
+          <div class="value">{{model.estadisticas.data.enTerritorio}}</div>
+        </div>
+      <div class="ui statistic">
+        <div class="label">Oficina central</div>
+        <div class="value">{{model.estadisticas.data.enDTE}}</div>
+      </div>
+    </div>
+  </div>
+</div>
 {{outlet}}
 
-{{suite-titulo titulo="Personas"}}
-
-<div class="barra-de-botones">
-  <button class="ui button primario " disabled {{action (route-action "crearUnUsuarioNuevo")}}>Crear un usuario nuevo</button>
-</div>
+<div class="ui divider"></div>
 
 {{suite-filtros/escuelas filtro=filtro pagina=pagina tarea=model.tareaPersonas}}
 
