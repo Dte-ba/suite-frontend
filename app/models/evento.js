@@ -18,6 +18,7 @@ export default DS.Model.extend({
 
   responsable: DS.belongsTo("perfil"),
   escuela: DS.belongsTo("escuela"),
+  // acompaniantes: DS.hasMany("perfil"),
 
   fecha_inicio: Ember.computed("fecha", "inicio", function() {
     let fecha = this.get("fecha");

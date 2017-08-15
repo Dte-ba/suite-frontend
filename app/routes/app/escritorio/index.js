@@ -22,10 +22,21 @@ export default Ember.Route.extend({
 
     return dataset;
   }).drop(),
+  totalValidaciones: task(function*(query) {
+    let url = ENV.API_URL + "/api/validaciones/estadistica";
+    let resultado = yield this.get("ajax").request(url);
+    let dataset = [
+      { label: "Total", count: resultado.data.total }
+    ];
+
+    return dataset;
+  }).drop(),
 
   model() {
     return {
-      validaciones: this.get("obtenerValidaciones").perform()
+      validaciones: this.get("obtenerValidaciones").perform(),
+      totalValidaciones: this.get("totalValidaciones").perform()
+
     };
   }
 });

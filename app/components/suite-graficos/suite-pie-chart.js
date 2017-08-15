@@ -27,7 +27,7 @@ export default Ember.Component.extend({
       })
       .sort(null);
 
-    var color = scaleOrdinal().range(["blue", "green", "#B3F2C9"]);
+    var color = scaleOrdinal().range(["#29c65d", "#ffce55", "#ff6285"]);
 
     var _path = g.selectAll("path").data(_pie(dataset)).enter();
 
