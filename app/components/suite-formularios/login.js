@@ -31,6 +31,7 @@ export default Ember.Component.extend({
   },
 
   submit: task(function*(model) {
+    this.set('error', '');
     yield timeout(500);
     let resultado = yield this.autenticar(model);
 
