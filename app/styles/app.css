@@ -572,7 +572,7 @@ iframe.mapa {
   padding: 6em;
   width: 400px;
   margin-top: 2em;
-  border-radius: 7px;
+  text-align: center;
 }
 
 .login-error {

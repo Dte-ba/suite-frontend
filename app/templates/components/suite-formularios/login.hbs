@@ -2,7 +2,7 @@
 
 <div class="login-form">
 
-    <img src='/imagenes/logo-suite.png'>
+    <img src='/imagenes/logo-suite.png' width=200 height=114>
 
     {{#validated-form
       model        = (changeset model validaciones)
@@ -10,7 +10,7 @@
       as |f|}}
 
       {{f.input disabled=submit.last.isRunning label="Usuario" id="username" name="usuario"}}
-      {{f.input disabled=submit.last.isRunning label="Contraseña" type="password" id="password"  name="clave"}}
+      {{f.input disabled=submit.last.isRunning label="Contraseña" type="password" id="password" name="clave"}}
 
 
       {{#if submit.last.isRunning}}
