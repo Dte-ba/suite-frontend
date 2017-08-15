@@ -1,3 +1,37 @@
+<div class="ui grid">
+  <div class="five wide column">
+    {{suite-titulo titulo="Escuelas"}}
+    <button class='ui button primario disabled'>Crear escuela</button>
+  </div>
+  <div class="eleven wide column">
+    <div class="ui four statistics">
+      <div class="ui statistic">
+        <div class="label">Escuelas abiertas</div>
+        <div class="value">{{model.estadisticas.data.abiertas}}</div>
+      </div>
+        <div class="ui statistic">
+          <div class="label">Piso sin funcionar</div>
+          <div class="value">{{model.estadisticas.data.pisoRoto}}</div>
+        </div>
+      <div class="ui statistic">
+        <div class="label">Conectar Igualdad</div>
+        <div class="value">{{model.estadisticas.data.conectarIgualdad}}</div>
+      </div>
+      <div class="ui statistic">
+        <div class="label">Escuelas del futuro</div>
+        <div class="value">{{model.estadisticas.data.escuelasDelFuturo}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui secondary pointing fluid menu">
+    <div class="menu">
+      {{#link-to "app.escuelas.index" class="ui item"}}Listado{{/link-to}}
+      {{#link-to "app.escuelas.mapa" class="ui item"}}Mapa{{/link-to}}
+    </div>
+</div>
+
 {{outlet}}
 
 {{suite-filtros/escuelas filtro=filtro pagina=pagina tarea=model.tareaEscuelas}}

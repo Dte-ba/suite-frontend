@@ -34,16 +34,16 @@ export default Ember.Component.extend({
       .attr('y', validacion => 150 - yScale(validacion.count))
       .attr("fill", color((validacion, index) => index))
 
-    let text = svg.selectAll('text')
-      .data(this.get('validaciones'))
-      .enter()
-      .append('text')
-      .attr("x", validacion => xScale(validacion.name))
-      .attr("y", function(d) { return 15; })
-      .text( validacion => validacion.name)
-      .attr("font-family", "sans-serif")
-      .attr("font-size", "14px")
-      .attr("fill", "#666");
+    // let text = svg.selectAll('text')
+    //   .data(this.get('validaciones'))
+    //   .enter()
+    //   .append('text')
+    //   .attr("x", validacion => xScale(validacion.name))
+    //   .attr("y", function(d) { return 15; })
+    //   .text( validacion => validacion.name)
+    //   .attr("font-family", "sans-serif")
+    //   .attr("font-size", "14px")
+    //   .attr("fill", "#666");
 
   }
 });

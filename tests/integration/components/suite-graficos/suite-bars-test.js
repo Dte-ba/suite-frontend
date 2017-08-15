@@ -5,21 +5,7 @@ moduleForComponent('suite-graficos/suite-bars', 'Integration | Component | suite
   integration: true
 });
 
-test('it renders', function(assert) {
-
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
+test("it renders", function(assert) {
   this.render(hbs`{{suite-graficos/suite-bars}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#suite-graficos/suite-bars}}
-      template block text
-    {{/suite-graficos/suite-bars}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), "");
 });

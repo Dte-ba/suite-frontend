@@ -10,7 +10,7 @@ export default Ember.Route.extend({
     filtro: { replace: true }
   },
 
-  obtenerValidaciones: task(function*(query) {
+  obtenerValidaciones: task(function*() {
     let url = ENV.API_URL + "/api/validaciones/estadistica";
     let resultado = yield this.get("ajax").request(url);
 
@@ -22,7 +22,7 @@ export default Ember.Route.extend({
 
     return dataset;
   }).drop(),
-  totalValidaciones: task(function*(query) {
+  totalValidaciones: task(function*() {
     let url = ENV.API_URL + "/api/validaciones/estadistica";
     let resultado = yield this.get("ajax").request(url);
     let dataset = [

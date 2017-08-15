@@ -617,3 +617,10 @@ iframe.mapa {
   margin-top: -3px;
   margin-right: 10px;
 }
+
+/* Estadisticas de seccion */
+.ui.statistics .statistic>.label~.value {
+  margin-top: 0.8rem;
+  font-weight: 100;
+  color: #555;
+}
