@@ -10,6 +10,10 @@ export default Ember.Component.extend({
   usuario: '',
   clave: '',
 
+  haCompletadoDatosDeAcceso: Ember.computed('usuario', 'clave', function() {
+    return (this.get('usuario') && this.get('clave'));
+  }),
+
   didInsertElement() {
     let input_usuario = this.$("input[name='usuario']")
     let input_clave = this.$("input[name='clave']")
@@ -79,7 +83,11 @@ export default Ember.Component.extend({
     },
 
     ingresar() {
-      this.get('tareaIngresar').perform(this.get('usuario'), this.get('clave'));
+      if (this.get('haCompletadoDatosDeAcceso')) {
+        this.get('tareaIngresar').perform(this.get('usuario'), this.get('clave'));
+      } else {
+        this.set('error', "Por favor complete los campos nombre y contraseña.")
+      }
     }
   }
 });
