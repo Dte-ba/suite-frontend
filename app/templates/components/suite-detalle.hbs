@@ -1,24 +1,26 @@
-{{yield}}
+  <div class="four wide column">
+    <div class="suite-grupo-numero">{{numero}}</div>
+    <div class="suite-grupo-titulo">{{titulo}}</div>
+  </div>
 
-{{#if titulo}}
-  <h2 class="suite-detalle">{{titulo}}:</h2>
-{{/if}}
+  <div class="seven wide column">
+    <table class="ui very basic compact table tabla-definicion tabla-detalle-personas">
+      <tbody>
+        {{#each filas as |fila|}}
+          <tr>
+            <td class="five wide"><b>{{fila.titulo}}:</b></td>
 
-<table class="ui definition celled table segment tabla-definicion">
-  <tbody>
+            {{#if fila.componente}}
+              <td class="eleven wide">{{component fila.componente model=model}}</td>
+            {{else}}
+              <td class="eleven wide">{{get model fila.id}}</td>
+            {{/if}}
 
-    {{#each filas as |fila|}}
-      <tr>
-        <td>{{fila.titulo}}</td>
+          </tr>
+        {{/each}}
 
-        {{#if fila.componente}}
-          <td>{{component fila.componente model=model}}</td>
-        {{else}}
-          <td>{{get model fila.id}}</td>
-        {{/if}}
+      </tbody>
+    </table>
+  </div>
 
-      </tr>
-    {{/each}}
-
-  </tbody>
-</table>
+  {{yield}}
