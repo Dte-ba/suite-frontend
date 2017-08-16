@@ -4,69 +4,26 @@
 
 <div class="login-form">
 
-      <img src='/imagenes/logo-suite.png' width=200 height=114>
+  <img src='/imagenes/logo-suite.png' width=200 height=114>
 
-    {{#validated-form
-      model        = (changeset model validaciones)
-      on-submit    = submit
-      as |f|}}
+  <div class="ui form">
 
-      {{f.input label="Nombre" disabled=submit.last.isRunning name="usuario"}}
-      {{f.input label="Contraseña" disabled=submit.last.isRunning type="password" name="clave"}}
+    <div class="field">
+      <label>Nombre</label>
+      {{input disabled=tareaIngresar.last.isRunning value=usuario placeholder="Usuario" name='usuario'}}
+    </div>
+
+    <div class="field">
+      <label>Contraseña</label>
+
+      {{input disabled=submit.last.isRunning type="password" value=clave placeholder="Contraseña" name='clave'}}
 
       <div class="login-checkbox">
         {{ui-checkbox label="Hacer visible este campo" checked=mostrarClave onChange=(action "alternarMostrarClave")}}
       </div>
-
-      <br/>
-
-      {{#if submit.last.isRunning}}
-        <button class="ui disabled button large fluid green"><div class="ui active inverted tiny inline loader"></div> Ingresando </button>
-      {{else}}
-        {{f.submit label="Ingresar" class="ui button large fluid green"}}
-      {{/if}}
-
-    {{/validated-form}}
-
-      <div class='login-error'>
-        {{#if error}}
-          {{#suite-animacion}}
-            <p>{{error}}</p>
-          {{/suite-animacion}}
-        {{/if}}
-      </div>
-
-</div>
-
-    {{/suite-animacion}}
-
-
-
-
-<p>Segundo formulario de prueba</p>
-
-
-{{#suite-animacion}}
-
-Valores ingresados: {{usuario}} - {{clave}}
-
-<div class="login-form">
-
-    <img src='/imagenes/logo-suite.png' width=200 height=114>
-
-    <div class="ui input">
-      {{input disabled=submit.last.isRunning value=usuario placeholder="Usuario"}}
     </div>
 
-    <div class="ui input">
-      {{input disabled=submit.last.isRunning type="password" value=clave placeholder="Contraseña"}}
-    </div>
-
-    <div class="login-checkbox">
-      {{ui-checkbox label="Hacer visible este campo" checked=mostrarClave onChange=(action "alternarMostrarClave")}}
-    </div>
-
-    {{#if submit.last.isRunning}}
+    {{#if tareaIngresar.last.isRunning}}
       <button class="ui disabled button large fluid green"><div class="ui active inverted tiny inline loader"></div> Ingresando </button>
     {{else}}
       <button class="ui button large fluid green" {{action 'ingresar'}}>Ingresar</button>
@@ -80,6 +37,7 @@ Valores ingresados: {{usuario}} - {{clave}}
       {{/if}}
     </div>
 
+</div>
 </div>
 
     {{/suite-animacion}}

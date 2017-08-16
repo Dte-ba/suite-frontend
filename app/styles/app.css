@@ -558,7 +558,7 @@ iframe.mapa {
 }
 
 .login-contenedor {
-  background-color: #F1F1F1;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
   position: absolute;
   top: 0;
   bottom: 0;
@@ -577,8 +577,8 @@ iframe.mapa {
 
 .login-checkbox {
   text-align: right;
-  margin-top: -5px;
-  margin-bottom: 20px;
+  margin-top: 5px;
+  padding-bottom: 20px;
 }
 
 .login-error {

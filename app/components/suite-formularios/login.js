@@ -1,25 +1,36 @@
 import Ember from "ember";
 import { task, timeout } from "ember-concurrency";
-import { validatePresence } from "ember-changeset-validations/validators";
 
-let model = Ember.Object.create({
-  usuario: "",
-  clave: ""
-});
 
 export default Ember.Component.extend({
   classNames: ["login-contenedor"],
   session: Ember.inject.service("session"),
   mostrarClave: false,
 
-  model: model,
-
   usuario: '',
   clave: '',
 
-  validaciones: {
-    usuario: [validatePresence(true)],
-    clave: [validatePresence(true)]
+  didInsertElement() {
+    let input_usuario = this.$("input[name='usuario']")
+    let input_clave = this.$("input[name='clave']")
+
+    // Hace foco en el primer input.
+    input_usuario.focus();
+
+    // Si pulsa enter sobre el primer input pasa a la contraseña:
+    input_usuario.keyup((event) => {
+      if (event.keyCode == 13) {
+        input_clave.focus();
+      }
+    });
+
+    // Si pulsa enter sobre la contraseña intenta ingresar.
+    input_clave.keyup((event) => {
+      if (event.keyCode == 13) {
+        this.send('ingresar');
+      }
+    });
+
   },
 
   autenticar(model) {
@@ -33,27 +44,6 @@ export default Ember.Component.extend({
       return reason;
     });
   },
-
-  submit: task(function*(model) {
-    this.set('error', '');
-    yield timeout(500);
-    let resultado = yield this.autenticar(model);
-
-    try {
-      let errors = JSON.parse(resultado);
-
-      if (errors.non_field_errors) {
-        this.set("error", errors.non_field_errors);
-      } else {
-        this.set("error", resultado);
-      }
-    } catch (e) {
-      this.set("error", resultado);
-    }
-
-    model.set("clave", "");
-    this.set("model", model);
-  }),
 
   tareaIngresar: task(function*(usuario, clave) {
     this.set('error', '');
@@ -72,8 +62,7 @@ export default Ember.Component.extend({
       this.set("error", resultado);
     }
 
-    model.set("clave", "");
-    this.set("model", model);
+    this.set("clave", "");
   }),
 
   actions: {
