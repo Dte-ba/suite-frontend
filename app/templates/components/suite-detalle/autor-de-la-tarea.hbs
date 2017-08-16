@@ -1,5 +1,5 @@
 {{yield}}
 
 {{#suite-promesa promesa=model.autor}}
-  {{model.autor.nombre}} {{model.autor.apellido}}
+  {{#link-to 'app.personas.detalle' model.autor}}{{model.autor.nombre}} {{model.autor.apellido}}{{/link-to}}
 {{/suite-promesa}}

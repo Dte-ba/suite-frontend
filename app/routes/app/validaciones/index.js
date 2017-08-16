@@ -33,11 +33,11 @@ export default Ember.Route.extend({
         },
         {
           atributo: "",
-          titulo: "Cantidad pedidas"
+          titulo: "Pedidas"
         },
         {
           atributo: "",
-          titulo: "Cantidad validadas"
+          titulo: "Validadas"
         },
         {
           atributo: "autor.nombreCompleto",
