@@ -14,6 +14,9 @@ export default Ember.Component.extend({
 
   model: model,
 
+  usuario: '',
+  clave: '',
+
   validaciones: {
     usuario: [validatePresence(true)],
     clave: [validatePresence(true)]
@@ -52,6 +55,27 @@ export default Ember.Component.extend({
     this.set("model", model);
   }),
 
+  tareaIngresar: task(function*(usuario, clave) {
+    this.set('error', '');
+    yield timeout(500);
+    let resultado = yield this.autenticar(Ember.Object.create({usuario, clave}));
+
+    try {
+      let errors = JSON.parse(resultado);
+
+      if (errors.non_field_errors) {
+        this.set("error", errors.non_field_errors);
+      } else {
+        this.set("error", resultado);
+      }
+    } catch (e) {
+      this.set("error", resultado);
+    }
+
+    model.set("clave", "");
+    this.set("model", model);
+  }),
+
   actions: {
     alternarMostrarClave() {
       let elemento_input = $("input[name='clave']");
@@ -63,6 +87,10 @@ export default Ember.Component.extend({
       } else {
         elemento_input.attr('type', 'password');
       }
+    },
+
+    ingresar() {
+      this.get('tareaIngresar').perform(this.get('usuario'), this.get('clave'));
     }
   }
 });
