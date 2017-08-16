@@ -575,6 +575,12 @@ iframe.mapa {
   text-align: center;
 }
 
+.login-checkbox {
+  text-align: right;
+  margin-top: -5px;
+  margin-bottom: 20px;
+}
+
 .login-error {
   color: red;
   margin-top: 2em;

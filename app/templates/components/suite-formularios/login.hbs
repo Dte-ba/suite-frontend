@@ -11,9 +11,12 @@
       on-submit    = submit
       as |f|}}
 
-      {{f.input disabled=submit.last.isRunning label="Usuario" id="username" name="usuario"}}
+      {{f.input label="Nombre" disabled=submit.last.isRunning name="usuario"}}
+      {{f.input label="Contraseña" disabled=submit.last.isRunning type="password" name="clave"}}
 
-      {{f.input disabled=submit.last.isRunning label="Contraseña" type="password" id="password" name="clave"}}
+      <div class="login-checkbox">
+        {{ui-checkbox label="Hacer visible este campo" checked=mostrarClave onChange=(action "alternarMostrarClave")}}
+      </div>
 
       <br/>
 
@@ -22,6 +25,9 @@
       {{else}}
         {{f.submit label="Ingresar" class="ui button large fluid green"}}
       {{/if}}
+
+
+
     {{/validated-form}}
 
 

@@ -10,6 +10,7 @@ let model = Ember.Object.create({
 export default Ember.Component.extend({
   classNames: ["login-contenedor"],
   session: Ember.inject.service("session"),
+  mostrarClave: false,
 
   model: model,
 
@@ -49,5 +50,19 @@ export default Ember.Component.extend({
 
     model.set("clave", "");
     this.set("model", model);
-  })
+  }),
+
+  actions: {
+    alternarMostrarClave() {
+      let elemento_input = $("input[name='clave']");
+
+      this.toggleProperty('mostrarClave');
+
+      if (this.get('mostrarClave')) {
+        elemento_input.attr('type', 'text');
+      } else {
+        elemento_input.attr('type', 'password');
+      }
+    }
+  }
 });

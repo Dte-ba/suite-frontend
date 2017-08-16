@@ -12,6 +12,6 @@ moduleForComponent(
 test("it renders", function(assert) {
   this.render(hbs`{{suite-formularios/login}}`);
 
-  assert.ok(this.$().text().indexOf("Usuario") > -1);
+  assert.ok(this.$().text().indexOf("Nombre") > -1);
   assert.ok(this.$().text().indexOf("Contraseña") > -1);
 });
