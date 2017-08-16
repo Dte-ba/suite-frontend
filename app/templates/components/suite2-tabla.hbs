@@ -23,7 +23,11 @@
             {{/if}}
 
             {{#if columna.ruta}}
-              {{#link-to columna.ruta col.row}} {{get col.row columna.atributo}} {{/link-to}}
+              {{#if columna.promesa}}
+                {{#link-to columna.ruta (get col.row columna.promesa)}} {{get col.row columna.atributo}} {{/link-to}}
+              {{else}}
+                {{#link-to columna.ruta col.row}} {{get col.row columna.atributo}} {{/link-to}}
+              {{/if}}
             {{else}}
               {{get col.row columna.atributo}}
             {{/if}}
