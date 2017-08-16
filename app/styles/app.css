@@ -640,3 +640,11 @@ iframe.mapa {
   font-weight: 100;
   color: #555;
 }
+
+/* Escritorio */
+.escritorio .ui.statistics .statistics>.label,
+.escritorio .ui.statistics .statistic>.label~.value,
+.escritorio .ui.statistic>.label,
+.escritorio .ui.statistics .statistic>.label {
+  text-align: left;
+}

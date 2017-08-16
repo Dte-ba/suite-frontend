@@ -35,16 +35,16 @@ export default Ember.Component.extend({
       return color(d.data.label);
     });
 
-    _path
-      .append("text")
-      .attr("dy", "0.35em")
-      .attr("transform", function(d) {
-        let posicion = label.centroid(d);
-        return `translate(${posicion})`;
-      })
-      .text(function(d) {
-        return d.data.label;
-      });
+    // _path
+    //   .append("text")
+    //   .attr("dy", "0.35em")
+    //   .attr("transform", function(d) {
+    //     let posicion = label.centroid(d);
+    //     return `translate(${posicion})`;
+    //   })
+    //   .text(function(d) {
+    //     return d.data.label;
+    //   });
 
     this.$().transition("fade in");
   }

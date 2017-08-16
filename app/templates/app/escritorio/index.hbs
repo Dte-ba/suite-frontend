@@ -1,30 +1,108 @@
-{{suite-titulo titulo="Escritorio"}}
-
-<p>Esta es una versión preliminar de <strong>suite 2</strong>, seleccione
-  alguna de las secciones que aparencen en pantalla para continuar.</p>
-<h5 class="ui header">Validaciones</h5>
-<div class="ui equal width stackable grid section">
+<div class="ui red tag label">Esta es una versión provisoria de SUITE 2. La mayor parte de los datos estadísticos no son reales y están presentados a modo de maquetación.</div>
+<div class="ui equal width padded grid escritorio">
   <div class="column">
-    {{#if model.validaciones.isRunning}}
-      {{suite-spinner}}
-    {{else if model.validaciones.error}}
-      <p>Error: {{model.validaciones.error}}</p>
-    {{else}}
-      <div class="ui equal width grid">
-        <div class="column">
-          {{#link-to app.validaciones.index}}Ver lista{{/link-to}}
-          {{model.totalValidaciones.value.data}}
-        </div>
-        <div class="column">
-          {{suite-graficos/suite-pie-chart data=model.validaciones.value}}
-        </div>
-        <div class="column">
-          <p>aprobadas</p>
-          <i class="ui red chat icon"></i>
-          {{model.validaciones.value.data.aprobadas}}
+    <div class="ui padded grid">
+      <div class="sixteen widen column">
+        <h4 class="header">
+          Tareas de la semana
+          <div class="sub header">{{#link-to "app.agenda.index"}}Ver todas{{/link-to}}</div>
+        </h4>
+      </div>
+      <div class="sixteen widen column">
+        <h4 class="header">
+          Escuelas 2017
+          <div class="sub header">{{#link-to "app.escuelas.index" (query-params filtro="" pagina=1)}}Ver todas{{/link-to}}</div>
+        </h4>
+        <div class="ui three statistics">
+          <div class="ui statistic">
+            <div class="label">Sin visitar</div>
+            <i class="ui yellow wait icon"></i>
+            <div class="value">368</div>
+          </div>
+          <div class="ui statistic">
+            <div class="label">Paquetes pendientes</div>
+            <i class="ui yellow wait icon"></i>
+            <div class="value">2368</div>
+          </div>
+          <div class="ui statistic">
+            <div class="label">Piso sin funcionar</div>
+            <i class="ui red server icon"></i>
+            <div class="value">{{model.escuelas.data.pisoRoto}}</div>
+          </div>
         </div>
       </div>
-    {{/if}}
+      <div class="sixteen widen column">
+        <h4 class="header">
+          Validaciones 2017
+          <div class="sub header">{{#link-to "app.validaciones.index" (query-params filtro="" pagina=1)}}Ver lista{{/link-to}}</div>
+        </h4>
+        {{#if model.validaciones.isRunning}}
+          {{suite-spinner}}
+        {{else if model.validaciones.error}}
+          <p>Error: {{model.validaciones.error}}</p>
+        {{else}}
+          <div class="ui grid">
+            <div class="three wide column">
+              <div class="ui tiny statistic">
+                <div class="value">1268</div>
+              </div>
+              <!-- {{model.totalValidaciones.value.data}} -->
+            </div>
+            <div class="nine wide column">
+              {{suite-graficos/suite-pie-chart data=model.validaciones.value}}
+            </div>
+            <div class="four wide column">
+              <div class="ui mini statistics">
+                <div class="ui mini statistic">
+                  <div class="label">Objetadas</div>
+                  <i class="ui red chat icon"></i>
+                  <div class="value">68</div>
+                </div>
+                <div class="ui mini statistic">
+                  <div class="label">Pendientes</div>
+                  <i class="ui yellow wait icon"></i>
+                  <div class="value">200</div>
+                </div>
+                <div class="ui mini statistic">
+                  <div class="label">Aprobadas</div>
+                  <i class="ui green check icon"></i>
+                  <div class="value">1000</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+      </div>
+      <div class="sixteen widen column">
+        <h4 class="header">
+          Paquetes de provisión
+          <div class="sub header"><a href="#">Ver todos</a></div>
+        </h4>
+        <div class="ui three statistics">
+          <div class="ui statistic">
+            <div class="label">Pendientes</div>
+            <i class="ui yellow wait icon"></i>
+            <div class="value">368</div>
+          </div>
+            <div class="ui statistic">
+              <div class="label">Objetados</div>
+              <i class="ui red chat icon"></i>
+              <div class="value">2368</div>
+            </div>
+          <div class="ui statistic">
+            <div class="label">Para descargar</div>
+            <i class="ui green check icon"></i>
+            <div class="value">265</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <h5>Acciones territoriales</h5>
+    <div class="google-maps">
+      <iframe class="mapa" src="https://dte-ba.github.io/redba-maps/" width="600" height="450"></iframe>
+    </div>
   </div>
 </div>
 

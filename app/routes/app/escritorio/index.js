@@ -22,6 +22,13 @@ export default Ember.Route.extend({
 
     return dataset;
   }).drop(),
+
+  obtenerEscuelas: task(function*(query) {
+    let data = yield this.store.query("escuela", query);
+    let meta = data.get("meta");
+    return { data, meta };
+  }).drop(),
+
   totalValidaciones: task(function*() {
     let url = ENV.API_URL + "/api/validaciones/estadistica";
     let resultado = yield this.get("ajax").request(url);
@@ -35,6 +42,7 @@ export default Ember.Route.extend({
   model() {
     return {
       validaciones: this.get("obtenerValidaciones").perform(),
+      escuelas: this.get("obtenerEscuelas").perform(),
       totalValidaciones: this.get("totalValidaciones").perform()
 
     };
