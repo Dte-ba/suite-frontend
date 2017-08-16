@@ -19,7 +19,7 @@ export default Ember.Component.extend({
 
     var _arc = arc().innerRadius(0).outerRadius(radius);
 
-    let label = arc().outerRadius(radius - 40).innerRadius(radius - 40);
+    // let label = arc().outerRadius(radius - 40).innerRadius(radius - 40);
 
     var _pie = pie()
       .value(function(d) {
