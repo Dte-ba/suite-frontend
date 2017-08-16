@@ -53,7 +53,7 @@ export default Ember.Route.extend({
         },
         {
           atributo: "fechaDeIngreso",
-          titulo: "Fecha de Ingreso"
+          titulo: "Fecha de Ingreso",
         }
       ]
     });

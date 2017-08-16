@@ -23,10 +23,6 @@ export default DS.Model.extend({
   fechaConformacion: DS.attr("string"),
   motivoDeConformacion: DS.belongsTo("motivoDeConformacion"),
 
-  programasComoCadena: Ember.computed("programas", function() {
-    return this.get("programas").map(e => e.get("nombre")).join(", ");
-  }),
-
   tieneDatosGeolocalizacion: Ember.computed("latitud", "longitud", function() {
     return this.get("latitud") && this.get("longitud");
   }),

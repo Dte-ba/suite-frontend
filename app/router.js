@@ -47,6 +47,9 @@ Router.map(function() {
     this.route('validaciones', function() {
       this.route('detalle', { path: "edicion/:escuela_id" });
     });
+    this.route('programas', function() {
+      this.route('detalle', { path: 'detalle/:programa_id'});
+    });
   });
 
   this.route("tablas", function() {

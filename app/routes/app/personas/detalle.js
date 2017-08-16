@@ -27,7 +27,8 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Fecha de ingreso",
-        id: "fechaDeIngreso"
+        id: "fechaDeIngreso",
+        componente: 'suite-detalle/fechaDeIngreso'
       },
       {
         titulo: "Email Laboral",
@@ -37,7 +38,7 @@ export default Ember.Route.extend({
         titulo: "Estado",
         id: "estadoComoCadena"
       }
-      
+
     ]);
 
     model.set("filaDatosPersonales", [

@@ -1,8 +1,7 @@
 import { moduleForModel, test } from 'ember-qunit';
 
 moduleForModel('programa', 'Unit | Model | programa', {
-  // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:escuela']
 });
 
 test('it exists', function(assert) {

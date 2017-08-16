@@ -1,0 +1,15 @@
+{{outlet}}
+
+<div class="ui stackable grid">
+
+  <div class="ui row middle aligned segment">
+    <div class="ten wide column">
+      <h3 class="ui header">
+        Programa {{model.nombre}}
+      </h3>
+    </div>
+  </div>
+
+  <p>Este programa está vinculado a {{model.cantidadDeEscuelas}} {{#link-to "app.escuelas"}}escuelas{{/link-to}}.</p>
+
+</div>

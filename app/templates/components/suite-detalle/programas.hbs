@@ -1,0 +1,12 @@
+{{yield}}
+
+{{#if (is-pending model.programas)}}
+  <div class="ui active inline mini loader"></div>
+{{else}}
+  {{#each model.programas as |p|}}
+    {{#link-to 'app.programas.detalle' p}}{{p.nombre}}{{/link-to}}
+    {{#unless (eq p model.programas.lastObject)}}, {{/unless}}
+  {{else}}
+    Sin programas
+  {{/each}}
+{{/if}}

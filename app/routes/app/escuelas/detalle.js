@@ -54,7 +54,7 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Programas",
-        id: "programasComoCadena"
+        componente: 'suite-detalle/programas',
       },
       {
         titulo: "CUE anteriores",
