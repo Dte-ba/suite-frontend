@@ -4,7 +4,7 @@ import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
   ajax: Ember.inject.service(),
-  
+
   queryParams: {
     pagina: { replace: true, refreshModel: true },
     filtro: { replace: true }
@@ -56,7 +56,8 @@ export default Ember.Route.extend({
         {
           atributo: "escuela.nombre",
           titulo: "Escuela",
-          ruta: "app.validaciones.detalle"
+          promesa: 'escuela',
+          ruta: "app.escuelas.detalle"
         },
         {
           atributo: "escuela.cue",

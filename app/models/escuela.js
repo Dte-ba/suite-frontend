@@ -16,6 +16,7 @@ export default DS.Model.extend({
   nivel: DS.belongsTo("nivel"),
   area: DS.belongsTo("area"),
   programas: DS.hasMany("programa"),
+  validaciones: DS.hasMany("validacion"),
   piso: DS.belongsTo("piso"),
   contactos: DS.hasMany("contacto"),
   eventos: DS.hasMany("evento"),
@@ -27,7 +28,7 @@ export default DS.Model.extend({
     return this.get("latitud") && this.get("longitud");
   }),
 
-  validaciones: {
+  validacionesDeFormulario: {
     nombre: [validatePresence(true)],
     cue: [validatePresence(true)]
   }
