@@ -56,10 +56,6 @@ export default DS.Model.extend({
     return this.get("experiencia.nombre");
   }),
 
-  contratoComoCadena: Ember.computed("contrato.{nombre}", function() {
-    return this.get("contrato.nombre");
-  }),
-
   nombreCompleto: Ember.computed("nombre", "apellido", function() {
     let apellido = this.get("apellido");
     let nombre = this.get("nombre");
