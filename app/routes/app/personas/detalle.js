@@ -19,7 +19,7 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Contrato",
-        id: "contratoComoCadena"
+        componente: 'suite-detalle/contrato',
       },
       {
         titulo: "Expediente",
