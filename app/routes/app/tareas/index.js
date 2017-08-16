@@ -52,8 +52,8 @@ export default Ember.Route.extend({
           promesa: "responsable"
         },
         {
-          atributo: "descripcion",
           titulo: "Descripción",
+          componente: 'suite-detalle/descripcionDeTarea'
         },
         {
           atributo: "motivoDeTarea.nombre",
