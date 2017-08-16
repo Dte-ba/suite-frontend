@@ -9,7 +9,13 @@
         {{#each filas as |fila|}}
           <tr>
             <td class="five wide"><b>{{fila.titulo}}:</b></td>
-            <td class="eleven wide">{{get model fila.id}}</td>
+
+            {{#if fila.componente}}
+              <td class="eleven wide">{{component fila.componente model=model}}</td>
+            {{else}}
+              <td class="eleven wide">{{get model fila.id}}</td>
+            {{/if}}
+
           </tr>
         {{/each}}
 

@@ -10,7 +10,13 @@
     {{#each filas as |fila|}}
       <tr>
         <td>{{fila.titulo}}</td>
-        <td>{{get model fila.id}}</td>
+
+        {{#if fila.componente}}
+          <td>{{component fila.componente model=model}}</td>
+        {{else}}
+          <td>{{get model fila.id}}</td>
+        {{/if}}
+
       </tr>
     {{/each}}
 
