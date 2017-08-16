@@ -14,6 +14,8 @@
 
           {{#if columna.template}}
             {{component columna.template valor=(get col.row columna.atributo)}}
+          {{else if columna.componente}}
+            {{component columna.componente model=col.row}}
           {{else}}
 
             {{#if columna.promesa}}
