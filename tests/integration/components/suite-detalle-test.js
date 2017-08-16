@@ -7,7 +7,7 @@ moduleForComponent('suite-detalle', 'Integration | Component | suite detalle', {
 
 test('it renders', function(assert) {
 
-  this.render(hbs`{{suite-detalle-escuelas}}`);
+  this.render(hbs`{{suite-detalle}}`);
   assert.equal(this.$().text().trim(), '');
 
   this.render(hbs`
