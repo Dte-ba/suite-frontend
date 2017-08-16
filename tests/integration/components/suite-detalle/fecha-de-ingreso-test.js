@@ -6,20 +6,10 @@ moduleForComponent('suite-detalle/fecha-de-ingreso', 'Integration | Component | 
 });
 
 test('it renders', function(assert) {
+  let hoy = new Date();
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  this.set('model', {fechaDeIngreso: hoy});
 
-  this.render(hbs`{{suite-detalle/fecha-de-ingreso}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#suite-detalle/fecha-de-ingreso}}
-      template block text
-    {{/suite-detalle/fecha-de-ingreso}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.render(hbs`{{suite-detalle/fecha-de-ingreso model=model}}`);
+  assert.ok(this.$().text().indexOf('hace unos segundos') > -1, "Incluye fecha relativa");
 });

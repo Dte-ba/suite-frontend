@@ -48,8 +48,8 @@ export default Ember.Route.extend({
           titulo: "Celular"
         },
         {
-          atributo: "contrato.nombre",
-          titulo: "Contrato"
+          titulo: "Contrato",
+          componente: 'suite-detalle/contrato'
         },
         {
           atributo: "fechaDeIngreso",
