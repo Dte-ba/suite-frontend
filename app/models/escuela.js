@@ -20,9 +20,10 @@ export default DS.Model.extend({
   piso: DS.belongsTo("piso"),
   contactos: DS.hasMany("contacto"),
   eventos: DS.hasMany("evento"),
-  parent_id: DS.belongsTo("escuela"),
+  padre: DS.belongsTo("escuela"),
   fechaConformacion: DS.attr("string"),
   motivoDeConformacion: DS.belongsTo("motivoDeConformacion"),
+  estado: DS.attr("boolean"),
 
   tieneDatosGeolocalizacion: Ember.computed("latitud", "longitud", function() {
     return this.get("latitud") && this.get("longitud");

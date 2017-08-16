@@ -15,10 +15,17 @@
 
   <div class="ui equal width row middle aligned segment">
     <div class="column">
-      <i class="ui check circle icon"></i> Abierta
+      {{estado-de-escuela model.estado label="True"}}
     </div>
     <div class="column">
-      <i class="ui server icon"></i> Piso: {{model.piso.estadoComoCadena}}
+      {{#if model.padre}}
+        conformada
+      {{else}}
+        sin conformar
+        {{/if}}
+    </div>
+    <div class="column">
+      {{estado-de-piso model.piso.estado label="True"}}
     </div>
   </div>
 

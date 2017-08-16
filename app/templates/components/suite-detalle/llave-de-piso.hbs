@@ -1,0 +1,11 @@
+{{yield}}
+
+{{#if (is-pending model.piso)}}
+  <div class="ui active inline mini loader"></div>
+{{else}}
+  {{#if model.piso.llave}}
+    <a href="{{model.piso.llave}}" target="_blank"><i class="ui blue file icon"></i>Descargar</a>
+  {{else}}
+    <i class="ui red file icon"></i><span class="ui left pointing red basic label">No se subió la llave</span>
+  {{/if}}
+{{/if}}

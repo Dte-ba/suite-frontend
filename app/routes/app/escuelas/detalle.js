@@ -24,6 +24,10 @@ export default Ember.Route.extend({
       {
         titulo: "Estado",
         id: "piso.estadoComoCadena"
+      },
+      {
+        titulo: "Llave",
+        componente: "suite-detalle/llave-de-piso"
       }
     ]);
 
