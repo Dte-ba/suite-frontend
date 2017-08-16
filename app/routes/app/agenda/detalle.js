@@ -23,7 +23,7 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Objetivo",
-        id: ""
+        id: "objetivo"
       },
       {
         titulo: "Acta",
@@ -37,8 +37,12 @@ export default Ember.Route.extend({
         id: "responsable.nombreCompleto"
       },
       {
+        titulo: "Acompañantes",
+        componente: 'suite-detalle/participantes'
+      },
+      {
         titulo: "Participantes",
-        id: ""
+        id: "cantidadDeParticipantes"
       }
     ]);
 

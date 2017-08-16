@@ -1,0 +1,12 @@
+{{yield}}
+
+{{#if (is-pending model.acompaniantes)}}
+  <div class="ui active inline mini loader"></div>
+{{else}}
+  {{#each model.acompaniantes as |p|}}
+    {{#link-to 'app.personas.detalle' p}}{{p.nombreApellido}}{{/link-to}}
+    {{#unless (eq p model.acompaniantes.lastObject)}}, {{/unless}}
+  {{else}}
+    Sin acompañantes
+  {{/each}}
+{{/if}}

@@ -42,7 +42,9 @@ export default DS.Model.extend({
   fechaDeRenuncia: DS.attr("string"),
   emailLaboral: DS.attr("string"),
 
-  eventos: DS.belongsTo("evento"),
+  eventos: DS.hasMany("evento", {
+    inverse: 'acompaniantes'
+  }),
 
   regionComoCadena: Ember.computed("region.{numero}", function() {
     return this.get("region.numero");
@@ -65,6 +67,13 @@ export default DS.Model.extend({
     let nombre = this.get("nombre");
 
     return `${apellido}, ${nombre}`;
+  }),
+
+  nombreApellido: Ember.computed("nombre", "apellido", function() {
+    let apellido = this.get("apellido");
+    let nombre = this.get("nombre");
+
+    return `${nombre} ${apellido}`;
   }),
 
   direccionCompleta: Ember.computed(

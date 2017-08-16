@@ -41,19 +41,6 @@
           model=model
           filas=model.filaUsuarios
       }}
-      {{#if model.acompaniantes}}
-      <div class="ui row segment">
-        <div class="four wide column">
-          <!-- <div class="suite-grupo-numero">4</div>
-          <div class="suite-grupo-titulo">Comentarios</div> -->
-        </div>
-        <div class="seven wide column">
-            {{#each model.acompaniantes as |acompaniante|}}
-              {{acompaniante.nombreCompleto}}
-            {{/each}}
-        </div>
-      </div>
-      {{/if}}
       {{suite-detalle-escuelas
           numero="3"
           titulo="Se realizará en"
