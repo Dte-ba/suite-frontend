@@ -27,7 +27,8 @@
           <div class="ui statistic">
             <div class="label">Piso sin funcionar</div>
             <i class="ui red server icon"></i>
-            <div class="value">{{model.escuelas.data.pisoRoto}}</div>
+            <div class="value">{{model.estadisticas.value.escuelas.data.pisoRoto}}</div>
+            {{log model.estadisticas.value}}
           </div>
         </div>
       </div>
@@ -44,9 +45,8 @@
           <div class="ui grid">
             <div class="three wide column">
               <div class="ui tiny statistic">
-                <div class="value">1268</div>
+                <div class="value">{{model.estadisticas.value.validaciones.data.total}}</div>
               </div>
-              <!-- {{model.totalValidaciones.value.data}} -->
             </div>
             <div class="nine wide column">
               {{suite-graficos/suite-pie-chart data=model.validaciones.value}}
@@ -56,17 +56,17 @@
                 <div class="ui mini statistic">
                   <div class="label">Objetadas</div>
                   <i class="ui red chat icon"></i>
-                  <div class="value">68</div>
+                  <div class="value">{{model.estadisticas.value.validaciones.data.objetadas}}</div>
                 </div>
                 <div class="ui mini statistic">
                   <div class="label">Pendientes</div>
                   <i class="ui yellow wait icon"></i>
-                  <div class="value">200</div>
+                  <div class="value">{{model.estadisticas.value.validaciones.data.pendientes}}</div>
                 </div>
                 <div class="ui mini statistic">
                   <div class="label">Aprobadas</div>
                   <i class="ui green check icon"></i>
-                  <div class="value">1000</div>
+                  <div class="value">{{model.estadisticas.value.validaciones.data.aprobadas}}</div>
                 </div>
               </div>
             </div>
