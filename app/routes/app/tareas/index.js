@@ -42,9 +42,8 @@ export default Ember.Route.extend({
           titulo: "Fecha de Alta"
         },
         {
-          atributo: "autor.nombreCompleto",
-          titulo: "autor",
-          promesa: "autor"
+          titulo: "Autor",
+          componente: 'suite-detalle/autorDeLaTarea'
         },
         {
           atributo: "responsable.nombreCompleto",

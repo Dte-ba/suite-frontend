@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     model.set("filaCaracteristicas", [
       {
         titulo: "Autor",
-        id: "autor.nombreCompleto"
+        componente: "suite-detalle/autorDeLaTarea"
       },
       {
         titulo: "Responsable asignado",
