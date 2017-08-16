@@ -1,7 +1,10 @@
-{{yield}}
 
 {{#if (is-pending promesa)}}
   <div class="ui active inline mini loader"></div>
 {{else}}
-  {{get promesa atributo}}
+  {{#if atributo}}
+    {{get promesa atributo}}
+  {{else}}
+    {{yield}}
+  {{/if}}
 {{/if}}
