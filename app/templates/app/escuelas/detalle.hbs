@@ -8,8 +8,12 @@
       </h3>
     </div>
     <div class="six wide column right aligned">
-      {{#link-to "app.escuelas.edicion" model class="ui button primario"}}Editar{{/link-to}}
-      {{#link-to "app.escuelas.conformar" model class="ui button primario"}}Conformar{{/link-to}}
+      {{#if model.conformada}}
+        <button class='ui button disabled'>No se puede editar esta escuela conformada</button>
+      {{else}}
+        {{#link-to "app.escuelas.edicion" model class="ui button primario"}}Editar{{/link-to}}
+        {{#link-to "app.escuelas.conformar" model class="ui button primario"}}Conformar{{/link-to}}
+      {{/if}}
     </div>
   </div>
 
@@ -19,7 +23,6 @@
     </div>
     <div class="column">
       {{suite-detalle/estado-conformacion model=model}}
-
     </div>
     <div class="column">
       {{estado-de-piso model.piso.estado label="True"}}
@@ -30,7 +33,11 @@
     <div class="column">
       <h4>Acciones</h4>
 
-      <p><button class="ui primario button" {{action (route-action "crearEventoParaEstaEscuela")}}><i class='ui plus icon'></i> Agendar acción</button></p>
+      {{#if model.conformada}}
+        <p><button class="ui button disabled">No puede crear acciones en una escuela conformada</button></p>
+      {{else}}
+        <p><button class="ui primario button" {{action (route-action "crearEventoParaEstaEscuela")}}><i class='ui plus icon'></i> Agendar acción</button></p>
+      {{/if}}
     </div>
   </div>
 

@@ -8,6 +8,11 @@ export default Ember.Route.extend({
     );
 
     model.set("localidades", this.store.findAll("localidad"));
+
+    if (model.get('conformada')) {
+      // TODO: Avisar que no puede editar una escuela conformada.
+      this.transitionTo("app.escuelas.detalle", model);
+    }
   },
   actions: {
     guardar(modelo) {
