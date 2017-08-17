@@ -1,0 +1,34 @@
+<div class="ui stackable grid">
+
+  <div class="ui equal width row">
+
+    <div class="column">
+      {{#validated-form
+        model        = model
+        on-submit    = tareaGenerarConformacion
+        submit-label = texto as |f|
+      }}
+
+        {{#f.input label="Escuela que se absorberá" name="escuelaAConformar" as |f|}}
+          {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
+        {{/f.input}}
+
+        {{#f.input label="Motivo de la conformación" name="motivo" as |f|}}
+          {{suite-selector/simple opciones=model.motivos valor=f.value cuandoSelecciona=f.update}}
+        {{/f.input}}
+
+        {{#if error}}
+          <div class="error">{{error}}</div>
+        {{/if}}
+
+        {{f.submit label=texto class="ui button green"}} {{yield}}
+
+      {{/validated-form}}
+    </div>
+
+    <div class="column">
+    </div>
+
+  </div>
+
+</div>

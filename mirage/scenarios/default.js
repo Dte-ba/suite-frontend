@@ -75,4 +75,8 @@ export default function(server) {
   server.create("categoriaDeEvento", {
     nombre: "Sin categoría"
   });
+
+  server.create("motivoDeConformacion", {
+    nombre: "Comparten Piso"
+  });
 }

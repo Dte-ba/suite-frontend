@@ -21,9 +21,11 @@ export default DS.Model.extend({
   contactos: DS.hasMany("contacto"),
   eventos: DS.hasMany("evento"),
   padre: DS.belongsTo("escuela"),
+  subescuelas: DS.hasMany("escuela", {inverse: 'padre'}),
   fechaConformacion: DS.attr("string"),
   motivoDeConformacion: DS.belongsTo("motivoDeConformacion"),
   estado: DS.attr("boolean"),
+  conformada: DS.attr("boolean"),
 
   tieneDatosGeolocalizacion: Ember.computed("latitud", "longitud", function() {
     return this.get("latitud") && this.get("longitud");
@@ -32,5 +34,10 @@ export default DS.Model.extend({
   validacionesDeFormulario: {
     nombre: [validatePresence(true)],
     cue: [validatePresence(true)]
+  },
+
+  validacionesParaConformacion: {
+    escuelaAConformar: [validatePresence(true)],
+    motivo: [validatePresence(true)],
   }
 });

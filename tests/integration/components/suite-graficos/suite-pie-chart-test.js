@@ -12,10 +12,5 @@ moduleForComponent(
 test("it renders", function(assert) {
   this.set("data", [{ label: "demo", count: "demo" }]);
   this.render(hbs`{{suite-graficos/suite-pie-chart data=data}}`);
-
-  assert.equal(
-    this.$().find("text").text(),
-    "demo",
-    "El elemento generado dice demo"
-  );
+  assert.equal(this.$().find("text").text(), '');
 });

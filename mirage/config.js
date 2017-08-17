@@ -28,19 +28,9 @@ export default function() {
 
   this.get("/categorias-de-eventos");
 
-  /*
-  this.get("/escuelas", function(db, request) {
-    let escuelas = db.escuelas.all().models;
-
-    return {
-      data: escuelas.map(attrs => ({
-        type: "escuela",
-        id: attrs.id,
-        attributes: attrs
-      }))
-    };
+  this.post("/escuelas/1/conformar", (/*schema, request*/) => {
+    return {};
   });
-  */
 
   this.post("/auth", (schema, request) => {
     if (request.requestBody !== '{"username":"demo","password":"demo"}') {
@@ -104,6 +94,9 @@ export default function() {
   this.get("/tipos-de-financiamiento");
   this.get("/tipos-de-financiamiento/:id");
 
+  this.get("/motivos-de-conformacion");
+  this.get("/motivos-de-conformacion/:id");
+
   this.get("/regiones");
   this.get("/regiones/:id");
 
@@ -112,6 +105,18 @@ export default function() {
 
   this.get("/localidades");
   this.get("/localidades/:id");
+
+  this.get("/escuelas/estadistica", () => {
+    return {
+      data: {}
+    }
+  });
+
+  this.get("/tareas/estadistica", () => {
+    return {
+      data: {}
+    }
+  });
 
   this.get("/validaciones/estadistica", () => {
     return {

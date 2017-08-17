@@ -1,0 +1,7 @@
+{{#if model.conformada}}
+  <i class='ui share alternate icon'></i>Conformada - se unificó en {{#suite-promesa promesa=model.padre}}
+    {{#link-to "app.escuelas.detalle" model.padre}}cue: {{model.padre.cue}}{{/link-to}}
+  {{/suite-promesa}}
+{{else}}
+  Sin conformar
+{{/if}}

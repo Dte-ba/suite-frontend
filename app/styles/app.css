@@ -648,3 +648,13 @@ iframe.mapa {
 .escritorio .ui.statistics .statistic>.label {
   text-align: left;
 }
+
+
+.suite-promesa {
+  display: inline-block;
+}
+
+
+.error {
+  color: red;
+}

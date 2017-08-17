@@ -10,6 +10,7 @@ export default Ember.Route.extend({
   },
 
   obtenerEscuelas: task(function*(query) {
+    query.conformada = false;
     let data = yield this.store.query("escuela", query);
     let meta = data.get("meta");
     return { data, meta };

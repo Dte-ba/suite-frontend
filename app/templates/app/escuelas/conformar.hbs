@@ -1,0 +1,22 @@
+{{outlet}}
+
+<p>Está a punto de realizar la conformación de
+  {{#link-to 'app.escuelas.detalle' model}}{{model.nombre}} - {{model.cue}}{{/link-to}}
+  con otra escuela.
+
+  Una vez aplicada la conformación, la escuela que seleccione más abajo
+  dejará de estar visible en la lista de escuelas, no podrá solicitar paquetes
+  ni editarse.
+</p>
+
+
+{{#suite-formularios/conformacion
+  model          = (changeset model model.validacionesParaConformacion)
+  luegoDeGuardar = (route-action "cuandoFinalizoConformacion")
+  motivos        = motivos
+  texto          = 'Realizar la conformación'
+}}
+
+  <button class="ui cancelar button" {{action (route-action "cancelar") model}}>Cancelar</button>
+
+{{/suite-formularios/conformacion}}

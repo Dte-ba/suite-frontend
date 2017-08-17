@@ -6,7 +6,7 @@ export default Ember.Component.extend({
 
   buscarEscuelas: task(function*(term) {
     yield timeout(200);
-    let query =  { search: term };
+    let query =  { search: term, conformada: false};
 
     if (this.get('region')) {
       query.localidad__distrito__region__numero = this.get('region');

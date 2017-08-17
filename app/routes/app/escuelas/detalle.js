@@ -62,7 +62,7 @@ export default Ember.Route.extend({
       },
       {
         titulo: "CUE anteriores",
-        id: ""
+        componente: 'suite-detalle/cue-anteriores'
       },
       {
         titulo: "Anexo",

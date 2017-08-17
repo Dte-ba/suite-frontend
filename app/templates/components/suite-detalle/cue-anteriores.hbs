@@ -1,0 +1,12 @@
+{{yield}}
+
+{{#suite-promesa promesa=model.subescuelas}}
+  {{#each model.subescuelas as |s|}}
+
+    {{#link-to 'app.escuelas.detalle' s}}{{s.cue}}{{/link-to}}
+
+    {{#unless (eq s model.subescuelas.lastObject)}}, {{/unless}}
+  {{else}}
+    No tiene
+  {{/each}}
+{{/suite-promesa}}

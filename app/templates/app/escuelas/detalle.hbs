@@ -7,9 +7,9 @@
         {{model.nombre}} - {{model.cue}}
       </h3>
     </div>
-    <div class="four wide column"></div>
-    <div class="two wide column">
+    <div class="six wide column right aligned">
       {{#link-to "app.escuelas.edicion" model class="ui button primario"}}Editar{{/link-to}}
+      {{#link-to "app.escuelas.conformar" model class="ui button primario"}}Conformar{{/link-to}}
     </div>
   </div>
 
@@ -18,11 +18,8 @@
       {{estado-de-escuela model.estado label="True"}}
     </div>
     <div class="column">
-      {{#if model.padre}}
-        conformada
-      {{else}}
-        sin conformar
-        {{/if}}
+      {{suite-detalle/estado-conformacion model=model}}
+
     </div>
     <div class="column">
       {{estado-de-piso model.piso.estado label="True"}}
