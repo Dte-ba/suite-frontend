@@ -51,6 +51,7 @@ Router.map(function() {
     this.route('programas', function() {
       this.route('detalle', { path: 'detalle/:programa_id'});
     });
+    this.route('paquetes', function() {});
   });
 
   this.route("tablas", function() {

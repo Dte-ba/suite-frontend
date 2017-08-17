@@ -628,7 +628,8 @@ iframe.mapa {
 .ui.statistic>.label,
 .ui.statistics .statistic>.label {
   text-transform: none;
-  font-weight: 200;
+  font-weight: 300;
+  font-size: 1.3em;
 }
 
 .ui.statistics .statistics>.label,
