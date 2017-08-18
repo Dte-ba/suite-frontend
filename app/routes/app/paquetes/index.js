@@ -44,12 +44,8 @@ export default Ember.Route.extend({
           promesa: "escuela"
         },
         {
-          atributo: "idHardware",
-          titulo: "ID de hardware"
-        },
-        {
-          atributo: "marcaDeArranque",
-          titulo: "Marca de arranque"
+          atributo: "idhardware_ma",
+          titulo: "ID de hardware / Marca de Arranque"
         },
         {
           atributo: "ne",
@@ -60,9 +56,8 @@ export default Ember.Route.extend({
           titulo: "Pedido"
         },
         {
-          atributo: "estado.nombre",
           titulo: "Estado",
-          promesa: "estadoDePaquete"
+          componente: "suite-detalle/estado-de-paquete"
         },
         {
           atributo: "comentario",
