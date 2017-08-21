@@ -1,7 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Component.extend({
-  classNames: ["suite2-tabla"],
+  classNames: ["suite-tabla"],
   tarea: null,
   filtro: null,
   pagina: 1,
