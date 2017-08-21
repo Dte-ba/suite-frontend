@@ -29,11 +29,12 @@
                 {{#link-to columna.ruta col.row}} {{get col.row columna.atributo}} {{/link-to}}
               {{/if}}
             {{else}}
-              {{get col.row columna.atributo}}
+              {{#if columna.fecha}}
+                {{suite-fecha fecha=(get col.row columna.atributo)}}
+              {{else}}
+                {{get col.row columna.atributo}}
+              {{/if}}
             {{/if}}
-
-
-
 
           {{/if}}
 

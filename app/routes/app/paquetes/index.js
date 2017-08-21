@@ -53,7 +53,8 @@ export default Ember.Route.extend({
         },
         {
           atributo: "fechaPedido",
-          titulo: "Pedido"
+          titulo: "Pedido",
+          fecha: true
         },
         {
           titulo: "Estado",
@@ -63,7 +64,6 @@ export default Ember.Route.extend({
           atributo: "comentario",
           titulo: "Comentarios"
         }
-
       ]
     });
   },

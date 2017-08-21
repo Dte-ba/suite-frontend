@@ -49,11 +49,12 @@ export default Ember.Route.extend({
         },
         {
           titulo: "Contrato",
-          componente: 'suite-detalle/contrato'
+          componente: "suite-detalle/contrato"
         },
         {
           atributo: "fechaDeIngreso",
           titulo: "Fecha de Ingreso",
+          fecha: true
         }
       ]
     });

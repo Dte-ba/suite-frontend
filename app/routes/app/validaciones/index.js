@@ -29,7 +29,8 @@ export default Ember.Route.extend({
       columnas: [
         {
           atributo: "fechaDeAlta",
-          titulo: "Pedido el"
+          titulo: "Pedido el",
+          fecha: true
         },
         {
           atributo: "",
