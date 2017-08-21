@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   ajax: Ember.inject.service(),
 
   queryParams: {
-    pagina: { replace: true, refreshModel: true },
+    pagina: { replace: true /*, refreshModel: true */ },
     filtro: { replace: true }
   },
 
@@ -23,7 +23,7 @@ export default Ember.Route.extend({
   }).drop(),
 
   model() {
-    return Ember.RSVP.hash({
+    return {
       estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaTareas: this.get("obtenerTareas"),
       columnas: [
@@ -39,11 +39,12 @@ export default Ember.Route.extend({
         },
         {
           atributo: "fechaDeAlta",
-          titulo: "Fecha de Alta"
+          titulo: "Fecha de Alta",
+          fecha: true
         },
         {
           titulo: "Autor",
-          componente: 'suite-detalle/autorDeLaTarea'
+          componente: "suite-detalle/autorDeLaTarea"
         },
         {
           atributo: "responsable.nombreCompleto",
@@ -52,7 +53,7 @@ export default Ember.Route.extend({
         },
         {
           titulo: "Descripción",
-          componente: 'suite-detalle/descripcionDeTarea'
+          componente: "suite-detalle/descripcionDeTarea"
         },
         {
           atributo: "motivoDeTarea.nombre",
@@ -65,7 +66,7 @@ export default Ember.Route.extend({
           promesa: "estadoDeTarea"
         }
       ]
-    });
+    };
   },
 
   actions: {

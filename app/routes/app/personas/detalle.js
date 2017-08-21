@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     model.set("filaDatosAdministrativos", [
       {
         titulo: "Grupo en la SUITE",
-        componente: 'suite-detalle/group'
+        componente: "suite-detalle/group"
       },
       {
         titulo: "Región",
@@ -19,7 +19,7 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Contrato",
-        componente: 'suite-detalle/contrato',
+        componente: "suite-detalle/contrato"
       },
       {
         titulo: "Expediente",
@@ -28,7 +28,7 @@ export default Ember.Route.extend({
       {
         titulo: "Fecha de ingreso",
         id: "fechaDeIngreso",
-        componente: 'suite-detalle/fechaDeIngreso'
+        componente: "suite-detalle/fechaDeIngreso"
       },
       {
         titulo: "Email Laboral",
@@ -38,13 +38,13 @@ export default Ember.Route.extend({
         titulo: "Estado",
         id: "estadoComoCadena"
       }
-
     ]);
 
     model.set("filaDatosPersonales", [
       {
         titulo: "Fecha de nacimiento",
-        id: "fechadenacimiento"
+        id: "fechadenacimiento",
+        fecha: true
       },
       {
         titulo: "Título",

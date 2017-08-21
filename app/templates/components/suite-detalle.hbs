@@ -13,7 +13,13 @@
             {{#if fila.componente}}
               <td class="eleven wide">{{component fila.componente model=model}}</td>
             {{else}}
-              <td class="eleven wide">{{get model fila.id}}</td>
+              <td class="eleven wide">
+                {{#if fila.fecha}}
+                  {{suite-fecha fecha=(get model fila.id)}}
+                {{else}}
+                  {{get model fila.id}}
+                {{/if}}
+              </td>
             {{/if}}
 
           </tr>

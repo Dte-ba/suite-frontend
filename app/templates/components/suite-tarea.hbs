@@ -1,0 +1,11 @@
+{{#if tarea.isRunning}}
+  <div class="ui active inline mini loader"></div>
+{{else if tarea.isError}}
+  {{tarea.error}}
+{{else}}
+  {{#if atributo}}
+    {{get tarea.value atributo}}
+  {{else}}
+    {{yield}}
+  {{/if}}
+{{/if}}

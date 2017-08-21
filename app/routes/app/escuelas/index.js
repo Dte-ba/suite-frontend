@@ -5,7 +5,7 @@ import ENV from "suite-frontend/config/environment";
 export default Ember.Route.extend({
   ajax: Ember.inject.service(),
   queryParams: {
-    pagina: { replace: true, refreshModel: true },
+    pagina: { replace: true /*, refreshModel: true */ },
     filtro: { replace: true }
   },
 
@@ -23,8 +23,7 @@ export default Ember.Route.extend({
   }).drop(),
 
   model() {
-
-    return Ember.RSVP.hash({
+    return {
       estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaEscuelas: this.get("obtenerEscuelas"),
       columnas: [
@@ -63,9 +62,8 @@ export default Ember.Route.extend({
           template: "suite-tabla/celda-pisos"
         }
       ]
-    });
+    };
   },
-
 
   actions: {
     alIngresarFiltro() {
