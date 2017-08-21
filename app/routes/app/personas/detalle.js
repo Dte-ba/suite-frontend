@@ -6,8 +6,8 @@ export default Ember.Route.extend({
   afterModel(model) {
     model.set("filaDatosAdministrativos", [
       {
-        titulo: "Rol en la SUITE",
-        id: ""
+        titulo: "Grupo en la SUITE",
+        componente: 'suite-detalle/group'
       },
       {
         titulo: "Región",

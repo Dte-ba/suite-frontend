@@ -54,12 +54,16 @@
         model=model
         filas=model.filaInformacion
     }}
+
+
     {{#suite-detalle
         numero="3"
         titulo="Datos de contacto"
         model=model
         filas=model.filaDatosDeContacto
+        anchoSegundaColumna="seven"
     }}
+
     <div class="five wide column g-map">
       {{#if model.tieneDatosGeolocalizacion}}
         {{#g-map lat=model.latitud lng=model.longitud zoom=16 as |context|}}
@@ -71,6 +75,9 @@
         </div>
       {{/if}}
     </div>
+
+
+
     {{/suite-detalle}}
     {{#if model.contactos}}
     <div class="ui row segment">

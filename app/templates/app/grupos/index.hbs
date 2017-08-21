@@ -1,0 +1,14 @@
+{{outlet}}
+
+<div class="ui secondary pointing fluid menu">
+    <div class="menu">
+      {{#link-to "app.grupos.index" class="ui item"}}Listado{{/link-to}}
+    </div>
+</div>
+
+{{suite2-tabla
+  pagina=pagina
+  columnas=model.columnas
+  tarea=model.tareaGrupos
+  paginacion=true
+}}

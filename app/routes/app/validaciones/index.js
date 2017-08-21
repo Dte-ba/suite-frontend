@@ -51,12 +51,12 @@ export default Ember.Route.extend({
         },
         {
           atributo: "observaciones",
-          titulo: "Observaciones",
+          titulo: "Observaciones"
         },
         {
           atributo: "escuela.nombre",
           titulo: "Escuela",
-          promesa: 'escuela',
+          promesa: "escuela",
           ruta: "app.escuelas.detalle"
         },
         {

@@ -52,6 +52,9 @@ Router.map(function() {
       this.route('detalle', { path: 'detalle/:programa_id'});
     });
     this.route('paquetes', function() {});
+    this.route('grupos', function() {
+      this.route('detalle', { path: 'detalle/:group_id'});
+    });
   });
 
   this.route("tablas", function() {

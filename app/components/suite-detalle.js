@@ -1,5 +1,6 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Component.extend({
-  classNames: ["ui", "row", "segment"]
+  classNames: ["ui", "row", "segment"],
+  anchoSegundaColumna: "twelve"
 });

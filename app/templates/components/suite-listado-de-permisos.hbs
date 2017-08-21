@@ -1,0 +1,51 @@
+{{yield}}
+
+
+<table class="ui celled structured table">
+
+  <thead>
+    <tr>
+      <th>Módulo de la suite</th>
+      <th>Acción</th>
+      <th>Permiso</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  {{#if tarea.isRunning}}
+    <tr>
+      <td colspan="3" class="center aligned">
+        {{suite-spinner}}
+      </td>
+    </tr>
+  {{else}}
+
+    {{#each tarea.value as |item|}}
+      <tr>
+        <td rowspan={{plus-one item.cantidad}}>{{capitalice item.modulo}}</td>
+      </tr>
+
+
+      {{#each item.permisos as |permiso|}}
+        <tr>
+          <td>Puede {{permiso.accion}}</td>
+          <td class="center aligned">
+
+            {{#if permiso.permiso}}
+              <i class="large green checkmark icon"></i>
+              Permitido
+            {{else}}
+              <i class="large red remove icon"></i>
+              No permitido
+            {{/if}}
+
+          </td>
+        </tr>
+      {{/each}}
+
+    {{/each}}
+
+  {{/if}}
+  </tbody>
+</table>

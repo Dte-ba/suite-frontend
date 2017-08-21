@@ -34,6 +34,7 @@ export default DS.Model.extend({
   }),
 
   // 2) Datos administrativos
+  group: DS.belongsTo("group"),
   region: DS.belongsTo("region"),
   cargo: DS.belongsTo("cargo"),
   contrato: DS.belongsTo("contrato"),
