@@ -40,9 +40,8 @@ export default Ember.Route.extend({
           titulo: "Validadas"
         },
         {
-          atributo: "autor.nombreCompleto",
           titulo: "Pedida por",
-          promesa: "autor"
+          componente: "suite-detalle/autor"
         },
         {
           atributo: "estado.nombre",
