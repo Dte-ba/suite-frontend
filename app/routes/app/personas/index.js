@@ -44,8 +44,8 @@ export default Ember.Route.extend({
           titulo: "Email"
         },
         {
-          atributo: "telefonoCelular",
-          titulo: "Celular"
+          titulo: "Grupo",
+          componente: "suite-detalle/group"
         },
         {
           titulo: "Contrato",

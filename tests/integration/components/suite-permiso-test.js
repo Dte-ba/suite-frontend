@@ -2,13 +2,9 @@ import { moduleForComponent, test } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import Ember from "ember";
 
-moduleForComponent(
-  "suite-lista-de-rutas",
-  "Integration | Component | suite lista de rutas",
-  {
-    integration: true
-  }
-);
+moduleForComponent("suite-permiso", "Integration | Component | suite permiso", {
+  integration: true
+});
 
 test("it renders", function(assert) {
   let perfilStub = Ember.Service.extend({
@@ -25,9 +21,15 @@ test("it renders", function(assert) {
   this.register("service:perfil", perfilStub);
   this.inject.service("perfil");
 
-  this.render(hbs`{{suite-lista-de-rutas}}`);
-  assert.ok(
-    this.$("a").length > 2,
-    "Hay al menos dos rutas en la lista de links."
-  );
+  assert.expectAssertion(() => {
+    this.render(hbs`{{suite-permiso}}`);
+  }, /Assertion Failed: Falta especificar el permiso/);
+
+  this.render(hbs`
+    {{#suite-permiso permiso='agenda.listar'}}
+      demo
+    {{/suite-permiso}}
+  `);
+
+  assert.equal(this.$().text().trim(), "demo");
 });

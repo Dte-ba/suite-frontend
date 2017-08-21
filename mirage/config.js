@@ -28,9 +28,12 @@ export default function() {
 
   this.get("/categorias-de-eventos");
 
-  this.post("/escuelas/1/conformar", (/*schema, request*/) => {
-    return {};
-  });
+  this.post(
+    "/escuelas/1/conformar",
+    (/*schema, request*/) => {
+      return {};
+    }
+  );
 
   this.post("/auth", (schema, request) => {
     if (request.requestBody !== '{"username":"demo","password":"demo"}') {
@@ -51,34 +54,11 @@ export default function() {
           apellido: "Ruscitti",
           grupos: [{ nombre: "coordinador", id: 1 }],
           idPerfil: 2,
-          permisosComoLista: [
-            {
-              titulo: "Can delete tipo de financiamiento",
-              identificador: "tipodefinanciamiento.delete_tipodefinanciamiento",
-              aplicacion: "escuelas",
-              modulo: "tipodefinanciamiento",
-              nombre: "delete_tipodefinanciamiento"
-            },
-            {
-              titulo: "Can add tipo de gestion",
-              identificador: "tipodegestion.add_tipodegestion",
-              aplicacion: "escuelas",
-              modulo: "tipodegestion",
-              nombre: "add_tipodegestion"
-            },
-            {
-              titulo: "Can change tipo de gestion",
-              identificador: "tipodegestion.change_tipodegestion",
-              aplicacion: "escuelas",
-              modulo: "tipodegestion",
-              nombre: "change_tipodegestion"
-            }
-          ],
           nombre: "Hugo",
           permisos: {
-            "tipodegestion.add_tipodegestion": true,
-            "tipodefinanciamiento.delete_tipodefinanciamiento": true,
-            "tipodegestion.change_tipodegestion": true
+            "agenda.listar": true,
+            "tareas.listar": true,
+            "escuelas.listar": false
           }
         }
       };
@@ -109,13 +89,13 @@ export default function() {
   this.get("/escuelas/estadistica", () => {
     return {
       data: {}
-    }
+    };
   });
 
   this.get("/tareas/estadistica", () => {
     return {
       data: {}
-    }
+    };
   });
 
   this.get("/validaciones/estadistica", () => {

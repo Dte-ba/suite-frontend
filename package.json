@@ -55,6 +55,7 @@
     "ember-power-select": "1.9.2",
     "ember-promise-helpers": "^1.0.3",
     "ember-query-params-reset": "^2.0.0",
+    "ember-qunit-assert-helpers": "^0.2.0",
     "ember-remodal": "^2.0.0",
     "ember-resolver": "^4.0.0",
     "ember-responsive": "^2.0.4",

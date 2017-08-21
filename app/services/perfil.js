@@ -17,5 +17,10 @@ export default Ember.Service.extend({
     return this.get("ajax").request(url).then(response => {
       this.set("data", response.data);
     });
+  },
+
+  /* Retorna true, false o undefined para el tipo de permiso solicitado */
+  tienePermiso(permiso) {
+    return this.get("data.permisos")[permiso];
   }
 });
