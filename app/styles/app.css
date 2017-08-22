@@ -274,7 +274,9 @@ body > .ember-view {
   color: white;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 300;
 }
 
@@ -425,7 +427,8 @@ p {
   padding: 5px;
 }
 
-.fc-event, .fc-event:hover {
+.fc-event,
+.fc-event:hover {
   color: black;
   text-decoration: none;
 }
@@ -436,7 +439,8 @@ p {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-a.color-gris, .color-gris {
+a.color-gris,
+.color-gris {
   color: gray !important;
 }
 
@@ -557,13 +561,17 @@ iframe.mapa {
 }
 
 .login-contenedor {
-  background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(246, 246, 246, 1) 47%,
+    rgba(237, 237, 237, 1) 100%
+  );
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-
 }
 
 .login-form {
@@ -624,36 +632,34 @@ iframe.mapa {
 }
 
 /* Estadisticas de seccion */
-.ui.statistic>.label,
-.ui.statistics .statistic>.label {
+.ui.statistic > .label,
+.ui.statistics .statistic > .label {
   text-transform: none;
   font-weight: 300;
   font-size: 1.3em;
 }
 
-.ui.statistics .statistics>.label,
-.ui.statistics .statistic>.label~.value {
+.ui.statistics .statistics > .label,
+.ui.statistics .statistic > .label ~ .value {
   font-family: 'Roboto Light';
 }
-.ui.statistics .statistic>.label~.value {
+.ui.statistics .statistic > .label ~ .value {
   margin-top: 0.8rem;
   font-weight: 100;
   color: #555;
 }
 
 /* Escritorio */
-.escritorio .ui.statistics .statistics>.label,
-.escritorio .ui.statistics .statistic>.label~.value,
-.escritorio .ui.statistic>.label,
-.escritorio .ui.statistics .statistic>.label {
+.escritorio .ui.statistics .statistics > .label,
+.escritorio .ui.statistics .statistic > .label ~ .value,
+.escritorio .ui.statistic > .label,
+.escritorio .ui.statistics .statistic > .label {
   text-align: left;
 }
-
 
 .suite-promesa {
   display: inline-block;
 }
-
 
 .error {
   color: red;
