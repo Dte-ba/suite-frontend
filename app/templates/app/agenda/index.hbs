@@ -9,8 +9,12 @@
 
 
 <div class="barra-de-botones">
-  <button class="ui button primario" {{action (route-action "crearUnEventoNuevo")}}><i class='ui plus icon'></i> Nueva Acción</button>
 
+  {{#suite-permiso permiso="agenda.crear"}}
+    <button class="ui button primario" {{action (route-action "crearUnEventoNuevo")}}><i class='ui plus icon'></i> Nueva Acción</button>
+  {{/suite-permiso}}
+
+  &nbsp;
 
   <div class='pull-right'>
 
@@ -24,6 +28,7 @@
 
     Mostrar fines de semana
     </label>
+
   </div>
 
 </div>

@@ -20,7 +20,9 @@
     </div>
     <div class="four wide column"></div>
     <div class="two wide column">
-      {{#link-to "app.personas.edicion" model class="ui button primario"}}Editar{{/link-to}}
+      {{#suite-permiso permiso="personas.editar"}}
+        {{#link-to "app.personas.edicion" model class="ui button primario"}}Editar{{/link-to}}
+      {{/suite-permiso}}
     </div>
   </div>
     {{suite-detalle

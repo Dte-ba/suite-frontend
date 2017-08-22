@@ -1,8 +1,14 @@
 <div class="ui grid">
   <div class="five wide column">
     {{suite-titulo titulo="Personas"}}
+
+    {{#suite-permiso permiso="personas.crear"}}
       <button class="ui button primario " disabled {{action (route-action "crearUnUsuarioNuevo")}}><i class="ui plus icon"></i> Agregar persona</button>
+    {{/suite-permiso}}
+
   </div>
+
+
   <div class="eleven wide column">
     <div class="ui three statistics">
       <div class="ui statistic">
