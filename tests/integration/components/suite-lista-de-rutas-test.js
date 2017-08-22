@@ -14,8 +14,8 @@ test("it renders", function(assert) {
   let perfilStub = Ember.Service.extend({
     permisos: {
       "agenda.listar": true,
-      "tareas.listar": false,
-      "escuelas.listar": false
+      "tareas.listar": true,
+      "escuelas.listar": true
     },
     tienePermiso(permiso) {
       return this.permisos[permiso];

@@ -58,7 +58,9 @@ export default function() {
           permisos: {
             "agenda.listar": true,
             "tareas.listar": true,
-            "escuelas.listar": false
+            "escuelas.listar": true,
+            "paquetes.listar": true,
+            "validaciones.listar": true
           }
         }
       };

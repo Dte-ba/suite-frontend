@@ -1,7 +1,6 @@
 import Ember from "ember";
 
 export default Ember.Component.extend({
-  contador: 0,
   valorAnterior: null,
 
   horaInicial: Ember.computed("hora", function() {
@@ -12,11 +11,12 @@ export default Ember.Component.extend({
 
   actions: {
     cuandoCambiaHora(valor) {
-      this.incrementProperty("contador");
       let valorConvertido = moment(valor).format("HH:mm:00");
 
       if (this.get("valorAnterior") != valorConvertido) {
-        this.get("cuandoCambia")(valorConvertido);
+        if (this.get("cuandoCambia")) {
+          this.get("cuandoCambia")(valorConvertido);
+        }
         this.set("valorAnterior", valorConvertido);
       }
     }
