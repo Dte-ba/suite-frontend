@@ -8,12 +8,22 @@
       </h3>
     </div>
     <div class="six wide column right aligned">
+
+
       {{#if model.conformada}}
-        <button class='ui button disabled'>No se puede editar esta escuela conformada</button>
+        {{#suite-permiso permiso="escuela.editar"}}
+          <button class='ui button disabled'>No se puede editar esta escuela conformada</button>
+        {{/suite-permiso}}
       {{else}}
-        {{#link-to "app.escuelas.edicion" model class="ui button primario"}}Editar{{/link-to}}
-        {{#link-to "app.escuelas.conformar" model class="ui button primario"}}Conformar{{/link-to}}
+        {{#suite-permiso permiso="escuela.editar"}}
+          {{#link-to "app.escuelas.edicion" model class="ui button primario"}}Editar{{/link-to}}
+        {{/suite-permiso}}
+
+        {{#suite-permiso permiso="escuela.conformar"}}
+          {{#link-to "app.escuelas.conformar" model class="ui button primario"}}Conformar{{/link-to}}
+        {{/suite-permiso}}
       {{/if}}
+
     </div>
   </div>
 
