@@ -11,11 +11,11 @@
 
 
       {{#if model.conformada}}
-        {{#suite-permiso permiso="escuela.editar"}}
+        {{#suite-permiso permiso="escuelas.editar"}}
           <button class='ui button disabled'>No se puede editar esta escuela conformada</button>
         {{/suite-permiso}}
       {{else}}
-        {{#suite-permiso permiso="escuela.editar"}}
+        {{#suite-permiso permiso="escuelas.editar"}}
           {{#link-to "app.escuelas.edicion" model class="ui button primario"}}Editar{{/link-to}}
         {{/suite-permiso}}
 
