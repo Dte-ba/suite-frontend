@@ -62,7 +62,7 @@ export default Ember.Route.extend({
 
   actions: {
     crearUnUsuarioNuevo() {
-      alert("asdasd");
+      return this.transitionTo("app.personas.crear");
     }
   }
 });

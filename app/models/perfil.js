@@ -1,5 +1,8 @@
 import DS from "ember-data";
 import Ember from "ember";
+import {
+  validatePresence
+} from "ember-changeset-validations/validators";
 
 export default DS.Model.extend({
   // 1) Datos Personales
@@ -100,5 +103,10 @@ export default DS.Model.extend({
 
       return `${direccionCalle} ${direccionAltura} - Piso ${direccionPiso} - Dpto ${direccionDepto} ${direccionTorre} - ${localidad} - ${codigoPostal}`;
     }
-  )
+  ),
+
+  validaciones: {
+    nombre: [validatePresence(true)],
+    apellido: [validatePresence(true)]
+  }
 });

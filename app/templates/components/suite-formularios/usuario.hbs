@@ -1,9 +1,7 @@
-{{yield}}
-
 {{#validated-form
   model        = model
   on-submit    = on-submit
-  as |f|
+  submit-label = texto as |f|
 }}
 
 {{#suite-grupo numero=1 titulo="Datos personales"}}
@@ -11,13 +9,13 @@
   {{f.input label="Nombre" name="nombre"}}
   {{f.input label="Apellido" name="apellido"}}
 
-  {{f.input label="Fecha de nacimiento" name="fechadenacimiento"}}
+  <!-- {{f.input label="Fecha de nacimiento" name="fechadenacimiento"}} -->
 
   {{f.input label="DNI" name="dni"}}
   {{f.input label="CUIT/CUIL" name="cuit"}}
 
   {{f.input label="CBU" name="cbu"}}
-  {{f.input label="Email Personal" name="email"}}
+  <!-- {{f.input label="Email Personal" name="email"}}
 
   {{f.input label="Calle" name="direccionCalle"}}
   {{f.input label="Altura" name="direccionAltura"}}
@@ -34,11 +32,11 @@
     }}
   {{/f.input}}
   {{f.input label="Celular " name="telefonoCelular"}}
-  {{f.input label="Teléfono Alternativo " name="telefonoAlternativo"}}
+  {{f.input label="Teléfono Alternativo " name="telefonoAlternativo"}} -->
 
 
 {{/suite-grupo}}
-
+<!--
 
 {{#suite-grupo numero=2 titulo="Datos administrativos"}}
 
@@ -78,8 +76,8 @@
   {{f.input label="Email Laboral" name="emailLaboral"}}
 
 
+{{/suite-grupo}} -->
+{{#suite-grupo titulo=""}}
+  {{f.submit label=texto class="ui button green"}} {{yield}}
 {{/suite-grupo}}
-
-
- {{f.submit label="Guardar"}}
 {{/validated-form}}

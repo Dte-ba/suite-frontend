@@ -1,1 +1,19 @@
 {{outlet}}
+
+{{#suite-formularios/usuario
+  model        = (changeset model model.validaciones)
+  on-submit    = (route-action "guardarPersona")
+  texto = 'Crear Persona'
+}}
+
+<button class="ui cancelar button" {{action (route-action "cancelar")}}>Cancelar</button>
+
+{{/suite-formularios/usuario}}
+
+  {{#if errors}}
+    <div class="ui negative message">
+      {{#each errors as |error|}}
+        <p><strong>{{error.campo}}</strong> - {{error.detalle}}</p>
+      {{/each}}
+    </div>
+  {{/if}}
