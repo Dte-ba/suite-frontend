@@ -28,7 +28,7 @@ module.exports = function(defaults) {
   });
 
   app.import("vendor/tablesort.js");
-  app.import("vendor/es.js");
+  //app.import("vendor/es.js");
 
   app.import("vendor/handsontable.full.min.css");
   app.import("vendor/handsontable.full.min.js");
