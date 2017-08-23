@@ -45,7 +45,7 @@ export default DS.Model.extend({
   validaciones: {
     titulo: [validatePresence(true), validateLength({ min: 2 })],
     fecha: [validatePresence(true)],
-    fecha_fin: [validatePresence(true)],
+    fechaFin: [validatePresence(true)],
     inicio: [validatePresence(true)],
     fin: [validatePresence(true)],
     responsable: [validatePresence(true)],

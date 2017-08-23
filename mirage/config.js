@@ -94,6 +94,14 @@ export default function() {
     };
   });
 
+  this.get("/eventos/agenda", () => {
+    return {
+      data: {
+        eventos: []
+      }
+    };
+  });
+
   this.get("/tareas/estadistica", () => {
     return {
       data: {}

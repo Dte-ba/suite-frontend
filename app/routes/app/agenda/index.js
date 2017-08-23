@@ -2,10 +2,12 @@ import Ember from "ember";
 
 export default Ember.Route.extend({
   breadCrumb: { title: "Acciones territoriales" },
+  perfil: Ember.inject.service(),
 
   model() {
     return {
-      mostrarFinesDeSemana: false
+      mostrarFinesDeSemana: false,
+      perfil: this.get("perfil")
     };
   },
 

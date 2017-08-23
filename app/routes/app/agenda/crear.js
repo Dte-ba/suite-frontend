@@ -8,7 +8,7 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
 
   model(params) {
     let hoy = moment().format("YYYY-MM-DD");
-    let opciones = { fecha: hoy };
+    let opciones = { fecha: hoy, fechaFin: hoy };
 
     if (params.escuela_id) {
       return this.store.findRecord("escuela", params.escuela_id).then(data => {

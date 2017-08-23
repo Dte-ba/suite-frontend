@@ -1,37 +1,38 @@
 import Ember from "ember";
-import { task, timeout } from "ember-concurrency";
+import { task } from "ember-concurrency";
+import ENV from "suite-frontend/config/environment";
 
 export default Ember.Component.extend({
   cargando: false,
   fc: null,
+  perfil: null,
+  ajax: Ember.inject.service(),
 
-  tareaSolicitarEventos: task(function*(comienzo, fin, callback) {
-    /*
+  tareaSolicitarEventos: task(function*(fecha_inicio, fecha_fin, callback) {
     let formato = "YYYY-MM-DD";
 
-    let comienzo_como_cadena = comienzo.format(formato);
-    let fin_como_cadena = fin.format(formato);
+    let i = fecha_inicio.format(formato);
+    let f = fecha_fin.format(formato);
+    let perfil = this.get("perfil");
 
-    console.log("Está por solicitar los eventos", {
-      comienzo_como_cadena,
-      fin_como_cadena
+    let base = ENV.API_URL;
+    let url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}`;
+    let resultado = yield this.get("ajax").request(url);
+
+    let eventos_convertidos = resultado.data.eventos.map(e => {
+      return {
+        id: e.id,
+        title: e.titulo,
+        start: e.fecha + "T" + e.inicio,
+        end: e.fecha_fin + "T" + e.fin,
+        url: "/#/app/agenda/detalle/" + e.id
+      };
     });
-    */
-    comienzo = "?";
 
-    yield timeout(2000);
+    callback(eventos_convertidos);
 
-    let eventos = [
-      {
-        title: "Evento de prueba -- demo",
-        start: new Date(),
-        end: fin
-      }
-    ];
-
-    callback(eventos);
-    return eventos;
-  }),
+    return eventos_convertidos;
+  }).drop(),
 
   didInsertElement() {
     let header = {

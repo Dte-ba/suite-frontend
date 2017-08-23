@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Component.extend({
   didInsertElement() {
@@ -10,7 +10,7 @@ export default Ember.Component.extend({
       let pagina = this.get("pagina");
       let filtro = this.get("filtro");
 
-      this.get("tarea").perform({ query: filtro, pagina: pagina });
+      this.get("tarea").perform({ search: filtro, pagina: pagina });
     }
   }
 });
