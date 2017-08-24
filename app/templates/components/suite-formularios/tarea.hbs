@@ -9,7 +9,7 @@
   {{f.input label="Título" name="titulo"}}
 
   {{#f.input label="Autor" name="autor" as |f|}}
-    {{suite-selector/perfil valor=f.value cuandoSelecciona=f.update}}
+    {{suite-selector/perfil disabled=true valor=f.value cuandoSelecciona=f.update}}
   {{/f.input}}
 
   {{#f.input label="Asignar responsable" name="responsable" as |f|}}
@@ -17,13 +17,13 @@
   {{/f.input}}
 
   {{#f.input label="Prioridad" name="prioridadDeTarea" as |f|}}
-    {{suite-selector/simple opciones=model.prioridadDeTarea valor=f.value cuandoSelecciona=f.update}}
+    {{suite-selector/simple opciones=model.opciones.prioridadesDeTareas valor=f.value cuandoSelecciona=f.update}}
   {{/f.input}}
 
   {{f.input type="textarea" label="Descripción" name="descripcion"}}
 
   {{#f.input label="Motivo" name="motivoDeTarea" as |f|}}
-    {{suite-selector/simple opciones=model.motivosDeTarea valor=f.value cuandoSelecciona=f.update}}
+    {{suite-selector/simple opciones=model.opciones.motivosDeTarea valor=f.value cuandoSelecciona=f.update}}
   {{/f.input}}
 
 {{/suite-grupo}}

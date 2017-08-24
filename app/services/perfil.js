@@ -3,6 +3,8 @@ import ENV from "../config/environment";
 
 export default Ember.Service.extend({
   ajax: Ember.inject.service(),
+  store: Ember.inject.service(),
+  miPerfil: null /* Registro de ember-data con el usuario actual. */,
   data: {},
 
   nombreCompleto: Ember.computed("data.nombre", "data.apellido", function() {
@@ -16,6 +18,12 @@ export default Ember.Service.extend({
     let url = ENV.API_URL + "/api/mi-perfil";
     return this.get("ajax").request(url).then(response => {
       this.set("data", response.data);
+
+      return this.get("store")
+        .findRecord("perfil", response.data.idPerfil)
+        .then(r => {
+          this.set("miPerfil", r);
+        });
     });
   },
 

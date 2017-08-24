@@ -664,3 +664,8 @@ iframe.mapa {
 .error {
   color: red;
 }
+
+.suite-detalle-tarea-error {
+  color: red;
+  margin-top: 2em;
+}
