@@ -72,6 +72,9 @@ export default Ember.Route.extend({
   actions: {
     alIngresarFiltro() {
       this.get("obtenerTareas").perform({});
+    },
+    crearUnaTareaNueva() {
+      return this.transitionTo("app.tareas.crear");
     }
   }
 });

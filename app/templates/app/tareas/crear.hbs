@@ -1,0 +1,19 @@
+{{outlet}}
+
+{{#suite-formularios/tarea
+  model        = (changeset model model.validaciones)
+  on-submit    = (route-action "guardarTarea")
+  texto = 'Crear Tarea'
+}}
+
+<button class="ui cancelar button" {{action (route-action "cancelar")}}>Cancelar</button>
+
+{{/suite-formularios/tarea}}
+
+  {{#if errors}}
+    <div class="ui negative message">
+      {{#each errors as |error|}}
+        <p><strong>{{error.campo}}</strong> - {{error.detalle}}</p>
+      {{/each}}
+    </div>
+  {{/if}}

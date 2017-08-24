@@ -1,4 +1,8 @@
 import DS from 'ember-data';
+import {
+  validatePresence,
+  validateLength
+} from "ember-changeset-validations/validators";
 
 export default DS.Model.extend({
   titulo: DS.attr('string'),
@@ -10,6 +14,11 @@ export default DS.Model.extend({
   estadoDeTarea: DS.belongsTo('estadoDeTarea'),
   prioridadDeTarea: DS.belongsTo('prioridadDeTarea'),
   escuela: DS.belongsTo('escuela'),
-  comentariosDeTarea: DS.hasMany('comentarioDeTarea')
+  comentariosDeTarea: DS.hasMany('comentarioDeTarea'),
+
+
+    validaciones: {
+      titulo: [validatePresence(true), validateLength({ min: 2 })]
+    }
 
 });
