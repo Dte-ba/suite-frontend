@@ -53,7 +53,7 @@ export default function() {
           username: "hugoruscitti",
           apellido: "Ruscitti",
           grupos: [{ nombre: "coordinador", id: 1 }],
-          idPerfil: 2,
+          idPerfil: 1,
           nombre: "Hugo",
           permisos: {
             "agenda.listar": true,
