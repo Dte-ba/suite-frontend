@@ -25,7 +25,8 @@ export default Ember.Component.extend({
         title: e.titulo,
         start: e.fecha + "T" + e.inicio,
         end: e.fecha_fin + "T" + e.fin,
-        url: "/#/app/agenda/detalle/" + e.id
+        url: "/#/app/agenda/detalle/" + e.id,
+        escuela: e.escuela
       };
     });
 
@@ -57,6 +58,24 @@ export default Ember.Component.extend({
 
       events: (start, end, timezone, callback) => {
         this.get("tareaSolicitarEventos").perform(start, end, callback);
+      },
+      eventRender(evento, element) {
+        console.log(evento.escuela);
+        element.addClass("evento-con-acta");
+
+        element.html(`
+          <p>${evento.title}</p>
+          <p>${evento.escuela}</p>
+
+          <!--
+          <p><small>Nombre Autor</small></p>
+
+          <p>
+            <a href="/" class="color-gris"><i class="ui file icon"></i></a>
+          </p>
+          -->
+
+          `);
       }
     });
 
