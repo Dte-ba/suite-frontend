@@ -15,7 +15,7 @@ export default Ember.Route.extend({
     }).then(valoresPorOmision => {
       let opciones = {
         titulo: valoresPorOmision.titulo,
-        fechaDeAlta: new Date(),
+        fechaDeAlta: moment(new Date()).format('YYYY-MM-DD'),
         autor: valoresPorOmision.autor,
         estadoDeTarea: valoresPorOmision.estadoDeTarea,
         responsable: valoresPorOmision.responsable,

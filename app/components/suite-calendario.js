@@ -60,7 +60,7 @@ export default Ember.Component.extend({
         this.get("tareaSolicitarEventos").perform(start, end, callback);
       },
       eventRender(evento, element) {
-        console.log(evento.escuela);
+        
         element.addClass("evento-con-acta");
 
         element.html(`
