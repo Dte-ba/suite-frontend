@@ -1,9 +1,9 @@
 {{yield}}
 
 {{#validated-form
-  model = model
-  on-submit = on-submit
-  as |f|
+  model        = model
+  on-submit    = tareaGuardar
+  submit-label = texto as |f|
 }}
 
   {{#suite-grupo numero=1 titulo="Piso"}}
@@ -11,23 +11,37 @@
   {{/suite-grupo}}
 
   {{#suite-grupo numero=2 titulo="Información"}}
-    {{f.input label="CUE" name="cue" disabled=true}}
+    {{f.input label="CUE" name="cue"}}
     {{f.input label="Nombre" name="nombre"}}
   {{/suite-grupo}}
 
-  {{#suite-grupo numero=3 titulo="Datos personales"}}
+  {{#suite-grupo numero=3 titulo="Características"}}
 
-    {{#f.input label="Tipo de financiamiento" name="tipoDeFinanciamiento" as |fi|}}
-      {{suite-dropdown
-          conBusqueda=false
-          seleccionado=f.model.tipoDeFinanciamiento
-          opciones=model.tiposDeFinanciamiento
-          etiquetaDelModelo='nombre'
-          cuandoSelecciona=fi.update
-      }}
+    {{#f.input label="Nivel" name="nivel" as |f|}}
+      {{suite-selector/simple opciones=model.opciones.niveles valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
-    {{#f.input label="Localidad" name="localidad" as |fi|}}
+    {{#f.input label="Modalidad" name="modalidad" as |f|}}
+      {{suite-selector/simple opciones=model.opciones.modalidades valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
+
+    {{#f.input label="Tipo de financiamiento" name="tipo-de-financiamiento" as |f|}}
+      {{suite-selector/simple opciones=model.opciones.tiposDeFinanciamiento valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
+
+    {{#f.input label="Área" name="area" as |f|}}
+      {{suite-selector/simple opciones=model.opciones.areas valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
+
+  {{/suite-grupo}}
+
+  {{#suite-grupo numero=4 titulo="Datos de contacto"}}
+
+    {{f.input label="Teléfono" name="telefono"}}
+    {{f.input label="Email" name="email"}}
+    {{f.input label="Dirección" name="direccion"}}
+
+    {{#f.input label="Localidad" name="localidad" as |f|}}
       {{suite-dropdown
           conBusqueda=true
           seleccionado=f.model.localidad
@@ -36,8 +50,8 @@
       }}
     {{/f.input}}
 
-    {{f.input label="Teléfono" name="telefono"}}
-    {{f.input label="Dirección" name="direccion"}}
+    {{f.input label="Latitud" name="latitud"}}
+    {{f.input label="longitud" name="longitud"}}
 
   {{/suite-grupo}}
 

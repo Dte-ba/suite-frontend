@@ -12,6 +12,7 @@ let initializer = {
     inflector.irregular("localidad", "localidades");
     inflector.irregular("perfil", "perfiles");
     inflector.irregular("nivel", "niveles");
+    inflector.irregular("modalidad", "modalidades");
     inflector.irregular("programa", "programas");
     inflector.irregular("area", "areas");
     inflector.irregular("escuela", "escuelas");

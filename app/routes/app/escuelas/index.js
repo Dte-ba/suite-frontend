@@ -68,6 +68,9 @@ export default Ember.Route.extend({
   actions: {
     alIngresarFiltro() {
       this.get("obtenerEscuelas").perform({});
+    },
+    crearUnaEscuelaNueva() {
+      return this.transitionTo("app.escuelas.crear");
     }
   }
 });

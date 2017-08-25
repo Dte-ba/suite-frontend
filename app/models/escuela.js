@@ -14,6 +14,7 @@ export default DS.Model.extend({
   tipoDeFinanciamiento: DS.belongsTo("tipoDeFinanciamiento"),
   tipoDeGestion: DS.belongsTo("tipoDeGestion"),
   nivel: DS.belongsTo("nivel"),
+  modalidad: DS.belongsTo("modalidad"),
   area: DS.belongsTo("area"),
   programas: DS.hasMany("programa"),
   validaciones: DS.hasMany("validacion"),
