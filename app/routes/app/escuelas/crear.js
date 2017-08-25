@@ -5,23 +5,21 @@ export default Ember.Route.extend({
 
   model() {
     return new Ember.RSVP.hash({
-      area: this.store.findRecord("area", 1)
-      // titulo: "",
-      // nivel: this.store.findRecord("nivel", 1),
-      // autor: this.get("perfil.miPerfil"),
-      // responsable: this.get("perfil.miPerfil"),
-      // prioridadDeTarea: this.store.findRecord("prioridadDeTarea", 1),
-      // estadosDeTareas: this.store.findAll("estadoDeTarea")
+      nombre: "",
+      area: this.store.findRecord("area", 1),
+      motivoDeConformacion: "",
+      localidad: "",
+      padre: "",
+      piso: ""
     }).then(valoresPorOmision => {
       let opciones = {
-        // titulo: valoresPorOmision.titulo,
-        // fechaDeAlta: moment(new Date()).format("YYYY-MM-DD"),
-        // autor: valoresPorOmision.autor,
-        // estadoDeTarea: valoresPorOmision.estadoDeTarea,
-        // responsable: valoresPorOmision.responsable,
-        // prioridadDeTarea: valoresPorOmision.prioridadDeTarea
-        // nivel: valoresPorOmision.nivel
-        area: valoresPorOmision.area
+        nombre: valoresPorOmision.nombre,
+        area: valoresPorOmision.area,
+        motivoDeConformacion: valoresPorOmision.motivoDeConformacion,
+        localidad: valoresPorOmision.localidad,
+        padre: valoresPorOmision.padre,
+        piso: valoresPorOmision.piso
+
       };
 
       return this.store.createRecord("escuela", opciones);
@@ -33,7 +31,9 @@ export default Ember.Route.extend({
       niveles: this.store.findAll("nivel"),
       areas: this.store.findAll("area"),
       modalidades: this.store.findAll("modalidad"),
-      tiposDeFinanciamiento: this.store.findAll("tipo-de-financiamiento")
+      tiposDeFinanciamiento: this.store.findAll("tipo-de-financiamiento"),
+      tiposDeGestion: this.store.findAll("tipo-de-gestion"),
+      localidades: this.store.findAll("localidad")
     });
   },
 

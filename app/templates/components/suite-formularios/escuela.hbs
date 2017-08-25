@@ -1,5 +1,3 @@
-{{yield}}
-
 {{#validated-form
   model        = model
   on-submit    = tareaGuardar
@@ -25,8 +23,12 @@
       {{suite-selector/simple opciones=model.opciones.modalidades valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
-    {{#f.input label="Tipo de financiamiento" name="tipo-de-financiamiento" as |f|}}
+    {{#f.input label="Tipo de financiamiento" name="tiposDeFinanciamiento" as |f|}}
       {{suite-selector/simple opciones=model.opciones.tiposDeFinanciamiento valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
+
+    {{#f.input label="Tipo de gestión" name="tipoDeGestion" as |f|}}
+      {{suite-selector/simple opciones=model.opciones.tiposDeGestion valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
     {{#f.input label="Área" name="area" as |f|}}
@@ -56,6 +58,8 @@
   {{/suite-grupo}}
 
 
-  {{f.submit label="Guardar"}}
+  {{#suite-grupo titulo=""}}
+    {{f.submit label=texto class="ui button green"}} {{yield}}
+  {{/suite-grupo}}
 
 {{/validated-form}}
