@@ -26,7 +26,8 @@ export default Ember.Component.extend({
         start: e.fecha + "T" + e.inicio,
         end: e.fecha_fin + "T" + e.fin,
         url: "/#/app/agenda/detalle/" + e.id,
-        escuela: e.escuela
+        escuela: e.escuela,
+        traslado: e.requiereTraslado
       };
     });
 
@@ -60,12 +61,13 @@ export default Ember.Component.extend({
         this.get("tareaSolicitarEventos").perform(start, end, callback);
       },
       eventRender(evento, element) {
-        
+
         element.addClass("evento-con-acta");
 
         element.html(`
-          <p>${evento.title}</p>
+          <p class="evento-titulo">${evento.title}</p>
           <p>${evento.escuela}</p>
+
 
           <!--
           <p><small>Nombre Autor</small></p>
@@ -76,6 +78,11 @@ export default Ember.Component.extend({
           -->
 
           `);
+
+          if (evento.traslado === true) {
+            element.append('<p><i class="ui car icon"></i>');
+          }
+
       }
     });
 

@@ -159,6 +159,7 @@ body > .ember-view {
 
 .fc-event {
   border-radius: 0;
+  background-color: #f8f8f8;
 }
 
 .ui.table thead th {
@@ -427,6 +428,7 @@ p {
   padding: 5px;
 }
 
+
 .fc-event,
 .fc-event:hover {
   color: black;
@@ -437,6 +439,10 @@ p {
   margin: 0;
   font-size: small;
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.fc-event p.evento-titulo {
+  font-weight: 800;
 }
 
 a.color-gris,
