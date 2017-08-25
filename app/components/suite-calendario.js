@@ -7,6 +7,7 @@ export default Ember.Component.extend({
   fc: null,
   perfil: null,
   ajax: Ember.inject.service(),
+  store: Ember.inject.service(),
 
   tareaSolicitarEventos: task(function*(fecha_inicio, fecha_fin, callback) {
     let formato = "YYYY-MM-DD";
@@ -31,7 +32,42 @@ export default Ember.Component.extend({
       };
     });
 
-    callback(eventos_convertidos);
+    // Obtiene todas las promesas de escuelas
+    let escuelas = Ember.RSVP.all(
+      eventos_convertidos.map(e =>
+        this.get("store").findRecord("escuela", e.escuela.id)
+      )
+    );
+
+    let responsables = Ember.RSVP.all(
+      eventos_convertidos.map(e => {
+        if (e.responsable) {
+          return this.get("store").findRecord("perfil", e.responsable.id);
+        } else {
+          return {
+            toJSON: function() {
+              return {};
+            }
+          };
+        }
+      })
+    );
+
+    // Espera a que todas las promesas se cumplan.
+    Ember.RSVP
+      .hash({
+        escuelas,
+        responsables
+      })
+      .then(data => {
+        callback(
+          eventos_convertidos.map((e, index) => {
+            e.escuela = data.escuelas[index].toJSON();
+            e.responsable = data.responsables[index].toJSON();
+            return e;
+          })
+        );
+      });
 
     return eventos_convertidos;
   }).drop(),
@@ -61,12 +97,11 @@ export default Ember.Component.extend({
         this.get("tareaSolicitarEventos").perform(start, end, callback);
       },
       eventRender(evento, element) {
-
         element.addClass("evento-con-acta");
 
         element.html(`
           <p class="evento-titulo">${evento.title}</p>
-          <p>${evento.escuela}</p>
+          <p>${evento.escuela.nombre}</p>
 
 
           <!--
@@ -79,10 +114,9 @@ export default Ember.Component.extend({
 
           `);
 
-          if (evento.traslado === true) {
-            element.append('<p><i class="ui car icon"></i>');
-          }
-
+        if (evento.traslado === true) {
+          element.append('<p><i class="ui car icon"></i>');
+        }
       }
     });
 
