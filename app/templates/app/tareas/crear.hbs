@@ -2,7 +2,7 @@
 
 {{#suite-formularios/tarea
   model        = (changeset model model.validaciones)
-  on-submit    = model.tareaGuardar
+  cuandoGuarda = (route-action "regresar")
   texto = 'Crear Tarea'
 }}
 
