@@ -27,17 +27,17 @@ export default Ember.Component.extend({
         start: e.fecha + "T" + e.inicio,
         end: e.fecha_fin + "T" + e.fin,
         url: "/#/app/agenda/detalle/" + e.id,
-        escuela: e.escuela,
+        // escuela: e.escuela,
         traslado: e.requiereTraslado
       };
     });
 
     // Obtiene todas las promesas de escuelas
-    let escuelas = Ember.RSVP.all(
-      eventos_convertidos.map(e =>
-        this.get("store").findRecord("escuela", e.escuela.id)
-      )
-    );
+    // let escuelas = Ember.RSVP.all(
+    //   eventos_convertidos.map(e =>
+    //     this.get("store").findRecord("escuela", e.escuela.id)
+    //   )
+    // );
 
     let responsables = Ember.RSVP.all(
       eventos_convertidos.map(e => {
@@ -56,13 +56,13 @@ export default Ember.Component.extend({
     // Espera a que todas las promesas se cumplan.
     Ember.RSVP
       .hash({
-        escuelas,
+        // escuelas,
         responsables
       })
       .then(data => {
         callback(
           eventos_convertidos.map((e, index) => {
-            e.escuela = data.escuelas[index].toJSON();
+            // e.escuela = data.escuelas[index].toJSON();
             e.responsable = data.responsables[index].toJSON();
             return e;
           })
@@ -101,16 +101,7 @@ export default Ember.Component.extend({
 
         element.html(`
           <p class="evento-titulo">${evento.title}</p>
-          <p>${evento.escuela.nombre}</p>
 
-
-          <!--
-          <p><small>Nombre Autor</small></p>
-
-          <p>
-            <a href="/" class="color-gris"><i class="ui file icon"></i></a>
-          </p>
-          -->
 
           `);
 
