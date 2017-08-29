@@ -15,9 +15,10 @@ export default Ember.Component.extend({
     let i = fecha_inicio.format(formato);
     let f = fecha_fin.format(formato);
     let perfil = this.get("perfil");
+    let region = this.get("region");
 
     let base = ENV.API_URL;
-    let url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}`;
+    let url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}&region=${region}`;
     let resultado = yield this.get("ajax").request(url);
 
     let eventos_convertidos = resultado.data.eventos.map(e => {
