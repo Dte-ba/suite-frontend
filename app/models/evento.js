@@ -13,12 +13,14 @@ export default DS.Model.extend({
   fin: DS.attr("string"),
   todoElDia: DS.attr("boolean"),
   objetivo: DS.attr("string"),
+  categoria: DS.belongsTo("categoria-de-evento"),
   cantidadDeParticipantes: DS.attr("string"),
   requiereTraslado: DS.attr("boolean"),
 
   responsable: DS.belongsTo("perfil"),
   escuela: DS.belongsTo("escuela"),
   acompaniantes: DS.hasMany("perfil"),
+  resumenParaCalendario: DS.attr("string"),
 
   fecha_inicio: Ember.computed("fecha", "inicio", function() {
     let fecha = this.get("fecha");

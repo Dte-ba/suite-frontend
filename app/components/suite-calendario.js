@@ -29,7 +29,8 @@ export default Ember.Component.extend({
         end: e.fecha_fin + "T" + e.fin,
         url: "/#/app/agenda/detalle/" + e.id,
         // escuela: e.escuela,
-        traslado: e.requiereTraslado
+        traslado: e.requiereTraslado,
+        resumen: e.resumenParaCalendario
       };
     });
 
@@ -98,13 +99,28 @@ export default Ember.Component.extend({
         this.get("tareaSolicitarEventos").perform(start, end, callback);
       },
       eventRender(evento, element) {
+        let resumen = evento.resumen;
+        let titulo = resumen.titulo;
+        let categoria = resumen.categoria;
+        let region = resumen.region;
+        let escuela = resumen.escuela;
+        let responsable = resumen.responsable;
+
         element.addClass("evento-con-acta");
 
-        element.html(`
-          <p class="evento-titulo">${evento.title}</p>
-
+        if (evento.resumen != "Sin resumen") {
+          element.html(`
+            <p class="evento-titulo">${titulo}</p>
+            <p class="">${categoria}</p>
+            <p class="evento-titulo">${region} - ${escuela}</p>
+            <p class="evento-titulo">${responsable}</p>
 
           `);
+        } else {
+          element.html(`
+            <p class="evento-titulo">${evento.title}</p>
+            `);
+        }
 
         if (evento.traslado === true) {
           element.append('<p><i class="ui car icon"></i>');
