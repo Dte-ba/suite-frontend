@@ -13,6 +13,8 @@ export default DS.Model.extend({
   fin: DS.attr("string"),
   todoElDia: DS.attr("boolean"),
   objetivo: DS.attr("string"),
+  minuta: DS.attr("string"),
+  acta_legacy: DS.attr("string"),
   categoria: DS.belongsTo("categoria-de-evento"),
   cantidadDeParticipantes: DS.attr("string"),
   requiereTraslado: DS.attr("boolean"),

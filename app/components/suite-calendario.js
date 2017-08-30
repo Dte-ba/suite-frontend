@@ -30,7 +30,8 @@ export default Ember.Component.extend({
         url: "/#/app/agenda/detalle/" + e.id,
         // escuela: e.escuela,
         traslado: e.requiereTraslado,
-        resumen: e.resumenParaCalendario
+        resumen: e.resumenParaCalendario,
+        acta: e.acta_legacy
       };
     });
 
@@ -106,8 +107,6 @@ export default Ember.Component.extend({
         let escuela = resumen.escuela;
         let responsable = resumen.responsable;
 
-        element.addClass("evento-con-acta");
-
         if (evento.resumen != "Sin resumen") {
           element.html(`
             <p class="evento-titulo">${titulo}</p>
@@ -123,7 +122,14 @@ export default Ember.Component.extend({
         }
 
         if (evento.traslado === true) {
-          element.append('<p><i class="ui car icon"></i>');
+          element.append('<i class="ui car icon"></i>');
+        }
+        if (evento.acta) {
+          element.addClass("evento-con-acta");
+          element.append('<i class="ui green file icon"></i>');
+        } else {
+          element.addClass("evento-sin-acta");
+          element.append('<i class="ui yellow file icon"></i>');
         }
       }
     });

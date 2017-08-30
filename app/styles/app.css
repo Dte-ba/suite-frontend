@@ -428,6 +428,10 @@ p {
   padding: 5px;
 }
 
+.evento-sin-acta {
+  border-top: 5px solid yellow !important;
+  padding: 5px;
+}
 
 .fc-event,
 .fc-event:hover {
