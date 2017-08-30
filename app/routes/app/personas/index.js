@@ -40,8 +40,8 @@ export default Ember.Route.extend({
           titulo: "CUIL/CUIT"
         },
         {
-          atributo: "email",
-          titulo: "Email"
+          atributo: "emailLaboral",
+          titulo: "Email Laboral"
         },
         {
           titulo: "Grupo",
