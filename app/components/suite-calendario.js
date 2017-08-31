@@ -120,16 +120,15 @@ export default Ember.Component.extend({
             <p class="evento-titulo">${evento.title}</p>
             `);
         }
-
-        if (evento.traslado === true) {
-          element.append('<i class="ui car icon"></i>');
-        }
         if (evento.acta) {
           element.addClass("evento-con-acta");
           element.append('<i class="ui green file icon"></i>');
         } else {
           element.addClass("evento-sin-acta");
           element.append('<i class="ui yellow file icon"></i>');
+        }
+        if (evento.traslado === false) {
+          element.append('<i class="ui grey car icon"></i>');
         }
       }
     });
