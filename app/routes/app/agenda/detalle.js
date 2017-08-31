@@ -1,14 +1,10 @@
-import Ember from 'ember';
+import Ember from "ember";
 
 export default Ember.Route.extend({
   breadCrumb: { title: "Detalle de acción" },
 
   afterModel(model) {
     model.set("filaDatosDeAccion", [
-      {
-        titulo: "Tarea vinculante",
-        id: ""
-      },
       {
         titulo: "Inicio",
         id: "fecha_inicio"
@@ -19,15 +15,19 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Categoría",
-        id: ""
+        id: "categoria.nombre"
       },
       {
         titulo: "Objetivo",
         id: "objetivo"
       },
       {
-        titulo: "Acta",
-        id: ""
+        titulo: "Minuta",
+        id: "minuta"
+      },
+      {
+        titulo: "Acta (Legacy)",
+        componente: "suite-detalle/acta-de-evento"
       }
     ]);
 
@@ -38,7 +38,7 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Acompañantes",
-        componente: 'suite-detalle/participantes'
+        componente: "suite-detalle/participantes"
       },
       {
         titulo: "Participantes",

@@ -6,6 +6,7 @@ import {
 } from "ember-changeset-validations/validators";
 
 export default DS.Model.extend({
+  legacyId: DS.attr("string"),
   titulo: DS.attr("string"),
   fecha: DS.attr("string"),
   fechaFin: DS.attr("string"),
@@ -14,7 +15,7 @@ export default DS.Model.extend({
   todoElDia: DS.attr("boolean"),
   objetivo: DS.attr("string"),
   minuta: DS.attr("string"),
-  acta_legacy: DS.attr("string"),
+  actaLegacy: DS.attr("string"),
   categoria: DS.belongsTo("categoria-de-evento"),
   cantidadDeParticipantes: DS.attr("string"),
   requiereTraslado: DS.attr("boolean"),

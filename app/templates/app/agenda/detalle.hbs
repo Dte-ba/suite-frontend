@@ -4,7 +4,7 @@
   <div class="ui row middle aligned segment">
     <div class="ten wide column">
       <h3 class="ui header">
-        {{model.titulo}} - {{model.cue}}
+        {{model.titulo}} - {{model.escuela.cue}}
       </h3>
     </div>
     <div class="four wide column"></div>
@@ -15,17 +15,19 @@
 
   <div class="ui equal width row middle aligned segment">
     <div class="column">
-      <i class="ui file icon"></i> Con acta
+      {{estado-de-acta model.actaLegacy label="True"}}
     </div>
-    <div class="column">
+    <!-- <div class="column">
       <i class="ui comment icon"></i> 3
-    </div>
+    </div> -->
     <div class="column">
-      <i class="ui check icon"></i> Autorizada
+      <i class="ui green check icon"></i> Autorizada
     </div>
-    <div class="column">
-      <i class="ui car icon"></i> Requiere traslado
-    </div>
+    {{#if model.requiereTraslado}}
+      <div class="column">
+        <i class="ui grey car icon"></i> Requiere traslado
+      </div>
+    {{/if}}
   </div>
 
 

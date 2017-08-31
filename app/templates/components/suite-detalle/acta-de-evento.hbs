@@ -1,0 +1,12 @@
+{{yield}}
+
+
+{{#if (is-pending model.actaLegacy)}}
+  <div class="ui active inline mini loader"></div>
+{{else}}
+  {{#if model.actaLegacy}}
+    <i class="green file icon"></i> <a href="http://media-suite.dtelab.com.ar/agenda/agendafiles/{{model.legacyId}}_{{model.actaLegacy}}" target="_blank">Ver acta</a>
+  {{else}}
+    <i class="yellow file icon"></i> Sin Acta
+  {{/if}}
+{{/if}}
