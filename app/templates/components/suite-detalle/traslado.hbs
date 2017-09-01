@@ -1,0 +1,9 @@
+{{yield}}
+
+{{#if (is-pending model.requiereTraslado)}}
+  <div class="ui active inline mini loader"></div>
+{{else}}
+  {{#if model.requiereTraslado}}
+    <i class="ui grey car icon"></i>
+  {{/if}}
+{{/if}}

@@ -11,5 +11,5 @@ moduleForComponent(
 
 test("it renders", function(assert) {
   this.render(hbs`{{suite-detalle/acta-de-evento}}`);
-  assert.equal(this.$().text().trim(), "Sin Acta");
+  assert.equal(this.$().text().trim(), "");
 });

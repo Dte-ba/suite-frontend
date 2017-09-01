@@ -31,6 +31,10 @@ export default Ember.Route.extend({
         componente: "suite-detalle/fechaDeIngreso"
       },
       {
+        titulo: "Fecha de renuncia",
+        id: "fechaDeRenuncia"
+      },
+      {
         titulo: "Email Laboral",
         id: "emailLaboral"
       },

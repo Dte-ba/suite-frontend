@@ -18,54 +18,37 @@ export default Ember.Route.extend({
       tareaEventos: this.get("obtenerEventos"),
       columnas: [
         {
-          atributo: "fecha_inicio",
-          titulo: "Inicio"
+          titulo: "Inicio",
+          atributo: "fecha_inicio"
         },
         {
-          atributo: "fecha_fin",
-          titulo: "Fin"
+          titulo: "Fin",
+          atributo: "fecha_fin"
         },
         {
-          atributo: "titulo",
           titulo: "Título",
+          atributo: "titulo",
           ruta: "app.agenda.detalle"
         },
         {
-          atributo: "escuela.localidad.distrito.region.numero",
-          titulo: "Region"
+          titulo: "Region",
+          atributo: "escuela.localidad.distrito.region.numero"
         },
         {
-          atributo: "escuela.nombre",
-          titulo: "Ubicación"
+          titulo: "CUE",
+          componente: "suite-detalle/cue"
         },
         {
-          atributo: "escuela.cue",
-          titulo: "CUE"
+          titulo: "Responsable",
+          componente: "suite-detalle/responsable"
         },
         {
-          atributo: "responsable.nombreCompleto",
-          titulo: "Responsable"
+          titulo: "Acta",
+          componente: "suite-detalle/acta-de-evento"
         },
         {
-          atributo: "",
-          titulo: "Traslado"
-        },
-        {
-          atributo: "",
-          titulo: "Acta"
-        },
-        {
-          atributo: "",
-          titulo: "Autorización"
-        },
-        {
-          atributo: "",
-          titulo: "Comentarios"
-        },
-        {
-          atributo: "todoElDia",
-          titulo: "Día completo",
-          template: "suite-tabla/celda-sino"
+          titulo: "Traslado",
+          componente: "suite-detalle/traslado"
         }
       ]
     });
