@@ -18,7 +18,7 @@ export default Ember.Route.extend({
   }).drop(),
 
   model() {
-    return Ember.RSVP.hash({
+    return {
       estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaPersonas: this.get("obtenerPersonas"),
       columnas: [
@@ -57,7 +57,7 @@ export default Ember.Route.extend({
           fecha: true
         }
       ]
-    });
+    };
   },
 
   actions: {
