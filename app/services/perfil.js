@@ -7,6 +7,10 @@ export default Ember.Service.extend({
   miPerfil: null /* Registro de ember-data con el usuario actual. */,
   data: {},
 
+  rol: Ember.computed("data.grupos.0.nombre", function() {
+    return this.get("data.grupos.0.nombre");
+  }),
+
   nombreCompleto: Ember.computed("data.nombre", "data.apellido", function() {
     let nombre = this.get("data.nombre");
     let apellido = this.get("data.apellido");
