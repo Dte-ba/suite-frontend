@@ -8,6 +8,7 @@ export default Ember.Component.extend({
   perfil: null,
   ajax: Ember.inject.service(),
   store: Ember.inject.service(),
+  perfilService: Ember.inject.service('perfil'),
 
   tareaSolicitarEventos: task(function*(fecha_inicio, fecha_fin, callback) {
     let formato = "YYYY-MM-DD";
@@ -18,7 +19,14 @@ export default Ember.Component.extend({
     let region = this.get("region");
 
     let base = ENV.API_URL;
-    let url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}&region=${region}`;
+    let url = "";
+
+    if (this.get('perfilService').tienePermiso('perfil.global')) {
+      url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}`;
+    } else {
+      url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}&region=${region}`;
+    }
+
     let resultado = yield this.get("ajax").request(url);
 
     let eventos_convertidos = resultado.data.eventos.map(e => {
