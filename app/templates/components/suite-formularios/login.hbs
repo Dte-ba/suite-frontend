@@ -4,12 +4,12 @@
 
 <div class="login-form">
 
-  <img src='/imagenes/logo-suite.png' width=200 height=114>
+  <img class="logo-suite" src='/imagenes/logo-suite.png' width=200 height=114>
 
   <div class="ui form">
 
     <div class="field">
-      <label>Nombre</label>
+      <label>Correo laboral  <span class='nota'>(cuenta abc)</span></label>
       {{input id="name" disabled=tareaIngresar.last.isRunning value=usuario placeholder="Usuario" name='usuario'}}
     </div>
 
@@ -21,6 +21,7 @@
       <div class="login-checkbox">
         {{ui-checkbox label="Hacer visible este campo" checked=mostrarClave onChange=(action "alternarMostrarClave")}}
       </div>
+
     </div>
 
     {{#if tareaIngresar.last.isRunning}}

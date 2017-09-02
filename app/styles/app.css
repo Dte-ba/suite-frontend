@@ -586,15 +586,16 @@ iframe.mapa {
 
 .login-form {
   margin: auto;
-  padding: 6em;
-  width: 400px;
+  padding: 1em;
+  width: 100%;
+  max-width: 300px;
   margin-top: 2em;
   text-align: center;
 }
 
 .login-checkbox {
   text-align: right;
-  margin-top: 5px;
+  margin-top: 10px;
   padding-bottom: 20px;
 }
 
@@ -678,4 +679,14 @@ iframe.mapa {
 .suite-detalle-tarea-error {
   color: red;
   margin-top: 2em;
+}
+
+.field span.nota {
+  color: gray;
+  font-weight: normal;
+  font-size: x-small;
+}
+
+.login-form .logo-suite {
+  margin-bottom: 2em;
 }
