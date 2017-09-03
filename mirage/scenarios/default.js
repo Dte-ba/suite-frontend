@@ -51,7 +51,8 @@ export default function(server) {
     direccion: "French 103",
     telefono: "462-0411",
     localidad: localidad,
-    tipoDeFinanciamiento: tipoDeFinanciamiento
+    tipoDeFinanciamiento: tipoDeFinanciamiento,
+    conformada: false,
   });
 
   server.create("perfil", {
@@ -61,7 +62,8 @@ export default function(server) {
 
   server.create("perfil", {
     nombre: "Demo",
-    apellido: "Demo"
+    apellido: "Demo",
+    dni: '30428500'
   });
 
   server.create("categoriaDeEvento", {

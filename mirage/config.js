@@ -57,10 +57,14 @@ export default function() {
           nombre: "Hugo",
           permisos: {
             "agenda.listar": true,
+            "agenda.crear": true,
             "tareas.listar": true,
             "escuelas.listar": true,
+            "escuelas.crear": true,
+            "personas.listar": true,
             "paquetes.listar": true,
-            "validaciones.listar": true
+            "validaciones.listar": true,
+            'perfil.global': true,
           }
         }
       };
@@ -90,7 +94,9 @@ export default function() {
 
   this.get("/escuelas/estadistica", () => {
     return {
-      data: {}
+      data: {
+        abiertas: 20,
+      }
     };
   });
 
