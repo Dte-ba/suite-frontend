@@ -23,7 +23,7 @@
       {{suite-selector/simple opciones=model.opciones.modalidades valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
-    {{#f.input label="Tipo de financiamiento" name="tiposDeFinanciamiento" as |f|}}
+    {{#f.input label="Tipo de financiamiento" name="tipoDeFinanciamiento" as |f|}}
       {{suite-selector/simple opciones=model.opciones.tiposDeFinanciamiento valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
@@ -44,12 +44,7 @@
     {{f.input label="Dirección" name="direccion"}}
 
     {{#f.input label="Localidad" name="localidad" as |f|}}
-      {{suite-dropdown
-          conBusqueda=true
-          seleccionado=f.model.localidad
-          opciones=model.localidades
-          cuandoSelecciona=fi.update
-      }}
+      {{suite-selector/localidad valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
     {{f.input label="Latitud" name="latitud"}}

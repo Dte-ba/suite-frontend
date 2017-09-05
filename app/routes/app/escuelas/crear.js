@@ -6,20 +6,11 @@ export default Ember.Route.extend({
   model() {
     return new Ember.RSVP.hash({
       nombre: "",
-      area: this.store.findRecord("area", 1),
-      motivoDeConformacion: "",
-      localidad: "",
-      padre: "",
-      piso: ""
+      area: this.store.findRecord("area", 1)
     }).then(valoresPorOmision => {
       let opciones = {
         nombre: valoresPorOmision.nombre,
-        area: valoresPorOmision.area,
-        motivoDeConformacion: valoresPorOmision.motivoDeConformacion,
-        localidad: valoresPorOmision.localidad,
-        padre: valoresPorOmision.padre,
-        piso: valoresPorOmision.piso
-
+        area: valoresPorOmision.area
       };
 
       return this.store.createRecord("escuela", opciones);

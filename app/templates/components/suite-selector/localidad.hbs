@@ -1,0 +1,27 @@
+{{yield}}
+
+{{#power-select
+  disabled=disabled
+  search=(perform buscarLocalidades)
+  selected=valor
+  onchange=(action "cuandoSeleccionaLocalidad")
+  as |item|
+}}
+  {{item.nombre}}
+
+  <div class="etiquetas-a-derecha">
+
+    <div class="ui basic tiny label">
+      Distrito
+      <div class="detail">{{item.distrito.nombre}}</div>
+    </div>
+
+    <div class="ui basic tiny label">
+      Region
+      {{item.distrito.region.numero}}
+    </div>
+  </div>
+
+
+
+{{/power-select}}
