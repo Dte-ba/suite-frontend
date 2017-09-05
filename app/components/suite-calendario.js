@@ -8,7 +8,7 @@ export default Ember.Component.extend({
   perfil: null,
   ajax: Ember.inject.service(),
   store: Ember.inject.service(),
-  perfilService: Ember.inject.service('perfil'),
+  perfilService: Ember.inject.service("perfil"),
 
   tareaSolicitarEventos: task(function*(fecha_inicio, fecha_fin, callback) {
     let formato = "YYYY-MM-DD";
@@ -21,7 +21,7 @@ export default Ember.Component.extend({
     let base = ENV.API_URL;
     let url = "";
 
-    if (this.get('perfilService').tienePermiso('perfil.global')) {
+    if (this.get("perfilService").tienePermiso("perfil.global")) {
       url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}`;
     } else {
       url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}&region=${region}`;
@@ -43,44 +43,7 @@ export default Ember.Component.extend({
       };
     });
 
-    // Obtiene todas las promesas de escuelas
-    // let escuelas = Ember.RSVP.all(
-    //   eventos_convertidos.map(e =>
-    //     this.get("store").findRecord("escuela", e.escuela.id)
-    //   )
-    // );
-
-    let responsables = Ember.RSVP.all(
-      eventos_convertidos.map(e => {
-        if (e.responsable) {
-          return this.get("store").findRecord("perfil", e.responsable.id);
-        } else {
-          return {
-            toJSON: function() {
-              return {};
-            }
-          };
-        }
-      })
-    );
-
-    // Espera a que todas las promesas se cumplan.
-    Ember.RSVP
-      .hash({
-        // escuelas,
-        responsables
-      })
-      .then(data => {
-        callback(
-          eventos_convertidos.map((e, index) => {
-            // e.escuela = data.escuelas[index].toJSON();
-            e.responsable = data.responsables[index].toJSON();
-            return e;
-          })
-        );
-      });
-
-    return eventos_convertidos;
+    return callback(eventos_convertidos);
   }).drop(),
 
   didInsertElement() {
