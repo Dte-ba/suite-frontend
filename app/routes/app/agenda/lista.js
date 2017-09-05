@@ -19,11 +19,11 @@ export default Ember.Route.extend({
       columnas: [
         {
           titulo: "Inicio",
-          atributo: "fecha_inicio"
+          componente: "suite-detalle/fecha-acciones-lista"
         },
         {
           titulo: "Fin",
-          atributo: "fecha_fin"
+          componente: "suite-detalle/fecha-acciones-lista"
         },
         {
           titulo: "Título",
