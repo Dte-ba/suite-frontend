@@ -3,12 +3,13 @@ import { task } from "ember-concurrency";
 import ENV from "suite-frontend/config/environment";
 
 export default Ember.Component.extend({
-  cargando: false,
-  fc: null,
-  perfil: null,
   ajax: Ember.inject.service(),
   store: Ember.inject.service(),
   perfilService: Ember.inject.service("perfil"),
+  cargando: Ember.computed.alias('tareaSolicitarEventos.last.isRunning'),
+  fc: null,
+  classNames: ['suite-calendario__contenedor'],
+  perfil: null,
 
   tareaSolicitarEventos: task(function*(fecha_inicio, fecha_fin, callback) {
     let formato = "YYYY-MM-DD";
@@ -59,17 +60,10 @@ export default Ember.Component.extend({
       header: header,
       weekends: this.get("mostrarFinesDeSemana"),
 
-      dayClick: () => {
-        //alert("Ha pulsado sobre un día");
-      },
-
-      loading: (isLoading /*, view*/) => {
-        this.set("cargando", isLoading);
-      },
-
       events: (start, end, timezone, callback) => {
         this.get("tareaSolicitarEventos").perform(start, end, callback);
       },
+
       eventRender(evento, element) {
         let resumen = evento.resumen;
         let titulo = resumen.titulo;

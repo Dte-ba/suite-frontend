@@ -5,6 +5,7 @@
     "remodal": "1.1.0",
     "semantic-ui-calendar": "^0.0.8",
     "d3": "~3.5.3",
-    "lodash": "~3.10.0"
+    "lodash": "~3.10.0",
+    "fullcalendar": "^3.5.0"
   }
 }
