@@ -3,6 +3,7 @@ module.exports = {
     server: true,
     moment: true,
     Handsontable: true,
+    esperar: true,
   },
   root: true,
   parserOptions: {
