@@ -3,5 +3,7 @@
 {{#if (is-pending model.estado)}}
   <div class="ui active inline mini loader"></div>
 {{else}}
-  {{estado-de-paquete model.estado.nombre label="True"}}
+  {{#ui-popup content=model.estado.nombre position='bottom left'}}
+    {{estado-de-paquete model.estado.nombre}}
+  {{/ui-popup}}
 {{/if}}

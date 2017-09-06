@@ -28,10 +28,8 @@ export default Ember.Route.extend({
       tareaPaquetes: this.get("obtenerPaquetes"),
       columnas: [
         {
-          atributo: "escuela.cue",
           titulo: "CUE",
-          promesa: "escuela",
-          ruta: "app.escuelas.detalle"
+          componente: "suite-detalle/cue"
         },
         {
           atributo: "escuela.localidad.distrito.region.numero",
