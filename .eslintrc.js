@@ -4,17 +4,17 @@ module.exports = {
     moment: true,
     Handsontable: true,
     esperar: true,
+    login: true
   },
   root: true,
   parserOptions: {
     ecmaVersion: 2017,
-    sourceType: 'module'
+    sourceType: "module"
   },
-  extends: 'eslint:recommended',
+  extends: "eslint:recommended",
   env: {
     browser: true,
-    jquery: true,
+    jquery: true
   },
-  rules: {
-  }
+  rules: {}
 };
