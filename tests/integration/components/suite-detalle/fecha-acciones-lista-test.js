@@ -10,13 +10,9 @@ moduleForComponent(
 );
 
 test("it renders", function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-  let hoy = "05/09/2017";
+  let fecha = new Date(2017, 8, 5);
+  this.set("fecha", fecha);
 
-  this.set("model", { fecha: hoy });
-
-  this.render(hbs`{{suite-detalle/fecha-acciones-lista}}`);
-
+  this.render(hbs`{{suite-detalle/fecha-acciones-lista fecha=fecha}}`);
   assert.equal(this.$().text().trim(), "05/09/2017");
 });

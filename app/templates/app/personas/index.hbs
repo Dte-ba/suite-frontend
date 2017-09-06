@@ -10,20 +10,7 @@
 
 
   <div class="eleven wide column">
-    <div class="ui three statistics">
-      <div class="ui statistic">
-        <div class="label">Total</div>
-        <div class="value">{{model.estadisticas.data.total}}</div>
-      </div>
-        <div class="ui statistic">
-          <div class="label">En territorio</div>
-          <div class="value">{{model.estadisticas.data.enTerritorio}}</div>
-        </div>
-      <div class="ui statistic">
-        <div class="label">Oficina central</div>
-        <div class="value">{{model.estadisticas.data.enDTE}}</div>
-      </div>
-    </div>
+    {{suite-estadisticas/personas tarea=model.estadisticas}}
   </div>
 </div>
 {{outlet}}

@@ -715,3 +715,11 @@ iframe.mapa {
   top: 48px;
   padding-top: 6em;
 }
+
+
+.suite-estadistica-numerica__skeleton {
+  display: inline-block;
+  width: 0.45em;
+  height: 0.8em;
+  background-color: #EEE;
+}

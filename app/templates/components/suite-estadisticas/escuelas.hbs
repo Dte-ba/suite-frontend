@@ -1,16 +1,23 @@
-<div class="ui statistic">
-  <div class="label">Escuelas abiertas</div>
-  <div class="value">{{suite-tarea tarea=tarea atributo="data.abiertas"}}</div>
-</div>
-  <div class="ui statistic">
-    <div class="label">Piso sin funcionar</div>
-    <div class="value">{{suite-tarea tarea=tarea atributo="data.pisoRoto"}}</div>
-  </div>
-<div class="ui statistic">
-  <div class="label">Conectar Igualdad</div>
-  <div class="value">{{suite-tarea tarea=tarea atributo="data.conectarIgualdad"}}</div>
-</div>
-<div class="ui statistic">
-  <div class="label">Escuelas del futuro</div>
-  <div class="value">{{suite-tarea tarea=tarea atributo="data.escuelasDelFuturo"}}</div>
-</div>
+{{suite-estadistica-numerica
+    titulo="Escuelas abiertas"
+    tarea=tarea
+    atributo="data.abiertas"
+}}
+
+{{suite-estadistica-numerica
+    titulo="Piso sin funcionar"
+    tarea=tarea
+    atributo="data.pisoRoto"
+}}
+
+{{suite-estadistica-numerica
+    titulo="Conectar Igualdad"
+    tarea=tarea
+    atributo="data.conectarIgualdad"
+}}
+
+{{suite-estadistica-numerica
+    titulo="Escuelas del futuro"
+    tarea=tarea
+    atributo="data.escuelasDelFuturo"
+}}

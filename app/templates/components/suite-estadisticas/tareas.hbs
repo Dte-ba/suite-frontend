@@ -1,16 +1,23 @@
-<div class="ui statistic">
-  <div class="label">Total</div>
-  <div class="value">{{suite-tarea tarea=tarea atributo="data.total"}}</div>
-</div>
-<div class="ui statistic">
-  <div class="label">Pendientes</div>
-  <div class="value">{{suite-tarea tarea=tarea atributo="data.pendientes"}}</div>
-</div>
-<div class="ui statistic">
-  <div class="label">En progreso</div>
-  <div class="value">{{suite-tarea tarea=tarea atributo="data.enProgreso"}}</div>
-</div>
-<div class="ui statistic">
-  <div class="label">Prioridad Alta</div>
-  <div class="value">{{suite-tarea tarea=tarea atributo="data.prioridadAlta"}}</div>
-</div>
+{{suite-estadistica-numerica
+    titulo="Total"
+    tarea=tarea
+    atributo="data.total"
+}}
+
+{{suite-estadistica-numerica
+    titulo="Pendientes"
+    tarea=tarea
+    atributo="data.pendientes"
+}}
+
+{{suite-estadistica-numerica
+    titulo="En progreso"
+    tarea=tarea
+    atributo="data.enProgreso"
+}}
+
+{{suite-estadistica-numerica
+    titulo="Prioridad Alta"
+    tarea=tarea
+    atributo="data.prioridadAlta"
+}}

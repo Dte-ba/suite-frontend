@@ -64,7 +64,7 @@ export default function() {
             "personas.listar": true,
             "paquetes.listar": true,
             "validaciones.listar": true,
-            'perfil.global': true,
+            "perfil.global": true
           }
         }
       };
@@ -95,7 +95,17 @@ export default function() {
   this.get("/escuelas/estadistica", () => {
     return {
       data: {
-        abiertas: 20,
+        pisoRoto: 0,
+        total: 8232,
+        conectarIgualdad: 3792,
+        primariaDigital: 3747,
+        cerradas: 0,
+        pisoFuncionando: 8190,
+        conformadas: 328,
+        abiertas: 8232,
+        pad: 1800,
+        responsabilidadEmpresarial: 26,
+        escuelasDelFuturo: 0
       }
     };
   });
@@ -110,13 +120,32 @@ export default function() {
 
   this.get("/tareas/estadistica", () => {
     return {
-      data: {}
+      data: {
+        total: 627,
+        enProgreso: 217,
+        prioridadAlta: 268,
+        pendientes: 230
+      }
+    };
+  });
+
+  this.get("/perfiles/estadistica", () => {
+    return {
+      data: {
+        total: 302,
+        enDTE: 60,
+        enTerritorio: 242
+      }
     };
   });
 
   this.get("/validaciones/estadistica", () => {
     return {
-      data: { objetadas: 609, pendientes: 18, aprobadas: 3710 }
+      data: {
+        objetadas: 609,
+        pendientes: 18,
+        aprobadas: 3710
+      }
     };
   });
 }
