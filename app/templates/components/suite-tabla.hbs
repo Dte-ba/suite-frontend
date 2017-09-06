@@ -44,16 +44,15 @@
         Imposible dibujar la tabla, no especificó el atributo 'columnas'.
       {{/each}}
 
-        <!--
-        {{#t.column defaultHeader=true name='Región' as |col|}}
-          {{suite-promesa promesa=col.row.localidad.distrito.region atributo="numero"}}
-        {{/t.column}}
-      -->
-
     {{/data-table}}
 
+
     {{#unless tarea.lastSuccessful.value.data}}
-      <div class="centrado">Sin datos para mostrar</div>
+      {{#if tarea.last.isRunning}}
+        {{suite-tabla-skeleton columnas=columnas}}
+      {{else}}
+        <div class="centrado">Sin datos para mostrar</div>
+      {{/if}}
     {{/unless}}
 
     {{#if paginacion}}

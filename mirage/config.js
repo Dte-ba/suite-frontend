@@ -92,6 +92,9 @@ export default function() {
   this.get("/localidades");
   this.get("/localidades/:id");
 
+  this.get("/validaciones");
+  this.get("/validaciones/:id");
+
   this.get("/escuelas/estadistica", () => {
     return {
       data: {

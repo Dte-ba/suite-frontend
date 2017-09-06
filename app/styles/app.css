@@ -691,13 +691,12 @@ iframe.mapa {
   margin-bottom: 2em;
 }
 
-
 .fc-sat {
-  background-color: rgba(228, 228, 228, 0.38)!important;
+  background-color: rgba(228, 228, 228, 0.38) !important;
 }
 
 .fc-sun {
-  background-color: rgba(228, 228, 228, 0.38)!important;
+  background-color: rgba(228, 228, 228, 0.38) !important;
 }
 
 .suite-calendario__contenedor {
@@ -716,10 +715,23 @@ iframe.mapa {
   padding-top: 6em;
 }
 
-
 .suite-estadistica-numerica__skeleton {
   display: inline-block;
   width: 0.45em;
   height: 0.8em;
-  background-color: #EEE;
+  background-color: #eee;
+}
+
+.suite-tabla__skeleton {
+  margin-top: -16px !important;
+}
+
+.suite-tabla__skeleton td {
+  /*border-left: 0px solid white !important;*/
+}
+
+.suite-tabla__skeleton .bloque {
+  height: 20px;
+  width: 100%;
+  background-color: #eee;
 }
