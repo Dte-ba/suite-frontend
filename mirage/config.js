@@ -148,4 +148,16 @@ export default function() {
       }
     };
   });
+
+  this.get("/paquetes/estadistica", () => {
+    return {
+      data: {
+        total: 71515,
+        enviados: 2024,
+        devueltos: 62346,
+        objetados: 6527,
+        pendientes: 618
+      }
+    };
+  });
 }
