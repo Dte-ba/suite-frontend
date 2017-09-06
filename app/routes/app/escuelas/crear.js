@@ -5,10 +5,12 @@ export default Ember.Route.extend({
 
   model() {
     return new Ember.RSVP.hash({
+      estado: 1,
       nombre: "",
       area: this.store.findRecord("area", 1)
     }).then(valoresPorOmision => {
       let opciones = {
+        estado: valoresPorOmision.estado,
         nombre: valoresPorOmision.nombre,
         area: valoresPorOmision.area
       };

@@ -1,0 +1,18 @@
+{{#validated-form
+  model        = model
+  on-submit    = tareaGuardar
+  submit-label = texto as |f|
+}}
+
+{{#suite-grupo numero=1 titulo="Características"}}
+  {{f.input label="Marca" name="servidor"}}
+  {{f.input label="Serie" name="serie"}}
+  {{f.input type="checkbox" label="Estado" name="estado"}}
+  {{f.input type="checkbox" label="UPS" name="ups"}}
+  {{f.input type="checkbox" label="Rack" name="rack"}}
+
+{{/suite-grupo}}
+{{#suite-grupo titulo=""}}
+  {{f.submit label=texto class="ui button green"}} {{yield}}
+{{/suite-grupo}}
+{{/validated-form}}

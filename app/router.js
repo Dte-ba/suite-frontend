@@ -58,6 +58,10 @@ Router.map(function() {
     this.route("grupos", function() {
       this.route("detalle", { path: "detalle/:group_id" });
     });
+
+    this.route('pisos', function() {
+      this.route('crear');
+    });
   });
 
   this.route("tablas", function() {

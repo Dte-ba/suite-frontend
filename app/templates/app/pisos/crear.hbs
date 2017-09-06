@@ -1,0 +1,13 @@
+{{outlet}}
+
+{{#suite-formularios/piso
+  model        = (changeset model model.validaciones)
+  cuandoGuarda = (route-action "regresar")
+  texto = 'Crear Piso'
+}}
+
+<button class="ui cancelar button" {{action (route-action "cancelar")}}>Cancelar</button>
+
+{{suite-detalle-de-piso tarea=model.tareaGuardar}}
+
+{{/suite-formularios/piso}}

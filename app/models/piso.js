@@ -1,5 +1,6 @@
-import DS from 'ember-data';
+import DS from "ember-data";
 import Ember from "ember";
+import { validatePresence } from "ember-changeset-validations/validators";
 
 export default DS.Model.extend({
   servidor: DS.attr("string"),
@@ -34,5 +35,10 @@ export default DS.Model.extend({
       estado = "No funciona";
     }
     return estado;
-  })
+  }),
+
+  validaciones: {
+    servidor: [validatePresence(true)],
+    serie: [validatePresence(true)]
+  }
 });
