@@ -6,7 +6,7 @@
     {{suite-tabla-error-de-api error=tarea.last.error}}
   {{else}}
 
-    {{#data-table data=tarea.last.value.data classNames='ui celled striped table selectable' as |t|}}
+    {{#data-table data=tarea.lastSuccessful.value.data classNames='ui celled striped table selectable' as |t|}}
 
       {{#each columnas as |columna|}}
 
