@@ -12,7 +12,6 @@ export default DS.Model.extend({
   fechaFin: DS.attr("string"),
   inicio: DS.attr("string"),
   fin: DS.attr("string"),
-  todoElDia: DS.attr("boolean"),
   objetivo: DS.attr("string"),
   minuta: DS.attr("string"),
   actaLegacy: DS.attr("string"),

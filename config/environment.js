@@ -29,7 +29,7 @@ module.exports = function(environment) {
         form: "ui form",
         radio: "ui radio",
         help: "ui pointing red basic label",
-        checkbox: "ui checkbox",
+        // checkbox: "ui checkbox",
         button: "ui button",
         group: "field",
         error: "error"
@@ -40,7 +40,7 @@ module.exports = function(environment) {
 
   ENV["g-map"] = {
     libraries: ["places"],
-    key: "AIzaSyAEemsVtmvQNkC1C-iZ_fk2peWAZkewcBQ",
+    key: "AIzaSyAEemsVtmvQNkC1C-iZ_fk2peWAZkewcBQ"
   };
 
   ENV.moment = {
