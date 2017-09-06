@@ -48,6 +48,10 @@
       {{suite-selector/perfil valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
+    {{#f.input label="Acompañantes" name="acompaniantes" as |f|}}
+      {{suite-selector/acompaniantes valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
+
     {{f.input label="Cant. participantes" name="cantidadDeParticipantes"}}
 
   {{/suite-grupo}}

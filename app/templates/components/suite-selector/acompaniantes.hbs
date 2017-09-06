@@ -1,0 +1,12 @@
+{{yield}}
+
+{{#power-select-multiple
+  disabled=disabled
+  search=(perform buscarPersonas)
+  selected=valor
+  placeholder="Buscar acompañantes..."
+  onchange=(action "cuandoSeleccionaPerfil")
+  as |item|
+}}
+  {{item.nombre}} {{item.apellido}}
+{{/power-select-multiple}}
