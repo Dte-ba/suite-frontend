@@ -23,7 +23,7 @@ export default Ember.Route.extend({
   }).drop(),
 
   model() {
-    return Ember.RSVP.hash({
+    return {
       estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaValidaciones: this.get("obtenerValidaciones"),
       columnas: [
@@ -75,7 +75,7 @@ export default Ember.Route.extend({
           promesa: "escuela.localidad"
         }
       ]
-    });
+    };
   },
 
   actions: {

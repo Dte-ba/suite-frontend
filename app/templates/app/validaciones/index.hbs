@@ -4,20 +4,7 @@
     <button class='ui button primario disabled'><i class="ui plus icon"></i> Nueva validación</button>
   </div>
   <div class="eleven wide column">
-    <div class="ui three statistics">
-      <div class="ui statistic">
-        <div class="label">Pendientes</div>
-        <div class="value">{{model.estadisticas.data.pendientes}}</div>
-      </div>
-        <div class="ui statistic">
-          <div class="label">Aprobadas</div>
-          <div class="value">{{model.estadisticas.data.aprobadas}}</div>
-        </div>
-      <div class="ui statistic">
-        <div class="label">Con observación</div>
-        <div class="value">{{model.estadisticas.data.objetadas}}</div>
-      </div>
-    </div>
+    {{suite-estadisticas/validaciones tarea=model.estadisticas}}
   </div>
 </div>
 {{outlet}}
