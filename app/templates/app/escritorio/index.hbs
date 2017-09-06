@@ -3,34 +3,10 @@
   <div class="column">
     <div class="ui padded grid">
       <div class="sixteen widen column">
-        <h4 class="header">
-          Tareas de la semana
-          <div class="sub header">{{#link-to "app.agenda.index"}}Ver todas{{/link-to}}</div>
-        </h4>
+
       </div>
       <div class="sixteen widen column">
-        <h4 class="header">
-          Escuelas 2017
-          <div class="sub header">{{#link-to "app.escuelas.index" (query-params filtro="" pagina=1)}}Ver todas{{/link-to}}</div>
-        </h4>
-        <div class="ui three statistics">
-          <div class="ui statistic">
-            <div class="label">Sin visitar</div>
-            <i class="ui yellow wait icon"></i>
-            <div class="value">368</div>
-          </div>
-          <div class="ui statistic">
-            <div class="label">Paquetes pendientes</div>
-            <i class="ui yellow wait icon"></i>
-            <div class="value">2368</div>
-          </div>
-          <div class="ui statistic">
-            <div class="label">Piso sin funcionar</div>
-            <i class="ui red server icon"></i>
-            <div class="value">{{model.estadisticas.value.escuelas.data.pisoRoto}}</div>
-            {{log model.estadisticas.value}}
-          </div>
-        </div>
+
       </div>
       <div class="sixteen widen column">
         <h4 class="header">
@@ -74,32 +50,11 @@
         {{/if}}
       </div>
       <div class="sixteen widen column">
-        <h4 class="header">
-          Paquetes de provisión
-          <div class="sub header"><a href="#">Ver todos</a></div>
-        </h4>
-        <div class="ui three statistics">
-          <div class="ui statistic">
-            <div class="label">Pendientes</div>
-            <i class="ui yellow wait icon"></i>
-            <div class="value">368</div>
-          </div>
-            <div class="ui statistic">
-              <div class="label">Objetados</div>
-              <i class="ui red chat icon"></i>
-              <div class="value">2368</div>
-            </div>
-          <div class="ui statistic">
-            <div class="label">Para descargar</div>
-            <i class="ui green check icon"></i>
-            <div class="value">265</div>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
   <div class="column">
-    <h5>Acciones territoriales</h5>
     
   </div>
 </div>
