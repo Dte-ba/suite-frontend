@@ -1,14 +1,7 @@
 import { test } from "qunit";
-import Ember from "ember";
 import moduleForAcceptance from "suite-frontend/tests/helpers/module-for-acceptance";
 
 moduleForAcceptance("Acceptance | puede ingresar apruebas ui");
-
-function esperar() {
-  return new Ember.RSVP.Promise(success => {
-    Ember.run.later(success, 1000);
-  });
-}
 
 function clickSobreElTexto(texto) {
   let ahref = $(`a:contains("${texto}")`);
