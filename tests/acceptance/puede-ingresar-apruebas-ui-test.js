@@ -3,17 +3,6 @@ import moduleForAcceptance from "suite-frontend/tests/helpers/module-for-accepta
 
 moduleForAcceptance("Acceptance | puede ingresar apruebas ui");
 
-function clickSobreElTexto(texto) {
-  let ahref = $(`a:contains("${texto}")`);
-  let boton = $(`button:contains("${texto}")`);
-
-  if (ahref) {
-    ahref.click();
-  } else {
-    boton.click();
-  }
-}
-
 test("visiting /", function(assert) {
   visit("/");
 

@@ -3,11 +3,11 @@ import Application from "../../app";
 import config from "../../config/environment";
 import "./esperar";
 import "./login";
+import "./click-sobre-el-texto";
 
 export default function startApp(attrs) {
   let application;
 
-  // use defaults, but you can override
   let attributes = Ember.assign({}, config.APP, attrs);
 
   Ember.run(() => {

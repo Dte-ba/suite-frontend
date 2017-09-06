@@ -4,6 +4,7 @@ module.exports = {
   },
   globals: {
     esperar: true,
-    login: true
+    login: true,
+    clickSobreElTexto: true
   }
 };

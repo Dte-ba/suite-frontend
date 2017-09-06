@@ -4,7 +4,8 @@ module.exports = {
     moment: true,
     Handsontable: true,
     esperar: true,
-    login: true
+    login: true,
+    clickSobreElTexto: true
   },
   root: true,
   parserOptions: {
