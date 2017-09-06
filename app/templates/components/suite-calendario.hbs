@@ -1,9 +1,7 @@
 {{yield}}
 
 {{#if cargando}}
-  <p>{{suite-spinner}} Cargando eventos ...</p>
-{{else}}
-  <p>Se han cargado los eventos</p>
+  <div class='suite-calendario__spinner'>{{suite-spinner}} Solicitando eventos ...</div>
 {{/if}}
 
 <div id='calendar'></div>
