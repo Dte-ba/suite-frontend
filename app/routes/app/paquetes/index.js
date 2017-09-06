@@ -23,7 +23,7 @@ export default Ember.Route.extend({
   }).drop(),
 
   model() {
-    return Ember.RSVP.hash({
+    return {
       estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaPaquetes: this.get("obtenerPaquetes"),
       columnas: [
@@ -63,7 +63,7 @@ export default Ember.Route.extend({
           titulo: "Comentarios"
         }
       ]
-    });
+    };
   },
 
   actions: {
