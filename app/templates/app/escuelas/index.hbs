@@ -1,4 +1,3 @@
-
 <div class="ui grid">
   <div class="five wide column">
     {{suite-titulo titulo="Escuelas"}}
@@ -13,26 +12,13 @@
 
 <div class="ui divider"></div>
 
-<div class="filtros">
-
-  <div class="celda-filtro">
-    {{suite-campo/filtro
-      ayuda="Ingrese CUE o nombre"
-      valor=model.filtro
-      alBuscar=(route-action "alIngresarFiltro")
-    }}
-  </div>
-
-  <div class="celda-filtro">
-    {{suite-selector/region
-        deshabilitado=model.deshabilitarSeleccionDeRegion
-        permiteSeleccionarTodasLasRegiones=true
-        valor=model.region
-        cuandoSelecciona=(route-action "cuandoSeleccionaRegion")
-    }}
-  </div>
-
-</div>
+{{suite-filtros/escuelas
+  filtro=model.filtro
+  region=model.region
+  deshabilitarSeleccionDeRegion=model.deshabilitarSeleccionDeRegion
+  cuandoSeleccionaRegion=(route-action "cuandoSeleccionaRegion")
+  alIngresarFiltro=(route-action "alIngresarFiltro")
+}}
 
 {{suite-tabla
   pagina=model.pagina

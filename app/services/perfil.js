@@ -26,6 +26,7 @@ export default Ember.Service.extend({
         .findRecord("perfil", response.data.idPerfil)
         .then(r => {
           this.set("miPerfil", r);
+          return this.get("miPerfil.region");
         });
     });
   },
@@ -33,5 +34,9 @@ export default Ember.Service.extend({
   /* Retorna true, false o undefined para el tipo de permiso solicitado */
   tienePermiso(permiso) {
     return this.get("data.permisos")[permiso];
+  },
+
+  obtenerRegion() {
+    return this.get("miPerfil.region");
   }
 });

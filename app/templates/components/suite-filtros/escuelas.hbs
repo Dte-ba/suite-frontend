@@ -1,0 +1,20 @@
+<div class="filtros">
+
+  <div class="celda-filtro">
+    {{suite-campo/filtro
+      ayuda="Ingrese CUE o nombre"
+      valor=filtro
+      alBuscar=alIngresarFiltro
+    }}
+  </div>
+
+  <div class="celda-filtro">
+    {{suite-selector/region
+        deshabilitado=deshabilitarSeleccionDeRegion
+        permiteSeleccionarTodasLasRegiones=(not deshabilitarSeleccionDeRegion)
+        valor=region
+        cuandoSelecciona=cuandoSeleccionaRegion
+    }}
+  </div>
+
+</div>
