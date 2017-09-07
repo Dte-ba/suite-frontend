@@ -5,13 +5,14 @@ import ENV from "suite-frontend/config/environment";
 export default Ember.Route.extend({
   ajax: Ember.inject.service(),
 
-  queryParams: {
-    pagina: { replace: true, refreshModel: true },
-    filtro: { replace: true }
-  },
+  obtenerPaquetes: task(function*() {
+    let model = this.modelFor(this.routeName);
 
-  obtenerPaquetes: task(function*(query) {
-    let data = yield this.store.query("paquete", query);
+    let data = yield this.store.query("paquete", {
+      page: model.pagina,
+      query: model.filtro
+    });
+
     let meta = data.get("meta");
     return { data, meta };
   }).drop(),
@@ -22,8 +23,19 @@ export default Ember.Route.extend({
     return resultado;
   }).drop(),
 
+  actualizar() {
+    this.get("obtenerPaquetes").perform();
+  },
+
+  afterModel() {
+    this.actualizar();
+  },
+
   model() {
     return {
+      pagina: 1,
+      filtro: "",
+
       estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaPaquetes: this.get("obtenerPaquetes"),
       columnas: [
@@ -67,8 +79,16 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    alIngresarFiltro() {
-      this.get("obtenerPaquetes").perform({});
+    alIngresarFiltro(valor) {
+      let model = this.modelFor(this.routeName);
+      Ember.set(model, "filtro", valor);
+      Ember.set(model, "pagina", 1);
+      this.actualizar();
+    },
+    cuandoCambiaPagina(pagina) {
+      let model = this.modelFor(this.routeName);
+      Ember.set(model, "pagina", pagina);
+      this.actualizar();
     }
   }
 });

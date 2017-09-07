@@ -15,13 +15,13 @@
 
 <div class="ui divider"></div>
 
-{{suite-filtros/paquetes filtro=filtro pagina=pagina tarea=model.tareaPaquetes}}
+{{suite-filtros/paquetes filtro=model.filtro alIngresarFiltro=(route-action "alIngresarFiltro")}}
 
 
 {{suite-tabla
-  pagina=pagina
+  pagina=model.pagina
   columnas=model.columnas
-  filtro=filtro
   tarea=model.tareaPaquetes
   paginacion=true
+  cuandoCambiaPagina=(route-action "cuandoCambiaPagina")
 }}

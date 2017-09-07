@@ -5,13 +5,14 @@ import ENV from "suite-frontend/config/environment";
 export default Ember.Route.extend({
   ajax: Ember.inject.service(),
 
-  queryParams: {
-    pagina: { replace: true /*, refreshModel: true */ },
-    filtro: { replace: true }
-  },
+  obtenerTareas: task(function*() {
+    let model = this.modelFor(this.routeName) || {};
 
-  obtenerTareas: task(function*(query) {
-    let data = yield this.store.query("tarea", query);
+    let data = yield this.store.query("tarea", {
+      page: model.pagina,
+      query: model.filtro
+    });
+
     let meta = data.get("meta");
     return { data, meta };
   }).drop(),
@@ -22,8 +23,18 @@ export default Ember.Route.extend({
     return resultado;
   }).drop(),
 
+  actualizar() {
+    this.get("obtenerTareas").perform();
+  },
+
+  afterModel() {
+    this.actualizar();
+  },
+
   model() {
     return {
+      pagina: 1,
+      filtro: "",
       estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaTareas: this.get("obtenerTareas"),
       columnas: [
@@ -70,8 +81,16 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    alIngresarFiltro() {
-      this.get("obtenerTareas").perform({});
+    alIngresarFiltro(valor) {
+      let model = this.modelFor(this.routeName);
+      Ember.set(model, "filtro", valor);
+      Ember.set(model, "pagina", 1);
+      this.actualizar();
+    },
+    cuandoCambiaPagina(pagina) {
+      let model = this.modelFor(this.routeName);
+      Ember.set(model, "pagina", pagina);
+      this.actualizar();
     },
     crearUnaTareaNueva() {
       return this.transitionTo("app.tareas.crear");

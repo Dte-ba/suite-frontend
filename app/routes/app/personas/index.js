@@ -5,8 +5,12 @@ import ENV from "suite-frontend/config/environment";
 export default Ember.Route.extend({
   ajax: Ember.inject.service(),
 
-  obtenerPersonas: task(function*(query) {
-    let data = yield this.store.query("perfil", query);
+  obtenerPersonas: task(function*() {
+    let model = this.modelFor(this.routeName);
+    let data = yield this.store.query("perfil", {
+      page: model.pagina,
+      query: model.filtro
+    });
     let meta = data.get("meta");
     return { data, meta };
   }).drop(),
@@ -17,8 +21,18 @@ export default Ember.Route.extend({
     return resultado;
   }).drop(),
 
+  actualizar() {
+    this.get("obtenerPersonas").perform();
+  },
+
+  afterModel() {
+    this.actualizar();
+  },
+
   model() {
     return {
+      pagina: 1,
+      filtro: "",
       estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaPersonas: this.get("obtenerPersonas"),
       columnas: [
@@ -63,6 +77,17 @@ export default Ember.Route.extend({
   actions: {
     crearUnUsuarioNuevo() {
       return this.transitionTo("app.personas.crear");
+    },
+    alIngresarFiltro(valor) {
+      let model = this.modelFor(this.routeName);
+      Ember.set(model, "filtro", valor);
+      Ember.set(model, "pagina", 1);
+      this.actualizar();
+    },
+    cuandoCambiaPagina(pagina) {
+      let model = this.modelFor(this.routeName);
+      Ember.set(model, "pagina", pagina);
+      this.actualizar();
     }
   }
 });

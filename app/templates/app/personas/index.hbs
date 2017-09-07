@@ -5,7 +5,6 @@
     {{#suite-permiso permiso="personas.crear"}}
       <button class="ui button primario " {{action (route-action "crearUnUsuarioNuevo")}}><i class="ui plus icon"></i> Agregar persona</button>
     {{/suite-permiso}}
-
   </div>
 
 
@@ -17,12 +16,12 @@
 
 <div class="ui divider"></div>
 
-{{suite-filtros/personas filtro=filtro pagina=pagina tarea=model.tareaPersonas}}
+{{suite-filtros/personas filtro=filtro alIngresarFiltro=(route-action "alIngresarFiltro")}}
 
 {{suite-tabla
-  pagina=pagina
+  pagina=model.pagina
   columnas=model.columnas
-  filtro=filtro
   tarea=model.tareaPersonas
   paginacion=true
+  cuandoCambiaPagina=(route-action "cuandoCambiaPagina")
 }}

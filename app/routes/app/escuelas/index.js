@@ -5,8 +5,10 @@ import ENV from "suite-frontend/config/environment";
 export default Ember.Route.extend({
   ajax: Ember.inject.service(),
 
-  obtenerEscuelas: task(function*(query) {
-    let model = this.modelFor(this.routeName) || {};
+  obtenerEscuelas: task(function*() {
+    let query = {};
+
+    let model = this.modelFor(this.routeName);
 
     query.conformada = false;
     query.page = model.pagina;
@@ -30,7 +32,7 @@ export default Ember.Route.extend({
   }).drop(),
 
   actualizar() {
-    this.get("obtenerEscuelas").perform({});
+    this.get("obtenerEscuelas").perform();
   },
 
   afterModel() {

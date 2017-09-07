@@ -12,12 +12,12 @@
 {{outlet}}
 <div class="ui divider"></div>
 
-{{suite-filtros/tareas filtro=filtro pagina=pagina tarea=model.tareaTareas}}
+{{suite-filtros/tareas filtro=model.filtro alIngresarFiltro=(route-action "alIngresarFiltro")}}
 
 {{suite-tabla
-  pagina=pagina
+  pagina=model.pagina
   columnas=model.columnas
-  filtro=filtro
   tarea=model.tareaTareas
+  cuandoCambiaPagina=(route-action "cuandoCambiaPagina")
   paginacion=true
 }}

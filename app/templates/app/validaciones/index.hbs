@@ -10,13 +10,13 @@
 {{outlet}}
 <div class="ui divider"></div>
 
-{{suite-filtros/validaciones filtro=filtro pagina=pagina tarea=model.tareaValidaciones}}
+{{suite-filtros/validaciones filtro=filtro alIngresarFiltro=(route-action "alIngresarFiltro")}}
 
 
 {{suite-tabla
-  pagina=pagina
+  pagina=model.pagina
   columnas=model.columnas
-  filtro=filtro
   tarea=model.tareaValidaciones
   paginacion=true
+  cuandoCambiaPagina=(route-action "cuandoCambiaPagina")
 }}
