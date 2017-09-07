@@ -1,0 +1,11 @@
+{{yield}}
+
+{{#if obtenerRegiones.last.running}}
+{{else}}
+  {{suite-selector/simple
+    opciones=opciones
+    deshabilitado=deshabilitado
+    valor=valor
+    searchEnabled=true
+    cuandoSelecciona=cuandoSelecciona}}
+{{/if}}

@@ -3,9 +3,10 @@
 {{#power-select
   options=opciones
   selected=valor
+  disabled=deshabilitado
   searchEnabled=false
   onchange=cuandoSelecciona
   as |opcion|
 }}
-  {{opcion.nombre}}
+  {{get opcion atributoPrimario}}
 {{/power-select}}

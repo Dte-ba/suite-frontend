@@ -610,6 +610,9 @@ iframe.mapa {
 
 .filtros {
   margin-bottom: 1em;
+  background-color: #f6f5f6;
+  border: 1px solid #e7e7e7;
+  padding: 10px;
 }
 
 .gray {
@@ -734,4 +737,15 @@ iframe.mapa {
   height: 20px;
   width: 100%;
   background-color: #eee;
+}
+
+.filtro-item {
+  display: inline-block;
+  width: 200px;
+}
+
+.celda-filtro {
+  width: 290px;
+  display: inline-block;
+  vertical-align: top;
 }

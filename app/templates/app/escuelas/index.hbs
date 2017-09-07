@@ -12,8 +12,6 @@
 </div>
 
 
-
-
 <div class="ui secondary pointing fluid menu">
     <div class="menu">
       {{#link-to "app.escuelas.index" class="ui item"}}Listado{{/link-to}}
@@ -21,15 +19,32 @@
     </div>
 </div>
 
-{{outlet}}
+<div class="filtros">
 
-{{suite-filtros/escuelas filtro=filtro pagina=pagina tarea=model.tareaEscuelas}}
+  <div class="celda-filtro">
+    {{suite-campo/filtro
+      ayuda="Ingrese CUE o nombre"
+      valor=model.filtro
+      alBuscar=(route-action "alIngresarFiltro")
+    }}
+  </div>
 
+  <div class="celda-filtro">
+    {{suite-selector/region
+        deshabilitado=model.deshabilitarSeleccionDeRegion
+        permiteSeleccionarTodasLasRegiones=true
+        valor=model.region
+        cuandoSelecciona=(route-action "cuandoSeleccionaRegion")
+    }}
+  </div>
+
+</div>
 
 {{suite-tabla
-  pagina=pagina
+  pagina=model.pagina
   columnas=model.columnas
   filtro=filtro
   tarea=model.tareaEscuelas
   paginacion=true
+  cuandoCambiaPagina=(route-action "cuandoCambiaPagina")
 }}

@@ -16,6 +16,7 @@ Router.map(function() {
       this.route("otros");
       this.route("planilla");
       this.route('grafico-de-barras');
+      this.route('selector-de-region');
     });
 
     this.route("personas", function() {
