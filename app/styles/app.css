@@ -750,3 +750,11 @@ iframe.mapa {
   vertical-align: top;
   margin-right: 10px;
 }
+
+.suite-depuracion-login__contenedor {
+  position: absolute;
+  bottom: 1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
