@@ -1,0 +1,21 @@
+{{outlet}}
+
+<div class="barra-de-botones">
+  <div class='pull-right'>
+    <label>
+      {{input type="checkbox"
+      id="checkbox-policy"
+      name="checkboxPolicy"
+      class="ui checkbox"
+      checked=model.mostrarFinesDeSemana
+    }}
+    Mostrar fines de semana
+    </label>
+  </div>
+</div>
+
+{{suite-calendario
+    mostrarFinesDeSemana=model.mostrarFinesDeSemana
+    perfil=model.perfil.data.idPerfil
+    region=model.perfil.data.region
+}}

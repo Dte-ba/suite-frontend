@@ -31,6 +31,10 @@ Router.map(function() {
       this.route("editar", { path: "editar/:evento_id" });
       this.route("lista");
       this.route("detalle", { path: "detalle/:evento_id" });
+      this.route('index', function() {
+        this.route('calendario');
+        this.route('lista');
+      });
     });
 
     this.route("escritorio", function() {});

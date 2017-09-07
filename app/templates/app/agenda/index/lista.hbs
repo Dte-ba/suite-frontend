@@ -1,0 +1,11 @@
+{{outlet}}
+
+{{suite-filtros/eventos filtro=filtro alIngresarFiltro=(route-action "alIngresarFiltro")}}
+
+{{suite-tabla
+  pagina=model.pagina
+  columnas=model.columnas
+  tarea=model.tareaEventos
+  paginacion=true
+  cuandoCambiaPagina=(route-action "cuandoCambiaPagina")
+}}

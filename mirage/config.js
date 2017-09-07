@@ -152,6 +152,16 @@ export default function() {
     };
   });
 
+  this.get("/eventos/estadistica", () => {
+    return {
+      data: {
+        total: 609,
+        conActa: 10,
+        sinActa: 599
+      }
+    };
+  });
+
   this.get("/paquetes/estadistica", () => {
     return {
       data: {

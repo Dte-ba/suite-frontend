@@ -6,52 +6,18 @@
     {{/suite-permiso}}
   </div>
   <div class="eleven wide column">
-    {{suite-estadisticas/tareas tarea=model.estadisticas}}
+    {{suite-estadisticas/eventos tarea=model.estadisticas}}
   </div>
 </div>
-{{outlet}}
+
+
 <div class="ui divider"></div>
 
 <div class="ui secondary pointing fluid menu">
     <div class="menu">
-      {{#link-to "app.agenda.index" class="ui item"}}CALENDARIO{{/link-to}}
-      {{#link-to "app.agenda.lista" class="ui item"}}LISTA{{/link-to}}
+      {{#link-to "app.agenda.index.calendario" class="ui item"}}CALENDARIO{{/link-to}}
+      {{#link-to "app.agenda.index.lista" class="ui item"}}LISTA{{/link-to}}
     </div>
 </div>
 
-
-<div class="barra-de-botones">
-  <div class='pull-right'>
-    <label>
-      {{input type="checkbox"
-      id="checkbox-policy"
-      name="checkboxPolicy"
-      class="ui checkbox"
-      checked=model.mostrarFinesDeSemana
-    }}
-    Mostrar fines de semana
-    </label>
-  </div>
-</div>
-
-{{suite-calendario
-    mostrarFinesDeSemana=model.mostrarFinesDeSemana
-    perfil=model.perfil.data.idPerfil
-    region=model.perfil.data.region
-}}
-
-{{!full-calendar
-    header=header
-    businessHours=true
-    locale='es'
-    events=eventos
-    handleWindowResize=true
-    eventLimit=false
-
-    mostrarFinesDeSemana=model.mostrarFinesDeSemana
-
-    viewRender=(action 'viewRender')
-    dayClick=(action 'dayClicked')
-    eventClick=(route-action 'editarUnEvento')
-    eventRender=(action 'eventRender')
-}}
+{{outlet}}
