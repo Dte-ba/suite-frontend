@@ -5,7 +5,7 @@
 {{#suite-formularios/evento
   model        = (changeset model model.validaciones)
   on-submit    = (route-action "guardarEvento")
-  texto = 'Crear evento'
+  texto = 'Guardar evento'
 }}
 
 <button class="ui cancelar button" {{action (route-action "cancelar")}}>Cancelar</button>
