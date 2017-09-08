@@ -2,15 +2,25 @@ import Ember from "ember";
 import { task } from "ember-concurrency";
 
 export default Ember.Route.extend({
+  ajax: Ember.inject.service(),
+  perfilService: Ember.inject.service("perfil"),
+
   obtenerEventos: task(function*() {
+    let query = {};
+
     let model = this.modelFor(this.routeName);
 
-    let data = yield this.store.query("evento", {
-      page: model.pagina,
-      query: model.filtro
-    });
+    query.page = model.pagina;
+    query.query = model.filtro;
 
+    query.escuela__localidad__distrito__region__numero = Ember.get(
+      model,
+      "region.numero"
+    );
+
+    let data = yield this.store.query("evento", query);
     let meta = data.get("meta");
+
     return { data, meta };
   }).drop(),
 
@@ -23,11 +33,28 @@ export default Ember.Route.extend({
   },
 
   model() {
-    return Ember.RSVP.hash({
+    let soloSuRegion = !this.get("perfilService").tienePermiso("perfil.global");
+    let regionPreSeleccionada = null;
+
+    if (soloSuRegion) {
+      regionPreSeleccionada = this.get("perfilService").obtenerRegion();
+    } else {
+      regionPreSeleccionada = Ember.Object.create({
+        nombre: "Todas las regiones",
+        numero: ""
+      });
+    }
+
+    return {
+      tareaEventos: this.get("obtenerEventos"),
+
+      /* valores a utilizar como filtros */
       pagina: 1,
       filtro: "",
+      deshabilitarSeleccionDeRegion: soloSuRegion,
 
-      tareaEventos: this.get("obtenerEventos"),
+      region: regionPreSeleccionada,
+
       columnas: [
         {
           titulo: "Inicio",
@@ -63,7 +90,7 @@ export default Ember.Route.extend({
           componente: "suite-detalle/traslado"
         }
       ]
-    });
+    };
   },
 
   actions: {
@@ -76,6 +103,12 @@ export default Ember.Route.extend({
     cuandoCambiaPagina(pagina) {
       let model = this.modelFor(this.routeName);
       Ember.set(model, "pagina", pagina);
+      this.actualizar();
+    },
+    cuandoSeleccionaRegion(region) {
+      let model = this.modelFor(this.routeName);
+      Ember.set(model, "region", region);
+      Ember.set(model, "pagina", 1);
       this.actualizar();
     }
   }

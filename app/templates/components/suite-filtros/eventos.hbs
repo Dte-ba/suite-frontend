@@ -8,4 +8,12 @@
     }}
   </div>
 
+  <div class="celda-filtro">
+    {{suite-selector/region
+        deshabilitado=deshabilitarSeleccionDeRegion
+        permiteSeleccionarTodasLasRegiones=(not deshabilitarSeleccionDeRegion)
+        valor=region
+        cuandoSelecciona=cuandoSeleccionaRegion
+    }}
+  </div>
 </div>

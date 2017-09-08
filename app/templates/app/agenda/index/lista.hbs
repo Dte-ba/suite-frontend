@@ -1,6 +1,11 @@
 {{outlet}}
 
-{{suite-filtros/eventos filtro=filtro alIngresarFiltro=(route-action "alIngresarFiltro")}}
+{{suite-filtros/eventos
+  filtro=model.filtro
+  region=model.region
+  deshabilitarSeleccionDeRegion=model.deshabilitarSeleccionDeRegion
+  cuandoSeleccionaRegion=(route-action "cuandoSeleccionaRegion")
+  alIngresarFiltro=(route-action "alIngresarFiltro")}}
 
 {{suite-tabla
   pagina=model.pagina

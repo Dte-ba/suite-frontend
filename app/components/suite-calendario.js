@@ -56,7 +56,7 @@ export default Ember.Component.extend({
     var permiso = this.get("perfilService").tienePermiso("perfil.global");
     var limite = false;
     if (permiso === true) {
-      var limite = 2;
+      limite = 2;
     }
 
     let fc = this.$("#calendar").fullCalendar({
