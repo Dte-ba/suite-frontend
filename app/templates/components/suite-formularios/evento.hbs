@@ -15,15 +15,14 @@
         {{#f.input label="Fecha de inicio" name="fecha" as |f|}}
           {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
         {{/f.input}}
-
-        {{#f.input label="Hora de inicio" name="inicio" as |f|}}
-          {{suite-campo/hora hora=f.value cuandoCambia=f.update}}
+        {{#f.input label="Fecha de finalización" name="fechaFin" as |f|}}
+          {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
         {{/f.input}}
       </div>
 
       <div class="column">
-        {{#f.input label="Fecha de finalización" name="fechaFin" as |f|}}
-          {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
+        {{#f.input label="Hora de inicio" name="inicio" as |f|}}
+          {{suite-campo/hora hora=f.value cuandoCambia=f.update}}
         {{/f.input}}
 
         {{#f.input label="Hora de finalización" name="fin" as |f|}}
@@ -38,6 +37,9 @@
 
     {{f.input type="textarea" label="Objetivo" name="objetivo"}}
 
+    {{#if editar}}
+      {{f.input type="textarea" label="Minuta" name="minuta"}}
+    {{/if}}
 
   {{/suite-grupo}}
 
