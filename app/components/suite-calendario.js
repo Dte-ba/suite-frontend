@@ -6,9 +6,9 @@ export default Ember.Component.extend({
   ajax: Ember.inject.service(),
   store: Ember.inject.service(),
   perfilService: Ember.inject.service("perfil"),
-  cargando: Ember.computed.alias('tareaSolicitarEventos.last.isRunning'),
+  cargando: Ember.computed.alias("tareaSolicitarEventos.last.isRunning"),
   fc: null,
-  classNames: ['suite-calendario__contenedor'],
+  classNames: ["suite-calendario__contenedor"],
   perfil: null,
 
   tareaSolicitarEventos: task(function*(fecha_inicio, fecha_fin, callback) {
@@ -37,7 +37,6 @@ export default Ember.Component.extend({
         start: e.fecha + "T" + e.inicio,
         end: e.fecha_fin + "T" + e.fin,
         url: "/#/app/agenda/detalle/" + e.id,
-        // escuela: e.escuela,
         traslado: e.requiereTraslado,
         resumen: e.resumenParaCalendario,
         acta: e.acta_legacy
@@ -54,10 +53,17 @@ export default Ember.Component.extend({
       right: "month,basicWeek,agendaDay"
     };
 
+    var permiso = this.get("perfilService").tienePermiso("perfil.global");
+    var limite = false;
+    if (permiso === true) {
+      var limite = 2;
+    }
+
     let fc = this.$("#calendar").fullCalendar({
       editable: false,
       locale: "es",
       header: header,
+      eventLimit: limite,
       weekends: this.get("mostrarFinesDeSemana"),
 
       events: (start, end, timezone, callback) => {
