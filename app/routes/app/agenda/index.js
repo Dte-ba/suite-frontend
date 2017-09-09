@@ -8,7 +8,19 @@ export default Ember.Route.extend({
   ajax: Ember.inject.service(),
 
   obtenerEstadisticas: task(function*() {
-    let url = ENV.API_URL + "/api/eventos/estadistica";
+    let i = "2017-01-01";
+    let f = "2017-12-31";
+    let perfil = this.get("perfil");
+    let perfilId = perfil.data.idPerfil;
+    let region = perfil.data.region;
+    let base = ENV.API_URL;
+    let url = "";
+    if (this.get("perfil").tienePermiso("perfil.global")) {
+      url = `${base}/api/eventos/estadistica?inicio=${i}&fin=${f}`;
+    } else {
+      url = `${base}/api/eventos/estadistica?inicio=${i}&fin=${f}&perfil=${perfilId}&region=${region}`;
+    }
+
     let resultado = yield this.get("ajax").request(url);
     return resultado;
   }).drop(),
