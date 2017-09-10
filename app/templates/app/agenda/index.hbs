@@ -2,7 +2,7 @@
   <div class="five wide column">
     {{suite-titulo titulo="Acciones"}}
     {{#suite-permiso permiso="agenda.crear"}}
-      <button class="ui button primario " {{action (route-action "crearUnEventoNuevo")}}><i class="ui plus icon"></i> Nueva Acción</button>
+      <button id="crearEvento" class="ui button primario " {{action (route-action "crearUnEventoNuevo")}}><i class="ui plus icon"></i> Nueva Acción</button>
     {{/suite-permiso}}
   </div>
   <div class="eleven wide column">

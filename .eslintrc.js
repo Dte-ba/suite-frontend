@@ -5,7 +5,10 @@ module.exports = {
     Handsontable: true,
     esperar: true,
     login: true,
-    clickSobreElTexto: true
+    clickSobreElTexto: true,
+    cargarDatosDePrueba: true,
+    selectSearch: true,
+    selectChoose: true
   },
   root: true,
   parserOptions: {

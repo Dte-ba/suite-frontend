@@ -338,27 +338,27 @@ h2.suite-detalle {
   font-weight: 200;
   font-size: xx-large;
   margin-top: 0.25em;
-  font-family: 'Roboto Light';
+  font-family: "Roboto Light";
 }
 
 @font-face {
-  font-family: 'Roboto Bold';
-  src: url('/roboto/Roboto-Bold.ttf') format('truetype');
+  font-family: "Roboto Bold";
+  src: url("/roboto/Roboto-Bold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Roboto Medium';
-  src: url('/roboto/Roboto-Medium.ttf') format('truetype');
+  font-family: "Roboto Medium";
+  src: url("/roboto/Roboto-Medium.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Roboto Italic';
-  src: url('/roboto/Roboto-Italic.ttf') format('truetype');
+  font-family: "Roboto Italic";
+  src: url("/roboto/Roboto-Italic.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: 'Roboto Light';
-  src: url('/roboto/Roboto-Light.ttf') format('truetype');
+  font-family: "Roboto Light";
+  src: url("/roboto/Roboto-Light.ttf") format("truetype");
 }
 
 .pull-right {
@@ -378,11 +378,11 @@ h2.suite-detalle {
 }
 
 a.item {
-  font-family: 'Roboto Light' !important;
+  font-family: "Roboto Light" !important;
 }
 
 li.section {
-  font-family: 'Roboto Light' !important;
+  font-family: "Roboto Light" !important;
 }
 
 .models-table th.ui.form {
@@ -396,21 +396,21 @@ li.section {
 
 p {
   margin-top: 2em;
-  font-family: 'Roboto Light' !important;
+  font-family: "Roboto Light" !important;
   font-size: medium;
   line-height: 1.7;
 }
 
 .suite-grupo {
   margin-top: 4em;
-  font-family: 'Roboto Light';
+  font-family: "Roboto Light";
 }
 
 .suite-grupo-numero {
   color: gray;
   font-weight: bolder;
   font-size: 30pt;
-  font-family: 'Roboto Light';
+  font-family: "Roboto Light";
   display: inline;
 }
 
@@ -442,7 +442,7 @@ p {
 .fc-event p {
   margin: 0;
   font-size: small;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 .fc-event p.evento-titulo {
@@ -515,7 +515,7 @@ iframe.mapa {
   border: 1px solid rgba(34, 36, 38, 0.15);
   color: rgba(0, 0, 0, 0.87);
   border-radius: 0.28571429rem;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
   box-shadow: 0em 0em 0em 0em transparent inset;
   -webkit-transition: color 0.1s ease, border-color 0.1s ease;
   transition: color 0.1s ease, border-color 0.1s ease;
@@ -524,7 +524,7 @@ iframe.mapa {
 .ember-power-select-option {
   cursor: pointer;
   padding: 8px;
-  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 1em;
 }
 
@@ -631,8 +631,8 @@ iframe.mapa {
 .ember-power-select-search-input:focus {
   outline: 0;
   border: 1px solid #85b7d9;
-  color: rgba(0, 0, 0, .87);
-  border-radius: .28571429rem;
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 0.28571429rem;
 }
 
 .ember-power-select-trigger:focus {
@@ -655,7 +655,7 @@ iframe.mapa {
 
 .ui.statistics .statistics > .label,
 .ui.statistics .statistic > .label ~ .value {
-  font-family: 'Roboto Light';
+  font-family: "Roboto Light";
 }
 .ui.statistics .statistic > .label ~ .value {
   margin-top: 0.8rem;
@@ -757,4 +757,20 @@ iframe.mapa {
   left: 0;
   right: 0;
   text-align: center;
+}
+
+.ember-power-select-trigger-multiple-input {
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+.ember-power-select-multiple-trigger {
+}
+
+.ember-power-select-multiple-option {
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 2px;
+  color: #333;
+  background-color: #fbfbfb;
+  margin: -3px 6px 2px 3px;
 }

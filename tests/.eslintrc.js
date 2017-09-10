@@ -5,6 +5,9 @@ module.exports = {
   globals: {
     esperar: true,
     login: true,
-    clickSobreElTexto: true
+    clickSobreElTexto: true,
+    cargarDatosDePrueba: true,
+    selectSearch: true,
+    selectChoose: true
   }
 };

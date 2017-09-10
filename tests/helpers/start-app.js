@@ -4,6 +4,7 @@ import config from "../../config/environment";
 import "./esperar";
 import "./login";
 import "./click-sobre-el-texto";
+import "./cargar-datos-de-prueba";
 
 export default function startApp(attrs) {
   let application;

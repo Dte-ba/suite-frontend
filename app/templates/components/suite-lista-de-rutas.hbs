@@ -1,6 +1,7 @@
 {{#if media.isDesktop}}
   {{#link-to "app.escritorio.index" class="item large screen only"}}<i class="bar chart icon"></i> Escritorio{{/link-to}}
 {{/if}}
+
 {{#suite-permiso permiso="agenda.listar"}}
   {{#link-to "app.agenda.index" class="item seccion-agenda" current-when="app.agenda"}}<i class="calendar icon"></i> Acciones{{/link-to}}
 {{/suite-permiso}}
