@@ -98,14 +98,14 @@ export default DS.Model.extend({
     let fecha = this.get("fecha");
     let hora = this.get("inicio");
 
-    return `${fecha} - ${hora}`;
+    return `${fecha}T${hora}`;
   }),
 
   fecha_fin: Ember.computed("fechaFin", "fin", function() {
     let fecha_fin = this.get("fechaFin");
     let hora = this.get("fin");
 
-    return `${fecha_fin} - ${hora}`;
+    return `${fecha_fin}T${hora}`;
   }),
 
   color: Ember.computed("titulo", function() {

@@ -31,9 +31,14 @@
             {{else}}
               {{#if columna.fecha}}
                 {{suite-fecha fecha=(get col.row columna.atributo)}}
+              {{else if columna.fechaHora}}
+                {{suite-detalle/fecha-acciones-lista fecha=(get col.row columna.atributo)}}
               {{else}}
                 {{get col.row columna.atributo}}
               {{/if}}
+
+
+
             {{/if}}
 
           {{/if}}

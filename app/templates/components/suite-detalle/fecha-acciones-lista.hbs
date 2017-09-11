@@ -1,4 +1,7 @@
-
-{{#ui-popup content=fechaConvertida position='bottom left'}}
-  {{soloFecha}}
-{{/ui-popup}}
+{{#if fechaHora}}
+  {{fechaConvertida}}
+{{else}}
+  {{#ui-popup content=fechaConvertida position='bottom left'}}
+      {{soloFecha}}
+  {{/ui-popup}}
+{{/if}}

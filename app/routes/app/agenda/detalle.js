@@ -7,10 +7,12 @@ export default Ember.Route.extend({
     model.set("filaDatosDeAccion", [
       {
         titulo: "Inicio",
+        fechaHora: true,
         id: "fecha_inicio"
       },
       {
         titulo: "Fin",
+        fechaHora: true,
         id: "fecha_fin"
       },
       {
@@ -34,7 +36,7 @@ export default Ember.Route.extend({
     model.set("filaUsuarios", [
       {
         titulo: "Responsable",
-        id: "responsable.nombreCompleto"
+        componente: "suite-detalle/responsable"
       },
       {
         titulo: "Acompañantes",

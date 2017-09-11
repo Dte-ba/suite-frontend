@@ -1,4 +1,5 @@
 import Ember from "ember";
+import moment from "moment";
 
 export default Ember.Component.extend({
   soloFecha: Ember.computed("fecha", function() {
@@ -13,8 +14,4 @@ export default Ember.Component.extend({
 
     return soloFecha + " a las " + soloHora;
   })
-
-  // tiempoTranscurrido: Ember.computed("fecha", function() {
-  //   return moment(this.get("fecha")).fromNow();
-  // })
 });

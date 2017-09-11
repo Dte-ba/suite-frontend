@@ -16,6 +16,8 @@
               <td class="eleven wide">
                 {{#if fila.fecha}}
                   {{suite-fecha fecha=(get model fila.id)}}
+                {{else if fila.fechaHora}}
+                  {{suite-detalle/fecha-acciones-lista fecha=(get model fila.id) fechaHora=true}}
                 {{else}}
                   {{get model fila.id}}
                 {{/if}}
