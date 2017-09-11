@@ -59,7 +59,7 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Nombre",
-        id: "escuela.nombre"
+        componente: "suite-detalle/escuela"
       },
       {
         titulo: "Distrito",

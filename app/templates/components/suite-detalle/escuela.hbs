@@ -1,0 +1,9 @@
+{{yield}}
+
+{{#suite-promesa promesa=model.escuela}}
+  {{#ui-popup content=model.escuela.cue position='bottom left'}}
+    {{#link-to 'app.escuelas.detalle' model.escuela}}
+      {{model.escuela.nombre}}
+    {{/link-to}}
+  {{/ui-popup}}
+{{/suite-promesa}}
