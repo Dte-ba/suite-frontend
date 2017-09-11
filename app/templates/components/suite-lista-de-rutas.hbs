@@ -3,7 +3,11 @@
 {{/if}}
 
 {{#suite-permiso permiso="agenda.listar"}}
-  {{#link-to "app.agenda.index" class="item seccion-agenda" current-when="app.agenda"}}<i class="calendar icon"></i> Acciones{{/link-to}}
+  {{#if veLista}}
+    {{#link-to "app.agenda.index.lista" class="item seccion-agenda" current-when="app.agenda"}}<i class="calendar icon"></i> Acciones{{/link-to}}
+  {{else}}
+    {{#link-to "app.agenda.index" class="item seccion-agenda" current-when="app.agenda"}}<i class="calendar icon"></i> Acciones{{/link-to}}
+  {{/if}}
 {{/suite-permiso}}
 
 {{#suite-permiso permiso="tareas.listar"}}
