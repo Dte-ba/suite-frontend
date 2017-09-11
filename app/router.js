@@ -59,7 +59,9 @@ Router.map(function() {
     this.route("programas", function() {
       this.route("detalle", { path: "detalle/:programa_id" });
     });
-    this.route("paquetes", function() {});
+    this.route("paquetes", function() {
+      this.route('crear');
+    });
     this.route("grupos", function() {
       this.route("detalle", { path: "detalle/:group_id" });
     });

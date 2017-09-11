@@ -1,0 +1,19 @@
+{{outlet}}
+
+{{#suite-formularios/paquetes
+  model        = (changeset model model.validaciones)
+  on-submit    = (route-action "guardarPaquete")
+  texto = 'Solicitar Paquete'
+}}
+
+<button class="ui cancelar button" {{action (route-action "cancelar")}}>Cancelar</button>
+
+{{/suite-formularios/paquetes}}
+
+  {{#if errors}}
+    <div class="ui negative message">
+      {{#each errors as |error|}}
+        <p><strong>{{error.campo}}</strong> - {{error.detalle}}</p>
+      {{/each}}
+    </div>
+  {{/if}}

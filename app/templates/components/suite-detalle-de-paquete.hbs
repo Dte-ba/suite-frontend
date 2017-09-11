@@ -1,0 +1,7 @@
+{{yield}}
+
+{{#if paquete.last.isError}}
+  <div class="suite-detalle-paquete-error ">
+    {{paquete.last.error}}
+  </div>
+{{/if}}
