@@ -15,8 +15,8 @@ Router.map(function() {
       this.route("modales");
       this.route("otros");
       this.route("planilla");
-      this.route('grafico-de-barras');
-      this.route('selector-de-region');
+      this.route("grafico-de-barras");
+      this.route("selector-de-region");
     });
 
     this.route("personas", function() {
@@ -31,9 +31,9 @@ Router.map(function() {
       this.route("editar", { path: "editar/:evento_id" });
       this.route("lista");
       this.route("detalle", { path: "detalle/:evento_id" });
-      this.route('index', function() {
-        this.route('calendario');
-        this.route('lista');
+      this.route("index", function() {
+        this.route("calendario");
+        this.route("lista");
       });
     });
 
@@ -46,12 +46,13 @@ Router.map(function() {
       this.route("detalle", { path: "detalle/:escuela_id" });
       this.route("edicion", { path: "edicion/:escuela_id" });
       this.route("conformar", { path: "conformar/:escuela_id" });
-      this.route('crear');
+      this.route("crear");
     });
     this.route("mi-perfil");
     this.route("tareas", function() {
       this.route("detalle", { path: "detalle/:tarea_id" });
-      this.route('crear');
+      this.route("crear");
+      this.route("editar", { path: "editar/:evento_id" });
     });
     this.route("validaciones", function() {
       this.route("detalle", { path: "edicion/:escuela_id" });
@@ -60,14 +61,14 @@ Router.map(function() {
       this.route("detalle", { path: "detalle/:programa_id" });
     });
     this.route("paquetes", function() {
-      this.route('crear');
+      this.route("crear");
     });
     this.route("grupos", function() {
       this.route("detalle", { path: "detalle/:group_id" });
     });
 
-    this.route('pisos', function() {
-      this.route('crear');
+    this.route("pisos", function() {
+      this.route("crear");
     });
   });
 

@@ -33,14 +33,17 @@ export default Ember.Route.extend({
   },
 
   actions: {
+    guardarTarea(modelo) {
+      return modelo.save().then(() => {
+        this.transitionTo("app.tareas.index");
+      });
+    },
     willTransition: function() {
       if (this.currentModel.get("isNew")) {
         this.get("currentModel").deleteRecord();
       }
     },
-    regresar() {
-      return this.transitionTo("app.tareas.index");
-    },
+
     cancelar() {
       return this.transitionTo("app.tareas.index");
     }
