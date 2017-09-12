@@ -9,9 +9,8 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
   model(params) {
     let hoy = moment().format("YYYY-MM-DD");
     let opciones = { fechaPedido: hoy };
-    let estado = this.store.findRecord("estado-de-paquete", 2).then(data => {
-      opciones.estado = data;
-    });
+    let estadoDePaquete = this.store.findRecord("estado-de-paquete", 2);
+    opciones.estado = estadoDePaquete;
 
     if (params.escuela_id) {
       return this.store.findRecord("escuela", params.escuela_id).then(data => {

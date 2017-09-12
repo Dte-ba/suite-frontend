@@ -33,7 +33,7 @@ let initializer = {
     inflector.irregular("estado-de-validacion", "estados-de-validacion");
     inflector.irregular("validacion", "validaciones");
     inflector.irregular("estado-de-paquete", "estados-de-paquete");
-    inflector.irregular("paquetes", "paquetes");
+    inflector.irregular("paquete", "paquetes");
 
     inflector.irregular("tarea", "tareas");
   }
