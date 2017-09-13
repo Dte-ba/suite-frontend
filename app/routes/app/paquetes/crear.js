@@ -9,17 +9,19 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
   model(params) {
     let hoy = moment().format("YYYY-MM-DD");
     let opciones = { fechaPedido: hoy };
-    let estadoDePaquete = this.store.findRecord("estado-de-paquete", 2);
-    opciones.estado = estadoDePaquete;
 
-    if (params.escuela_id) {
-      return this.store.findRecord("escuela", params.escuela_id).then(data => {
-        opciones.escuela = data;
-        return this.store.createRecord("paquete", opciones);
-      });
-    }
+    return this.store.findRecord("estado-de-paquete", 2).then(estadoDePaquete => {
+      opciones.estado = estadoDePaquete;
 
-    return this.store.createRecord("paquete", opciones);
+      if (params.escuela_id) {
+        return this.store.findRecord("escuela", params.escuela_id).then(data => {
+          opciones.escuela = data;
+          return this.store.createRecord("paquete", opciones);
+        });
+      }
+
+      return this.store.createRecord("paquete", opciones);
+    });
   },
 
   actions: {
