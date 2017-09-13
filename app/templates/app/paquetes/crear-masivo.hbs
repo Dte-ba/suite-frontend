@@ -1,0 +1,11 @@
+{{outlet}}
+
+{{#suite-formularios/paquetes-masivos
+  model        = (changeset model model.validaciones)
+  on-submit    = (route-action "alSolicitarPaquetes")
+  texto = 'Solicitar Paquetes'
+}}
+
+<button class="ui cancelar button" {{action (route-action "cancelar")}}>Cancelar</button>
+
+{{/suite-formularios/paquetes-masivos}}

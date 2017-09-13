@@ -1,0 +1,32 @@
+{{#validated-form
+  model        = model
+  on-submit    = solicitarPaquetes
+  submit-label = texto as |f|
+}}
+
+  {{#suite-grupo numero=1 titulo="Escuela"}}
+    {{#f.input label="Escuela" name="escuela" as |f|}}
+      {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
+  {{/suite-grupo}}
+
+  {{#suite-grupo numero=2 titulo="Paquetes"}}
+    <p>A continuación indique los paquetes a solicitar, puede copiar y pegar
+      directamente aquí los datos desde excel o libre office:</p>
+
+    {{#f.input label="Paquetes a solicitar" name="paquetes" as |f|}}
+      {{suite-planilla columnas=model.columnas datos=f.value cuandoCambia=f.update}}
+    {{/f.input}}
+  {{/suite-grupo}}
+
+  {{#if error}}
+    <div class="ui negative message">
+      <p>{{error}}</p>
+    </div>
+  {{/if}}
+
+  {{#suite-grupo titulo=""}}
+    {{f.submit label=texto class="ui button green"}} {{yield}}
+  {{/suite-grupo}}
+
+{{/validated-form}}

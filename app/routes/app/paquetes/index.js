@@ -88,6 +88,9 @@ export default Ember.Route.extend({
     crearUnPaqueteNuevo() {
       return this.transitionTo("app.paquetes.crear");
     },
+    crearPaquetesMasivos() {
+      return this.transitionTo("app.paquetes.crearMasivo");
+    },
     cuandoCambiaPagina(pagina) {
       let model = this.modelFor(this.routeName);
       Ember.set(model, "pagina", pagina);
