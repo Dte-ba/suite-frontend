@@ -63,6 +63,7 @@ Router.map(function() {
     this.route("paquetes", function() {
       this.route("crear");
       this.route('crearMasivo');
+      this.route('admin');
     });
     this.route("grupos", function() {
       this.route("detalle", { path: "detalle/:group_id" });
