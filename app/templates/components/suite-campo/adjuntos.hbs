@@ -1,0 +1,13 @@
+<input
+  multiple="true"
+  onchange={{action "upload"}}
+  accept="image/png,image/jpeg"
+  type="file"/>
+
+{{#if archivos}}
+  Actualmente: <a href={{archivos}} target="_blank">{{archivos}}</a>
+{{/if}}
+
+{{#if procesarImagenes.isRunning}}
+  Cargando archivos ...
+{{/if}}

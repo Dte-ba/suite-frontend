@@ -7,6 +7,10 @@
     {{#ui-popup content="Ver acta" position='bottom left'}}
       <a href="http://media-suite.dtelab.com.ar/agenda/agendafiles/{{model.legacyId}}_{{model.actaLegacy}}" target="_blank"><i class="green file icon"></i></a>
     {{/ui-popup}}
+  {{else if model.acta}}
+    {{#ui-popup content="Ver acta" position='bottom left'}}
+      <a href={{model.acta}} target="_blank"><i class="green file icon"></i></a>
+    {{/ui-popup}}
   {{else}}
     {{#ui-popup content="Sin acta" position='bottom left'}}
       <i class="yellow file icon"></i>

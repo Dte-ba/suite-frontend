@@ -89,6 +89,8 @@ export default DS.Model.extend({
   cantidadDeParticipantes: DS.attr("string"),
   requiereTraslado: DS.attr("boolean"),
 
+  acta: DS.attr(),
+
   responsable: DS.belongsTo("perfil"),
   escuela: DS.belongsTo("escuela"),
   acompaniantes: DS.hasMany("perfil"),
@@ -122,6 +124,7 @@ export default DS.Model.extend({
     fechaFin: [validatePresence(true)],
     inicio: [validatePresence(true), validateFechas()],
     fin: [validatePresence(true)],
+    categoria: [validatePresence(true)],
     responsable: [validatePresence(true)],
     escuela: [validatePresence(true)],
     cantidadDeParticipantes: [

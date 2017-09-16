@@ -9,7 +9,6 @@
     {{f.input label="Título" name="titulo"}}
 
 
-
     <div class="ui two column grid">
       <div class="column">
         {{#f.input label="Fecha de inicio" name="fecha" as |f|}}
@@ -45,7 +44,13 @@
 
     {{f.input type="textarea" label="Objetivo" name="objetivo"}}
 
+
     {{#if editar}}
+
+      {{#f.input label="Archivos de minuta o acta" name="acta" as |f|}}
+        {{suite-campo/adjuntos archivos=f.value cuandoTerminaDeSubir=f.update}}
+      {{/f.input}}
+
       {{f.input type="textarea" label="Minuta" name="minuta"}}
     {{/if}}
 

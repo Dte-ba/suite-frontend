@@ -39,7 +39,7 @@ export default Ember.Component.extend({
         url: "/#/app/agenda/detalle/" + e.id,
         traslado: e.requiereTraslado,
         resumen: e.resumenParaCalendario,
-        acta: e.acta_legacy
+        acta: e.acta_legacy || e.acta
       };
     });
 

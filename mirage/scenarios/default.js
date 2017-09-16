@@ -52,7 +52,7 @@ export default function(server) {
     telefono: "462-0411",
     localidad: localidad,
     tipoDeFinanciamiento: tipoDeFinanciamiento,
-    conformada: false,
+    conformada: false
   });
 
   server.create("perfil", {
@@ -63,7 +63,7 @@ export default function(server) {
   server.create("perfil", {
     nombre: "Demo",
     apellido: "Demo",
-    dni: '30428500'
+    dni: "30428500"
   });
 
   server.create("categoriaDeEvento", {

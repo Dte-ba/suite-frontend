@@ -1,0 +1,15 @@
+{{yield}}
+
+{{#if tieneActa}}
+  <i class="green file icon"></i>
+{{else}}
+  <i class="yellow file icon"></i>
+{{/if}}
+
+{{#if mostrarEtiqueta}}
+  {{#if tieneActa}}
+    Con acta
+  {{else}}
+    Sin acta
+  {{/if}}
+{{/if}}

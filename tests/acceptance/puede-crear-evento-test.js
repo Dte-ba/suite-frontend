@@ -33,8 +33,8 @@ test("Puede crear un evento correctamente", function(assert) {
   });
 
   andThen(function() {
-    // Hay exactamente 5 errores de validación.
-    assert.equal($(".field.error").length, 5);
+    // Hay exactamente 6 errores de validación.
+    assert.equal($(".field.error").length, 6);
 
     // Luego se cargan datos válidos
     fillIn("[placeholder='Seleccione hora']:first", "14:00");
@@ -58,6 +58,10 @@ test("Puede crear un evento correctamente", function(assert) {
       ".selectorDeEscuela",
       "Escuela N° 10 - General José de San Martín"
     );
+  });
+
+  andThen(function() {
+    selectChoose(".selectorAgrupable", "Sin categoría");
   });
 
   /* Con los datos cargados, tiene que permitir agendar */

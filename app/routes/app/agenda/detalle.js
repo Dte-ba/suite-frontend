@@ -28,7 +28,7 @@ export default Ember.Route.extend({
         id: "minuta"
       },
       {
-        titulo: "Acta (Legacy)",
+        titulo: "Acta",
         componente: "suite-detalle/acta-de-evento"
       }
     ]);

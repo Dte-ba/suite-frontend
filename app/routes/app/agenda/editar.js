@@ -1,10 +1,6 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
-  model(params) {
-    return this.store.findRecord("evento", params.id);
-  },
-
   afterModel(model) {
     model.set("buscarPersonas", this.get("buscarPersonas"));
     model.set("categorias", this.store.findAll("categoriaDeEvento"));

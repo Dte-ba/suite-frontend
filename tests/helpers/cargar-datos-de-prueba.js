@@ -37,6 +37,10 @@ export default Ember.Test.registerAsyncHelper(
       distrito: distrito
     });
 
+    server.create("categoriaDeEvento", {
+      nombre: "Sin categoría"
+    });
+
     server.create("escuela", {
       CUE: "123123",
       nombre: "Escuela N° 10 - General José de San Martín",
