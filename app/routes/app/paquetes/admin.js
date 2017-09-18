@@ -41,7 +41,7 @@ export default Ember.Route.extend({
       columnas: [
         {
           titulo: "id",
-          promesa: "id"
+          atributo: "id"
         },
         {
           titulo: "CUE",
@@ -79,7 +79,8 @@ export default Ember.Route.extend({
           titulo: "Comentarios"
         },
         {
-          titulo: "Acciones"
+          titulo: "Acciones",
+          componente: "matrix/acciones-lista"
         }
       ]
     };

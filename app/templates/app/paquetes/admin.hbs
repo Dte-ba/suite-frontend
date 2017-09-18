@@ -1,13 +1,10 @@
 <div class="ui grid">
-  <div class="five wide column">
-    {{suite-titulo titulo="Paquetes de provisión"}}
-    {{#suite-permiso permiso="paquetes.crear"}}
-      <button class="ui button primario" {{action (route-action "crearUnPaqueteNuevo")}}><i class="ui plus icon"></i> Solicitar paquete</button>
-      <button class="ui button primario" {{action (route-action "crearPaquetesMasivos")}}><i class="ui plus icon"></i> Solicitar paquetes de forma masiva</button>
-    {{/suite-permiso}}
+  <div class="three wide column">
+    {{suite-titulo titulo="Matrix"}}
+
   </div>
-  <div class="eleven wide column">
-    {{suite-estadisticas/paquetes tarea=model.estadisticas}}
+  <div class="thirteen wide column">
+    {{suite-estadisticas/paquetes-matrix tarea=model.estadisticas}}
   </div>
 </div>
 
