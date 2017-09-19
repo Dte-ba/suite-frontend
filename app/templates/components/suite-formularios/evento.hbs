@@ -49,6 +49,9 @@
 
       {{#f.input label="Archivos de minuta o acta" name="acta" as |f|}}
         {{suite-campo/adjuntos archivos=f.value cuandoTerminaDeSubir=f.update}}
+        <div class="ui pointing orange basic label">
+          <b>IMPORTANTE: </b>Al subir un acta, la acción será considerada como finalizada y no podrá volver a editarse.
+        </div>
       {{/f.input}}
 
       {{f.input type="textarea" label="Minuta" name="minuta"}}
