@@ -2,28 +2,10 @@
 <div class="ui stackable grid">
 
   <div class="ui row middle aligned segment">
-    <div class="ten wide column">
+    <div class="sixteen wide column">
       <h3 class="ui header">
         {{model.nombre}} - {{model.cue}}
       </h3>
-    </div>
-    <div class="six wide column right aligned">
-
-
-      {{#if model.conformada}}
-        {{#suite-permiso permiso="escuelas.editar"}}
-          <button class='ui button disabled'>No se puede editar esta escuela conformada</button>
-        {{/suite-permiso}}
-      {{else}}
-        {{#suite-permiso permiso="escuelas.editar"}}
-          {{#link-to "app.escuelas.edicion" model class="ui button primario"}}Editar{{/link-to}}
-        {{/suite-permiso}}
-
-        {{#suite-permiso permiso="escuelas.conformar"}}
-          {{#link-to "app.escuelas.conformar" model class="ui button primario"}}Conformar{{/link-to}}
-        {{/suite-permiso}}
-      {{/if}}
-
     </div>
   </div>
 
@@ -44,10 +26,21 @@
       <h4>Acciones</h4>
 
       {{#if model.conformada}}
-        <p><button class="ui button disabled">No puede crear acciones en una escuela conformada</button></p>
+        <button class="ui button disabled">No puede crear acciones en una escuela conformada</button>
+        {{#suite-permiso permiso="escuelas.editar"}}
+          <button class='ui button disabled'>No se puede editar esta escuela conformada</button>
+        {{/suite-permiso}}
       {{else}}
-        <p><button class="ui primario button" {{action (route-action "crearEventoParaEstaEscuela")}}><i class='ui plus icon'></i> Agendar acción</button></p>
+        <button class="ui primario button" {{action (route-action "crearEventoParaEstaEscuela")}}><i class='ui plus icon'></i> Agendar acción</button>
+        {{#suite-permiso permiso="escuelas.editar"}}
+          {{#link-to "app.escuelas.edicion" model class="ui button primario"}}<i class="ui edit icon"></i>Editar{{/link-to}}
+        {{/suite-permiso}}
+
+        {{#suite-permiso permiso="escuelas.conformar"}}
+          {{#link-to "app.escuelas.conformar" model class="ui button primario"}}<i class="ui share alternate icon"></i>Conformar{{/link-to}}
+        {{/suite-permiso}}
       {{/if}}
+
     </div>
   </div>
 
