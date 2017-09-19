@@ -5,7 +5,12 @@
   type="file"/>
 
 {{#if archivos}}
-  Actualmente: <a href={{archivos}} target="_blank">{{archivos}}</a>
+  <small>Actualmente:
+  {{#each archivos as |a|}}
+    {{a.name}}
+    {{#unless (eq a archivos.lastObject)}}, {{/unless}}
+  {{/each}}
+</small>
 {{/if}}
 
 {{#if procesarImagenes.isRunning}}
