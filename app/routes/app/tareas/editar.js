@@ -8,7 +8,8 @@ export default Ember.Route.extend({
   afterModel(model) {
     model.set("opciones", {
       prioridadesDeTareas: this.store.findAll("prioridadDeTarea"),
-      motivosDeTarea: this.store.findAll("motivoDeTarea")
+      motivosDeTarea: this.store.findAll("motivoDeTarea"),
+      estadosDeTarea: this.store.findAll("estadoDeTarea")
     });
   },
   actions: {

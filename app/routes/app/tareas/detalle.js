@@ -51,7 +51,7 @@ export default Ember.Route.extend({
       {
         titulo: "Modalidad",
         id: ""
-      },
+      }
     ]);
 
     return model;

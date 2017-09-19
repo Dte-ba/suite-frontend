@@ -16,6 +16,12 @@
     {{suite-selector/perfil valor=f.value cuandoSelecciona=f.update}}
   {{/f.input}}
 
+  {{#if editar}}
+    {{#f.input label="Estado" name="estadoDeTarea" as |f|}}
+      {{suite-selector/simple opciones=model.opciones.estadosDeTarea valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
+  {{/if}}
+
   {{#f.input label="Prioridad" name="prioridadDeTarea" as |f|}}
     {{suite-selector/simple opciones=model.opciones.prioridadesDeTareas valor=f.value cuandoSelecciona=f.update}}
   {{/f.input}}
