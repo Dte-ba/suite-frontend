@@ -7,9 +7,15 @@
         {{model.titulo}} - {{model.escuela.cue}}
       </h3>
     </div>
-    <div class="four wide column"></div>
-    <div class="two wide column">
-      {{#link-to "app.agenda.editar" model class="ui button primario"}}Editar{{/link-to}}
+    <div class="two wide column"></div>
+    <div class="four wide column">
+      {{#if model.acta}}
+        <div class="ui red label">Acción finalizada</div>
+      {{else if model.actaLegacy}}
+        <div class="ui red label">Acción finalizada</div>
+      {{else}}
+        {{#link-to "app.agenda.editar" model class="ui button primario"}}Editar{{/link-to}}
+      {{/if}}
     </div>
   </div>
 
