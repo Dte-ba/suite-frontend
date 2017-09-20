@@ -1,17 +1,20 @@
 <div class="ui grid">
   <div class="five wide column">
     {{suite-titulo titulo="Acciones"}}
-    {{#suite-permiso permiso="agenda.crear"}}
-      <button id="crearEvento" class="ui button primario " {{action (route-action "crearUnEventoNuevo")}}><i class="ui plus icon"></i> Nueva Acción</button>
-    {{/suite-permiso}}
   </div>
   <div class="eleven wide column">
     {{suite-estadisticas/eventos tarea=model.estadisticas}}
   </div>
 </div>
-
-
 <div class="ui divider"></div>
+
+<div class="ui equal width row segment">
+  <div class="column">
+    {{#suite-permiso permiso="agenda.crear"}}
+      <button id="crearEvento" class="ui button primario " {{action (route-action "crearUnEventoNuevo")}}><i class="ui plus icon"></i> Nueva Acción</button>
+    {{/suite-permiso}}
+  </div>
+</div>
 
 <div class="ui secondary pointing fluid menu">
     <div class="menu">

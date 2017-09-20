@@ -1,7 +1,7 @@
 {{outlet}}
 <div class="ui stackable grid">
   <div class="ui row middle aligned segment">
-    <div class="ten wide column">
+    <div class="sixteen wide column">
       <h2 class="ui header">
       {{#if model.image}}
           <img src={{model.image}} width="100%" class="ui circular image avatar-img">
@@ -18,13 +18,22 @@
         {{/x-file-input}}
       -->
     </div>
-    <div class="four wide column"></div>
-    <div class="two wide column">
-      {{#suite-permiso permiso="personas.editar"}}
-        {{#link-to "app.personas.edicion" model class="ui button primario"}}Editar{{/link-to}}
-      {{/suite-permiso}}
+  </div>
+
+  <div class="ui equal width row segment">
+    <div class="column">
+        {{#suite-permiso permiso="personas.editar"}}
+          {{#link-to "app.personas.edicion" model class="ui button primario"}}<i class="ui edit icon"></i> Editar{{/link-to}}
+        {{/suite-permiso}}
+        {{#suite-permiso permiso="personas.eliminar"}}
+          <button class="ui button primario disabled"><i class="ui ban icon"></i> Eliminar</button>
+        {{/suite-permiso}}
+        {{#suite-permiso permiso="personas.verinformes"}}
+          <button class="ui button primario disabled"><i class="ui file icon"></i> Ver informe</button>
+        {{/suite-permiso}}
     </div>
   </div>
+
     {{suite-detalle
         numero="1"
         titulo="Datos personales"

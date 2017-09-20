@@ -2,20 +2,10 @@
 <div class="ui stackable grid">
 
   <div class="ui row middle aligned segment">
-    <div class="ten wide column">
+    <div class="sixteen wide column">
       <h3 class="ui header">
         {{model.titulo}} - {{model.escuela.cue}}
       </h3>
-    </div>
-    <div class="two wide column"></div>
-    <div class="four wide column">
-      {{#if model.acta}}
-        <div class="ui red label">Acción finalizada</div>
-      {{else if model.actaLegacy}}
-        <div class="ui red label">Acción finalizada</div>
-      {{else}}
-        {{#link-to "app.agenda.editar" model class="ui button primario"}}Editar{{/link-to}}
-      {{/if}}
     </div>
   </div>
 
@@ -35,7 +25,17 @@
       </div>
     {{/if}}
   </div>
-
+  <div class="ui equal width row segment">
+    <div class="column">
+      {{#if model.acta}}
+        <div class="ui red label">Acción finalizada</div>
+      {{else if model.actaLegacy}}
+        <div class="ui red label">Acción finalizada</div>
+      {{else}}
+        {{#link-to "app.agenda.editar" model class="ui button primario"}}Editar{{/link-to}}
+      {{/if}}
+    </div>
+  </div>
 
       {{suite-detalle
           numero="1"

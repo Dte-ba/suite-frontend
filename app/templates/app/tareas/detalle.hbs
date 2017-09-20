@@ -17,10 +17,9 @@
       {{estado-de-tarea model.estadoDeTarea.nombre}}
     </div>
   </div>
-  
+
   <div class="ui equal width row segment">
     <div class="column">
-      <h4>Acciones</h4>
         {{#suite-permiso permiso="tareas.editar"}}
           {{#link-to "app.tareas.editar" model class="ui button primario"}}Editar{{/link-to}}
         {{/suite-permiso}}
