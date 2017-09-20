@@ -52,9 +52,8 @@ export default Ember.Route.extend({
           componente: "suite-detalle/autor"
         },
         {
-          atributo: "estado.nombre",
           titulo: "Estado",
-          promesa: "estado"
+          componente: "suite-detalle/estado-de-validacion"
         },
         {
           atributo: "observaciones",

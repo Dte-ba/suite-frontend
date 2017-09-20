@@ -1,0 +1,9 @@
+{{yield}}
+
+{{#if (is-pending model.estado)}}
+  <div class="ui active inline mini loader"></div>
+{{else}}
+  {{#ui-popup content=model.estado.nombre position='bottom left'}}
+    {{estado-de-validacion model.estado.nombre}}
+  {{/ui-popup}}
+{{/if}}
