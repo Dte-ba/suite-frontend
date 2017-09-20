@@ -1,17 +1,21 @@
 <div class="ui grid">
   <div class="five wide column">
     {{suite-titulo titulo="Tareas"}}
-    {{#suite-permiso permiso="tareas.crear"}}
-      <button class="ui button primario " {{action (route-action "crearUnaTareaNueva")}}><i class="ui plus icon"></i> Nueva tarea</button>
-    {{/suite-permiso}}
   </div>
   <div class="eleven wide column">
     {{suite-estadisticas/tareas tarea=model.estadisticas}}
   </div>
 </div>
-{{outlet}}
 <div class="ui divider"></div>
 
+<div class="ui equal width row segment">
+  <div class="column">
+    <h4>Acciones</h4>
+    {{#suite-permiso permiso="tareas.crear"}}
+      <button class="ui button primario " {{action (route-action "crearUnaTareaNueva")}}><i class="ui plus icon"></i> Nueva tarea</button>
+    {{/suite-permiso}}
+  </div>
+</div>
 {{suite-filtros/tareas filtro=model.filtro alIngresarFiltro=(route-action "alIngresarFiltro")}}
 
 {{suite-tabla
