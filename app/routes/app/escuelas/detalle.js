@@ -58,11 +58,11 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Programas",
-        componente: 'suite-detalle/programas',
+        componente: "suite-detalle/programas"
       },
       {
         titulo: "CUE anteriores",
-        componente: 'suite-detalle/cue-anteriores'
+        componente: "suite-detalle/cue-anteriores"
       },
       {
         titulo: "Anexo",
@@ -104,6 +104,12 @@ export default Ember.Route.extend({
     crearEventoParaEstaEscuela() {
       let model = this.modelFor("app.escuelas.detalle");
       return this.transitionTo("app.agenda.crear", {
+        queryParams: { escuela_id: model.id }
+      });
+    },
+    crearValidacionParaEstaEscuela() {
+      let model = this.modelFor("app.escuelas.detalle");
+      return this.transitionTo("app.validaciones.crear", {
         queryParams: { escuela_id: model.id }
       });
     }
