@@ -40,11 +40,11 @@ export default Ember.Route.extend({
           fecha: true
         },
         {
-          atributo: "",
+          atributo: "cantidadPedidas",
           titulo: "Pedidas"
         },
         {
-          atributo: "",
+          atributo: "cantidadValidadas",
           titulo: "Validadas"
         },
         {
@@ -92,7 +92,9 @@ export default Ember.Route.extend({
       Ember.set(model, "pagina", 1);
       this.actualizar();
     },
-
+    crearUnaValidacionNueva() {
+      return this.transitionTo("app.validaciones.crear");
+    },
     cuandoCambiaPagina(pagina) {
       let model = this.modelFor(this.routeName);
       Ember.set(model, "pagina", pagina);

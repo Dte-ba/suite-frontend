@@ -56,6 +56,7 @@ Router.map(function() {
     });
     this.route("validaciones", function() {
       this.route("detalle", { path: "edicion/:escuela_id" });
+      this.route('crear');
     });
     this.route("programas", function() {
       this.route("detalle", { path: "detalle/:programa_id" });
@@ -80,6 +81,8 @@ Router.map(function() {
     });
   });
   this.route("logout");
+
+  this.route('validaciones', function() {});
 });
 
 export default Router;

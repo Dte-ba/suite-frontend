@@ -1,11 +1,10 @@
 import { moduleFor, test } from "ember-qunit";
 
 moduleFor(
-  "route:app/agenda/crear",
-  "Unit | Route | app/agenda/crear",
+  "route:app/validaciones/crear",
+  "Unit | Route | app/validaciones/crear",
   {
-    // Specify the other units that are required for this test.
-    // needs: ['controller:foo']
+    needs: ["service:ajax", "service:perfil"]
   }
 );
 
