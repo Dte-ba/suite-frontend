@@ -8,11 +8,11 @@ export default Ember.Route.extend({
   actions: {
     guardarEvento(modelo) {
       return modelo.save().then(() => {
-        this.transitionTo("app.agenda.index");
+        this.transitionTo("app.agenda.detalle", modelo.get("id"));
       });
     },
-    cancelar() {
-      return this.transitionTo("app.agenda.index");
+    cancelar(modelo) {
+      return this.transitionTo("app.agenda.detalle", modelo.get("id"));
     }
   }
 });

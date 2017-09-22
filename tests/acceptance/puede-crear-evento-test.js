@@ -69,8 +69,8 @@ test("Puede crear un evento correctamente", function(assert) {
     clickSobreElTexto("Agendar");
   });
 
-  /* Y el usuario debe quedar en la vista de agenda nuevamente */
+  /* Y el usuario debe quedar en la vista de detalle del evento */
   andThen(function() {
-    assert.equal(currentURL(), "/app/agenda/index/calendario");
+    assert.equal(currentURL(), "/app/agenda/detalle/1");
   });
 });

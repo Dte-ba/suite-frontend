@@ -28,7 +28,7 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
   actions: {
     guardarEvento(modelo) {
       return modelo.save().then(() => {
-        this.transitionTo("app.agenda.index");
+        this.transitionTo("app.agenda.detalle", modelo.get("id"));
       });
     },
     willTransition: function() {
