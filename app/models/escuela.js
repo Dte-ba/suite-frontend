@@ -1,6 +1,9 @@
 import DS from "ember-data";
 import Ember from "ember";
-import { validatePresence } from "ember-changeset-validations/validators";
+import {
+  validatePresence,
+  validateLength
+} from "ember-changeset-validations/validators";
 
 export default DS.Model.extend({
   cue: DS.attr("number"),
@@ -22,7 +25,7 @@ export default DS.Model.extend({
   contactos: DS.hasMany("contacto"),
   eventos: DS.hasMany("evento"),
   padre: DS.belongsTo("escuela"),
-  subescuelas: DS.hasMany("escuela", {inverse: 'padre'}),
+  subescuelas: DS.hasMany("escuela", { inverse: "padre" }),
   fechaConformacion: DS.attr("string"),
   motivoDeConformacion: DS.belongsTo("motivoDeConformacion"),
   estado: DS.attr("boolean"),
@@ -34,11 +37,17 @@ export default DS.Model.extend({
 
   validacionesDeFormulario: {
     nombre: [validatePresence(true)],
-    cue: [validatePresence(true)]
+    cue: [validatePresence(true), validateLength({ is: 8 })],
+    nivel: [validatePresence(true)],
+    modalidad: [validatePresence(true)],
+    tipoDeFinanciamiento: [validatePresence(true)],
+    tipoDeGestion: [validatePresence(true)],
+    area: [validatePresence(true)],
+    localidad: [validatePresence(true)]
   },
 
   validacionesParaConformacion: {
     escuelaAConformar: [validatePresence(true)],
-    motivo: [validatePresence(true)],
+    motivo: [validatePresence(true)]
   }
 });

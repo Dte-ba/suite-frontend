@@ -2,7 +2,9 @@ export default {
   invalid: "{description} is inválido",
   empty: "{description} no puede quedar vacío",
   blank: "{description} debe quedar en blanco",
-  present: "{description} no puede quedar en blanco"
+  present: "{description} no puede quedar en blanco",
+  wrongLength: "{description} tiene que ser exactamente de {is} caracteres"
+
   /*
   inclusion: // '{description} is not included in the list',
   exclusion: // '{description} is reserved',

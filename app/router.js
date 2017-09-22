@@ -56,15 +56,15 @@ Router.map(function() {
     });
     this.route("validaciones", function() {
       this.route("detalle", { path: "edicion/:escuela_id" });
-      this.route('crear');
+      this.route("crear");
     });
     this.route("programas", function() {
       this.route("detalle", { path: "detalle/:programa_id" });
     });
     this.route("paquetes", function() {
       this.route("crear");
-      this.route('crearMasivo');
-      this.route('admin');
+      this.route("crearMasivo");
+      this.route("admin");
     });
     this.route("grupos", function() {
       this.route("detalle", { path: "detalle/:group_id" });
@@ -72,6 +72,7 @@ Router.map(function() {
 
     this.route("pisos", function() {
       this.route("crear");
+      this.route("editar", { path: "editar/:piso_id" });
     });
   });
 
@@ -82,7 +83,7 @@ Router.map(function() {
   });
   this.route("logout");
 
-  this.route('validaciones', function() {});
+  this.route("validaciones", function() {});
 });
 
 export default Router;

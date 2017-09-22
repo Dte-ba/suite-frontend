@@ -34,7 +34,10 @@
       {{else}}
         <button class="ui primario button" {{action (route-action "crearEventoParaEstaEscuela")}}><i class='ui plus icon'></i> Agendar acción</button>
         {{#suite-permiso permiso="escuelas.editar"}}
-          {{#link-to "app.escuelas.edicion" model class="ui button primario"}}<i class="ui edit icon"></i>Editar{{/link-to}}
+          {{#link-to "app.escuelas.edicion" model class="ui button primario"}}<i class="ui edit icon"></i>Editar Escuela{{/link-to}}
+        {{/suite-permiso}}
+        {{#suite-permiso permiso="escuelas.editar"}}
+          {{#link-to "app.pisos.editar" model.piso class="ui button primario"}}<i class="ui edit icon"></i>Editar Piso{{/link-to}}
         {{/suite-permiso}}
 
         {{#suite-permiso permiso="escuelas.conformar"}}
