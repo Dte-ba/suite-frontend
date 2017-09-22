@@ -23,12 +23,13 @@ export default Ember.Route.extend({
     return dataset;
   }).drop(),
 
-
   obtenerEstadisticas: task(function*() {
     let url_validaciones = ENV.API_URL + "/api/validaciones/estadistica";
     let url_escuelas = ENV.API_URL + "/api/escuelas/estadistica";
 
-    let resultado_validaciones = yield this.get("ajax").request(url_validaciones);
+    let resultado_validaciones = yield this.get("ajax").request(
+      url_validaciones
+    );
     let resultado_escuelas = yield this.get("ajax").request(url_escuelas);
 
     let dataset = {

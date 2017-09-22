@@ -1,61 +1,8 @@
-<div class="ui red tag label">Esta es una versión provisoria de SUITE 2. La mayor parte de los datos estadísticos no son reales y están presentados a modo de maquetación.</div>
 <div class="ui equal width padded grid escritorio">
   <div class="column">
-    <div class="ui padded grid">
-      <div class="sixteen widen column">
-
-      </div>
-      <div class="sixteen widen column">
-
-      </div>
-      <div class="sixteen widen column">
-        <h4 class="header">
-          Validaciones 2017
-          <div class="sub header">{{#link-to "app.validaciones.index" (query-params filtro="" pagina=1)}}Ver lista{{/link-to}}</div>
-        </h4>
-        {{#if model.validaciones.isRunning}}
-          {{suite-spinner}}
-        {{else if model.validaciones.error}}
-          <p>Error: {{model.validaciones.error}}</p>
-        {{else}}
-          <div class="ui grid">
-            <div class="three wide column">
-              <div class="ui tiny statistic">
-                <div class="value">{{model.estadisticas.value.validaciones.data.total}}</div>
-              </div>
-            </div>
-            <div class="nine wide column">
-              {{suite-graficos/suite-pie-chart data=model.validaciones.value}}
-            </div>
-            <div class="four wide column">
-              <div class="ui mini statistics">
-                <div class="ui mini statistic">
-                  <div class="label">Objetadas</div>
-                  <i class="ui red chat icon"></i>
-                  <div class="value">{{model.estadisticas.value.validaciones.data.objetadas}}</div>
-                </div>
-                <div class="ui mini statistic">
-                  <div class="label">Pendientes</div>
-                  <i class="ui yellow wait icon"></i>
-                  <div class="value">{{model.estadisticas.value.validaciones.data.pendientes}}</div>
-                </div>
-                <div class="ui mini statistic">
-                  <div class="label">Aprobadas</div>
-                  <i class="ui green check icon"></i>
-                  <div class="value">{{model.estadisticas.value.validaciones.data.aprobadas}}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        {{/if}}
-      </div>
-      <div class="sixteen widen column">
-
-      </div>
+    <div class="ui big middle header">
+      SUITE 2
     </div>
-  </div>
-  <div class="column">
-
   </div>
 </div>
 
