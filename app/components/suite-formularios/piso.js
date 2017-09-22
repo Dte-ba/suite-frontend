@@ -8,9 +8,9 @@ export default Ember.Component.extend({
 
       if (this.get("cuandoGuarda")) {
         this.get("cuandoGuarda")();
+      } else {
+        return resultado;
       }
-
-      return resultado;
     } catch (e) {
       throw new Error("Ha ocurrido un error del lado del servidor");
     }

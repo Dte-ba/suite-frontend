@@ -11,8 +11,14 @@
   {{f.input type="checkbox" label="UPS" name="ups"}}
   {{f.input type="checkbox" label="Rack" name="rack"}}
 
+  {{#f.input label="Llave (solo se admiten archivos .zip)" name="llave" as |f|}}
+    {{suite-campo/llave archivos=f.value cuandoTerminaDeSubir=f.update}}
+  {{/f.input}}
+
 {{/suite-grupo}}
+
 {{#suite-grupo titulo=""}}
   {{f.submit label=texto class="ui button green"}} {{yield}}
 {{/suite-grupo}}
+
 {{/validated-form}}

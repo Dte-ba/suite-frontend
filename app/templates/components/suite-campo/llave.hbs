@@ -1,0 +1,8 @@
+<input
+  onchange={{action "upload"}}
+  accept="application/zip"
+  type="file"/>
+
+{{#if procesarImagenes.isRunning}}
+  Cargando archivos ...
+{{/if}}

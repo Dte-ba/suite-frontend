@@ -8,7 +8,7 @@ export default DS.Model.extend({
   ups: DS.attr("boolean"),
   rack: DS.attr("boolean"),
   estado: DS.attr("boolean"),
-  llave: DS.attr("string"),
+  llave: DS.attr(),
   escuela: DS.belongsTo("escuela"),
   upsComoCadena: Ember.computed("ups", function() {
     let ups = this.get("ups");
