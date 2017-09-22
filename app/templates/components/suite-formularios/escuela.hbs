@@ -4,6 +4,16 @@
   submit-label = texto as |f|
 }}
 
+  {{#suite-grupo numero=1 titulo="Piso"}}
+    <p class="ui orange basic label">
+      {{#if editar}}
+        El piso solo se podrá editar desde el botón "editar piso" de la vista detalle.
+      {{else}}
+        El piso se creará vacío, editelo una vez creada la escuela.
+      {{/if}}
+    </p>
+  {{/suite-grupo}}
+
   {{#suite-grupo numero=2 titulo="Información"}}
     {{f.input label="CUE" name="cue" }}
     {{f.input label="Nombre" name="nombre"}}

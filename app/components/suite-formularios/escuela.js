@@ -5,21 +5,25 @@ export default Ember.Component.extend({
   store: Ember.inject.service(),
   tareaGuardar: task(function*(modelo) {
     try {
-      let resultado = yield modelo.save();
+      let piso = null;
 
       if (!modelo.get("piso.id")) {
-        let piso = this.get("store").createRecord("piso", {
-          escuela: modelo
-        });
-
-        yield piso.save();
+        piso = yield this.get("store")
+          .createRecord("piso", {})
+          .save();
       }
+
+      if (piso) {
+        modelo.set("piso", piso);
+      }
+
+      let escuela = yield modelo.save();
 
       if (this.get("cuandoGuarda")) {
         this.get("cuandoGuarda")();
       }
 
-      return resultado;
+      return escuela;
     } catch (e) {
       throw new Error("Ha ocurrido un error del lado del servidor");
     }
