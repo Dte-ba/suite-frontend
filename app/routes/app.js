@@ -1,7 +1,7 @@
 import Ember from "ember";
 import AuthenticatedRouteMixin from "ember-simple-auth/mixins/authenticated-route-mixin";
 import { UnauthorizedError } from "ember-ajax/errors";
-import ENV from "suite-frontend/config/settings";
+import ENV from "../config/environment";
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   breadCrumb: null,
