@@ -24,6 +24,9 @@ export default DS.Model.extend({
   }),
 
   validaciones: {
-    ne: [validatePresence(true)]
+    ne: [validatePresence(true)],
+    idHardware: [validatePresence(true)],
+    marcaDeArranque: [validatePresence(true)],
+    escuela: [validatePresence(true)]
   }
 });
