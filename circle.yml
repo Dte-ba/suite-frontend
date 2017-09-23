@@ -9,10 +9,10 @@ dependencies:
     - bower install
 deployment:
   production_dtelab:
-    branch: master
+    branch: produccion
     commands:
       - git remote add dokku2 dokku@dtelab.com.ar:suite2
-      - git push dokku2 master:master
+      - git push dokku2 produccion:master
   production:
     branch: master
     commands:
