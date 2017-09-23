@@ -11,4 +11,16 @@
   as |item|
 }}
   {{item.nombre}} {{item.apellido}}
+  <div class="etiquetas-a-derecha">
+
+    <div class="ui basic tiny label">
+      Cargo
+      <div class="detail">{{item.cargo.nombre}}</div>
+    </div>
+
+    <div class="ui basic tiny label">
+      Region
+      {{item.region.numero}}
+    </div>
+  </div>
 {{/power-select-multiple}}
