@@ -98,6 +98,11 @@ export default Ember.Route.extend({
           atributo: "piso.estado",
           titulo: "Piso",
           template: "suite-tabla/celda-pisos"
+        },
+        {
+          atributo: "piso.llave",
+          titulo: "Llave",
+          template: "suite-tabla/celda-llave"
         }
       ]
     };
