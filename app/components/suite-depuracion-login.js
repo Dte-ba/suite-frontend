@@ -1,7 +1,12 @@
 import Ember from "ember";
+import ENV from "../config/environment";
 
 export default Ember.Component.extend({
   classNames: ["suite-depuracion-login__contenedor"],
+
+  didInsertElement() {
+    this.set("esModoDesarrollo", ENV.environment === "development");
+  },
 
   actions: {
     ingresar(usuario, password) {

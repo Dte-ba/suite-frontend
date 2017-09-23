@@ -1,5 +1,7 @@
 {{yield}}
 
+{{#if esModoDesarrollo}}
+
 <h3>Panel de depuración, ingresos de prueba:</h3>
 
 <div>
@@ -11,3 +13,7 @@
   <button class='ui orange button' {{action 'ingresar' 'celmandrut@abc.gob.ar' 'dte_27769558'}}>celemandrut (FED reg 1)</button>
   <button class='ui orange button' {{action 'ingresar' 'mleone@abc.gob.ar' 'dte_27273220'}}>mleones (Coord reg 2)</button>
 </div>
+
+{{else}}
+  <!-- suite-depuracion-login está deshabilitado en modo no-desarrollo -->
+{{/if}}
