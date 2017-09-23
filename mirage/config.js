@@ -1,6 +1,7 @@
 export default function() {
   this.urlPrefix = "api";
   //this.namespace = '';
+  this.passthrough("https://sentry.io/**");
   this.timing = 1000;
 
   this.get("/eventos");
@@ -28,12 +29,9 @@ export default function() {
 
   this.get("/categorias-de-eventos");
 
-  this.post(
-    "/escuelas/1/conformar",
-    (/*schema, request*/) => {
-      return {};
-    }
-  );
+  this.post("/escuelas/1/conformar", (/*schema, request*/) => {
+    return {};
+  });
 
   this.post("/auth", (schema, request) => {
     if (request.requestBody !== '{"username":"demo","password":"demo"}') {
@@ -45,31 +43,28 @@ export default function() {
     }
   });
 
-  this.get(
-    "/mi-perfil",
-    (/*schema, request*/) => {
-      return {
-        data: {
-          username: "hugoruscitti",
-          apellido: "Ruscitti",
-          grupos: [{ nombre: "coordinador", id: 1 }],
-          idPerfil: 1,
-          nombre: "Hugo",
-          permisos: {
-            "agenda.listar": true,
-            "agenda.crear": true,
-            "tareas.listar": true,
-            "escuelas.listar": true,
-            "escuelas.crear": true,
-            "personas.listar": true,
-            "paquetes.listar": true,
-            "validaciones.listar": true,
-            "perfil.global": true
-          }
+  this.get("/mi-perfil", (/*schema, request*/) => {
+    return {
+      data: {
+        username: "hugoruscitti",
+        apellido: "Ruscitti",
+        grupos: [{ nombre: "coordinador", id: 1 }],
+        idPerfil: 1,
+        nombre: "Hugo",
+        permisos: {
+          "agenda.listar": true,
+          "agenda.crear": true,
+          "tareas.listar": true,
+          "escuelas.listar": true,
+          "escuelas.crear": true,
+          "personas.listar": true,
+          "paquetes.listar": true,
+          "validaciones.listar": true,
+          "perfil.global": true
         }
-      };
-    }
-  );
+      }
+    };
+  });
 
   this.get("/escuelas/:id");
   this.put("/escuelas/:id");

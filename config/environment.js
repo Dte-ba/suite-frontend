@@ -9,6 +9,17 @@ module.exports = function(environment) {
     locationType: "hash",
     usingMirage: false,
 
+    sentry: {
+      dsn: process.env.SUITE_SENTRY_URL,
+      globalErrorCatching: false,
+      development: environment !== "production" // Sentry se activa solo en modo producción
+    },
+
+    contentSecurityPolicy: {
+      "script-src": "'self' 'unsafe-inline' 'unsafe-eval' cdn.ravenjs.com",
+      "img-src": "data: app.getsentry.com"
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -73,7 +84,8 @@ module.exports = function(environment) {
       enabled: false
     };
 
-    ENV.API_URL = process.env['API_URL'] || "http://suite-backend.enjambrelab.com.ar";
+    const default_api_url = "http://suite-backend.enjambrelab.com.ar";
+    ENV.API_URL = process.env.SUITE_API_URL || default_api_url;
     ENV.usingMirage = false;
   }
 
