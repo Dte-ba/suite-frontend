@@ -1,9 +1,5 @@
 {{outlet}}
 
-<div>
-  {{#link-to "app.grupos.index" class='ui button primario'}}Ver listado de grupos{{/link-to}}
-</div>
-
-<h2>Detalle del grupo: {{model.name}}</h2>
+<h2>Lista de permisos para el grupo: {{model.name}}</h2>
 
 {{suite-listado-de-permisos tarea=model.tareaPermisos}}
