@@ -11,8 +11,9 @@ deployment:
   production_dtelab:
     branch: produccion
     commands:
-      - git remote add dokku2 dokku@dtelab.com.ar:suite2
-      - git push dokku2 produccion:master
+      - time ember build -prod
+      - find ./dist
+      - cd dist; git remote add dokku2 dokku@dtelab.com.ar:suite2; git push dokku2 produccion:master
   production:
     branch: master
     commands:
