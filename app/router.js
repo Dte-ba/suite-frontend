@@ -47,6 +47,7 @@ Router.map(function() {
       this.route("edicion", { path: "edicion/:escuela_id" });
       this.route("conformar", { path: "conformar/:escuela_id" });
       this.route("crear");
+      this.route('todas');
     });
     this.route("mi-perfil");
     this.route("tareas", function() {

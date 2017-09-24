@@ -41,6 +41,10 @@
       {{suite-selector/simple opciones=model.opciones.areas valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
+    {{#f.input label="Programas" name="programas" as |f|}}
+      {{suite-selector/programas opciones=model.opciones.programas valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
+
   {{/suite-grupo}}
 
   {{#suite-grupo numero=4 titulo="Datos de contacto"}}

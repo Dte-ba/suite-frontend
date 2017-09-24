@@ -8,7 +8,8 @@ export default Ember.Route.extend({
       modalidades: this.store.findAll("modalidad"),
       tiposDeFinanciamiento: this.store.findAll("tipo-de-financiamiento"),
       tiposDeGestion: this.store.findAll("tipo-de-gestion"),
-      localidades: this.store.findAll("localidad")
+      localidades: this.store.findAll("localidad"),
+      programas: this.store.findAll("programa")
     });
 
     if (model.get("conformada")) {
