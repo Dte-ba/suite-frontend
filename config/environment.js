@@ -84,7 +84,7 @@ module.exports = function(environment) {
       enabled: false
     };
 
-    const default_api_url = "http://suite-backend.enjambrelab.com.ar";
+    const default_api_url = "http://suite2-backend.dtelab.com.ar";
     ENV.API_URL = process.env.SUITE_API_URL || default_api_url;
     ENV.usingMirage = false;
   }
