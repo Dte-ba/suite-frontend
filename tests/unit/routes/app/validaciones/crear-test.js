@@ -4,7 +4,7 @@ moduleFor(
   "route:app/validaciones/crear",
   "Unit | Route | app/validaciones/crear",
   {
-    needs: ["service:ajax", "service:perfil"]
+    needs: ["service:ajax", "service:perfil", "service:analytics"]
   }
 );
 
