@@ -1,23 +1,23 @@
 {{#validated-form
   model        = model
-  on-submit    = on-submit
+  on-submit    = tareaGuardar
   submit-label = texto as |f|
 }}
 
   {{#suite-grupo numero=1 titulo="Datos de la acción"}}
 
-    {{f.input label="Título" name="titulo"}}
+    {{f.input label="Título" name="titulo" required=true}}
 
 
     <div class="ui two column grid">
       <div class="column">
-        {{#f.input label="Fecha de inicio" name="fecha" as |f|}}
+        {{#f.input label="Fecha de inicio" required=true name="fecha" as |f|}}
           {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
         {{/f.input}}
       </div>
 
       <div class="column">
-        {{#f.input label="Hora de inicio" name="inicio" as |f|}}
+        {{#f.input label="Hora de inicio" required=true name="inicio" as |f|}}
           {{suite-campo/hora hora=f.value cuandoCambia=f.update}}
         {{/f.input}}
       </div>
@@ -26,19 +26,19 @@
 
     <div class="ui two column grid">
       <div class="column">
-        {{#f.input label="Fecha de finalización" name="fechaFin" as |f|}}
+        {{#f.input label="Fecha de finalización" required=true name="fechaFin" as |f|}}
           {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
         {{/f.input}}
       </div>
 
       <div class="column">
-        {{#f.input label="Hora de finalización" name="fin" as |f|}}
+        {{#f.input label="Hora de finalización" required=true name="fin" as |f|}}
           {{suite-campo/hora hora=f.value cuandoCambia=f.update}}
         {{/f.input}}
       </div>
     </div>
 
-    {{#f.input label="Categoria" name="categoria" as |f|}}
+    {{#f.input label="Categoria" required=true name="categoria" as |f|}}
       {{suite-selector/agrupable valores=model.categorias valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
@@ -64,7 +64,7 @@
 
   {{#suite-grupo numero=2 titulo="¿Quiénes participan?"}}
 
-    {{#f.input label="Responsable" name="responsable" as |f|}}
+    {{#f.input label="Responsable" required=true name="responsable" as |f|}}
       {{suite-selector/perfil valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
@@ -72,7 +72,7 @@
       {{suite-selector/acompaniantes valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
-    {{f.input label="Cant. participantes" name="cantidadDeParticipantes"}}
+    {{f.input label="Cant. participantes" required=true name="cantidadDeParticipantes"}}
 
   {{/suite-grupo}}
 
@@ -81,7 +81,7 @@
 
     {{f.input type="checkbox" label="¿Requiere traslado?" name="requiereTraslado"}}
 
-    {{#f.input label="Escuela" name="escuela" as |f|}}
+    {{#f.input label="Escuela" required=true name="escuela" as |f|}}
       {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 

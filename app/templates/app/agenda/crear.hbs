@@ -2,7 +2,7 @@
 
 {{#suite-formularios/evento
   model        = (changeset model model.validaciones)
-  on-submit    = (route-action "guardarEvento")
+  cuandoGuarda = (route-action "verDetalle")
   texto = 'Agendar'
   buscarPersonas = model.buscarPersonas
 }}
