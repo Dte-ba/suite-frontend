@@ -50,7 +50,9 @@
       {{#f.input label="Archivos de minuta o acta" name="acta" as |f|}}
         {{suite-campo/adjuntos archivos=f.value cuandoTerminaDeSubir=f.update}}
         <div class="ui pointing orange basic label">
-          <b>IMPORTANTE: </b>Al subir un acta, la acción será considerada como finalizada y no podrá volver a editarse.
+          <b>IMPORTANTE: </b>Al subir un acta, la acción será considerada como finalizada y no podrá volver a editarse. <br>
+          Sólo se permiten archivos JPG y se puede subir más de un archivo. El resultado será un PDF.<br>
+          La carga de archivos puede demorar unos minutos.
         </div>
       {{/f.input}}
 
