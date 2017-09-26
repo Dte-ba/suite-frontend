@@ -6,7 +6,7 @@
 
 {{#suite-grupo numero=1 titulo="Características"}}
 
-  {{f.input label="Título" name="titulo"}}
+  {{f.input label="Título" name="titulo" required=true}}
 
   {{#f.input label="Autor" name="autor" as |f|}}
     {{suite-selector/perfil disabled=true valor=f.value cuandoSelecciona=f.update}}
