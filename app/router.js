@@ -1,7 +1,8 @@
 import Ember from "ember";
+import Trackable from "ember-cli-analytics/mixins/trackable";
 import config from "./config/environment";
 
-const Router = Ember.Router.extend({
+const Router = Ember.Router.extend(Trackable, {
   location: config.locationType,
   rootURL: config.rootURL
 });
@@ -47,7 +48,7 @@ Router.map(function() {
       this.route("edicion", { path: "edicion/:escuela_id" });
       this.route("conformar", { path: "conformar/:escuela_id" });
       this.route("crear");
-      this.route('todas');
+      this.route("todas");
     });
     this.route("mi-perfil");
     this.route("tareas", function() {

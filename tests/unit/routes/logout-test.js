@@ -1,7 +1,7 @@
 import { moduleFor, test } from "ember-qunit";
 
 moduleFor("route:logout", "Unit | Route | logout", {
-  needs: ["service:session"]
+  needs: ["service:session", "service:analytics"]
 });
 
 test("it exists", function(assert) {

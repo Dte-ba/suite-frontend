@@ -2,7 +2,7 @@ import { moduleFor, test } from "ember-qunit";
 
 moduleFor("route:app/tareas/crear", "Unit | Route | app/tareas/crear", {
   // Specify the other units that are required for this test.
-  needs: ["service:perfil"]
+  needs: ["service:perfil", "service:analytics"]
 });
 
 test("it exists", function(assert) {
