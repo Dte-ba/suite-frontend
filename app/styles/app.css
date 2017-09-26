@@ -582,6 +582,7 @@ iframe.mapa {
   bottom: 0;
   left: 0;
   right: 0;
+  overflow-y: scroll;
 }
 
 .login-form {
@@ -752,7 +753,7 @@ iframe.mapa {
 }
 
 .suite-depuracion-login__contenedor {
-  position: absolute;
+  position: fixed;
   bottom: 1em;
   left: 0;
   right: 0;
