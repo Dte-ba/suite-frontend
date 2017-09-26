@@ -3,6 +3,7 @@ import { task } from "ember-concurrency";
 import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
+  perfil: Ember.inject.service("perfil"),
   ajax: Ember.inject.service(),
 
   obtenerPersonas: task(function*() {
@@ -26,7 +27,11 @@ export default Ember.Route.extend({
   },
 
   afterModel() {
-    this.actualizar();
+    if (!this.get("perfil").tienePermiso("personas.listar")) {
+      this.transitionTo("/app/");
+    } else {
+      this.actualizar();
+    }
   },
 
   model() {
