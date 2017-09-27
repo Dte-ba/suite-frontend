@@ -3,6 +3,7 @@ import { task } from "ember-concurrency";
 import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
+  requiere: "tareas.listar",
   ajax: Ember.inject.service(),
 
   obtenerTareas: task(function*() {

@@ -3,6 +3,8 @@ import { task } from "ember-concurrency";
 import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
+  requiere: "agenda.listar",
+
   breadCrumb: { title: "Acciones territoriales" },
   perfil: Ember.inject.service(),
   ajax: Ember.inject.service(),

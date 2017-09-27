@@ -2,6 +2,7 @@ import Ember from "ember";
 import { validatePresence } from "ember-changeset-validations/validators";
 
 export default Ember.Route.extend({
+  requiere: "paquetes.crear",
   queryParams: {
     escuela_id: {}
   },

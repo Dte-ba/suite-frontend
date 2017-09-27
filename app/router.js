@@ -7,6 +7,25 @@ const Router = Ember.Router.extend(Trackable, {
   rootURL: config.rootURL
 });
 
+Ember.Route.reopen({
+  perfil: Ember.inject.service(),
+  notificador: Ember.inject.service(),
+
+  beforeModel(transition) {
+    let permisoQueRequiere = this.get("requiere");
+
+    if (permisoQueRequiere) {
+      if (!this.get("perfil").tienePermiso(permisoQueRequiere)) {
+        this.get("notificador").error("No tiene permisos para ingresar aquí.");
+        return this.transitionTo("app");
+      }
+    }
+
+    this._super(transition);
+    return true;
+  }
+});
+
 Router.map(function() {
   this.route("login");
   this.route("app", function() {

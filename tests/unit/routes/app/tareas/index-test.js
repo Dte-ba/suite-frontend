@@ -2,7 +2,12 @@ import { moduleFor, test } from "ember-qunit";
 
 moduleFor("route:app/tareas/index", "Unit | Route | app/tareas/index", {
   // Specify the other units that are required for this test.
-  needs: ["service:ajax", "service:analytics"]
+  needs: [
+    "service:ajax",
+    "service:analytics",
+    "service:perfil",
+    "service:notificador"
+  ]
 });
 
 test("it exists", function(assert) {

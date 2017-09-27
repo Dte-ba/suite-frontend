@@ -2,7 +2,12 @@ import { moduleFor, test } from "ember-qunit";
 
 moduleFor("route:app/mi-perfil", "Unit | Route | app/mi perfil", {
   // Specify the other units that are required for this test.
-  needs: ["service:perfil", "service:analytics"]
+  needs: [
+    "service:perfil",
+    "service:analytics",
+    "service:perfil",
+    "service:notificador"
+  ]
 });
 
 test("it exists", function(assert) {

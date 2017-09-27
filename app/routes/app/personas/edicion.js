@@ -1,6 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
+  requiere: "personas.editar",
   perfil: Ember.inject.service(),
   breadCrumb: { title: `Edición` },
 

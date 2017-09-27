@@ -2,6 +2,7 @@ import Ember from "ember";
 import QueryParamsResetRouteMixin from "ember-query-params-reset/mixins/query-params-reset-route";
 
 export default Ember.Route.extend(QueryParamsResetRouteMixin, {
+  requiere: "validaciones.crear",
   perfil: Ember.inject.service(),
   queryParams: {
     escuela_id: {}

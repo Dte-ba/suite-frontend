@@ -1,6 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
+  requiere: "tareas.crear",
   perfil: Ember.inject.service(),
 
   model() {

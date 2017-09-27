@@ -4,7 +4,13 @@ moduleFor(
   "route:app/agenda/index/lista",
   "Unit | Route | app/agenda/index/lista",
   {
-    needs: ["service:ajax", "service:perfil", "service:analytics"]
+    needs: [
+      "service:ajax",
+      "service:perfil",
+      "service:analytics",
+      "service:perfil",
+      "service:notificador"
+    ]
   }
 );
 

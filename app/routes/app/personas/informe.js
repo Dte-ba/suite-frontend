@@ -3,12 +3,12 @@ import { task } from "ember-concurrency";
 // import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
+  requiere: "personas.verinformes",
   ajax: Ember.inject.service(),
   queryParams: {
     pagina: { replace: true /*, refreshModel: true */ },
     filtro: { replace: true }
   },
-
 
   obtenerInforme: task(function*(query) {
     let data = yield this.store.query("evento", query);
