@@ -18,6 +18,8 @@ export default Ember.Route.extend({
       "region.numero"
     );
 
+    query.perfil = this.get("perfilService").data.idPerfil;
+
     let data = yield this.store.query("evento", query);
     let meta = data.get("meta");
 

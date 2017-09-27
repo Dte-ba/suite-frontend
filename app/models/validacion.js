@@ -15,6 +15,7 @@ export default DS.Model.extend({
   validaciones: {
     fechaDeAlta: [validatePresence(true)],
     escuela: [validatePresence(true)],
+    observaciones: [validatePresence(true)],
     cantidadPedidas: [
       validateNumber({
         positive: true,

@@ -8,27 +8,27 @@
 
   {{f.input label="Título" name="titulo" required=true}}
 
-  {{#f.input label="Autor" name="autor" as |f|}}
+  {{#f.input label="Autor" name="autor" required=true as |f|}}
     {{suite-selector/perfil disabled=true valor=f.value cuandoSelecciona=f.update}}
   {{/f.input}}
 
-  {{#f.input label="Asignar responsable" name="responsable" as |f|}}
+  {{#f.input label="Asignar responsable" name="responsable" required=true as |f|}}
     {{suite-selector/perfil valor=f.value cuandoSelecciona=f.update}}
   {{/f.input}}
 
   {{#if editar}}
-    {{#f.input label="Estado" name="estadoDeTarea" as |f|}}
+    {{#f.input label="Estado" name="estadoDeTarea" required=true as |f|}}
       {{suite-selector/simple opciones=model.opciones.estadosDeTarea valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
   {{/if}}
 
-  {{#f.input label="Prioridad" name="prioridadDeTarea" as |f|}}
+  {{#f.input label="Prioridad" name="prioridadDeTarea" required=true as |f|}}
     {{suite-selector/simple opciones=model.opciones.prioridadesDeTareas valor=f.value cuandoSelecciona=f.update}}
   {{/f.input}}
 
-  {{f.input type="textarea" label="Descripción" name="descripcion"}}
+  {{f.input type="textarea" label="Descripción" required=true name="descripcion"}}
 
-  {{#f.input label="Motivo" name="motivoDeTarea" as |f|}}
+  {{#f.input label="Motivo" name="motivoDeTarea" required=true as |f|}}
     {{suite-selector/simple opciones=model.opciones.motivosDeTarea valor=f.value cuandoSelecciona=f.update}}
   {{/f.input}}
 
@@ -36,7 +36,7 @@
 
 {{#suite-grupo numero=2 titulo="¿Dónde se realizará?"}}
 
-    {{#f.input label="Escuela" name="escuela" as |f|}}
+    {{#f.input label="Escuela" name="escuela" required=true as |f|}}
       {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
