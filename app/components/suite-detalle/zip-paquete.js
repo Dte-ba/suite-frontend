@@ -4,7 +4,6 @@ export default Ember.Component.extend({
   linkDescarga: Ember.computed("model.idDevolucion", function() {
     var linkPaquete;
     let valor = this.get("model.idDevolucion");
-    console.log(valor);
     if (valor == 0 || valor == null) {
       linkPaquete = false;
     } else {
