@@ -5,17 +5,17 @@
 }}
 
   {{#suite-grupo numero=1 titulo="Cantidad de dispositivos a validar"}}
-    {{f.input label="" name="cantidadPedidas"}}
+    {{f.input label="" name="cantidadPedidas" required=true}}
   {{/suite-grupo}}
 
   {{#suite-grupo numero=2 titulo="Escuela"}}
-    {{#f.input label="Escuela" name="escuela" as |f|}}
+    {{#f.input label="Escuela" name="escuela" required=true as |f|}}
       {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
   {{/suite-grupo}}
 
   {{#suite-grupo numero=3 titulo="Comentarios"}}
-    {{f.input type="textarea" label="" name="observaciones"}}
+    {{f.input type="textarea" label="" name="observaciones" required=true}}
   {{/suite-grupo}}
 
   {{#suite-grupo titulo=""}}

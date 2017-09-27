@@ -15,33 +15,33 @@
   {{/suite-grupo}}
 
   {{#suite-grupo numero=2 titulo="Información"}}
-    {{f.input label="CUE" name="cue" }}
-    {{f.input label="Nombre" name="nombre"}}
+    {{f.input label="CUE" name="cue" required=true}}
+    {{f.input label="Nombre" name="nombre" required=true}}
   {{/suite-grupo}}
 
   {{#suite-grupo numero=3 titulo="Características"}}
 
-    {{#f.input label="Nivel" name="nivel" as |f|}}
+    {{#f.input label="Nivel" name="nivel" required=true as |f|}}
       {{suite-selector/simple opciones=model.opciones.niveles valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
-    {{#f.input label="Modalidad" name="modalidad" as |f|}}
+    {{#f.input label="Modalidad" name="modalidad" required=true as |f|}}
       {{suite-selector/simple opciones=model.opciones.modalidades valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
-    {{#f.input label="Tipo de financiamiento" name="tipoDeFinanciamiento" as |f|}}
+    {{#f.input label="Tipo de financiamiento" required=true name="tipoDeFinanciamiento" as |f|}}
       {{suite-selector/simple opciones=model.opciones.tiposDeFinanciamiento valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
-    {{#f.input label="Tipo de gestión" name="tipoDeGestion" as |f|}}
+    {{#f.input label="Tipo de gestión" required=true name="tipoDeGestion" as |f|}}
       {{suite-selector/simple opciones=model.opciones.tiposDeGestion valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
-    {{#f.input label="Área" name="area" as |f|}}
+    {{#f.input label="Área" name="area" required=true as |f|}}
       {{suite-selector/simple opciones=model.opciones.areas valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
-    {{#f.input label="Programas" name="programas" as |f|}}
+    {{#f.input label="Programas" name="programas" required=true as |f|}}
       {{suite-selector/programas opciones=model.opciones.programas valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
@@ -53,7 +53,7 @@
     {{f.input label="Email" name="email"}}
     {{f.input label="Dirección" name="direccion"}}
 
-    {{#f.input label="Localidad" name="localidad" as |f|}}
+    {{#f.input label="Localidad" name="localidad" required=true as |f|}}
       {{suite-selector/localidad valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 

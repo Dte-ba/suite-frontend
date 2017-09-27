@@ -5,7 +5,7 @@
 }}
 
   {{#suite-grupo numero=1 titulo="Escuela"}}
-    {{#f.input label="Escuela" name="escuela" as |f|}}
+    {{#f.input label="Escuela" name="escuela" required=true as |f|}}
       {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
   {{/suite-grupo}}
