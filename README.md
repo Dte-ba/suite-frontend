@@ -2,8 +2,6 @@
 
 [![CircleCI](https://circleci.com/gh/Dte-ba/suite-frontend.svg?style=svg)](https://circleci.com/gh/Dte-ba/suite-frontend)
 
-- Dirección de prueba: http://suite-beta.dtelab.com.ar/
-
 
 ## ¿Cómo iniciar el proyecto?
 
@@ -39,8 +37,9 @@ ember serve --proxy http://127.0.0.1:8000
 Para realizar el deploy de la aplicación estamos usando dokku sobre
 el dominio http://dtelab.com.ar
 
-Para realizar el deploy deberías tener configurado un remote de git
-similar al siguiente:
+No hace falta realizar el deploy a mano, porque se hace directamente
+desde circle.ci una vez que corren bien los test. Pero si querés
+realizarlo de forma local hay que ejecutar estos pasos:
 
 ```
 git remote add dokku dokku@dtelab.com.ar:testing-suite

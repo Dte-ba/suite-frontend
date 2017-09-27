@@ -1,7 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
-  requiere: "agenda.editar",
+  requiere: "agenda.crear",
   afterModel(model) {
     model.set("buscarPersonas", this.get("buscarPersonas"));
     model.set("categorias", this.store.findAll("categoriaDeEvento"));
