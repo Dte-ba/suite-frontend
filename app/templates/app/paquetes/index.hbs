@@ -17,7 +17,13 @@
     {{/suite-permiso}}
   </div>
 </div>
-{{suite-filtros/paquetes filtro=model.filtro alIngresarFiltro=(route-action "alIngresarFiltro")}}
+{{suite-filtros/paquetes
+  filtro=model.filtro
+  region=model.region
+  deshabilitarSeleccionDeRegion=model.deshabilitarSeleccionDeRegion
+  cuandoSeleccionaRegion=(route-action "cuandoSeleccionaRegion")
+  alIngresarFiltro=(route-action "alIngresarFiltro")
+}}
 
 
 {{suite-tabla
