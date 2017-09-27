@@ -1,6 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
+  requiere: "tareas.editar",
   model(params) {
     return this.store.findRecord("tarea", params.id);
   },

@@ -1,6 +1,8 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
+  requiere: "escuelas.crear",
+
   model() {
     return new Ember.RSVP.hash({
       servidor: ""

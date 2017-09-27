@@ -1,6 +1,8 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
+  requiere: "escuelas.editar",
+
   afterModel(model) {
     model.set("opciones", {
       niveles: this.store.findAll("nivel"),

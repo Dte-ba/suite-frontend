@@ -1,10 +1,11 @@
-import Ember from 'ember';
-
+import Ember from "ember";
 
 export default Ember.Route.extend({
+  requiere: "escuelas.conformar",
+
   afterModel(model) {
     model.set("motivos", this.store.findAll("MotivoDeConformacion"));
-    model.set("aplicarConformacion", this.get('aplicarConformacion'));
+    model.set("aplicarConformacion", this.get("aplicarConformacion"));
   },
 
   actions: {

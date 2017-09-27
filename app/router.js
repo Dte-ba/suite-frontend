@@ -16,7 +16,7 @@ Ember.Route.reopen({
 
     if (permisoQueRequiere) {
       if (!this.get("perfil").tienePermiso(permisoQueRequiere)) {
-        this.get("notificador").error("No tiene permisos para ingresar aquí");
+        this.get("notificador").error("No tiene permisos para ingresar aquí.");
         return this.transitionTo("app");
       }
     }

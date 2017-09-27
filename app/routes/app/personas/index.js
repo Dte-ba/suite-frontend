@@ -3,6 +3,7 @@ import { task } from "ember-concurrency";
 import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
+  requiere: "personas.listar",
   perfil: Ember.inject.service("perfil"),
   ajax: Ember.inject.service(),
 
