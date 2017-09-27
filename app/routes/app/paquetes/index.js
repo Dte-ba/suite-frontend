@@ -112,9 +112,9 @@ export default Ember.Route.extend({
       Ember.set(model, "pagina", 1);
       this.actualizar();
     },
-    crearUnPaqueteNuevo() {
-      return this.transitionTo("app.paquetes.crear");
-    },
+    // crearUnPaqueteNuevo() {
+    //   return this.transitionTo("app.paquetes.crear");
+    // },
     crearPaquetesMasivos() {
       return this.transitionTo("app.paquetes.crearMasivo");
     },
