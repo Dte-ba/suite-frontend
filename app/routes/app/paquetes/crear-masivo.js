@@ -12,15 +12,15 @@ export default Ember.Route.extend({
 
     let opciones = {
       fechaPedido: hoy,
-      columnas: ["NE", "Id de Hardware", "Marca de Arranque"],
+      columnas: ["NE", "Id de Hardware", "Marca de Arranque", "TPMData"],
       paquetes: [
-        ["", "", ""],
-        ["", "", ""],
-        ["", "", ""],
-        ["", "", ""],
-        ["", "", ""],
-        ["", "", ""],
-        ["", "", ""]
+        ["", "", "", ""],
+        ["", "", "", ""],
+        ["", "", "", ""],
+        ["", "", "", ""],
+        ["", "", "", ""],
+        ["", "", "", ""],
+        ["", "", "", ""]
       ],
       validaciones: {
         escuela: [validatePresence(true)]

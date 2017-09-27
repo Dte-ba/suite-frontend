@@ -6,7 +6,7 @@ export default Ember.Component.extend({
     let data = this.get("datos");
     let cuandoCambia = this.get("cuandoCambia");
     let columnas = this.get("columnas") || [];
-    let anchosDeColumnas = this.get("anchosDeColumnas") || [200, 200, 200];
+    let anchosDeColumnas = this.get("anchosDeColumnas") || [150, 150, 150, 150];
 
     if (!data) {
       data = [columnas.map(() => "")];
