@@ -5,7 +5,12 @@ moduleFor(
   "Unit | Route | app/validaciones/index",
   {
     // Specify the other units that are required for this test.
-    needs: ["service:ajax", "service:analytics"]
+    needs: [
+      "service:ajax",
+      "service:analytics",
+      "service:perfil",
+      "service:notificador"
+    ]
   }
 );
 

@@ -9,6 +9,10 @@ module.exports = function(environment) {
     locationType: "hash",
     usingMirage: false,
 
+    "ember-cli-notifications": {
+      includeFontAwesome: true
+    },
+
     sentry: {
       dsn: process.env.SUITE_SENTRY_URL,
       globalErrorCatching: false,

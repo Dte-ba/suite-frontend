@@ -5,7 +5,7 @@ moduleFor(
   "Unit | Route | app/programas/detalle",
   {
     // Specify the other units that are required for this test.
-    needs: ["service:analytics"]
+    needs: ["service:analytics", "service:perfil", "service:notificador"]
   }
 );
 
