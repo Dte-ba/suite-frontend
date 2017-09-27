@@ -14,6 +14,7 @@ export default DS.Model.extend({
   zipPaquete: DS.attr("string"),
   estado: DS.belongsTo("estado-de-paquete"),
   fechaDevolucion: DS.attr("string"),
+  idDevolucion: DS.attr("string"),
   leido: DS.attr("boolean"),
 
   idhardware_ma: Ember.computed("idHardware", "marcaDeArranque", function() {

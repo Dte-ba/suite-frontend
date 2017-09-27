@@ -10,10 +10,13 @@ moduleForComponent(
 );
 
 test("it renders", function(assert) {
+  this.set("cuandoSeleccionaRegion", function() {});
   this.set("alIngresarFiltro", function() {});
 
-  this.render(
-    hbs`{{suite-filtros/paquetes alIngresarFiltro=alIngresarFiltro}}`
-  );
-  assert.equal(this.$().text().trim(), "Buscar");
+  this.render(hbs`{{suite-filtros/paquetes
+    cuandoSeleccionaRegion=cuandoSeleccionaRegion
+    alIngresarFiltro=alIngresarFiltro
+  }}`);
+
+  assert.ok(this.$().text());
 });

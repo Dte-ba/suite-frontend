@@ -1,0 +1,11 @@
+{{yield}}
+
+{{#if (is-pending model.idDevolucion)}}
+  <div class="ui active inline mini loader"></div>
+{{else}}
+  {{#if linkDescarga}}
+    {{#ui-popup content="descargar" position='bottom left'}}
+      <a href="http://media-suite.dtelab.com.ar/admin/paquetes3/descargas/{{model.escuela.localidad.distrito.region.numero}}/{{model.idDevolucion}}/{{model.idDevolucion}}_{{model.escuela.cue}}.zip"><i class="ui file icon"></i></a>
+    {{/ui-popup}}
+  {{/if}}
+{{/if}}

@@ -10,7 +10,7 @@ export function estadoDePaquete(params /*, hash*/) {
   } else if (estado === "EducAr") {
     estado = '<i class="ui yellow wait icon"></i>';
   } else if (estado === "Devuelto") {
-    estado = '<i class="ui blue file icon"></i>';
+    estado = '<i class="ui green check icon"></i>';
   }
   return Ember.String.htmlSafe(estado);
 }
