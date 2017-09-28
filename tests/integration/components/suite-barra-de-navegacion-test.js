@@ -15,7 +15,8 @@ test("it renders", function(assert) {
     permisos: {
       "agenda.listar": true,
       "tareas.listar": false,
-      "escuelas.listar": false
+      "escuelas.listar": false,
+      "paquetes.listar": false
     },
     tienePermiso(permiso) {
       return this.permisos[permiso];

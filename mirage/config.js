@@ -48,7 +48,7 @@ export default function() {
       data: {
         username: "hugoruscitti",
         apellido: "Ruscitti",
-        grupos: [{ nombre: "coordinador", id: 1 }],
+        grupos: [{ nombre: "Coordinador", id: 1 }],
         idPerfil: 1,
         nombre: "Hugo",
         permisos: {

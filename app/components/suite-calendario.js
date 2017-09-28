@@ -25,7 +25,11 @@ export default Ember.Component.extend({
     if (this.get("perfilService").tienePermiso("perfil.global")) {
       url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}`;
     } else {
-      url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}&region=${region}`;
+      if (this.get('perfilService.esCoordinador')) {
+        url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&region=${region}`;
+      } else {
+        url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}&region=${region}`;
+      }
     }
 
     let resultado = yield this.get("ajax").request(url);

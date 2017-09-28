@@ -127,6 +127,7 @@ export default DS.Model.extend({
     categoria: [validatePresence(true)],
     responsable: [validatePresence(true)],
     escuela: [validatePresence(true)],
+    objetivo: [validatePresence(true)],
     cantidadDeParticipantes: [
       validateNumber({
         positive: true,
