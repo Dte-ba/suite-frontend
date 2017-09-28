@@ -38,5 +38,9 @@ export default Ember.Service.extend({
 
   obtenerRegion() {
     return this.get("miPerfil.region");
-  }
+  },
+
+  esCoordinador: Ember.computed('rol', function() {
+    return this.get('rol') === "Coordinador";
+  })
 });

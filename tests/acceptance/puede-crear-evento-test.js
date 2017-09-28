@@ -41,6 +41,7 @@ test("Puede crear un evento correctamente", function(assert) {
     fillIn("[placeholder='Seleccione hora']:last", "16:00");
 
     fillIn("[name='cantidadDeParticipantes']", 0);
+    fillIn("[name='objetivo']", "Un objetivo de prueba");
 
     selectSearch(".selectorDePerfil", "demo");
   });

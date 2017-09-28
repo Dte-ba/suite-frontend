@@ -12,8 +12,6 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
     let opciones = {
       fecha: hoy,
       fechaFin: hoy,
-      inicio: "00:00:00",
-      fin: "00:00:01",
       cantidadDeParticipantes: 0
     };
 
