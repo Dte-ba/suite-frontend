@@ -9,7 +9,13 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
 
   model(params) {
     let hoy = moment().format("YYYY-MM-DD");
-    let opciones = { fecha: hoy, fechaFin: hoy };
+    let opciones = {
+      fecha: hoy,
+      fechaFin: hoy,
+      inicio: "00:00:00",
+      fin: "00:00:01",
+      cantidadDeParticipantes: 0
+    };
 
     if (params.escuela_id) {
       return this.store.findRecord("escuela", params.escuela_id).then(data => {
@@ -23,7 +29,10 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
 
   afterModel(model) {
     model.set("buscarPersonas", this.get("buscarPersonas"));
-    model.set("categorias", this.store.findAll("categoriaDeEvento"));
+    model.set(
+      "categorias",
+      this.store.query("categoriaDeEvento", { page_size: 3000 })
+    );
   },
 
   actions: {
