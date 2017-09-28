@@ -18,6 +18,8 @@ export default Ember.Component.extend({
     let f = fecha_fin.format(formato);
     let perfil = this.get("perfil");
     let region = this.get("region");
+    let servicioPerfil = this.get("perfilService");
+    let rol = servicioPerfil.data.grupos[0].nombre; // Se puede hacer mas lindo esto.
 
     let base = ENV.API_URL;
     let url = "";
@@ -25,7 +27,11 @@ export default Ember.Component.extend({
     if (this.get("perfilService").tienePermiso("perfil.global")) {
       url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}`;
     } else {
-      url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}&region=${region}`;
+      if (rol === "Coordinador") {
+        url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&region=${region}`;
+      } else {
+        url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}&region=${region}`;
+      }
     }
 
     let resultado = yield this.get("ajax").request(url);
