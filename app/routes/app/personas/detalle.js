@@ -1,6 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
+  requiere: "personas.listar",
   breadCrumb: { title: "Detalle de usuario" },
 
   afterModel(model) {
