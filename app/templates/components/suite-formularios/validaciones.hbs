@@ -4,14 +4,26 @@
   submit-label = texto as |f|
 }}
 
-  {{#suite-grupo numero=1 titulo="Cantidad de dispositivos a validar"}}
-    {{f.input label="" name="cantidadPedidas" required=true}}
+  {{#suite-grupo numero=1 titulo="Dispositivos a validar"}}
+    {{#if editar}}
+      {{f.input label="Pedidas" name="cantidadPedidas" disabled=true}}
+      {{f.input label="Validadas" name="cantidadValidadas" required=true}}
+      {{#f.input label="Esado" name="estado" required=true as |f|}}
+        {{suite-selector/simple opciones=model.opciones.estadosDeValidacion valor=f.value cuandoSelecciona=f.update}}
+      {{/f.input}}
+    {{else}}
+      {{f.input label="Cantidad solicitadas" name="cantidadPedidas"}}
+    {{/if}}
   {{/suite-grupo}}
 
   {{#suite-grupo numero=2 titulo="Escuela"}}
-    {{#f.input label="Escuela" name="escuela" required=true as |f|}}
-      {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
-    {{/f.input}}
+    {{#if editar}}
+      {{model.escuela.nombre}}
+    {{else}}
+      {{#f.input label="Escuela" name="escuela" required=true as |f|}}
+        {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
+      {{/f.input}}
+    {{/if}}
   {{/suite-grupo}}
 
   {{#suite-grupo numero=3 titulo="Comentarios"}}

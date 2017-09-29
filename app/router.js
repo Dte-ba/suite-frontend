@@ -76,8 +76,9 @@ Router.map(function() {
       this.route("editar", { path: "editar/:evento_id" });
     });
     this.route("validaciones", function() {
-      this.route("detalle", { path: "edicion/:escuela_id" });
+      this.route("detalle", { path: "edicion/:validacion_id" });
       this.route("crear");
+      this.route("editar", { path: "editar/:validacion_id" });
     });
     this.route("programas", function() {
       this.route("detalle", { path: "detalle/:programa_id" });
