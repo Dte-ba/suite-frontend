@@ -5,14 +5,23 @@ import ENV from "suite-frontend/config/environment";
 export default Ember.Route.extend({
   requiere: "validaciones.listar",
   ajax: Ember.inject.service(),
+  perfilService: Ember.inject.service("perfil"),
 
   obtenerValidaciones: task(function*() {
+    let query = {};
+
     let model = this.modelFor(this.routeName);
-    let data = yield this.store.query("validacion", {
-      page: model.pagina,
-      query: model.filtro
-    });
+
+    query.page = model.pagina;
+    query.query = model.filtro;
+    query.escuela__localidad__distrito__region__numero = Ember.get(
+      model,
+      "region.numero"
+    );
+
+    let data = yield this.store.query("validacion", query);
     let meta = data.get("meta");
+
     return { data, meta };
   }).drop(),
 
@@ -31,10 +40,31 @@ export default Ember.Route.extend({
   },
 
   model() {
+    let soloSuRegion = !this.get("perfilService").tienePermiso("perfil.global");
+    let regionPreSeleccionada = null;
+
+    if (soloSuRegion) {
+      regionPreSeleccionada = this.get("perfilService").obtenerRegion();
+    } else {
+      regionPreSeleccionada = Ember.Object.create({
+        nombre: "Todas las regiones",
+        numero: ""
+      });
+    }
     return {
+      pagina: 1,
+      filtro: "",
+      deshabilitarSeleccionDeRegion: soloSuRegion,
+
+      region: regionPreSeleccionada,
+
       estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaValidaciones: this.get("obtenerValidaciones"),
       columnas: [
+        {
+          titulo: "Ver",
+          componente: "suite-detalle/validaciones-acciones"
+        },
         {
           atributo: "fechaDeAlta",
           titulo: "Pedido el",
@@ -98,6 +128,12 @@ export default Ember.Route.extend({
     cuandoCambiaPagina(pagina) {
       let model = this.modelFor(this.routeName);
       Ember.set(model, "pagina", pagina);
+      this.actualizar();
+    },
+    cuandoSeleccionaRegion(region) {
+      let model = this.modelFor(this.routeName);
+      Ember.set(model, "region", region);
+      Ember.set(model, "pagina", 1);
       this.actualizar();
     }
   }

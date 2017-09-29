@@ -1,1 +1,44 @@
 {{outlet}}
+<div class="ui stackable grid">
+
+  <div class="ui row middle aligned segment">
+    <div class="sixteen wide column">
+      <h3 class="ui header">
+        {{model.id}} - Solicitada por {{model.autor.nombre}} el {{model.fechaDeAlta}}
+      </h3>
+    </div>
+  </div>
+
+  <div class="ui equal width row middle aligned segment">
+    <div class="column">
+      {{estado-de-validacion model.estado.nombre label="True"}}
+    </div>
+  </div>
+
+  <div class="ui equal width row segment">
+    <div class="column">
+        {{#suite-permiso permiso="validaciones.editar"}}
+          {{#link-to "app.validaciones.editar" model class="ui button primario"}}Editar{{/link-to}}
+        {{/suite-permiso}}
+    </div>
+  </div>
+
+    {{suite-detalle
+        numero="1"
+        titulo="Detalle"
+        model=model
+        filas=model.filaDispositivos
+    }}
+    {{suite-detalle
+        numero="2"
+        titulo="Escuela"
+        model=model
+        filas=model.filaEscuela
+    }}
+    {{suite-detalle
+        numero="3"
+        titulo="Observaciones"
+        model=model
+        filas=model.filaObservaciones
+    }}
+</div>

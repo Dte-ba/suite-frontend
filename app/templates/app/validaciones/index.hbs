@@ -17,7 +17,13 @@
   </div>
 </div>
 
-{{suite-filtros/validaciones filtro=filtro alIngresarFiltro=(route-action "alIngresarFiltro")}}
+{{suite-filtros/validaciones
+  filtro=filtro
+  region=model.region
+  deshabilitarSeleccionDeRegion=model.deshabilitarSeleccionDeRegion
+  cuandoSeleccionaRegion=(route-action "cuandoSeleccionaRegion")
+  alIngresarFiltro=(route-action "alIngresarFiltro")
+}}
 
 
 {{suite-tabla
