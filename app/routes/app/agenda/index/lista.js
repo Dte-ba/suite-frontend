@@ -18,7 +18,9 @@ export default Ember.Route.extend({
       "region.numero"
     );
 
-    query.perfil = this.get("perfilService").data.idPerfil;
+    if (!this.get("perfilService").tienePermiso("perfil.global")) {
+      query.perfil = this.get("perfilService").data.idPerfil;
+    }
 
     let data = yield this.store.query("evento", query);
     let meta = data.get("meta");
