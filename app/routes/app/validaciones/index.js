@@ -31,6 +31,25 @@ export default Ember.Route.extend({
     return resultado;
   }).drop(),
 
+  tareaExportarValidaciones: task(function*(inicio, fin, estado) {
+    let i = inicio;
+    let f = fin;
+
+    let base = ENV.API_URL;
+    let url = "";
+
+    if (estado) {
+      url = `${base}/api/validaciones/export?inicio=${i}&fin=${f}&estado=${estado}`;
+    } else {
+      url = `${base}/api/validaciones/export?inicio=${i}&fin=${f}`;
+    }
+
+    let resultado = yield $.get(url);
+    // let resultado = yield this.get("ajax").raw(url);
+
+    return resultado;
+  }).drop(),
+
   actualizar() {
     this.get("obtenerValidaciones").perform();
   },
@@ -135,6 +154,14 @@ export default Ember.Route.extend({
       Ember.set(model, "region", region);
       Ember.set(model, "pagina", 1);
       this.actualizar();
+    },
+    exportarValidaciones() {
+      let hoy = moment().format("YYYY-MM-DD");
+      let inicio = hoy;
+      let fin = hoy;
+      let estado = "Aprobada";
+
+      return this.get("tareaExportarValidaciones").perform(inicio, fin, estado);
     }
   }
 });
