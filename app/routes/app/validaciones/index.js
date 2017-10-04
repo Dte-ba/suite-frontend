@@ -44,10 +44,23 @@ export default Ember.Route.extend({
       url = `${base}/api/validaciones/export?inicio=${i}&fin=${f}`;
     }
 
-    let resultado = yield $.get(url);
-    // let resultado = yield this.get("ajax").raw(url);
+    let data = yield this.get("ajax").raw(url, {
+      dataType: "binary",
+      xhrFields: {
+        responseType: "blob"
+      }
+    });
 
-    return resultado;
+    const blob_url = URL.createObjectURL(data.response);
+
+    const dl = document.createElement("a");
+    dl.href = blob_url;
+    dl.download = "validaciones.xls";
+    dl.click();
+
+    URL.revokeObjectURL(blob_url);
+
+    return data;
   }).drop(),
 
   actualizar() {

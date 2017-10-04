@@ -15,7 +15,7 @@
       <button class='ui button primario' {{action (route-action "crearUnaValidacionNueva")}}><i class="ui plus icon"></i> Nueva validación</button>
     {{/suite-permiso}}
     {{#suite-permiso permiso="validaciones.editar"}}
-      <button class='ui button primario' disabled {{action (route-action "exportarValidaciones")}}><i class="ui plus icon"></i> Exportar validaciones</button>
+      <button class='ui button primario' {{action (route-action "exportarValidaciones")}}><i class="ui plus icon"></i> Exportar validaciones</button>
     {{/suite-permiso}}
 
   </div>
