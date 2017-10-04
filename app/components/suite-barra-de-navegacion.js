@@ -11,4 +11,5 @@ export default Ember.Component.extend({
       $(`#${id}`).sidebar("toggle");
     }
   }
+
 });

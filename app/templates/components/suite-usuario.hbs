@@ -1,3 +1,12 @@
 {{yield}}
 
-<a class="ui dropdown icon item" {{action 'invalidateSession'}}>Cerrar sesión</a>
+  {{ember-initials class="user-big-avatar icon" name=nombreCompleto size=20}}
+
+<div class=" menu">
+
+  {{#link-to "app.mi-perfil" tagName="div" class="item"}}{{nombreCompleto}} ({{rol}}){{/link-to}}
+
+  <div class="divider"></div>
+  <div class="item" {{action 'invalidateSession'}}>Cerrar sesión</div>
+
+</div>
