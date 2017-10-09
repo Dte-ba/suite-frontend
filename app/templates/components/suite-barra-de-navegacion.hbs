@@ -21,7 +21,9 @@
 {{yield}}
 
 <div class="right menu">
-
-  {{#link-to "app.mi-perfil" class="ui item"}}{{ember-initials class="user-big-avatar icon" name=nombreCompleto size=20}} &nbsp; {{nombreCompleto}} ({{rol}}){{/link-to}}
-  {{suite-usuario cuandoQuiereCerrarSesion=cuandoQuiereCerrarSesion}}
+  {{suite-usuario
+      nombreCompleto=nombreCompleto
+      rol=rol
+      cuandoQuiereCerrarSesion=cuandoQuiereCerrarSesion
+  }}
 </div>

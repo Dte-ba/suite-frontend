@@ -10,11 +10,11 @@ export default Ember.Route.extend({
 
   actions: {
     cuandoFinalizoConformacion(model) {
-      return this.transitionTo("app.escuelas.detalle", model);
+      return this.transitionTo("app.escuelas.detalle", model.get("id"));
     },
 
     cancelar(model) {
-      return this.transitionTo("app.escuelas.detalle", model);
+      return this.transitionTo("app.escuelas.detalle", model.get("id"));
     }
   }
 });

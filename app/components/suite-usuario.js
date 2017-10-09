@@ -3,7 +3,11 @@ import Ember from "ember";
 export default Ember.Component.extend({
   session: Ember.inject.service(),
   perfil: Ember.inject.service(),
-  tagName: "",
+  classNames: ['ui', 'item', 'inline', 'dropdown'],
+
+  didInsertElement() {
+    this.$().dropdown({});
+  },
 
   actions: {
     invalidateSession() {
