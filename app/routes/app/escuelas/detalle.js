@@ -46,7 +46,7 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Financiamiento",
-        id: "tipoDeFinanciamiento.nombre"
+        componente: "suite-detalle/financiamiento"
       },
       {
         titulo: "Gestión",

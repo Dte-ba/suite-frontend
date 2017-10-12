@@ -1,0 +1,10 @@
+{{yield}}
+
+{{#suite-promesa promesa=model.tipoDeFinanciamiento}}
+  {{#each model.tipoDeFinanciamiento as |p|}}
+    {{p.nombre}}
+    {{#unless (eq p model.tipoDeFinanciamiento.lastObject)}}, {{/unless}}
+  {{else}}
+    No hay datos sobre el tipo de financiamiento
+  {{/each}}
+{{/suite-promesa}}

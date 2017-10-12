@@ -30,7 +30,7 @@
     {{/f.input}}
 
     {{#f.input label="Tipo de financiamiento" required=true name="tipoDeFinanciamiento" as |f|}}
-      {{suite-selector/simple opciones=model.opciones.tiposDeFinanciamiento valor=f.value cuandoSelecciona=f.update}}
+      {{suite-selector/multiple opciones=model.opciones.tiposDeFinanciamiento valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
     {{#f.input label="Tipo de gestión" required=true name="tipoDeGestion" as |f|}}
