@@ -33,8 +33,8 @@ test("Puede crear un evento correctamente", function(assert) {
   });
 
   andThen(function() {
-    // Hay exactamente 6 errores de validación.
-    assert.equal($(".field.error").length, 6);
+    // Hay exactamente 4 errores de validación.
+    assert.equal($(".field.error").length, 4);
 
     // Luego se cargan datos válidos
     fillIn("[placeholder='Seleccione hora']:first", "14:00");
