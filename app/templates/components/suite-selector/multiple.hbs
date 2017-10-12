@@ -1,0 +1,12 @@
+{{yield}}
+
+{{#power-select-multiple
+  options=opciones
+  selected=valor
+  disabled=deshabilitado
+  searchEnabled=false
+  onchange=cuandoSelecciona
+  as |opcion|
+}}
+  {{get opcion atributoPrimario}}
+{{/power-select-multiple}}

@@ -14,7 +14,7 @@ export default DS.Model.extend({
   latitud: DS.attr("number"),
   longitud: DS.attr("number"),
   localidad: DS.belongsTo("localidad"),
-  tipoDeFinanciamiento: DS.belongsTo("tipoDeFinanciamiento"),
+  tiposDeFinanciamiento: DS.hasMany("tipoDeFinanciamiento"),
   tipoDeGestion: DS.belongsTo("tipoDeGestion"),
   nivel: DS.belongsTo("nivel"),
   modalidad: DS.belongsTo("modalidad"),
@@ -40,7 +40,7 @@ export default DS.Model.extend({
     cue: [validatePresence(true), validateLength({ is: 8 })],
     nivel: [validatePresence(true)],
     modalidad: [validatePresence(true)],
-    tipoDeFinanciamiento: [validatePresence(true)],
+    tiposDeFinanciamiento: [validatePresence(true)],
     tipoDeGestion: [validatePresence(true)],
     area: [validatePresence(true)],
     localidad: [validatePresence(true)]
