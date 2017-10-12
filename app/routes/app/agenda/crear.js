@@ -9,9 +9,13 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
 
   model(params) {
     let hoy = moment().format("YYYY-MM-DD");
+    let ahoraInicio = moment().format("HH:mm:ss");
+    let ahoraFin = moment().add(1, "s").format("HH:mm:ss");
     let opciones = {
       fecha: hoy,
       fechaFin: hoy,
+      inicio: ahoraInicio,
+      fin: ahoraFin,
       cantidadDeParticipantes: 0
     };
 
@@ -21,7 +25,6 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
         return this.store.createRecord("evento", opciones);
       });
     }
-
     return this.store.createRecord("evento", opciones);
   },
 

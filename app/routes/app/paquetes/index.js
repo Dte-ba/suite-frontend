@@ -72,6 +72,11 @@ export default Ember.Route.extend({
           promesa: "escuela"
         },
         {
+          atributo: "escuela.localidad.distrito.nombre",
+          titulo: "Distrito",
+          promesa: "escuela.localidad.distrito"
+        },
+        {
           atributo: "escuela.piso.serie",
           titulo: "Nº de Serie servidor",
           promesa: "escuela"

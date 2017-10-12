@@ -5,14 +5,22 @@ import ENV from "suite-frontend/config/environment";
 export default Ember.Route.extend({
   requiere: "tareas.listar",
   ajax: Ember.inject.service(),
+  perfilService: Ember.inject.service("perfil"),
 
   obtenerTareas: task(function*() {
+    let query = {};
+
     let model = this.modelFor(this.routeName) || {};
 
-    let data = yield this.store.query("tarea", {
-      page: model.pagina,
-      query: model.filtro
-    });
+    query.page = model.pagina;
+    query.query = model.filtro;
+
+    query.escuela__localidad__distrito__region__numero = Ember.get(
+      model,
+      "region.numero"
+    );
+
+    let data = yield this.store.query("tarea", query);
 
     let meta = data.get("meta");
     return { data, meta };
@@ -33,11 +41,28 @@ export default Ember.Route.extend({
   },
 
   model() {
+    let soloSuRegion = !this.get("perfilService").tienePermiso("perfil.global");
+    let regionPreSeleccionada = null;
+
+    if (soloSuRegion) {
+      regionPreSeleccionada = this.get("perfilService").obtenerRegion();
+    } else {
+      regionPreSeleccionada = Ember.Object.create({
+        nombre: "Todas las regiones",
+        numero: ""
+      });
+    }
+
     return {
-      pagina: 1,
-      filtro: "",
       estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaTareas: this.get("obtenerTareas"),
+
+      pagina: 1,
+      filtro: "",
+      deshabilitarSeleccionDeRegion: soloSuRegion,
+
+      region: regionPreSeleccionada,
+
       columnas: [
         {
           atributo: "prioridadDeTarea.nombre",
@@ -73,6 +98,14 @@ export default Ember.Route.extend({
           promesa: "motivoDeTarea"
         },
         {
+          titulo: "Distrito",
+          atributo: "escuela.localidad.distrito.nombre"
+        },
+        {
+          titulo: "Región",
+          atributo: "escuela.localidad.distrito.region.numero"
+        },
+        {
           atributo: "estadoDeTarea.nombre",
           titulo: "Estado",
           promesa: "estadoDeTarea"
@@ -91,6 +124,12 @@ export default Ember.Route.extend({
     cuandoCambiaPagina(pagina) {
       let model = this.modelFor(this.routeName);
       Ember.set(model, "pagina", pagina);
+      this.actualizar();
+    },
+    cuandoSeleccionaRegion(region) {
+      let model = this.modelFor(this.routeName);
+      Ember.set(model, "region", region);
+      Ember.set(model, "pagina", 1);
       this.actualizar();
     },
     crearUnaTareaNueva() {

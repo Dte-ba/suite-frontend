@@ -82,6 +82,10 @@ export default Ember.Route.extend({
           atributo: "escuela.localidad.distrito.region.numero"
         },
         {
+          titulo: "Distrito",
+          atributo: "escuela.localidad.distrito.nombre"
+        },
+        {
           titulo: "CUE",
           componente: "suite-detalle/cue"
         },
