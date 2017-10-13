@@ -18,5 +18,5 @@ test("it renders", function(assert) {
   });
 
   this.render(hbs`{{suite-detalle/responsable model=model}}`);
-  assert.equal(this.$().text().trim(), "Acosta, Ceferino ()");
+  assert.equal(this.$().text().trim(), "Ceferino Acosta ()");
 });
