@@ -82,8 +82,13 @@ export default Ember.Route.extend({
           promesa: "localidad.distrito"
         },
         {
-          atributo: "nivel.nombre",
+          atributo: "modalidad.nombre",
           titulo: "Modalidad",
+          promesa: "modalidad"
+        },
+        {
+          atributo: "nivel.nombre",
+          titulo: "Nivel",
           promesa: "nivel"
         },
         {
