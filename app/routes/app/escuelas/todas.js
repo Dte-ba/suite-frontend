@@ -100,6 +100,11 @@ export default Ember.Route.extend({
           atributo: "piso.llave",
           titulo: "Llave",
           template: "suite-tabla/celda-llave"
+        },
+        {
+          atributo: "conformada",
+          titulo: "",
+          template: "suite-tabla/celda-conformacion"
         }
       ]
     };
