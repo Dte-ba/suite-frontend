@@ -103,6 +103,11 @@ export default Ember.Route.extend({
           fecha: true
         },
         {
+          atributo: "fechaDeModificacion",
+          titulo: "Modificado el",
+          fecha: true
+        },
+        {
           atributo: "cantidadPedidas",
           titulo: "Pedidas"
         },

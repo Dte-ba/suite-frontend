@@ -10,6 +10,8 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
   },
 
   afterModel(model) {
+    var hoy = moment().format("YYYY-MM-DD");
+    model.set("fechaDeModificacion", hoy);
     model.set("opciones", {
       estadosDeValidacion: this.store.findAll("estadoDeValidacion")
     });

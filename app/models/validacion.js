@@ -6,6 +6,7 @@ import {
 
 export default DS.Model.extend({
   fechaDeAlta: DS.attr("string"),
+  fechaDeModificacion: DS.attr("string"),
   autor: DS.belongsTo("perfil"),
   cantidadPedidas: DS.attr("string"),
   cantidadValidadas: DS.attr("string"),
