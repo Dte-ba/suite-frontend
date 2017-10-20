@@ -1,0 +1,11 @@
+{{yield}}
+{{#if cargando}}
+  <div class="ui active inline mini loader"></div>
+{{else}}
+  {{#if valor}}
+    {{#ui-popup content="La escuela está conformada" position="bottom left"}}
+      <i class="ui share alternate icon"></i> 
+    {{/ui-popup}}
+  {{/if}}
+
+{{/if}}

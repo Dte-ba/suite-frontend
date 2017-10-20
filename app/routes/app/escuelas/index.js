@@ -27,6 +27,33 @@ export default Ember.Route.extend({
     return { data, meta };
   }).drop(),
 
+  tareaExportarEscuelas: task(function*() {
+  
+    let base = ENV.API_URL;
+    let url = "";
+
+      url = `${base}/api/escuelas/export`;
+   
+    let data = yield this.get("ajax").raw(url, {
+      dataType: "binary",
+      xhrFields: {
+        responseType: "blob"
+      }
+    });
+
+    const blob_url = URL.createObjectURL(data.response);
+
+    const dl = document.createElement("a");
+    dl.href = blob_url;
+    dl.download = "escuelas.xls";
+    dl.click();
+
+    URL.revokeObjectURL(blob_url);
+
+    return data;
+  }).drop(),
+
+
   obtenerEstadisticas: task(function*() {
     let url = ENV.API_URL + "/api/escuelas/estadistica";
     let resultado = yield this.get("ajax").request(url);
@@ -57,6 +84,7 @@ export default Ember.Route.extend({
     return {
       estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaEscuelas: this.get("obtenerEscuelas"),
+      tareaExportar: this.get("tareaExportarEscuelas"),
 
       /* valores a utilizar como filtros */
       pagina: 1,
@@ -91,8 +119,13 @@ export default Ember.Route.extend({
           promesa: "localidad.distrito"
         },
         {
-          atributo: "nivel.nombre",
+          atributo: "modalidad.nombre",
           titulo: "Modalidad",
+          promesa: "modalidad"
+        },
+        {
+          atributo: "nivel.nombre",
+          titulo: "Nivel",
           promesa: "nivel"
         },
         {
@@ -113,7 +146,6 @@ export default Ember.Route.extend({
       ]
     };
   },
-
   actions: {
     alIngresarFiltro(valor) {
       let model = this.modelFor(this.routeName);
@@ -134,6 +166,9 @@ export default Ember.Route.extend({
       Ember.set(model, "region", region);
       Ember.set(model, "pagina", 1);
       this.actualizar();
+    },
+    exportarEscuelas() {
+      return this.get("tareaExportarEscuelas").perform();
     }
   }
 });

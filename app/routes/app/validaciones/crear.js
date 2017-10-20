@@ -11,7 +11,7 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
   model(params) {
     let autor = this.get("perfil.miPerfil");
     let hoy = moment().format("YYYY-MM-DD");
-    let opciones = { fechaDeAlta: hoy, autor: autor };
+    let opciones = { fechaDeAlta: hoy, fechaDeModificacion: hoy, autor: autor };
 
     return this.store
       .findRecord("estado-de-validacion", 1)

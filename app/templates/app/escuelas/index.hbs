@@ -15,6 +15,13 @@
     {{#suite-permiso permiso="escuelas.crear"}}
       <button class="ui button primario " {{action (route-action "crearUnaEscuelaNueva")}}><i class="ui plus icon"></i> Crear escuela</button>
     {{/suite-permiso}}
+     {{#suite-permiso permiso="escuelas.listar"}}
+      {{#if model.tareaExportar.isRunning}}
+        <button class='ui button primario disabled'><i class="ui plus icon"></i> Exportando escuelas</button> 
+      {{else}}
+        <button class='ui button primario' {{action (route-action "exportarEscuelas")}}><i class="ui plus icon"></i>Escuelas de la provincia</button>
+      {{/if}}
+    {{/suite-permiso}}
   </div>
 </div>
 

@@ -8,10 +8,14 @@
     {{#if editar}}
       {{f.input label="Pedidas" name="cantidadPedidas" disabled=true}}
       {{f.input label="Validadas" name="cantidadValidadas" required=true}}
+      {{f.input label="Fecha de Alta" name="fechaDeAlta" disabled=true}}
+      {{f.input label="Fecha de Modificación" name="fechaDeModificacion" disabled=true}}
       {{#f.input label="Esado" name="estado" required=true as |f|}}
         {{suite-selector/simple opciones=model.opciones.estadosDeValidacion valor=f.value cuandoSelecciona=f.update}}
       {{/f.input}}
     {{else}}
+      {{f.input label="Fecha de Alta" name="fechaDeAlta" disabled=true}}
+      {{f.input label="Fecha de Modificación" name="fechaDeModificacion" disabled=true}}
       {{f.input label="Cantidad solicitadas" name="cantidadPedidas"}}
     {{/if}}
   {{/suite-grupo}}
