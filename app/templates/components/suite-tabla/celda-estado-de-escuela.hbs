@@ -1,0 +1,29 @@
+{{yield}}
+{{#if cargando}}
+  <div class="ui active inline mini loader"></div>
+{{else}}
+  {{#if valor}}
+    {{#if estado}}
+
+    {{else}}
+      {{#ui-popup content="La escuela está cerrada" position="bottom left"}}
+        <i class="ui red ban icon"></i>
+      {{/ui-popup}}
+    {{/if}}
+    {{#if conformada}}
+      {{#ui-popup content="La escuela está conformada" position="bottom left"}}
+        <i class="ui share alternate icon"></i>
+      {{/ui-popup}}
+    {{else if absorbida}}
+      {{#ui-popup content="La escuela fue absorbida" position="bottom left"}}
+        <i class="ui share icon"></i>
+          {{#suite-promesa promesa=valor.padre}}
+            {{#link-to 'app.escuelas.detalle' valor.padre}}
+              {{valor.padre.cue}}
+            {{/link-to}}
+          {{/suite-promesa}}
+      {{/ui-popup}}
+    {{/if}}
+  {{/if}}
+
+{{/if}}

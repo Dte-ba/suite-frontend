@@ -107,9 +107,9 @@ export default Ember.Route.extend({
           template: "suite-tabla/celda-llave"
         },
         {
-          atributo: "conformada",
+          atributo: "estadoDeEscuela",
           titulo: "",
-          template: "suite-tabla/celda-conformacion"
+          template: "suite-tabla/celda-estado-de-escuela"
         }
       ]
     };

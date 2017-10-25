@@ -1,9 +1,6 @@
 import DS from "ember-data";
 import Ember from "ember";
-import {
-  validatePresence,
-  validateLength
-} from "ember-changeset-validations/validators";
+import { validatePresence } from "ember-changeset-validations/validators";
 
 export default DS.Model.extend({
   cue: DS.attr("number"),
@@ -35,9 +32,36 @@ export default DS.Model.extend({
     return this.get("latitud") && this.get("longitud");
   }),
 
+  estadoDeEscuela: Ember.computed(
+    "estado",
+    "conformada",
+    "subescuelas",
+    "padre",
+    function() {
+      var estadoDeEscuela = {};
+      let estado = this.get("estado");
+      estadoDeEscuela.estado = estado;
+
+      let absorbida = this.get("conformada");
+      estadoDeEscuela.absorbida = absorbida;
+      if (absorbida === true) {
+        let padre = this.get("padre");
+        estadoDeEscuela.padre = padre;
+      }
+
+      let subescuelas = this.get("subescuelas");
+      if (subescuelas.content.length === 0) {
+        estadoDeEscuela.conformada = false;
+      } else {
+        estadoDeEscuela.conformada = true;
+      }
+      return estadoDeEscuela;
+    }
+  ),
+
   validacionesDeFormulario: {
     nombre: [validatePresence(true)],
-    cue: [validatePresence(true), validateLength({ is: 8 })],
+    // cue: [validatePresence(true)],
     nivel: [validatePresence(true)],
     modalidad: [validatePresence(true)],
     tiposDeFinanciamiento: [validatePresence(true)],
