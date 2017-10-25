@@ -15,19 +15,52 @@
   {{/suite-grupo}}
 
   {{#suite-grupo numero=2 titulo="Información"}}
-    {{f.input label="CUE" name="cue" required=true}}
-    {{f.input label="Nombre" name="nombre" required=true}}
+    {{#if editar}}
+      {{#suite-permiso permiso="perfil.global"}}
+        {{f.input label="CUE" name="cue" required=true}}
+        {{f.input label="Nombre" name="nombre" required=true }}
+      {{else}}
+        {{f.input label="CUE" name="cue" disabled=true}}
+        {{f.input label="Nombre" name="nombre" disabled=true}}
+      {{/suite-permiso}}
+    {{else}}
+      {{f.input label="CUE" name="cue" required=true}}
+      {{f.input label="Nombre" name="nombre" required=true }}
+    {{/if}}
+
   {{/suite-grupo}}
 
   {{#suite-grupo numero=3 titulo="Características"}}
 
-    {{#f.input label="Nivel" name="nivel" required=true as |f|}}
-      {{suite-selector/simple opciones=model.opciones.niveles valor=f.value cuandoSelecciona=f.update}}
-    {{/f.input}}
+    {{#if editar}}
+      {{#suite-permiso permiso="perfil.global"}}
+        {{#f.input label="Nivel" name="nivel" required=true as |f|}}
+          {{suite-selector/simple opciones=model.opciones.niveles valor=f.value cuandoSelecciona=f.update}}
+        {{/f.input}}
 
-    {{#f.input label="Modalidad" name="modalidad" required=true as |f|}}
-      {{suite-selector/simple opciones=model.opciones.modalidades valor=f.value cuandoSelecciona=f.update}}
-    {{/f.input}}
+        {{#f.input label="Modalidad" name="modalidad" required=true as |f|}}
+          {{suite-selector/simple opciones=model.opciones.modalidades valor=f.value cuandoSelecciona=f.update}}
+        {{/f.input}}
+      {{else}}
+        {{#f.input label="Nivel" name="nivel" disabled=true as |f|}}
+          {{suite-selector/simple deshabilitado=true opciones=model.opciones.niveles valor=f.value cuandoSelecciona=f.update}}
+        {{/f.input}}
+
+        {{#f.input label="Modalidad" name="modalidad" disabled=true as |f|}}
+          {{suite-selector/simple deshabilitado=true opciones=model.opciones.modalidades valor=f.value cuandoSelecciona=f.update}}
+        {{/f.input}}
+      {{/suite-permiso}}
+    {{else}}
+
+        {{#f.input label="Nivel" name="nivel" required=true as |f|}}
+          {{suite-selector/simple opciones=model.opciones.niveles valor=f.value cuandoSelecciona=f.update}}
+        {{/f.input}}
+
+        {{#f.input label="Modalidad" name="modalidad" required=true as |f|}}
+          {{suite-selector/simple opciones=model.opciones.modalidades valor=f.value cuandoSelecciona=f.update}}
+        {{/f.input}}
+
+    {{/if}}
 
     {{#f.input label="Tipo de financiamiento" required=true name="tipoDeFinanciamiento" as |f|}}
       {{suite-selector/multiple opciones=model.opciones.tiposDeFinanciamiento valor=f.value cuandoSelecciona=f.update}}
