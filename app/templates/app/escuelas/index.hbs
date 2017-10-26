@@ -17,9 +17,9 @@
     {{/suite-permiso}}
      {{#suite-permiso permiso="escuelas.listar"}}
       {{#if model.tareaExportar.isRunning}}
-        <button class='ui button primario disabled'><i class="ui plus icon"></i> Exportando escuelas</button> 
+        <button class='ui button primario disabled'><i class="ui icon"></i> Exportando escuelas</button> 
       {{else}}
-        <button class='ui button primario' {{action (route-action "exportarEscuelas")}}><i class="ui plus icon"></i>Escuelas de la provincia</button>
+        <button class='ui button primario' {{action (route-action "exportarEscuelas")}}><i class="ui icon"></i>Exportar escuelas de la provincia</button>
       {{/if}}
     {{/suite-permiso}}
   </div>
