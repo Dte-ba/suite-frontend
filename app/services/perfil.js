@@ -42,5 +42,6 @@ export default Ember.Service.extend({
 
   esCoordinador: Ember.computed('rol', function() {
     return this.get('rol') === "Coordinador";
+  region: Ember.computed.alias("miPerfil.region.numero"),
   })
 });
