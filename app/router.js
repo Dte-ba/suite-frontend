@@ -26,6 +26,16 @@ Ember.Route.reopen({
   }
 });
 
+/* Se asegura de reiniciar la posición del scroll cuando se cambia de ruta. */
+Ember.Router.reopen({
+  didTransition() {
+    this._super(...arguments);
+    if ($(".ui.pushable")[0]) {
+      $(".ui.pushable")[0].scrollTop = 0;
+    }
+  }
+});
+
 Router.map(function() {
   this.route("login");
   this.route("app", function() {
