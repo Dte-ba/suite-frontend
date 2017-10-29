@@ -24,29 +24,34 @@
   <div class="ui equal width row segment">
     <div class="column">
       {{#if model.conformada}}
-        <button class="ui button disabled">No puede crear acciones en una escuela conformada</button>
-        {{#suite-permiso permiso="escuelas.editar"}}
-          <button class='ui button disabled'>No se puede editar esta escuela conformada</button>
-        {{/suite-permiso}}
-        {{#suite-permiso permiso="validaciones.crear"}}
-          <button class='ui button disabled'>No se pueden solicitar validaciones en una escuela conformada</button>
-        {{/suite-permiso}}
+        <button class="ui button disabled">No puede realizar acciones sobre una escuela conformada</button>
       {{else}}
-        <button class="ui primario button" {{action (route-action "crearEventoParaEstaEscuela")}}><i class='ui plus icon'></i> Agendar acción</button>
-        {{#suite-permiso permiso="escuelas.editar"}}
-          {{#link-to "app.escuelas.edicion" model class="ui button primario"}}<i class="ui edit icon"></i>Editar Escuela{{/link-to}}
-        {{/suite-permiso}}
-        {{#suite-permiso permiso="escuelas.editar"}}
-          {{#link-to "app.pisos.editar" model.piso class="ui button primario"}}<i class="ui edit icon"></i>Editar Piso{{/link-to}}
-        {{/suite-permiso}}
 
-        {{#suite-permiso permiso="escuelas.conformar"}}
-          {{#link-to "app.escuelas.conformar" model class="ui button primario"}}<i class="ui share alternate icon"></i>Conformar{{/link-to}}
-        {{/suite-permiso}}
+        {{#if model.puedeEditarDentroDeLaRegion}}
+          <button class="ui primario button" {{action (route-action "crearEventoParaEstaEscuela")}}><i class='ui plus icon'></i> Agendar acción</button>
+        {{/if}}
 
-        {{#suite-permiso permiso="validaciones.crear"}}
-          <button class='ui button primario' {{action (route-action "crearValidacionParaEstaEscuela")}}><i class="ui plus icon"></i> Nueva validación</button>
-        {{/suite-permiso}}
+        {{#if model.puedeEditarDentroDeLaRegion}}
+
+          {{#suite-permiso permiso="escuelas.editar"}}
+            {{#link-to "app.escuelas.edicion" model class="ui button primario"}}<i class="ui edit icon"></i>Editar Escuela{{/link-to}}
+          {{/suite-permiso}}
+
+          {{#suite-permiso permiso="escuelas.editar"}}
+            {{#link-to "app.pisos.editar" model.piso class="ui button primario"}}<i class="ui edit icon"></i>Editar Piso{{/link-to}}
+          {{/suite-permiso}}
+
+          {{#suite-permiso permiso="escuelas.conformar"}}
+            {{#link-to "app.escuelas.conformar" model class="ui button primario"}}<i class="ui share alternate icon"></i>Conformar{{/link-to}}
+          {{/suite-permiso}}
+
+          {{#suite-permiso permiso="validaciones.crear"}}
+            <button class='ui button primario' {{action (route-action "crearValidacionParaEstaEscuela")}}><i class="ui plus icon"></i> Nueva validación</button>
+          {{/suite-permiso}}
+
+        {{/if}}
+
+
       {{/if}}
 
     </div>

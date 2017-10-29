@@ -28,6 +28,8 @@ export default DS.Model.extend({
   estado: DS.attr("boolean"),
   conformada: DS.attr("boolean"),
 
+  numero_de_region: DS.attr("number"),
+
   tieneDatosGeolocalizacion: Ember.computed("latitud", "longitud", function() {
     return this.get("latitud") && this.get("longitud");
   }),
