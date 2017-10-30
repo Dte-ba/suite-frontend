@@ -51,7 +51,7 @@ test("Puede crear un evento correctamente", function(assert) {
   });
 
   andThen(function() {
-    selectSearch(".selectorDeEscuela", "60");
+    selectSearch(".selectorDeEscuela", "123123");
   });
 
   andThen(function() {
