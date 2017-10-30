@@ -18,8 +18,8 @@ export default Ember.Route.extend({
       "region.numero"
     );
 
-    if (!this.get("perfilService").tienePermiso("perfil.global")) {
-      query.perfil = this.get("perfilService").data.idPerfil;
+    if (model.perfil && model.perfil.id) {
+      query.perfil = model.perfil.id;
     }
 
     let data = yield this.store.query("evento", query);
@@ -39,10 +39,13 @@ export default Ember.Route.extend({
   model() {
     let soloSuRegion = !this.get("perfilService").tienePermiso("perfil.global");
     let regionPreSeleccionada = null;
+    let perfilPreSeleccionado = null;
 
     if (soloSuRegion) {
       regionPreSeleccionada = this.get("perfilService").obtenerRegion();
+      perfilPreSeleccionado = this.get("perfilService.miPerfil");
     } else {
+      perfilPreSeleccionado = null;
       regionPreSeleccionada = Ember.Object.create({
         nombre: "Todas las regiones",
         numero: ""
@@ -56,6 +59,7 @@ export default Ember.Route.extend({
       pagina: 1,
       filtro: "",
       deshabilitarSeleccionDeRegion: soloSuRegion,
+      perfil: perfilPreSeleccionado,
 
       region: regionPreSeleccionada,
 
@@ -120,6 +124,23 @@ export default Ember.Route.extend({
     cuandoSeleccionaRegion(region) {
       let model = this.modelFor(this.routeName);
       Ember.set(model, "region", region);
+      Ember.set(model, "pagina", 1);
+
+      /* Reinicia la selección de perfil */
+      let perfilPreSeleccionado = null;
+
+      if (this.get("perfilService").tienePermiso("perfil.global")) {
+        perfilPreSeleccionado = null;
+      } else {
+        perfilPreSeleccionado = this.get("perfilService.miPerfil");
+      }
+      Ember.set(model, "perfil", perfilPreSeleccionado);
+
+      this.actualizar();
+    },
+    cuandoSeleccionaResponsable(perfil) {
+      let model = this.modelFor(this.routeName);
+      Ember.set(model, "perfil", perfil);
       Ember.set(model, "pagina", 1);
       this.actualizar();
     }

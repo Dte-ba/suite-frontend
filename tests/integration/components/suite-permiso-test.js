@@ -8,13 +8,15 @@ moduleForComponent("suite-permiso", "Integration | Component | suite permiso", {
 
 test("it renders", function(assert) {
   let perfilStub = Ember.Service.extend({
-    permisos: {
-      "agenda.listar": true,
-      "tareas.listar": false,
-      "escuelas.listar": false
+    data: {
+      permisos: {
+        "agenda.listar": true,
+        "tareas.listar": false,
+        "escuelas.listar": false
+      }
     },
     tienePermiso(permiso) {
-      return this.permisos[permiso];
+      return this.data.permisos[permiso];
     }
   });
 
@@ -31,5 +33,10 @@ test("it renders", function(assert) {
     {{/suite-permiso}}
   `);
 
-  assert.equal(this.$().text().trim(), "demo");
+  assert.equal(
+    this.$()
+      .text()
+      .trim(),
+    "demo"
+  );
 });

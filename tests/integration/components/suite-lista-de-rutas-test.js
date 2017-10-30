@@ -12,13 +12,15 @@ moduleForComponent(
 
 test("it renders", function(assert) {
   let perfilStub = Ember.Service.extend({
-    permisos: {
-      "agenda.listar": true,
-      "tareas.listar": true,
-      "escuelas.listar": true
+    data: {
+      permisos: {
+        "agenda.listar": true,
+        "tareas.listar": true,
+        "escuelas.listar": true
+      }
     },
     tienePermiso(permiso) {
-      return this.permisos[permiso];
+      return this.data.permisos[permiso];
     }
   });
 
@@ -26,8 +28,5 @@ test("it renders", function(assert) {
   this.inject.service("perfil");
 
   this.render(hbs`{{suite-lista-de-rutas}}`);
-  assert.ok(
-    this.$("a").length > 2,
-    "Hay al menos dos rutas en la lista de links."
-  );
+  assert.equal(this.$("a").length, 3);
 });

@@ -3,17 +3,15 @@ import hbs from "htmlbars-inline-precompile";
 import Ember from "ember";
 
 moduleForComponent(
-  "suite-filtros/eventos",
-  "Integration | Component | suite filtros/eventos",
+  "suite-selector/responsable",
+  "Integration | Component | suite selector/responsable",
   {
     integration: true
   }
 );
 
 test("it renders", function(assert) {
-  this.set("cuandoSeleccionaRegion", function() {});
   this.set("cuandoSeleccionaResponsable", function() {});
-  this.set("alIngresarFiltro", function() {});
 
   let mockPerfil = Ember.Object.extend({
     data: {
@@ -26,11 +24,8 @@ test("it renders", function(assert) {
 
   this.register("service:perfil", mockPerfil);
 
-  this.render(hbs`{{suite-filtros/eventos
-    cuandoSeleccionaRegion=cuandoSeleccionaRegion
-    cuandoSeleccionaResponsable=cuandoSeleccionaResponsable
-    alIngresarFiltro=alIngresarFiltro
-  }}`);
-
-  assert.ok(this.$().text());
+  this.render(
+    hbs`{{suite-selector/responsable cuandoSelecciona=cuandoSeleccionaResponsable}}`
+  );
+  assert.ok(this.$());
 });

@@ -1,22 +1,25 @@
 {{yield}}
 
 {{#if esModoDesarrollo}}
+<div class="suite-depuracion-login__panel">
 
-<div>
-  <p>
-    A continuación hay algunos atajos para ingresar en la aplicación en modo desarrollo.
-    <br/>
-    Deberías ejecutar "make reiniciar_contraseñas" para que los botones funcionen correctamente.
-    <br/>
-  </p>
+  <div>
+    <p>
+      A continuación hay algunos atajos para ingresar en la aplicación en modo desarrollo.
+      <br/>
+      Deberías ejecutar "make reiniciar_contraseñas" para que los botones funcionen correctamente.
+      <br/>
+    </p>
+  </div>
+
+  <div>
+    <button class='ui primary tiny button' {{action 'ingresar' 'ccane@abc.gob.ar' 'asdasd123'}}>ccane <br> (admin reg 27)</button>
+    <button class='ui primary tiny button' {{action 'ingresar' 'celmandrut@abc.gob.ar' 'asdasd123'}}>celemandrut <br> (fed reg 1)</button>
+    <button class='ui primary tiny button' {{action 'ingresar' 'gasrios@abc.gob.ar' 'asdasd123'}}>gasrios <br> (fed reg 2)</button>
+    <button class='ui primary tiny button' {{action 'ingresar' 'mleone@abc.gob.ar' 'asdasd123'}}>mleone <br> (coor reg 2)</button>
+  </div>
+
 </div>
-
-<div>
-  <button class='ui primary button' {{action 'ingresar' 'ccane@abc.gob.ar' 'asdasd123'}}>ccane (Administradora de Región 27 - DTE)</button>
-  <button class='ui primary button' {{action 'ingresar' 'celmandrut@abc.gob.ar' 'asdasd123'}}>celemandrut (Facilitadora de Región 1)</button>
-  <button class='ui primary button' {{action 'ingresar' 'mleone@abc.gob.ar' 'asdasd123'}}>mleone (Coordinadora de Región 2)</button>
-</div>
-
 {{else}}
   <!-- suite-depuracion-login está deshabilitado en modo no-desarrollo -->
 {{/if}}

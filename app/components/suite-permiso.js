@@ -11,13 +11,15 @@ export default Ember.Component.extend({
     if (!permiso) {
       Ember.assert("Falta especificar el permiso");
     } else {
-      let estado = this.get("perfil").tienePermiso(permiso);
+      if (this.get("perfil.data.permisos")) {
+        let estado = this.get("perfil").tienePermiso(permiso);
 
-      if (estado === undefined) {
-        /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
-        console.warn(`El permiso "${permiso}" no existe`);
-      } else {
-        this.set("debeMostrar", estado);
+        if (estado === undefined) {
+          /*eslint no-console: ["error", { allow: ["warn", "error"] }] */
+          console.warn(`El permiso "${permiso}" no existe`);
+        } else {
+          this.set("debeMostrar", estado);
+        }
       }
     }
   }
