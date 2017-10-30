@@ -25,7 +25,7 @@ export default Ember.Component.extend({
     if (this.get("perfilService").tienePermiso("perfil.global")) {
       url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}`;
     } else {
-      if (this.get('perfilService.esCoordinador')) {
+      if (this.get("perfilService.esCoordinador")) {
         url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&region=${region}`;
       } else {
         url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}&region=${region}`;
@@ -69,6 +69,14 @@ export default Ember.Component.extend({
       header: header,
       eventLimit: limite,
       weekends: this.get("mostrarFinesDeSemana"),
+
+      buttonText: {
+        today: "hoy",
+        month: "mes",
+        week: "semana",
+        day: "dia",
+        list: "lista"
+      },
 
       events: (start, end, timezone, callback) => {
         this.get("tareaSolicitarEventos").perform(start, end, callback);
