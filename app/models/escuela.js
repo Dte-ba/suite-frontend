@@ -21,7 +21,7 @@ export default DS.Model.extend({
   piso: DS.belongsTo("piso"),
   contactos: DS.hasMany("contacto"),
   eventos: DS.hasMany("evento"),
-  padre: DS.belongsTo("escuela"),
+  padre: DS.belongsTo("escuela", { inverse: "subescuelas" }),
   subescuelas: DS.hasMany("escuela", { inverse: "padre" }),
   fechaConformacion: DS.attr("string"),
   motivoDeConformacion: DS.belongsTo("motivoDeConformacion"),

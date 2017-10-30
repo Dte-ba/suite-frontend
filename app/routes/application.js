@@ -4,9 +4,11 @@ import moment from "moment";
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   sesion: Ember.inject.service(),
+  analytics: Ember.inject.service(),
   routeAfterAuthentication: "app",
 
   beforeModel() {
+    this.get("analytics").inicializar();
     moment.locale("es");
   },
 

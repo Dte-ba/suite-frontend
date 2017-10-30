@@ -1,8 +1,7 @@
 import Ember from "ember";
-import Trackable from "ember-cli-analytics/mixins/trackable";
 import config from "./config/environment";
 
-const Router = Ember.Router.extend(Trackable, {
+const Router = Ember.Router.extend({
   location: config.locationType,
   rootURL: config.rootURL
 });
@@ -28,8 +27,10 @@ Ember.Route.reopen({
 
 /* Se asegura de reiniciar la posición del scroll cuando se cambia de ruta. */
 Ember.Router.reopen({
+  analytics: Ember.inject.service("analytics"),
   didTransition() {
     this._super(...arguments);
+    this.get("analytics").notifificarTransicion(this.get("url"));
     if ($(".ui.pushable")[0]) {
       $(".ui.pushable")[0].scrollTop = 0;
     }
