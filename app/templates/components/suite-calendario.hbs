@@ -1,5 +1,16 @@
 {{yield}}
 
+{{#suite-filtros/agenda}}
+<div>
+  <ul>
+    <li>Rol: {{rol}}</li>
+    <li>permisoGlobal: {{permisoGlobal}}</li>
+    <li>region: {{region}}</li>
+  </ul>
+</div>
+{{/suite-filtros/agenda}}
+
+
 {{#if cargando}}
   <div class='suite-calendario__spinner'>{{suite-spinner}} Solicitando eventos ...</div>
 {{/if}}

@@ -16,22 +16,14 @@ export default Ember.Component.extend({
 
     let i = fecha_inicio.format(formato);
     let f = fecha_fin.format(formato);
+
     let perfil = this.get("perfil");
     let region = this.get("region");
 
     let base = ENV.API_URL;
     let url = "";
 
-    if (this.get("perfilService").tienePermiso("perfil.global")) {
-      url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}`;
-    } else {
-      if (this.get("perfilService.esCoordinador")) {
-        url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&region=${region}`;
-      } else {
-        url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}&region=${region}`;
-      }
-    }
-
+    url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}`;
     let resultado = yield this.get("ajax").request(url);
 
     let eventos_convertidos = resultado.data.eventos.map(e => {
@@ -59,6 +51,9 @@ export default Ember.Component.extend({
 
     var permiso = this.get("perfilService").tienePermiso("perfil.global");
     var limite = false;
+
+    // Si tiene permiso global, aplica un límite de eventos para convertir
+    // en listas las tarjetas de eventos agrupadas.
     if (permiso === true) {
       limite = 2;
     }
