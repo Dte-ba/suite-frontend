@@ -1,18 +1,19 @@
 {{yield}}
 
-{{#suite-filtros/agenda}}
-<div>
-  <ul>
-    <li>Rol: {{rol}}</li>
-    <li>permisoGlobal: {{permisoGlobal}}</li>
-    <li>region: {{region}}</li>
-  </ul>
-</div>
+{{#suite-filtros/agenda
+    region=region
+    deshabilitarSeleccionDeRegion=(not permisoGlobal)
+    cuandoSeleccionaRegion=(action "cuandoSeleccionaRegion")
+}}
+
 {{/suite-filtros/agenda}}
 
+<div class="suite-calendario__contenedor">
 
 {{#if cargando}}
   <div class='suite-calendario__spinner'>{{suite-spinner}} Solicitando eventos ...</div>
 {{/if}}
 
 <div id='calendar'></div>
+
+</div>
