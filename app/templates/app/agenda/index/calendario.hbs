@@ -1,7 +1,14 @@
 {{outlet}}
 
-<div class="barra-de-botones">
-  <div class='a-derecha'>
+{{#suite-calendario
+    mostrarFinesDeSemana=model.mostrarFinesDeSemana
+    perfil=model.perfil.data.idPerfil
+    region=model.perfil.data.region
+    rol=model.perfil.rol
+    permisoGlobal=model.perfil.tienePermisoGlobal
+}}
+
+  <div class='calendario__mostrar_fines_de_semana'>
     <label>
       {{input type="checkbox"
       id="checkbox-policy"
@@ -12,12 +19,5 @@
     Mostrar fines de semana
     </label>
   </div>
-</div>
 
-{{suite-calendario
-    mostrarFinesDeSemana=model.mostrarFinesDeSemana
-    perfil=model.perfil.data.idPerfil
-    region=model.perfil.data.region
-    rol=model.perfil.rol
-    permisoGlobal=model.perfil.tienePermisoGlobal
-}}
+{{/suite-calendario}}
