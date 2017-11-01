@@ -1,18 +1,11 @@
 <div class="filtros">
 
   <div class="celda-filtro">
-    {{!suite-campo/filtro
-      ayuda="Escuela o responsable"
-      valor=filtro
-      alBuscar=alIngresarFiltro
-    }}
-  </div>
-
-  <div class="celda-filtro">
-    {{!suite-selector/region
+    {{suite-selector/region
         deshabilitado=deshabilitarSeleccionDeRegion
         permiteSeleccionarTodasLasRegiones=(not deshabilitarSeleccionDeRegion)
         valor=region
+        permiteSeleccionarTodasLasRegiones=false
         cuandoSelecciona=cuandoSeleccionaRegion
     }}
   </div>
@@ -25,7 +18,5 @@
         cuandoSelecciona=cuandoSeleccionaResponsable
     }}
   </div>
-
-  {{yield}}
 
 </div>

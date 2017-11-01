@@ -8,7 +8,6 @@ export default Ember.Component.extend({
   perfilService: Ember.inject.service("perfil"),
   cargando: Ember.computed.alias("tareaSolicitarEventos.last.isRunning"),
   fc: null,
-  classNames: ["suite-calendario__contenedor"],
   perfil: null,
 
   tareaSolicitarEventos: task(function*(fecha_inicio, fecha_fin, callback) {
@@ -17,13 +16,14 @@ export default Ember.Component.extend({
     let i = fecha_inicio.format(formato);
     let f = fecha_fin.format(formato);
 
-    let perfil = this.get("perfil");
     let region = this.get("region");
+
+    let numeroDeRegion = region.get("numero");
 
     let base = ENV.API_URL;
     let url = "";
 
-    url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}`;
+    url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&region=${numeroDeRegion}`;
     let resultado = yield this.get("ajax").request(url);
 
     let eventos_convertidos = resultado.data.eventos.map(e => {
@@ -48,6 +48,8 @@ export default Ember.Component.extend({
       center: "title",
       right: "month,basicWeek,agendaDay"
     };
+
+    this.set("region", this.get("perfilService").obtenerRegion());
 
     var permiso = this.get("perfilService").tienePermiso("perfil.global");
     var limite = false;
@@ -126,5 +128,13 @@ export default Ember.Component.extend({
   sincronizar() {
     let fc = this.get("fc");
     fc.fullCalendar("option", "weekends", this.get("mostrarFinesDeSemana"));
+  },
+
+  actions: {
+    cuandoSeleccionaRegion(region) {
+      this.set("region", region);
+      let fc = this.get("fc");
+      fc.fullCalendar("refetchEvents");
+    }
   }
 });
