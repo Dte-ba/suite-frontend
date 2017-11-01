@@ -19,20 +19,11 @@ export default Ember.Component.extend({
     }
 
     // Obtiene todas las regiones usando el paginador de la api.
-    let data = yield this.get("store").query("region", {});
-    let { pagination: { pages } } = data.get("meta");
+    let data = yield this.get("store").query("region", { page_size: 3000 });
 
     data.map(e => {
       opciones.pushObject(e);
     });
-
-    for (let i = 2; i < pages + 1; i++) {
-      data = yield this.get("store").query("region", { page: i });
-
-      data.map(e => {
-        opciones.pushObject(e);
-      });
-    }
 
     this.set("opciones", opciones);
     return opciones;
