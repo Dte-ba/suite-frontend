@@ -58,6 +58,7 @@ export default function() {
           "escuelas.listar": true,
           "escuelas.crear": true,
           "personas.listar": true,
+          "matrix.listar": true,
           "paquetes.listar": true,
           "validaciones.listar": true,
           "perfil.global": true
