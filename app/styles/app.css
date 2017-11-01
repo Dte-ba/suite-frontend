@@ -615,6 +615,7 @@ iframe.mapa {
   background-color: #f6f5f6;
   border: 1px solid #e7e7e7;
   padding: 10px;
+  position: relative;
 }
 
 .gray {
@@ -795,4 +796,10 @@ iframe.mapa {
 .suite-depuracion-login__panel button {
   margin: 1px !important;
   font-weight: 400 !important;
+}
+
+.calendario__mostrar_fines_de_semana {
+  position: absolute;
+  right: 1.3em;
+  top: 1.3em;
 }
