@@ -3,6 +3,7 @@ import { task, timeout } from "ember-concurrency";
 import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
+  requiere: "grupos.listar",
   ajax: Ember.inject.service(),
 
   obtenerPermisos: task(function*(group_id) {
@@ -13,6 +14,13 @@ export default Ember.Route.extend({
   }).drop(),
 
   afterModel(model) {
+   
+    if (!this.get("perfil").tienePermiso("grupos.listar")) {
+      this.transitionTo("/app/");
+    } else {
+      this.actualizar();
+    }
+
     let group_id = model.get("id");
     let tarea = this.get("obtenerPermisos");
 
