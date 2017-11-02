@@ -15,12 +15,6 @@ export default Ember.Route.extend({
 
   afterModel(model) {
    
-    if (!this.get("perfil").tienePermiso("grupos.listar")) {
-      this.transitionTo("/app/");
-    } else {
-      this.actualizar();
-    }
-
     let group_id = model.get("id");
     let tarea = this.get("obtenerPermisos");
 
