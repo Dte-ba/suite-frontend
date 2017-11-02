@@ -24,22 +24,7 @@ module.exports = function(environment) {
       "img-src": "data: app.getsentry.com"
     },
 
-    analytics: {
-      integrations: [
-        {
-          name: "GoogleAnalytics",
-          config: {
-            id: "UA-98624597-1",
-            remarketing: true,
-            ecommerce: true,
-            enhancedEcommerce: false,
-            set: {
-              anonymizeIp: true
-            }
-          }
-        }
-      ]
-    },
+    analytics_key: "UA-98624597-1",
 
     EmberENV: {
       FEATURES: {

@@ -4,7 +4,11 @@
   <div class="ui active inline mini loader"></div>
 {{else}}
   {{#each model.acompaniantes as |p|}}
-    {{#link-to 'app.personas.detalle' p}}{{p.nombreApellido}}{{/link-to}}
+    {{#suite-permiso permiso="personas.listar"}}
+      {{#link-to 'app.personas.detalle' p}}{{p.nombreApellido}}{{/link-to}}
+    {{else}}
+      {{p.nombreApellido}}
+    {{/suite-permiso}}
     {{#unless (eq p model.acompaniantes.lastObject)}}, {{/unless}}
   {{else}}
     Sin acompañantes

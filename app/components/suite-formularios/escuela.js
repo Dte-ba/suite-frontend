@@ -8,9 +8,7 @@ export default Ember.Component.extend({
       let piso = null;
 
       if (!modelo.get("piso.id")) {
-        piso = yield this.get("store")
-          .createRecord("piso", {})
-          .save();
+        piso = yield this.get("store").createRecord("piso", {}).save();
       }
 
       if (piso) {

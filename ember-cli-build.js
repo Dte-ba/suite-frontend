@@ -28,6 +28,7 @@ module.exports = function(defaults) {
   });
 
   app.import("vendor/tablesort.js");
+  app.import("vendor/ga.js");
 
   app.import("vendor/handsontable.full.min.css");
   app.import("vendor/handsontable.full.min.js");
@@ -44,7 +45,7 @@ module.exports = function(defaults) {
 
   app.import("bower_components/fullcalendar/dist/fullcalendar.js");
   app.import("bower_components/fullcalendar/dist/fullcalendar.css");
-  app.import("bower_components/fullcalendar/dist/locale/es.js");
+  //app.import("bower_components/fullcalendar/dist/locale/es.js");
 
   return app.toTree();
 };

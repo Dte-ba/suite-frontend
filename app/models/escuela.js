@@ -11,7 +11,7 @@ export default DS.Model.extend({
   latitud: DS.attr("number"),
   longitud: DS.attr("number"),
   localidad: DS.belongsTo("localidad"),
-  tiposDeFinanciamiento: DS.hasMany("tipoDeFinanciamiento"),
+  tipoDeFinanciamiento: DS.hasMany("tipoDeFinanciamiento"),
   tipoDeGestion: DS.belongsTo("tipoDeGestion"),
   nivel: DS.belongsTo("nivel"),
   modalidad: DS.belongsTo("modalidad"),
@@ -21,12 +21,14 @@ export default DS.Model.extend({
   piso: DS.belongsTo("piso"),
   contactos: DS.hasMany("contacto"),
   eventos: DS.hasMany("evento"),
-  padre: DS.belongsTo("escuela"),
+  padre: DS.belongsTo("escuela", { inverse: "subescuelas" }),
   subescuelas: DS.hasMany("escuela", { inverse: "padre" }),
   fechaConformacion: DS.attr("string"),
   motivoDeConformacion: DS.belongsTo("motivoDeConformacion"),
   estado: DS.attr("boolean"),
   conformada: DS.attr("boolean"),
+
+  numero_de_region: DS.attr("number"),
 
   tieneDatosGeolocalizacion: Ember.computed("latitud", "longitud", function() {
     return this.get("latitud") && this.get("longitud");
@@ -64,7 +66,7 @@ export default DS.Model.extend({
     // cue: [validatePresence(true)],
     nivel: [validatePresence(true)],
     modalidad: [validatePresence(true)],
-    tiposDeFinanciamiento: [validatePresence(true)],
+    tipoDeFinanciamiento: [validatePresence(true)],
     tipoDeGestion: [validatePresence(true)],
     area: [validatePresence(true)],
     localidad: [validatePresence(true)]

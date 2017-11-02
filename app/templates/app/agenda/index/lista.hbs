@@ -3,9 +3,12 @@
 {{suite-filtros/eventos
   filtro=model.filtro
   region=model.region
+  perfil=model.perfil
   deshabilitarSeleccionDeRegion=model.deshabilitarSeleccionDeRegion
   cuandoSeleccionaRegion=(route-action "cuandoSeleccionaRegion")
-  alIngresarFiltro=(route-action "alIngresarFiltro")}}
+  cuandoSeleccionaResponsable=(route-action "cuandoSeleccionaResponsable")
+  alIngresarFiltro=(route-action "alIngresarFiltro")
+}}
 
 {{suite-tabla
   pagina=model.pagina

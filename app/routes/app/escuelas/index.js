@@ -102,9 +102,8 @@ export default Ember.Route.extend({
           titulo: "CUE"
         },
         {
-          atributo: "localidad.distrito.region.numero",
-          titulo: "Region",
-          promesa: "localidad.distrito.region"
+          atributo: "numero_de_region",
+          titulo: "Region"
         },
         {
           atributo: "localidad.nombre",
