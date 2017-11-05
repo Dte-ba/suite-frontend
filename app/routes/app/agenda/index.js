@@ -15,6 +15,7 @@ export default Ember.Route.extend({
     let perfil = this.get("perfil");
     let perfilId = perfil.data.idPerfil;
     let region = perfil.data.region;
+
     let base = ENV.API_URL;
     let url = "";
     if (this.get("perfil").tienePermiso("perfil.global")) {
