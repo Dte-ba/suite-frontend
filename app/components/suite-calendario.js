@@ -9,6 +9,7 @@ export default Ember.Component.extend({
   cargando: Ember.computed.alias("tareaSolicitarEventos.last.isRunning"),
   fc: null,
   perfil: null,
+  perfilPreseleccionado: null,
 
   tareaSolicitarEventos: task(function*(fecha_inicio, fecha_fin, callback) {
     let formato = "YYYY-MM-DD";
@@ -23,7 +24,13 @@ export default Ember.Component.extend({
     let base = ENV.API_URL;
     let url = "";
 
-    url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&region=${numeroDeRegion}`;
+    if (this.get('perfilPreseleccionado.id')) {
+      let idPerfil = this.get('perfilPreseleccionado.id');
+      url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${idPerfil}&region=${numeroDeRegion}`;
+    } else {
+      url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&region=${numeroDeRegion}`;
+    }
+
     let resultado = yield this.get("ajax").request(url);
 
     let eventos_convertidos = resultado.data.eventos.map(e => {
@@ -50,6 +57,7 @@ export default Ember.Component.extend({
     };
 
     this.set("region", this.get("perfilService").obtenerRegion());
+    this.set('perfilPreseleccionado', this.get('perfilService.miPerfil'));
 
     var permiso = this.get("perfilService").tienePermiso("perfil.global");
     var limite = false;
@@ -130,11 +138,19 @@ export default Ember.Component.extend({
     fc.fullCalendar("option", "weekends", this.get("mostrarFinesDeSemana"));
   },
 
+  actualizar() {
+    let fc = this.get("fc");
+    fc.fullCalendar("refetchEvents");
+  },
+
   actions: {
     cuandoSeleccionaRegion(region) {
       this.set("region", region);
-      let fc = this.get("fc");
-      fc.fullCalendar("refetchEvents");
+      this.actualizar();
+    },
+    cuandoSeleccionaResponsable(responsable) {
+      this.set('perfilPreseleccionado', responsable);
+      this.actualizar();
     }
   }
 });

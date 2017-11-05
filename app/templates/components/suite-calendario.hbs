@@ -1,7 +1,9 @@
 {{#suite-filtros/agenda
     region=region
+    perfil=perfilPreSeleccionado
     deshabilitarSeleccionDeRegion=(not permisoGlobal)
     cuandoSeleccionaRegion=(action "cuandoSeleccionaRegion")
+    cuandoSeleccionaResponsable=(action "cuandoSeleccionaResponsable")
 }}
 
 {{yield}}

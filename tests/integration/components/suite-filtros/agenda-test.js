@@ -10,15 +10,39 @@ moduleForComponent(
 );
 
 test("it renders", function(assert) {
+
+  let perfilStub = Ember.Service.extend({
+    data: {
+      idPerfil: 1,
+    },
+    permisos: {
+      "agenda.listar": true,
+      "tareas.listar": false,
+      "escuelas.listar": false
+    },
+    tienePermiso(permiso) {
+      return this.permisos[permiso];
+    },
+    obtenerRegion() {
+      return Ember.Object.create({
+        numero: 27
+      });
+    }
+  });
+
+  this.register("service:perfil", perfilStub);
+  this.inject.service("perfil");
+
+
   this.set("cuandoSeleccionaRegion", () => {});
+  this.set("cuandoSeleccionaResponsable", () => {});
+
   this.render(
-    hbs`{{suite-filtros/agenda cuandoSeleccionaRegion=cuandoSeleccionaRegion}}`
+    hbs`{{suite-filtros/agenda
+      cuandoSeleccionaRegion=cuandoSeleccionaRegion
+      cuandoSeleccionaResponsable=cuandoSeleccionaResponsable
+    }}`
   );
 
-  assert.equal(
-    this.$()
-      .text()
-      .trim(),
-    ""
-  );
+  assert.ok(this.$());
 });
