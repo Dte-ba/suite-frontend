@@ -12,6 +12,9 @@ moduleForComponent(
 
 test("it renders", function(assert) {
   let perfilStub = Ember.Service.extend({
+    data: {
+      idPerfil: 1,
+    },
     permisos: {
       "agenda.listar": true,
       "tareas.listar": false,
