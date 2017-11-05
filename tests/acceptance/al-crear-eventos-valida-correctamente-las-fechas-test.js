@@ -39,7 +39,7 @@ test("al-crear-eventos-valida-correctamente-las-fechas", function(assert) {
   });
 
   andThen(function() {
-    assert.equal(currentURL(), "/app/agenda/index/calendario");
+    assert.equal(currentURL(), "/app/agenda/index/lista");
   });
 
   andThen(function() {

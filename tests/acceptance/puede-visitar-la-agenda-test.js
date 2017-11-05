@@ -15,6 +15,6 @@ test("Puede vistar la agenda y cargar un evento", function(assert) {
   });
 
   andThen(function() {
-    assert.equal(currentURL(), "/app/agenda/index/calendario");
+    assert.equal(currentURL(), "/app/agenda/index/lista");
   });
 });
