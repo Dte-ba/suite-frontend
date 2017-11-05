@@ -20,11 +20,39 @@ export default Ember.Component.extend({
 
       colWidths: anchosDeColumnas,
       colHeaders: columnas,
+
+      columns: [
+        {
+          validator: this.validadorNE
+        },
+        {
+          validator: this.validadorIDHardware
+        },
+        {},
+        {
+          validator: this.validadorTPMData
+        }
+      ],
       afterChange: function() {
         if (cuandoCambia) {
           cuandoCambia(this.getData());
         }
       }
     });
+  },
+
+  validadorNE(valor, callback) {
+    let esValido = /^[a-fA-F0-9]{20}$/.test(valor);
+    callback(esValido);
+  },
+
+  validadorIDHardware(valor, callback) {
+    let esValido = /^[a-fA-F0-9]{12}$/.test(valor);
+    callback(esValido);
+  },
+
+  validadorTPMData(valor, callback) {
+    let esValido = /^si$|^no$/i.test(valor);
+    callback(esValido || valor === "");
   }
 });

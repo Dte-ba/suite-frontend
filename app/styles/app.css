@@ -803,3 +803,7 @@ iframe.mapa {
   right: 1.3em;
   top: 1.3em;
 }
+
+.handsontable td.htInvalid {
+  background-color: #ffbab699 !important;
+}
