@@ -2,20 +2,29 @@
 
 {{#if meta}}
 
-  {{#if meta.pagination.count}}
-    Hay {{meta.pagination.count}} registros en total. Viendo la página {{paginaActual}} de {{cantidadDePaginas}} páginas.
-  {{/if}}
+  Mostrando {{meta.pagination.count}} registros en total.
+  <br/>
+  <br/>
 
-  {{#if puedeRetroceder}}
-    <button class="ui button" {{action "mostrarPaginaAnterior"}}><i class="chevron left icon"></i></button>
-  {{else}}
-    <button class="ui button" disabled><i class="chevron left icon"></i></button>
-  {{/if}}
+  <ul class="ui pagination menu small pl0">
 
-  {{#if puedeAvanzar }}
-    <button class="ui button" {{action "mostrarSiguientePagina"}}><i class="chevron right icon"></i></button>
-  {{else}}
-    <button class="ui button" disabled><i class="chevron right icon"></i></button>
-  {{/if}}
+    {{#if puedeRetroceder}}
+      <li class="icon item" {{action "mostrarPaginaAnterior"}}><a><i class="left arrow icon"></i></a></li>
+    {{else}}
+      <li class="icon item disabled"><a><i class="left arrow icon disabled"></i></a></li>
+    {{/if}}
+
+    {{#each listaDePaginas as |numero|}}
+      {{suite-tabla-paginador-pagina numero=numero actual=paginaActual alPulsar=(action "mostrarPagina")}}
+    {{else}}
+      {{suite-tabla-paginador-pagina numero=1 actual=paginaActual alPulsar=(action "mostrarPagina")}}
+    {{/each}}
+
+    {{#if puedeAvanzar }}
+      <li class="icon item" {{action "mostrarSiguientePagina"}}><a><i class="right arrow icon "></i></a></li>
+    {{else}}
+      <li class="icon item disabled"><a><i class="right arrow icon disabled"></i></a></li>
+    {{/if}}
+  </ul>
 
 {{/if}}

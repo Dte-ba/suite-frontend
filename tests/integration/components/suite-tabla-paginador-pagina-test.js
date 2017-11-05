@@ -2,20 +2,17 @@ import { moduleForComponent, test } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 
 moduleForComponent(
-  "suite-tabla-paginador",
-  "Integration | Component | suite tabla paginador",
+  "suite-tabla-paginador-pagina",
+  "Integration | Component | suite tabla paginador pagina",
   {
     integration: true
   }
 );
 
 test("it renders", function(assert) {
-  this.set("cuandoCambiaPagina", () => {});
+  this.set("alPulsar", () => {});
 
-  this.render(
-    hbs`{{suite-tabla-paginador cuandoCambiaPagina=cuandoCambiaPagina}}`
-  );
-
+  this.render(hbs`{{suite-tabla-paginador-pagina alPulsar=alPulsar}}`);
   assert.equal(
     this.$()
       .text()

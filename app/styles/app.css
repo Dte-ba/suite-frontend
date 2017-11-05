@@ -807,3 +807,15 @@ iframe.mapa {
 .handsontable td.htInvalid {
   background-color: #ffbab699 !important;
 }
+
+.pl0 {
+  padding-left: 0;
+}
+
+.suite-tabla-paginador .item {
+  cursor: pointer;
+}
+
+.suite-tabla-paginador .item.disabled {
+  cursor: default !important;
+}
