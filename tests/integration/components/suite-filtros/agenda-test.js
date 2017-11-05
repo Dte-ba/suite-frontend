@@ -1,5 +1,6 @@
 import { moduleForComponent, test } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
+import Ember from "ember";
 
 moduleForComponent(
   "suite-filtros/agenda",
@@ -10,10 +11,9 @@ moduleForComponent(
 );
 
 test("it renders", function(assert) {
-
   let perfilStub = Ember.Service.extend({
     data: {
-      idPerfil: 1,
+      idPerfil: 1
     },
     permisos: {
       "agenda.listar": true,
@@ -32,7 +32,6 @@ test("it renders", function(assert) {
 
   this.register("service:perfil", perfilStub);
   this.inject.service("perfil");
-
 
   this.set("cuandoSeleccionaRegion", () => {});
   this.set("cuandoSeleccionaResponsable", () => {});
