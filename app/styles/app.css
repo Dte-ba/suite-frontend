@@ -754,6 +754,15 @@ iframe.mapa {
   margin-right: 10px;
 }
 
+.celda-filtro.filtro-busqueda {
+  width: 480px;
+}
+
+.celda-filtro.filtro-busqueda .ui.input input {
+  max-width: none;
+  width: 110%;
+}
+
 .suite-depuracion-login__contenedor {
   position: fixed;
   bottom: 1em;
