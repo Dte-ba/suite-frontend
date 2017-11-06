@@ -52,7 +52,7 @@ export default Ember.Component.extend({
 
         opciones.pushObject(
           Ember.Object.create({
-            texto: "* Acciones donde participo",
+            texto: "* Mis acciones",
             id: id
           })
         );

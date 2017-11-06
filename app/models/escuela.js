@@ -65,7 +65,7 @@ export default DS.Model.extend({
     nombre: [validatePresence(true)],
     // cue: [validatePresence(true)],
     nivel: [validatePresence(true)],
-    modalidad: [validatePresence(true)],
+    //modalidad: [validatePresence(true)],
     tipoDeFinanciamiento: [validatePresence(true)],
     tipoDeGestion: [validatePresence(true)],
     area: [validatePresence(true)],

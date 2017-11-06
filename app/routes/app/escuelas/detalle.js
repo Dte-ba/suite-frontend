@@ -64,7 +64,7 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Modalidad",
-        id: ""
+        id: "modalidad.nombre"
       },
       {
         titulo: "Programas",
