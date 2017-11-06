@@ -2,9 +2,23 @@
 
   {{ember-initials class="user-big-avatar icon" name=nombreCompleto size=20}}
 
-<div class=" menu">
+<div class="menu">
 
-  {{#link-to "app.mi-perfil" tagName="div" class="item"}}{{nombreCompleto}} ({{rol}}){{/link-to}}
+  {{#link-to "app.mi-perfil" tagName="div" class="item"}}
+    <strong>{{nombreCompleto}}</strong>
+
+    <div class="suite-usuario__detalle_rol">
+      {{rol}}
+
+      {{#if region}}
+        de la Región {{region}}
+      {{/if}}
+    </div>
+
+  {{/link-to}}
+
+
+
 
   <div class="divider"></div>
   <div class="item" {{action 'invalidateSession'}}>Cerrar sesión</div>

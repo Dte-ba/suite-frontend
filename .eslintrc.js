@@ -8,7 +8,8 @@ module.exports = {
     clickSobreElTexto: true,
     cargarDatosDePrueba: true,
     selectSearch: true,
-    selectChoose: true
+    selectChoose: true,
+    ga: true
   },
   root: true,
   parserOptions: {

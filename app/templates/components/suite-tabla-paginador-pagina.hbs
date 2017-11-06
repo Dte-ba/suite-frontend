@@ -1,0 +1,5 @@
+{{#if esUnaPaginaAccesible}}
+  <li class="item {{if esLaPaginaActual 'active' ''}}" {{action alPulsar numero}}><a>{{numero}}{{yield}}</a></li>
+{{else}}
+  <li class="item disabled"><a>{{numero}}{{yield}}</a></li>
+{{/if}}

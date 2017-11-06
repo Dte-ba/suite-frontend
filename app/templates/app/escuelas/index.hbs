@@ -1,7 +1,7 @@
 <div class="ui grid">
   <div class="five wide column">
     {{suite-titulo titulo="Escuelas"}}
-    {{#link-to "app.escuelas.todas"}}Ver listado completo{{/link-to}}
+    {{#link-to "app.escuelas.todas"}}Todas las de la provincia{{/link-to}}
   </div>
   <div class="eleven wide column">
     {{suite-estadisticas/escuelas tarea=model.estadisticas}}
@@ -17,9 +17,9 @@
     {{/suite-permiso}}
      {{#suite-permiso permiso="escuelas.listar"}}
       {{#if model.tareaExportar.isRunning}}
-        <button class='ui button primario disabled'><i class="ui plus icon"></i> Exportando escuelas</button> 
+        <button class='ui button primario disabled'><i class="ui download icon"></i> Exportando escuelas</button>
       {{else}}
-        <button class='ui button primario' {{action (route-action "exportarEscuelas")}}><i class="ui plus icon"></i>Escuelas de la provincia</button>
+        <button class='ui button primario' {{action (route-action "exportarEscuelas")}}><i class="ui download icon"></i>Exportar escuelas de la provincia</button>
       {{/if}}
     {{/suite-permiso}}
   </div>

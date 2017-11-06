@@ -1,0 +1,13 @@
+{{yield}}
+{{#if cargando}}
+  <div class="ui active inline mini loader"></div>
+{{else}}
+  {{#if valor}}
+    {{#if estado}}
+      {{#ui-popup content="La escuela está validada" position="bottom left"}}
+        <i class="ui circle check icon"></i> ({{valor.content.meta.count}})
+      {{/ui-popup}}
+    {{/if}}
+  {{/if}}
+
+{{/if}}

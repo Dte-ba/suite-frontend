@@ -8,28 +8,27 @@ export default Ember.Component.extend({
   perfilService: Ember.inject.service("perfil"),
   cargando: Ember.computed.alias("tareaSolicitarEventos.last.isRunning"),
   fc: null,
-  classNames: ["suite-calendario__contenedor"],
   perfil: null,
+  perfilPreseleccionado: null,
 
   tareaSolicitarEventos: task(function*(fecha_inicio, fecha_fin, callback) {
     let formato = "YYYY-MM-DD";
 
     let i = fecha_inicio.format(formato);
     let f = fecha_fin.format(formato);
-    let perfil = this.get("perfil");
+
     let region = this.get("region");
+
+    let numeroDeRegion = region.get("numero");
 
     let base = ENV.API_URL;
     let url = "";
 
-    if (this.get("perfilService").tienePermiso("perfil.global")) {
-      url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}`;
+    if (this.get('perfilPreseleccionado.id')) {
+      let idPerfil = this.get('perfilPreseleccionado.id');
+      url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${idPerfil}&region=${numeroDeRegion}`;
     } else {
-      if (this.get('perfilService.esCoordinador')) {
-        url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&region=${region}`;
-      } else {
-        url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${perfil}&region=${region}`;
-      }
+      url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&region=${numeroDeRegion}`;
     }
 
     let resultado = yield this.get("ajax").request(url);
@@ -57,8 +56,14 @@ export default Ember.Component.extend({
       right: "month,basicWeek,agendaDay"
     };
 
+    this.set("region", this.get("perfilService").obtenerRegion());
+    this.set('perfilPreseleccionado', this.get('perfilService.miPerfil'));
+
     var permiso = this.get("perfilService").tienePermiso("perfil.global");
     var limite = false;
+
+    // Si tiene permiso global, aplica un límite de eventos para convertir
+    // en listas las tarjetas de eventos agrupadas.
     if (permiso === true) {
       limite = 2;
     }
@@ -69,6 +74,14 @@ export default Ember.Component.extend({
       header: header,
       eventLimit: limite,
       weekends: this.get("mostrarFinesDeSemana"),
+
+      buttonText: {
+        today: "hoy",
+        month: "mes",
+        week: "semana",
+        day: "dia",
+        list: "lista"
+      },
 
       events: (start, end, timezone, callback) => {
         this.get("tareaSolicitarEventos").perform(start, end, callback);
@@ -123,5 +136,21 @@ export default Ember.Component.extend({
   sincronizar() {
     let fc = this.get("fc");
     fc.fullCalendar("option", "weekends", this.get("mostrarFinesDeSemana"));
+  },
+
+  actualizar() {
+    let fc = this.get("fc");
+    fc.fullCalendar("refetchEvents");
+  },
+
+  actions: {
+    cuandoSeleccionaRegion(region) {
+      this.set("region", region);
+      this.actualizar();
+    },
+    cuandoSeleccionaResponsable(responsable) {
+      this.set('perfilPreseleccionado', responsable);
+      this.actualizar();
+    }
   }
 });

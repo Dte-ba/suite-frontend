@@ -2,8 +2,18 @@ import Ember from "ember";
 
 export default Ember.Route.extend({
   breadCrumb: { title: "Detalle de escuela" },
+  perfil: Ember.inject.service(),
+  puedeEditarSobreEstaEscuela: false,
 
   afterModel(model) {
+    let regionDeLaEscuela = model.get("numero_de_region");
+
+    if (this.get("perfil").puedeEditarDentroDeLaRegion(regionDeLaEscuela)) {
+      model.set("puedeEditarDentroDeLaRegion", true);
+    } else {
+      model.set("puedeEditarDentroDeLaRegion", false);
+    }
+
     model.set("filaPiso", [
       {
         titulo: "Marca",
@@ -54,7 +64,7 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Modalidad",
-        id: ""
+        id: "modalidad.nombre"
       },
       {
         titulo: "Programas",

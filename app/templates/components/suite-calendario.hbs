@@ -1,7 +1,21 @@
+{{#suite-filtros/agenda
+    region=region
+    perfil=perfilPreSeleccionado
+    deshabilitarSeleccionDeRegion=(not permisoGlobal)
+    cuandoSeleccionaRegion=(action "cuandoSeleccionaRegion")
+    cuandoSeleccionaResponsable=(action "cuandoSeleccionaResponsable")
+}}
+
 {{yield}}
+
+{{/suite-filtros/agenda}}
+
+<div class="suite-calendario__contenedor">
 
 {{#if cargando}}
   <div class='suite-calendario__spinner'>{{suite-spinner}} Solicitando eventos ...</div>
 {{/if}}
 
 <div id='calendar'></div>
+
+</div>

@@ -5,11 +5,11 @@ export default Ember.Component.extend({
   perfil: Ember.inject.service(),
   nombreCompleto: Ember.computed.alias("perfil.nombreCompleto"),
   rol: Ember.computed.alias("perfil.rol"),
+  region: Ember.computed.alias("perfil.region"),
 
   actions: {
     toggle: function(id) {
       $(`#${id}`).sidebar("toggle");
     }
   }
-
 });

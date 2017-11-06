@@ -1,0 +1,24 @@
+<div class="filtros">
+
+  <div class="celda-filtro">
+    {{suite-selector/region
+        deshabilitado=deshabilitarSeleccionDeRegion
+        permiteSeleccionarTodasLasRegiones=(not deshabilitarSeleccionDeRegion)
+        valor=region
+        permiteSeleccionarTodasLasRegiones=false
+        cuandoSelecciona=cuandoSeleccionaRegion
+    }}
+  </div>
+
+  <div class="celda-filtro">
+    {{suite-selector/responsable
+        deshabilitado=false
+        valor=perfil
+        region=region
+        cuandoSelecciona=cuandoSeleccionaResponsable
+    }}
+  </div>
+
+  {{yield}}
+
+</div>

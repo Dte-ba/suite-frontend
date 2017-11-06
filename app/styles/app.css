@@ -615,6 +615,7 @@ iframe.mapa {
   background-color: #f6f5f6;
   border: 1px solid #e7e7e7;
   padding: 10px;
+  position: relative;
 }
 
 .gray {
@@ -753,6 +754,15 @@ iframe.mapa {
   margin-right: 10px;
 }
 
+.celda-filtro.filtro-busqueda {
+  width: 480px;
+}
+
+.celda-filtro.filtro-busqueda .ui.input input {
+  max-width: none;
+  width: 110%;
+}
+
 .suite-depuracion-login__contenedor {
   position: fixed;
   bottom: 1em;
@@ -779,4 +789,42 @@ iframe.mapa {
 
 .suite-planilla {
   overflow: hidden;
+}
+
+.suite-usuario__detalle_rol {
+  color: gray;
+  padding-top: 5px;
+}
+
+.suite-depuracion-login__panel {
+  border-top: 1px solid rgba(128, 128, 128, 0.28);
+  background: rgba(255, 255, 255, 0.81);
+  padding-top: 1em;
+}
+
+.suite-depuracion-login__panel button {
+  margin: 1px !important;
+  font-weight: 400 !important;
+}
+
+.calendario__mostrar_fines_de_semana {
+  position: absolute;
+  right: 1.3em;
+  top: 1.3em;
+}
+
+.handsontable td.htInvalid {
+  background-color: #ffbab699 !important;
+}
+
+.pl0 {
+  padding-left: 0;
+}
+
+.suite-tabla-paginador .item {
+  cursor: pointer;
+}
+
+.suite-tabla-paginador .item.disabled {
+  cursor: default !important;
 }

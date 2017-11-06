@@ -1,17 +1,25 @@
 {{yield}}
 
 {{#if esModoDesarrollo}}
+<div class="suite-depuracion-login__panel">
 
-<div>
-  <button class='ui primary button' {{action 'ingresar' 'admin' 'asdasd123'}}>admin</button>
-  <button class='ui primary button' {{action 'ingresar' 'coordinador' 'asdasd123'}}>coordinador (reg 1)</button>
-  <button class='ui primary button' {{action 'ingresar' 'facilitador' 'asdasd123'}}>facilitador (reg 1)</button>
-  <button class='ui primary button' {{action 'ingresar' 'referente' 'asdasd123'}}>referente (reg 1)</button>
-  ||
-  <button class='ui orange button' {{action 'ingresar' 'celmandrut@abc.gob.ar' 'dte_27769558'}}>celemandrut (FED reg 1)</button>
-  <button class='ui orange button' {{action 'ingresar' 'mleone@abc.gob.ar' 'dte_27273220'}}>mleones (Coord reg 2)</button>
+  <div>
+    <p>
+      A continuación hay algunos atajos para ingresar en la aplicación en modo desarrollo.
+      <br/>
+      Deberías ejecutar "make reiniciar_contraseñas" para que los botones funcionen correctamente.
+      <br/>
+    </p>
+  </div>
+
+  <div>
+    <button class='ui primary tiny button' {{action 'ingresar' 'ccane@abc.gob.ar' 'asdasd123'}}>ccane <br> (admin reg 27)</button>
+    <button class='ui primary tiny button' {{action 'ingresar' 'celmandrut@abc.gob.ar' 'asdasd123'}}>celemandrut <br> (fed reg 1)</button>
+    <button class='ui primary tiny button' {{action 'ingresar' 'gasrios@abc.gob.ar' 'asdasd123'}}>gasrios <br> (fed reg 2)</button>
+    <button class='ui primary tiny button' {{action 'ingresar' 'mleone@abc.gob.ar' 'asdasd123'}}>mleone <br> (coor reg 2)</button>
+  </div>
+
 </div>
-
 {{else}}
   <!-- suite-depuracion-login está deshabilitado en modo no-desarrollo -->
 {{/if}}

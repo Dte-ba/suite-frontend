@@ -28,12 +28,11 @@ export default Ember.Route.extend({
   }).drop(),
 
   tareaExportarEscuelas: task(function*() {
-  
     let base = ENV.API_URL;
     let url = "";
 
-      url = `${base}/api/escuelas/export`;
-   
+    url = `${base}/api/escuelas/export`;
+
     let data = yield this.get("ajax").raw(url, {
       dataType: "binary",
       xhrFields: {
@@ -52,7 +51,6 @@ export default Ember.Route.extend({
 
     return data;
   }).drop(),
-
 
   obtenerEstadisticas: task(function*() {
     let url = ENV.API_URL + "/api/escuelas/estadistica";
@@ -104,9 +102,8 @@ export default Ember.Route.extend({
           titulo: "CUE"
         },
         {
-          atributo: "localidad.distrito.region.numero",
-          titulo: "Region",
-          promesa: "localidad.distrito.region"
+          atributo: "numero_de_region",
+          titulo: "Region"
         },
         {
           atributo: "localidad.nombre",
@@ -142,6 +139,11 @@ export default Ember.Route.extend({
           atributo: "piso.llave",
           titulo: "Llave",
           template: "suite-tabla/celda-llave"
+        },
+        {
+          atributo: "estadoDeEscuela",
+          titulo: "",
+          template: "suite-tabla/celda-estado-de-escuela"
         }
       ]
     };
