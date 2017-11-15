@@ -828,3 +828,7 @@ iframe.mapa {
 .suite-tabla-paginador .item.disabled {
   cursor: default !important;
 }
+
+.ember-power-select-multiple-option .etiquetas-a-derecha {
+  display: none;
+}
