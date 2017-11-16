@@ -12,6 +12,8 @@
 
         {{#t.column propertyName=columna.atributo defaultHeader=true name=columna.titulo as |col|}}
 
+          {{#suite-ajustar-celda centrar=columna.centrar ajustar=columna.ajustar}}
+
           {{#if columna.template}}
             {{component columna.template valor=(get col.row columna.atributo)}}
           {{else if columna.componente}}
@@ -37,12 +39,11 @@
                 {{get col.row columna.atributo}}
               {{/if}}
 
-
-
             {{/if}}
 
           {{/if}}
 
+          {{/suite-ajustar-celda}}
         {{/t.column}}
 
       {{else}}

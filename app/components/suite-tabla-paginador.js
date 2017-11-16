@@ -23,7 +23,7 @@ export default Ember.Component.extend({
         }
         return paginas;
       } else {
-        if (paginaActual > 2 && paginaActual < cantidadDePaginas - 1) {
+        if (paginaActual > 3 && paginaActual < cantidadDePaginas - 1) {
           return [
             1,
             2,
@@ -36,7 +36,13 @@ export default Ember.Component.extend({
             cantidadDePaginas
           ];
         } else {
-          return [1, 2, "...", cantidadDePaginas - 1, cantidadDePaginas];
+
+          if (paginaActual == 3) {
+            return [1, 2, 3, "...", cantidadDePaginas - 1, cantidadDePaginas];
+          } else {
+            return [1, 2, "...", cantidadDePaginas - 1, cantidadDePaginas];
+          }
+
         }
       }
     }

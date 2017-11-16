@@ -836,3 +836,18 @@ iframe.mapa {
 .ember-power-select-multiple-option .etiquetas-a-derecha {
   display: none;
 }
+
+
+td {
+   max-width: 10em;
+}
+
+div.ellipsis {
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.centrar {
+  text-align: center;
+}
