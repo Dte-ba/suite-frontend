@@ -65,6 +65,8 @@
       {{suite-tabla-paginador
           meta=tarea.lastSuccessful.value.meta
           cuandoCambiaPagina=(action "cambiarPagina")
+          cuandoCambiaLimite=(action "cambiarLimite")
+          permiteCambiarLimite=cuandoCambiaLimite
           pagina=pagina}}
     {{/if}}
 

@@ -9,6 +9,9 @@ export default Ember.Component.extend({
   actions: {
     cambiarPagina(pagina) {
       this.cuandoCambiaPagina(pagina);
+    },
+    cambiarLimite(cantidad) {
+      this.cuandoCambiaLimite(cantidad);
     }
   }
 });

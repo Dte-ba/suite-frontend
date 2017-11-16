@@ -851,3 +851,10 @@ div.ellipsis {
 .centrar {
   text-align: center;
 }
+
+.suite-tabla-paginador__selector_de_limite {
+  display: inline-block;
+  margin-bottom: 1em;
+  width: 135px;
+  text-align: left;
+}

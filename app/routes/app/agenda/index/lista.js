@@ -12,6 +12,7 @@ export default Ember.Route.extend({
 
     query.page = model.pagina;
     query.query = model.filtro;
+    query.page_size = model.limite || 15;
 
     query.escuela__localidad__distrito__region__numero = Ember.get(
       model,
@@ -128,6 +129,11 @@ export default Ember.Route.extend({
     cuandoCambiaPagina(pagina) {
       let model = this.modelFor(this.routeName);
       Ember.set(model, "pagina", pagina);
+      this.actualizar();
+    },
+    cuandoCambiaLimite(cantidad) {
+      let model = this.modelFor(this.routeName);
+      Ember.set(model, "limite", cantidad);
       this.actualizar();
     },
     cuandoSeleccionaRegion(region) {
