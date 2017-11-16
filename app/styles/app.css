@@ -276,6 +276,10 @@ body > .ember-view {
   color: white;
 }
 
+.ui.button.primario:hover {
+  background-color: #9eb12b;
+}
+
 h1,
 h2,
 h3 {

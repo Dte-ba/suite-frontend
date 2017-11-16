@@ -169,4 +169,15 @@ export default function() {
       }
     };
   });
+
+
+
+  this.get("/perfiles/1/puede-editar-la-accion", () => {
+    return {
+      data: {
+        puedeEditar: true,
+        accion_id: 1,
+      }
+    };
+  });
 }
