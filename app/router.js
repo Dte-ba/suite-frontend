@@ -28,12 +28,23 @@ Ember.Route.reopen({
 /* Se asegura de reiniciar la posición del scroll cuando se cambia de ruta. */
 Ember.Router.reopen({
   analytics: Ember.inject.service("analytics"),
+  rutaAnterior: "",
+
   didTransition() {
     this._super(...arguments);
+
+    let rutaActual = this.get("currentRouteName");
+    let haCambiadoDeRuta = this.get("rutaAnterior") !== rutaActual;
+
     this.get("analytics").notifificarTransicion(this.get("url"));
+
     if ($(".ui.pushable")[0]) {
-      $(".ui.pushable")[0].scrollTop = 0;
+      if (haCambiadoDeRuta) {
+        $(".ui.pushable")[0].scrollTop = 0;
+      }
     }
+
+    this.set("rutaAnterior", rutaActual);
   }
 });
 
