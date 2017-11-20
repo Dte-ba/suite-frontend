@@ -4,33 +4,13 @@ import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
   requiere: "tareas.listar",
+  /*
   ajax: Ember.inject.service(),
   perfilService: Ember.inject.service("perfil"),
 
-  obtenerTareas: task(function*() {
-    let query = {};
 
-    let model = this.modelFor(this.routeName) || {};
 
-    query.page = model.pagina;
-    query.query = model.filtro;
-
-    query.escuela__localidad__distrito__region__numero = Ember.get(
-      model,
-      "region.numero"
-    );
-
-    let data = yield this.store.query("tarea", query);
-
-    let meta = data.get("meta");
-    return { data, meta };
-  }).drop(),
-
-  obtenerEstadisticas: task(function*() {
-    let url = ENV.API_URL + "/api/tareas/estadistica";
-    let resultado = yield this.get("ajax").request(url);
-    return resultado;
-  }).drop(),
+,
 
   actualizar() {
     this.get("obtenerTareas").perform();
@@ -63,6 +43,18 @@ export default Ember.Route.extend({
 
       region: regionPreSeleccionada,
 
+
+    };
+  },
+
+  actions: {
+
+
+  }
+  */
+
+  model() {
+    return {
       columnas: [
         {
           atributo: "prioridadDeTarea.nombre",
@@ -112,28 +104,5 @@ export default Ember.Route.extend({
         }
       ]
     };
-  },
-
-  actions: {
-    alIngresarFiltro(valor) {
-      let model = this.modelFor(this.routeName);
-      Ember.set(model, "filtro", valor);
-      Ember.set(model, "pagina", 1);
-      this.actualizar();
-    },
-    cuandoCambiaPagina(pagina) {
-      let model = this.modelFor(this.routeName);
-      Ember.set(model, "pagina", pagina);
-      this.actualizar();
-    },
-    cuandoSeleccionaRegion(region) {
-      let model = this.modelFor(this.routeName);
-      Ember.set(model, "region", region);
-      Ember.set(model, "pagina", 1);
-      this.actualizar();
-    },
-    crearUnaTareaNueva() {
-      return this.transitionTo("app.tareas.crear");
-    }
   }
 });

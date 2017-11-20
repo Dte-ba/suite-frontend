@@ -29,6 +29,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           });
 
           this.get("raven").capturarErroresGlobales();
+
+          return this.get("store").findAll("region");
         }
       })
       .catch(error => this.logoutIfInvalidSession(error));
