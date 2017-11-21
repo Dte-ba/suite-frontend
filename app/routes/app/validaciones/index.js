@@ -56,9 +56,12 @@ export default Ember.Route.extend({
     const dl = document.createElement("a");
     dl.href = blob_url;
     dl.download = "validaciones.xls";
+    document.body.appendChild(dl);
     dl.click();
 
-    URL.revokeObjectURL(blob_url);
+    Ember.run.later(() => {
+      URL.revokeObjectURL(blob_url);
+    }, 2000);
 
     return data;
   }).drop(),

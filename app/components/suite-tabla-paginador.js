@@ -8,6 +8,29 @@ export default Ember.Component.extend({
   paginaActual: Ember.computed.alias("meta.pagination.page"),
   cantidadDePaginas: Ember.computed.alias("meta.pagination.pages"),
 
+  opcionesDeLimite: [
+    {
+      nombre: 'Mostrar 10',
+      cantidad: 10,
+    },
+    {
+      nombre: 'Mostrar 15',
+      cantidad: 15,
+    },
+    {
+      nombre: 'Mostrar 20',
+      cantidad: 20,
+    },
+    {
+      nombre: 'Mostrar 50',
+      cantidad: 50,
+    },
+  ],
+
+  didInsertElement() {
+    this.set('limiteSeleccionado', this.get('opcionesDeLimite')[1]);
+  },
+
   listaDePaginas: Ember.computed(
     "cantidadDePaginas",
     "paginaActual",
@@ -23,7 +46,7 @@ export default Ember.Component.extend({
         }
         return paginas;
       } else {
-        if (paginaActual > 2 && paginaActual < cantidadDePaginas - 1) {
+        if (paginaActual > 3 && paginaActual < cantidadDePaginas - 1) {
           return [
             1,
             2,
@@ -36,7 +59,13 @@ export default Ember.Component.extend({
             cantidadDePaginas
           ];
         } else {
-          return [1, 2, "...", cantidadDePaginas - 1, cantidadDePaginas];
+
+          if (paginaActual == 3) {
+            return [1, 2, 3, "...", cantidadDePaginas - 1, cantidadDePaginas];
+          } else {
+            return [1, 2, "...", cantidadDePaginas - 1, cantidadDePaginas];
+          }
+
         }
       }
     }
@@ -60,6 +89,11 @@ export default Ember.Component.extend({
     mostrarPagina(numero) {
       this.set("paginaActual", numero);
       this.sendAction("cuandoCambiaPagina", this.get("paginaActual"));
+    },
+    cambiarLimite(seleccion) {
+      this.cuandoCambiaLimite(seleccion.cantidad);
+      this.set('limiteSeleccionado', seleccion);
     }
+
   }
 });

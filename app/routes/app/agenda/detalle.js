@@ -2,8 +2,12 @@ import Ember from "ember";
 
 export default Ember.Route.extend({
   breadCrumb: { title: "Detalle de acción" },
+  notificador: Ember.inject.service(),
+  perfil: Ember.inject.service(),
 
   afterModel(model) {
+
+
     model.set("filaDatosDeAccion", [
       {
         titulo: "Inicio",
@@ -67,6 +71,9 @@ export default Ember.Route.extend({
       }
     ]);
 
-    return model;
+    return this.get('perfil').puedeEditarLaAccion(model.get('id')).then(puedeEditar => {
+      model.set('puedeEditar', puedeEditar);
+      return model;
+    })
   }
 });

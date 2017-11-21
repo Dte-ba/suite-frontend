@@ -27,4 +27,13 @@
     {{/if}}
   </ul>
 
+  {{#if permiteCambiarLimite}}
+    <br/>
+    <br/>
+
+    <div class="suite-tabla-paginador__selector_de_limite">
+      {{suite-selector/simple conBusqueda=false opciones=opcionesDeLimite valor=limiteSeleccionado cuandoSelecciona=(action 'cambiarLimite')}}
+    </div>
+  {{/if}}
+
 {{/if}}

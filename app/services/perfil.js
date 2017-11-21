@@ -62,5 +62,16 @@ export default Ember.Service.extend({
 
   esCoordinador: Ember.computed("rol", function() {
     return this.get("rol") === "Coordinador";
-  })
+  }),
+
+  puedeEditarLaAccion(accion_id) {
+    let perfil_id = this.get('miPerfil.id');
+    let url = `${ENV.API_URL}/api/perfiles/${perfil_id}/puede-editar-la-accion?accion_id=${accion_id}`;
+
+    return this.get("ajax")
+      .request(url)
+      .then(response => {
+        return response.data.puedeEditar;
+      });
+  }
 });

@@ -12,6 +12,7 @@ export default Ember.Route.extend({
 
     query.page = model.pagina;
     query.query = model.filtro;
+    query.page_size = model.limite || 15;
 
     query.escuela__localidad__distrito__region__numero = Ember.get(
       model,
@@ -68,26 +69,31 @@ export default Ember.Route.extend({
           titulo: "Inicio",
           // componente: "suite-detalle/fecha-acciones-lista"
           atributo: "fecha_inicio",
-          fechaHora: true
+          fechaHora: true,
+          centrar: true
         },
         {
           titulo: "Fin",
           // componente: "suite-detalle/fecha-acciones-lista"
           atributo: "fecha_fin",
-          fechaHora: true
+          fechaHora: true,
+          centrar: true
         },
         {
           titulo: "Título",
           atributo: "titulo",
-          ruta: "app.agenda.detalle"
+          ruta: "app.agenda.detalle",
+          ajustar: true,
         },
         {
           titulo: "Region",
-          atributo: "escuela.localidad.distrito.region.numero"
+          atributo: "escuela.localidad.distrito.region.numero",
+          centrar: true
         },
         {
           titulo: "Distrito",
-          atributo: "escuela.localidad.distrito.nombre"
+          atributo: "escuela.localidad.distrito.nombre",
+          centrar: true
         },
         {
           titulo: "CUE",
@@ -95,15 +101,19 @@ export default Ember.Route.extend({
         },
         {
           titulo: "Responsable",
-          componente: "suite-detalle/responsable"
+          componente: "suite-detalle/responsable",
+          centrar: true,
+          ajustar: false
         },
         {
           titulo: "Acta",
-          componente: "suite-detalle/acta-de-evento"
+          componente: "suite-detalle/acta-de-evento",
+          centrar: true
         },
         {
           titulo: "Traslado",
-          componente: "suite-detalle/traslado"
+          componente: "suite-detalle/traslado",
+          centrar: true
         }
       ]
     };
@@ -119,6 +129,11 @@ export default Ember.Route.extend({
     cuandoCambiaPagina(pagina) {
       let model = this.modelFor(this.routeName);
       Ember.set(model, "pagina", pagina);
+      this.actualizar();
+    },
+    cuandoCambiaLimite(cantidad) {
+      let model = this.modelFor(this.routeName);
+      Ember.set(model, "limite", cantidad);
       this.actualizar();
     },
     cuandoSeleccionaRegion(region) {

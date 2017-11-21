@@ -276,6 +276,10 @@ body > .ember-view {
   color: white;
 }
 
+.ui.button.primario:hover {
+  background-color: #9eb12b;
+}
+
 h1,
 h2,
 h3 {
@@ -827,4 +831,30 @@ iframe.mapa {
 
 .suite-tabla-paginador .item.disabled {
   cursor: default !important;
+}
+
+.ember-power-select-multiple-option .etiquetas-a-derecha {
+  display: none;
+}
+
+
+td {
+   max-width: 10em;
+}
+
+div.ellipsis {
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.centrar {
+  text-align: center;
+}
+
+.suite-tabla-paginador__selector_de_limite {
+  display: inline-block;
+  margin-bottom: 1em;
+  width: 135px;
+  text-align: left;
 }
