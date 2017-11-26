@@ -25,6 +25,20 @@ export default function() {
   this.post("/perfiles");
   this.patch("/perfiles/:id");
 
+  this.get("/estado-de-tareas");
+  this.get("/estado-de-tareas/:id");
+  this.put("/estado-de-tareas/:id");
+  this.del("/estado-de-tareas/:id");
+  this.post("/estado-de-tareas");
+  this.patch("/estado-de-tareas/:id");
+
+  this.get("/tareas");
+  this.get("/tareas/:id");
+  this.put("/tareas/:id");
+  this.del("/tareas/:id");
+  this.post("/tareas");
+  this.patch("/tareas/:id");
+
   this.get("/escuelas");
 
   this.get("/categorias-de-eventos");
@@ -50,6 +64,7 @@ export default function() {
         apellido: "Ruscitti",
         grupos: [{ nombre: "Coordinador", id: 1 }],
         idPerfil: 1,
+        idRegion: 2,
         nombre: "Hugo",
         permisos: {
           "agenda.listar": true,
@@ -90,6 +105,18 @@ export default function() {
 
   this.get("/validaciones");
   this.get("/validaciones/:id");
+
+  this.get("/regiones/2", () => {
+    return {
+      data: {
+        type: "regiones",
+        id: "2",
+        attributes: {
+          numero: 2
+        }
+      }
+    };
+  });
 
   this.get("/escuelas/estadistica", () => {
     return {
@@ -170,13 +197,11 @@ export default function() {
     };
   });
 
-
-
   this.get("/perfiles/1/puede-editar-la-accion", () => {
     return {
       data: {
         puedeEditar: true,
-        accion_id: 1,
+        accion_id: 1
       }
     };
   });

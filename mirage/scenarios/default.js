@@ -16,7 +16,13 @@ export default function(server) {
   });
 
   var region = server.create("region", {
+    id: 1,
     numero: 1
+  });
+
+  server.create("region", {
+    id: 2,
+    numero: 2
   });
 
   var distrito = server.create("distrito", {

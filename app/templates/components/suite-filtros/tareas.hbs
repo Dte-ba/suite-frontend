@@ -1,20 +1,32 @@
-<div class="filtros">
+<div class="dt-ns dt--fixed-ns w-100 bg-near-white ba b--moon-gray pa2 mb2">
+    <div class="dtc-ns v-top">
+      {{suite-campo/filtro
+        ayuda="Ingrese autor"
+        valor=filtro
+        alBuscar=alIngresarFiltro
+      }}
+    </div>
 
-  <div class="celda-filtro">
-    {{suite-campo/filtro
-      ayuda="Ingrese fecha o autor"
-      valor=filtro
-      alBuscar=alIngresarFiltro
-    }}
-  </div>
+    <div class="dtc-ns v-top pl2-ns">
+      {{suite-selector/region
+          deshabilitado=deshabilitarSeleccionDeRegion
+          permiteSeleccionarTodasLasRegiones=(not deshabilitarSeleccionDeRegion)
+          valor=region
+          cuandoSelecciona=cuandoSeleccionaRegion
+      }}
+    </div>
 
-  <div class="celda-filtro">
-    {{suite-selector/region
-        deshabilitado=deshabilitarSeleccionDeRegion
-        permiteSeleccionarTodasLasRegiones=(not deshabilitarSeleccionDeRegion)
-        valor=region
-        cuandoSelecciona=cuandoSeleccionaRegion
-    }}
-  </div>
+    <div class="dtc-ns v-top pl2-ns">
+      {{suite-selector/simple
+          opciones=estados
+          conBusqueda=false
+          valor=estado
+          cuandoSelecciona=cuandoSeleccionaEstado
+      }}
+    </div>
 
+</div>
+
+<div class="dt dt--fixed w-100 mb2 tr">
+  <button class="bn link pointer blue" {{action limpiarFiltros}}>Limpiar filtros</button>
 </div>

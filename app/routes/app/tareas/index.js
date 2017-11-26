@@ -1,57 +1,7 @@
 import Ember from "ember";
-import { task } from "ember-concurrency";
-import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
   requiere: "tareas.listar",
-  /*
-  ajax: Ember.inject.service(),
-  perfilService: Ember.inject.service("perfil"),
-
-
-
-,
-
-  actualizar() {
-    this.get("obtenerTareas").perform();
-  },
-
-  afterModel() {
-    this.actualizar();
-  },
-
-  model() {
-    let soloSuRegion = !this.get("perfilService").tienePermiso("perfil.global");
-    let regionPreSeleccionada = null;
-
-    if (soloSuRegion) {
-      regionPreSeleccionada = this.get("perfilService").obtenerRegion();
-    } else {
-      regionPreSeleccionada = Ember.Object.create({
-        nombre: "Todas las regiones",
-        numero: ""
-      });
-    }
-
-    return {
-      estadisticas: this.get("obtenerEstadisticas").perform({}),
-      tareaTareas: this.get("obtenerTareas"),
-
-      pagina: 1,
-      filtro: "",
-      deshabilitarSeleccionDeRegion: soloSuRegion,
-
-      region: regionPreSeleccionada,
-
-
-    };
-  },
-
-  actions: {
-
-
-  }
-  */
 
   model() {
     return {

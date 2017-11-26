@@ -1,13 +1,23 @@
 {{yield}}
 
-{{#power-select
-  options=opciones
-  selected=valor
-  disabled=deshabilitado
-  searchEnabled=conBusqueda
-  searchField=atributoPrimario
-  onchange=cuandoSelecciona
-  as |opcion|
-}}
-  {{get opcion atributoPrimario}}
-{{/power-select}}
+{{#if (is-pending valor)}}
+  <div class="o-50 ember-power-select-trigger ember-basic-dropdown-trigger disabled">
+    <div class="tc">
+      {{suite-espera-promesa promesa=valor}}
+    </div>
+  </div>
+{{else}}
+
+  {{#power-select
+    options=opciones
+    selected=valor
+    disabled=deshabilitado
+    searchEnabled=conBusqueda
+    searchField=atributoPrimario
+    onchange=cuandoSelecciona
+    as |opcion|
+  }}
+    {{get opcion atributoPrimario}}
+  {{/power-select}}
+
+{{/if}}
