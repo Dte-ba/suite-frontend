@@ -1,14 +1,18 @@
 import Ember from "ember";
-import { task } from "ember-concurrency";
-import ENV from "suite-frontend/config/environment";
+//import { task } from "ember-concurrency";
+//import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
-  ajax: Ember.inject.service(),
+  //ajax: Ember.inject.service(),
 
+  /*
   queryParams: {
     pagina: { replace: true, refreshModel: true },
     filtro: { replace: true }
   },
+  */
+
+  /*
 
   obtenerValidaciones: task(function*() {
     let url = ENV.API_URL + "/api/validaciones/estadistica";
@@ -39,11 +43,14 @@ export default Ember.Route.extend({
 
     return dataset;
   }).drop(),
+  */
 
   model() {
+    /*
     return {
       validaciones: this.get("obtenerValidaciones").perform(),
       estadisticas: this.get("obtenerEstadisticas").perform({})
     };
+    */
   }
 });

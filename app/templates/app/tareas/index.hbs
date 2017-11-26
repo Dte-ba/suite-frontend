@@ -3,30 +3,36 @@
     {{suite-titulo titulo="Tareas"}}
   </div>
   <div class="eleven wide column">
-    {{suite-estadisticas/tareas tarea=model.estadisticas}}
+    {{suite-estadisticas/tareas tarea=estadisticas}}
   </div>
 </div>
+
 <div class="ui divider"></div>
 
 <div class="ui equal width row segment">
   <div class="column">
     {{#suite-permiso permiso="tareas.crear"}}
-      <button class="ui button primario " {{action (route-action "crearUnaTareaNueva")}}><i class="ui plus icon"></i> Nueva tarea</button>
+      <button class="ui button primario " {{action "crearUnaTareaNueva"}}><i class="ui plus icon"></i> Nueva tarea</button>
     {{/suite-permiso}}
   </div>
 </div>
+
 {{suite-filtros/tareas
-  filtro=model.filtro
-  region=model.region
-  deshabilitarSeleccionDeRegion=model.deshabilitarSeleccionDeRegion
-  cuandoSeleccionaRegion=(route-action "cuandoSeleccionaRegion")
-  alIngresarFiltro=(route-action "alIngresarFiltro")
+  filtro=filtro
+  region=region
+  estado=estado
+  estados=estados
+  deshabilitarSeleccionDeRegion=deshabilitarSeleccionDeRegion
+  cuandoSeleccionaRegion=(action "cuandoSeleccionaRegion")
+  alIngresarFiltro=(action "alIngresarFiltro")
+  cuandoSeleccionaEstado=(action "cuandoSeleccionaEstado")
+  limpiarFiltros=(action "limpiarFiltros")
 }}
 
 {{suite-tabla
-  pagina=model.pagina
+  pagina=pagina
   columnas=model.columnas
-  tarea=model.tareaTareas
-  cuandoCambiaPagina=(route-action "cuandoCambiaPagina")
+  tarea=tareaTareas
+  cuandoCambiaPagina=(action "cuandoCambiaPagina")
   paginacion=true
 }}

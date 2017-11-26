@@ -8,7 +8,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   perfil: Ember.inject.service(),
   authenticationRoute: "login",
 
-  afterModel() {
+  model() {
     return this.get("perfil")
       .cargar()
       .then(() => {
@@ -34,6 +34,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       .catch(error => this.logoutIfInvalidSession(error));
   },
 
+  afterModel() {
+    return Ember.RSVP.hash({
+      region: this.get("store").findRecord("region", this.get("perfil.data.idRegion")),
+      regiones: this.get("store").findAll("region")
+    });
+  },
   logoutIfInvalidSession(error) {
     if (error instanceof UnauthorizedError) {
       this.transitionTo("logout");
