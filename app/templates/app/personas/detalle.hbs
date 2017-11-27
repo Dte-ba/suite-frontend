@@ -22,15 +22,23 @@
 
   <div class="ui equal width row segment">
     <div class="column">
+
         {{#suite-permiso permiso="personas.editar"}}
           {{#link-to "app.personas.edicion" model class="ui button primario"}}<i class="ui edit icon"></i> Editar{{/link-to}}
         {{/suite-permiso}}
+
+        {{#suite-permiso permiso="personas.editar"}}
+          {{#link-to "app.personas.clave" model class="ui button primario"}}<i class="id card icon"></i> Definir Contraseña{{/link-to}}
+        {{/suite-permiso}}
+
         {{#suite-permiso permiso="personas.eliminar"}}
           <button class="ui button primario disabled"><i class="ui ban icon"></i> Eliminar</button>
         {{/suite-permiso}}
+
         {{#suite-permiso permiso="personas.verinformes"}}
           <button class="ui button primario disabled"><i class="ui file icon"></i> Ver informe</button>
         {{/suite-permiso}}
+
     </div>
   </div>
 

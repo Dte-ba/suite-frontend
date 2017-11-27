@@ -106,5 +106,10 @@ export default DS.Model.extend({
   validaciones: {
     nombre: [validatePresence(true)],
     apellido: [validatePresence(true)]
+  },
+
+  validacionesDeClave: {
+    clave: [validatePresence(true)],
+    confirmacion: [validatePresence(true)]
   }
 });
