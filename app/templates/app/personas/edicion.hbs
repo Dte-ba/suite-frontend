@@ -2,10 +2,14 @@
 
 {{suite-titulo titulo="Edición de usuario"}}
 
-{{suite-formularios/usuario
-  model        = (changeset model.usuario model.validaciones)
-  contratos    = model.contratos
-  localidad    = model.localidad
-  on-submit    = (action "guardar")
-  submit-label = 'Guardar'
+{{#suite-formularios/perfil
+  model        = (changeset model model.validaciones)
+  cuandoGuarda    = (route-action "regresar" model)
+  texto = 'Guardar Perfil'
 }}
+
+<button class="ui cancelar button" {{action (route-action "cancelar" model)}}>Cancelar</button>
+
+{{suite-detalle-de-perfil tarea=model.tareaGuardar}}
+
+{{/suite-formularios/perfil}}
