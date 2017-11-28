@@ -1,7 +1,9 @@
 import DS from "ember-data";
 import Ember from "ember";
 import {
-  validatePresence
+  validatePresence,
+  validateLength,
+  validateFormat
 } from "ember-changeset-validations/validators";
 
 export default DS.Model.extend({
@@ -47,7 +49,7 @@ export default DS.Model.extend({
   emailLaboral: DS.attr("string"),
 
   eventos: DS.hasMany("evento", {
-    inverse: 'acompaniantes'
+    inverse: "acompaniantes"
   }),
 
   regionComoCadena: Ember.computed("region.{numero}", function() {
@@ -106,7 +108,18 @@ export default DS.Model.extend({
   ),
 
   validaciones: {
-    nombre: [validatePresence(true)],
-    apellido: [validatePresence(true)]
+    nombre: [validatePresence(true), validateLength({ min: 2 })],
+    apellido: [validatePresence(true)],
+    localidad: [validatePresence(true)],
+    emailLaboral: [validatePresence(true), validateFormat({ type: "email" })],
+    cargo: [validatePresence(true)],
+    group: [validatePresence(true)],
+    contrato: [validatePresence(true)],
+    region: [validatePresence(true)]
+  },
+
+  validacionesDeClave: {
+    clave: [validatePresence(true)],
+    confirmacion: [validatePresence(true)]
   }
 });

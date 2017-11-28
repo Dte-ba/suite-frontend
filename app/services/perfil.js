@@ -17,7 +17,7 @@ export default Ember.Service.extend({
     return `${nombre} ${apellido}`;
   }),
 
-  // Se llamará desde la ruta principal app.
+  // Se llamará desde la ruta principal app (archivo "app/routes/app.js")
   cargar() {
     let url = ENV.API_URL + "/api/mi-perfil";
     return this.get("ajax")
@@ -65,7 +65,7 @@ export default Ember.Service.extend({
   }),
 
   puedeEditarLaAccion(accion_id) {
-    let perfil_id = this.get('miPerfil.id');
+    let perfil_id = this.get("miPerfil.id");
     let url = `${ENV.API_URL}/api/perfiles/${perfil_id}/puede-editar-la-accion?accion_id=${accion_id}`;
 
     return this.get("ajax")

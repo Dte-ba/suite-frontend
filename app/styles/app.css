@@ -858,3 +858,11 @@ div.ellipsis {
   width: 135px;
   text-align: left;
 }
+
+ol.qunit-assert-list table {
+  width: 100%;
+}
+
+#qunit-tests th {
+  width: 100px;
+}

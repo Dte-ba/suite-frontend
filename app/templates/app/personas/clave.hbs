@@ -1,0 +1,19 @@
+{{outlet}}
+
+{{#suite-formularios/clave
+  model        = (changeset model model.validacionesDeClave)
+  cuandoGuarda = (action "definirClave")
+  texto = 'Confirmar cambio de clave'
+}}
+
+<button class="ui cancelar button" {{action (action "cancelar")}}>Cancelar</button>
+
+{{/suite-formularios/clave}}
+
+{{#if errors}}
+  <div class="ui negative message">
+    {{#each errors as |error|}}
+      <p><strong>{{error.campo}}</strong> - {{error.detalle}}</p>
+    {{/each}}
+  </div>
+{{/if}}

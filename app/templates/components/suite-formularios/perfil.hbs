@@ -1,0 +1,82 @@
+{{#validated-form
+  model        = (changeset model model.validaciones)
+  on-submit    = tareaGuardar
+  submit-label = texto as |f|
+}}
+
+{{#suite-grupo numero=1 titulo="Datos personales"}}
+
+  {{f.input label="Nombre" name="nombre"}}
+  {{f.input label="Apellido" name="apellido"}}
+
+  {{f.input label="Fecha de nacimiento" name="fechadenacimiento"}}
+
+  {{f.input label="DNI" name="dni"}}
+  {{f.input label="CUIT/CUIL" name="cuit"}}
+
+  {{f.input label="CBU" name="cbu"}}
+  {{f.input label="Email Personal" name="email"}}
+
+  {{f.input label="Calle" name="direccionCalle"}}
+  {{f.input label="Altura" name="direccionAltura"}}
+  {{f.input label="Piso" name="direccionPiso"}}
+  {{f.input label="Depto" name="direccionDepto"}}
+  {{f.input label="Torre" name="direccionTorre"}}
+  {{f.input label="Código Postal" name="codigoPostal"}}
+
+  {{#f.input label="Localidad" name="localidad" as |f|}}
+    {{suite-selector/localidad valor=f.value cuandoSelecciona=f.update}}
+  {{/f.input}}
+
+  {{f.input label="Celular " name="telefonoCelular"}}
+  {{f.input label="Teléfono Alternativo " name="telefonoAlternativo"}}
+
+
+{{/suite-grupo}}
+
+
+{{#suite-grupo numero=2 titulo="Datos administrativos"}}
+
+  {{#f.input label="Region" name="region" as |f|}}
+    {{suite-selector/simple opciones=model.opciones.regiones valor=f.value cuandoSelecciona=f.update}}
+  {{/f.input}}
+
+  {{#f.input label="Rol en la SUITE" name="group" as |f|}}
+    {{suite-selector/simple opciones=model.opciones.groups valor=f.value cuandoSelecciona=f.update}}
+  {{/f.input}}
+
+  {{#f.input label="Cargo" name="cargo" as |f|}}
+    {{suite-selector/simple opciones=model.opciones.cargos valor=f.value cuandoSelecciona=f.update}}
+  {{/f.input}}
+
+  {{#f.input label="Contrato" name="contrato" as |f|}}
+    {{suite-selector/simple opciones=model.opciones.contratos valor=f.value cuandoSelecciona=f.update}}
+  {{/f.input}}
+
+  {{f.input label="Expediente " name="expediente"}}
+  {{f.input label="Fecha de Ingreso " name="fechaDeIngreso"}}
+  {{f.input label="Fecha de Renuncia " name="fechaDeRenuncia"}}
+  {{f.input label="Email Laboral" name="emailLaboral"}}
+
+
+{{/suite-grupo}}
+
+{{#suite-grupo titulo=""}}
+  {{f.submit label=texto class="ui button green"}} {{yield}}
+
+  {{#if error}}
+    <div class="ui negative message">
+      {{#each error.errors as |error|}}
+        <li><strong>{{error.source.pointer}}</strong> - {{error.detail}}</li>
+      {{/each}}
+
+      {{#each error.payload.errors.errors as |error|}}
+        <li><strong>{{error.source.pointer}}</strong> - {{error.detail}}</li>
+      {{/each}}
+
+    </div>
+  {{/if}}
+
+{{/suite-grupo}}
+
+{{/validated-form}}

@@ -1,8 +1,12 @@
 import { moduleFor, test } from "ember-qunit";
 
-moduleFor("controller:app/tareas/index", "Unit | Controller | app/tareas/index", {
-  needs: ["service:analytics", "service:ajax", "service:perfil"]
-});
+moduleFor(
+  "controller:app/personas/clave",
+  "Unit | Controller | app/personas/clave",
+  {
+    needs: ["service:analytics", "service:notificador"]
+  }
+);
 
 // Replace this with your real tests.
 test("it exists", function(assert) {
