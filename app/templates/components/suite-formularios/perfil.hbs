@@ -1,5 +1,5 @@
 {{#validated-form
-  model        = model
+  model        = (changeset model model.validaciones)
   on-submit    = tareaGuardar
   submit-label = texto as |f|
 }}
@@ -23,10 +23,11 @@
   {{f.input label="Depto" name="direccionDepto"}}
   {{f.input label="Torre" name="direccionTorre"}}
   {{f.input label="Código Postal" name="codigoPostal"}}
-  {{#f.input label="Localidad" name="localidad" as |f|}}
 
+  {{#f.input label="Localidad" name="localidad" as |f|}}
     {{suite-selector/localidad valor=f.value cuandoSelecciona=f.update}}
   {{/f.input}}
+
   {{f.input label="Celular " name="telefonoCelular"}}
   {{f.input label="Teléfono Alternativo " name="telefonoAlternativo"}}
 
@@ -59,7 +60,23 @@
 
 
 {{/suite-grupo}}
+
 {{#suite-grupo titulo=""}}
   {{f.submit label=texto class="ui button green"}} {{yield}}
+
+  {{#if error}}
+    <div class="ui negative message">
+      {{#each error.errors as |error|}}
+        <li><strong>{{error.source.pointer}}</strong> - {{error.detail}}</li>
+      {{/each}}
+
+      {{#each error.payload.errors.errors as |error|}}
+        <li><strong>{{error.source.pointer}}</strong> - {{error.detail}}</li>
+      {{/each}}
+
+    </div>
+  {{/if}}
+
 {{/suite-grupo}}
+
 {{/validated-form}}

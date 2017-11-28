@@ -4,15 +4,16 @@ export default Ember.Route.extend({
   requiere: "personas.crear",
   perfil: Ember.inject.service(),
   model() {
-    return this.store.createRecord("perfil");
+    return this.store.createRecord("perfil", {});
   },
   afterModel(model) {
     model.set("opciones", {
       regiones: this.store.query("region", { page_size: 3000 }),
       cargos: this.store.findAll("cargo"),
       contratos: this.store.findAll("contrato"),
-      groups: this.store.findall("group")
+      groups: this.store.findAll("group")
     });
+    model.set("usuario", model);
   },
   actions: {
     willTransition: function() {

@@ -3,7 +3,7 @@
 {{suite-titulo titulo="Edición de usuario"}}
 
 {{#suite-formularios/perfil
-  model        = (changeset model model.validaciones)
+  model           = model
   cuandoGuarda    = (route-action "regresar" model)
   texto = 'Guardar Perfil'
 }}

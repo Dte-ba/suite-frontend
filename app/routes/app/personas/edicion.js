@@ -15,7 +15,6 @@ export default Ember.Route.extend({
         groups: this.store.findAll("group")
       });
       model.set("usuario", model);
-      model.set("validaciones", []);
     }
   },
   actions: {

@@ -10,6 +10,12 @@ moduleForComponent(
 );
 
 test("it renders", function(assert) {
-  this.render(hbs`{{suite-formularios/perfil}}`);
+
+  this.set('model', {
+    nombre: 'demo',
+    validaciones: []
+  })
+
+  this.render(hbs`{{suite-formularios/perfil model=model}}`);
   assert.ok(this.$().text());
 });
