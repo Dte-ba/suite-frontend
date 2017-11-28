@@ -1,6 +1,10 @@
 import DS from "ember-data";
 import Ember from "ember";
-import { validatePresence, validateLength, validateFormat  } from "ember-changeset-validations/validators";
+import {
+  validatePresence,
+  validateLength,
+  validateFormat
+} from "ember-changeset-validations/validators";
 
 export default DS.Model.extend({
   // 1) Datos Personales
@@ -107,7 +111,11 @@ export default DS.Model.extend({
     nombre: [validatePresence(true), validateLength({ min: 2 })],
     apellido: [validatePresence(true)],
     localidad: [validatePresence(true)],
-    emailLaboral: [validatePresence(true), validateFormat({ type: 'email' })]
+    emailLaboral: [validatePresence(true), validateFormat({ type: "email" })],
+    cargo: [validatePresence(true)],
+    group: [validatePresence(true)],
+    contrato: [validatePresence(true)],
+    region: [validatePresence(true)]
   },
 
   validacionesDeClave: {
