@@ -111,7 +111,7 @@ export default DS.Model.extend({
     nombre: [validatePresence(true), validateLength({ min: 2 })],
     apellido: [validatePresence(true)],
     localidad: [validatePresence(true)],
-    emailLaboral: [validatePresence(true), validateFormat({ type: "email" })],
+    // emailLaboral: [validatePresence(true), validateFormat({ type: "email" })],
     cargo: [validatePresence(true)],
     group: [validatePresence(true)],
     contrato: [validatePresence(true)],

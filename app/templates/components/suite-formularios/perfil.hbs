@@ -56,7 +56,11 @@
   {{f.input label="Expediente " name="expediente"}}
   {{f.input label="Fecha de Ingreso " name="fechaDeIngreso"}}
   {{f.input label="Fecha de Renuncia " name="fechaDeRenuncia"}}
-  {{f.input label="Email Laboral" name="emailLaboral"}}
+  {{#if editar}}
+    {{f.input label="Email Laboral" disabled=true name="emailLaboral"}}
+  {{else}}
+    {{f.input label="Email Laboral" name="emailLaboral"}}
+  {{/if}}
 
 
 {{/suite-grupo}}
