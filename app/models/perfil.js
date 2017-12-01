@@ -2,8 +2,7 @@ import DS from "ember-data";
 import Ember from "ember";
 import {
   validatePresence,
-  validateLength,
-  validateFormat
+  validateLength
 } from "ember-changeset-validations/validators";
 
 export default DS.Model.extend({
