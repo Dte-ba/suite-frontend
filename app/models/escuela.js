@@ -30,6 +30,8 @@ export default DS.Model.extend({
 
   numero_de_region: DS.attr("number"),
 
+  observaciones: DS.attr("string"),
+
   tieneDatosGeolocalizacion: Ember.computed("latitud", "longitud", function() {
     return this.get("latitud") && this.get("longitud");
   }),
