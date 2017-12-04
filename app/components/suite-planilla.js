@@ -16,7 +16,7 @@ export default Ember.Component.extend({
       rowHeaders: true,
       data: data,
       width: 800,
-      height: 200,
+      height: 500,
 
       colWidths: anchosDeColumnas,
       colHeaders: columnas,
