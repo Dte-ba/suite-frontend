@@ -8,11 +8,15 @@ export default Ember.Route.extend({
   ajax: Ember.inject.service(),
 
   obtenerPersonas: task(function*() {
+    let query = {};
+
     let model = this.modelFor(this.routeName);
-    let data = yield this.store.query("perfil", {
-      page: model.pagina,
-      query: model.filtro
-    });
+
+    query.activos = true;
+    query.page = model.pagina;
+    query.query = model.filtro;
+
+    let data = yield this.store.query("perfil", query);
     let meta = data.get("meta");
     return { data, meta };
   }).drop(),
