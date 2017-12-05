@@ -837,15 +837,14 @@ iframe.mapa {
   display: none;
 }
 
-
 td {
-   max-width: 10em;
+  max-width: 10em;
 }
 
 div.ellipsis {
-   white-space: nowrap;
-   overflow: hidden;
-   text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .centrar {
@@ -865,4 +864,8 @@ ol.qunit-assert-list table {
 
 #qunit-tests th {
   width: 100px;
+}
+
+.overflow {
+  overflow: auto;
 }

@@ -25,7 +25,12 @@
 
   {{#if error}}
     <div class="ui negative message">
-      <p>{{error}}</p>
+      <p>{{error}}, hay {{errores.length}} errores:</p>
+
+<pre class='overflow'>{{#each errores as |mensaje|}}{{mensaje}}
+{{/each}}
+</pre>
+
     </div>
   {{/if}}
 

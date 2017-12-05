@@ -19,13 +19,16 @@
       {{#suite-permiso permiso="perfil.global"}}
         {{f.input label="CUE" name="cue" disabled=true}}
         {{f.input label="Nombre" name="nombre" required=true }}
+        {{f.input label="Observaciones" name="observaciones"}}
       {{else}}
         {{f.input label="CUE" name="cue" disabled=true}}
         {{f.input label="Nombre" name="nombre" disabled=true}}
+        {{f.input label="Observaciones" name="observaciones" disabled=true}}
       {{/suite-permiso}}
     {{else}}
       {{f.input label="CUE" name="cue" required=true}}
       {{f.input label="Nombre" name="nombre" required=true }}
+      {{f.input label="Observaciones" name="observaciones"}}
     {{/if}}
 
   {{/suite-grupo}}
