@@ -19,8 +19,13 @@ export default Ember.Component.extend({
         data: JSON.stringify(datos)
       });
 
-      if (this.get("on-submit")) {
-        this.get("on-submit")();
+      if (response.data.error) {
+        this.set("error", response.data.error);
+        this.set("errores", response.data.errores);
+      } else {
+        if (this.get("on-submit")) {
+          this.get("on-submit")();
+        }
       }
 
       return response;
