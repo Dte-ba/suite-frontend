@@ -6,6 +6,7 @@ export default Ember.Route.extend({
   requiere: "escuelas.listar",
   ajax: Ember.inject.service(),
   perfilService: Ember.inject.service("perfil"),
+  descargas: Ember.inject.service(),
 
   obtenerEscuelas: task(function*() {
     let query = {};
@@ -16,10 +17,7 @@ export default Ember.Route.extend({
     query.page = model.pagina;
     query.query = model.filtro;
 
-    query.localidad__distrito__region__numero = Ember.get(
-      model,
-      "region.numero"
-    );
+    query.localidad__distrito__region__numero = Ember.get(model, "region.numero");
 
     let data = yield this.store.query("escuela", query);
     let meta = data.get("meta");
@@ -28,32 +26,8 @@ export default Ember.Route.extend({
   }).drop(),
 
   tareaExportarEscuelas: task(function*() {
-    let base = ENV.API_URL;
-    let url = "";
-
-    url = `${base}/api/escuelas/export`;
-
-    let data = yield this.get("ajax").raw(url, {
-      dataType: "binary",
-      xhrFields: {
-        responseType: "blob"
-      }
-    });
-
-    const blob_url = URL.createObjectURL(data.response);
-
-    const dl = document.createElement("a");
-    dl.href = blob_url;
-    dl.download = "escuelas.xls";
-    document.body.appendChild(dl);
-    dl.click();
-
-    Ember.run.later(() => {
-      URL.revokeObjectURL(blob_url);
-    }, 2000);
-
-
-    return data;
+    let url = `/api/escuelas/export`;
+    yield this.get("descargas").iniciar(url, "escuelas.xls");
   }).drop(),
 
   obtenerEstadisticas: task(function*() {

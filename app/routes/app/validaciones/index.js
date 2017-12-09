@@ -6,6 +6,7 @@ export default Ember.Route.extend({
   requiere: "validaciones.listar",
   ajax: Ember.inject.service(),
   perfilService: Ember.inject.service("perfil"),
+  descargas: Ember.inject.service(),
 
   obtenerValidaciones: task(function*() {
     let query = {};
@@ -14,10 +15,7 @@ export default Ember.Route.extend({
 
     query.page = model.pagina;
     query.query = model.filtro;
-    query.escuela__localidad__distrito__region__numero = Ember.get(
-      model,
-      "region.numero"
-    );
+    query.escuela__localidad__distrito__region__numero = Ember.get(model, "region.numero");
 
     let data = yield this.store.query("validacion", query);
     let meta = data.get("meta");
@@ -34,36 +32,15 @@ export default Ember.Route.extend({
   tareaExportarValidaciones: task(function*(inicio, fin, estado) {
     let i = inicio;
     let f = fin;
-
-    let base = ENV.API_URL;
     let url = "";
 
     if (estado) {
-      url = `${base}/api/validaciones/export?inicio=${i}&fin=${f}&estado=${estado}`;
+      url = `/api/validaciones/export?inicio=${i}&fin=${f}&estado=${estado}`;
     } else {
-      url = `${base}/api/validaciones/export?inicio=${i}&fin=${f}`;
+      url = `/api/validaciones/export?inicio=${i}&fin=${f}`;
     }
 
-    let data = yield this.get("ajax").raw(url, {
-      dataType: "binary",
-      xhrFields: {
-        responseType: "blob"
-      }
-    });
-
-    const blob_url = URL.createObjectURL(data.response);
-
-    const dl = document.createElement("a");
-    dl.href = blob_url;
-    dl.download = "validaciones.xls";
-    document.body.appendChild(dl);
-    dl.click();
-
-    Ember.run.later(() => {
-      URL.revokeObjectURL(blob_url);
-    }, 2000);
-
-    return data;
+    return yield this.get("descargas").iniciar(url, "validaciones.xls");
   }).drop(),
 
   actualizar() {
