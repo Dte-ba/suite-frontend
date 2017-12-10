@@ -15,6 +15,10 @@
     {{#suite-permiso permiso="personas.crear"}}
       <button class="ui button primario " {{action (route-action "crearUnUsuarioNuevo")}}><i class="ui plus icon"></i> Agregar persona</button>
     {{/suite-permiso}}
+
+    {{#suite-permiso permiso="personas.verinformes"}}
+      {{#link-to "app.personas.informes.index" class="ui button primario "}}<i class="ui file icon"></i> Generar informes{{/link-to}}
+    {{/suite-permiso}}
   </div>
 </div>
 

@@ -1,5 +1,9 @@
 {{yield}}
 
+{{#if (is-pending valor)}}
+  <input class='ui input disabled' placeholder="Cargando ...">
+{{else}}
+
 {{#power-select
   disabled=disabled
   search=(perform buscarPersonas)
@@ -27,3 +31,5 @@
 
 
 {{/power-select}}
+
+{{/if}}

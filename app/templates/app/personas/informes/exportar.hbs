@@ -1,0 +1,21 @@
+{{outlet}}
+
+{{#if tareaExportarInforme.isRunning}}
+
+  <h2>Generando informe ...</h2>
+
+  <p>{{suite-spinner}}</p>
+
+{{else if tareaExportarInforme.error}}
+
+  <div class="error">
+    {{tareaExportarInforme.error}}
+  </div>
+
+{{else}}
+
+  <h2>Informe generado</h2>
+
+  <p>Se ha generado correctamente el informe.</p>
+
+{{/if}}
