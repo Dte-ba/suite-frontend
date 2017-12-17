@@ -13,9 +13,13 @@ export default Ember.Route.extend({
 
     let model = this.modelFor(this.routeName);
 
+    query.eliminada = true;
     query.page = model.pagina;
     query.query = model.filtro;
-    query.escuela__localidad__distrito__region__numero = Ember.get(model, "region.numero");
+    query.escuela__localidad__distrito__region__numero = Ember.get(
+      model,
+      "region.numero"
+    );
 
     let data = yield this.store.query("validacion", query);
     let meta = data.get("meta");
