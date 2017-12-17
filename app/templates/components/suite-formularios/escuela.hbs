@@ -14,7 +14,7 @@
     </p>
   {{/suite-grupo}}
 
-  {{#suite-grupo numero=2 titulo="Información"}}
+  {{#suite-grupo numero=2 titulo="Características"}}
     {{#if editar}}
       {{#suite-permiso permiso="perfil.global"}}
         {{f.input label="CUE" name="cue" disabled=true}}
@@ -30,10 +30,6 @@
       {{f.input label="Nombre" name="nombre" required=true }}
       {{f.input label="Observaciones" name="observaciones"}}
     {{/if}}
-
-  {{/suite-grupo}}
-
-  {{#suite-grupo numero=3 titulo="Características"}}
 
     {{#if editar}}
       {{#suite-permiso permiso="perfil.global"}}
@@ -83,7 +79,7 @@
 
   {{/suite-grupo}}
 
-  {{#suite-grupo numero=4 titulo="Datos de contacto"}}
+  {{#suite-grupo numero=3 titulo="Datos de contacto"}}
 
     {{f.input label="Teléfono" name="telefono"}}
     {{f.input label="Email" name="email"}}
