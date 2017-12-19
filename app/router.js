@@ -67,6 +67,9 @@ Router.map(function() {
       this.route("edicion", { path: "edicion/:perfil_id" });
       this.route("informe", { path: "informe/:perfil_id" });
       this.route("clave", { path: "clave/:perfil_id" });
+      this.route('informes', function() {
+        this.route('exportar');
+      });
     });
 
     this.route("agenda", function() {

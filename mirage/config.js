@@ -76,7 +76,8 @@ export default function() {
           "matrix.listar": true,
           "paquetes.listar": true,
           "validaciones.listar": true,
-          "perfil.global": true
+          "perfil.global": true,
+          "personas.verinformes": true
         }
       }
     };
@@ -194,6 +195,12 @@ export default function() {
         objetados: 6527,
         pendientes: 618
       }
+    };
+  });
+
+  this.get("/informes", () => {
+    return {
+      data: "DEMO"
     };
   });
 

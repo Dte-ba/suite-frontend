@@ -36,7 +36,7 @@
         {{/suite-permiso}}
 
         {{#suite-permiso permiso="personas.verinformes"}}
-          <button class="ui button primario disabled"><i class="ui file icon"></i> Ver informe</button>
+          {{#link-to "app.personas.informes.index" (query-params perfil=model.id) class="ui button primario"}}<i class="ui file icon"></i> Generar informe{{/link-to}}
         {{/suite-permiso}}
 
     </div>
