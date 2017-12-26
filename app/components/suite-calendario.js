@@ -24,8 +24,8 @@ export default Ember.Component.extend({
     let base = ENV.API_URL;
     let url = "";
 
-    if (this.get('perfilPreseleccionado.id')) {
-      let idPerfil = this.get('perfilPreseleccionado.id');
+    if (this.get("perfilPreseleccionado.id")) {
+      let idPerfil = this.get("perfilPreseleccionado.id");
       url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${idPerfil}&region=${numeroDeRegion}`;
     } else {
       url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&region=${numeroDeRegion}`;
@@ -57,7 +57,7 @@ export default Ember.Component.extend({
     };
 
     this.set("region", this.get("perfilService").obtenerRegion());
-    this.set('perfilPreseleccionado', this.get('perfilService.miPerfil'));
+    this.set("perfilPreseleccionado", this.get("perfilService.miPerfil"));
 
     var permiso = this.get("perfilService").tienePermiso("perfil.global");
     var limite = false;
@@ -110,10 +110,10 @@ export default Ember.Component.extend({
         }
         if (evento.acta) {
           element.addClass("evento-con-acta");
-          element.append('<i class="ui green file icon"></i>');
+          element.append('<i class="ui blue file icon"></i>');
         } else {
           element.addClass("evento-sin-acta");
-          element.append('<i class="ui yellow file icon"></i>');
+          element.append('<i class="ui red file icon"></i>');
         }
         if (evento.traslado === true) {
           element.append('<i class="ui grey car icon"></i>');
@@ -149,7 +149,7 @@ export default Ember.Component.extend({
       this.actualizar();
     },
     cuandoSeleccionaResponsable(responsable) {
-      this.set('perfilPreseleccionado', responsable);
+      this.set("perfilPreseleccionado", responsable);
       this.actualizar();
     }
   }
