@@ -1,7 +1,7 @@
 {{#if ajustar}}
-  <div class='ellipsis {{if centrar "centrar"}}'>{{yield}}</div>
+  <div class='ellipsis {{if centrar "centrar"}} truncate'>{{yield}}</div>
 {{else}}
-  <div class="{{if centrar "centrar"}}">
+  <div class="{{if centrar "centrar"}} truncate">
     {{yield}}
   </div>
 {{/if}}
