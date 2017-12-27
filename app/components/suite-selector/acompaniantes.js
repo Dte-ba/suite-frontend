@@ -12,6 +12,8 @@ export default Ember.Component.extend({
 
     var query = { search: term };
 
+    query.activos = true;
+
     if (soloSuRegion) {
       let region = this.get("perfilService").obtenerRegion();
       query.region__numero = region.get("numero");
