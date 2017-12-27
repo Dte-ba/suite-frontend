@@ -9,15 +9,22 @@
       {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
-    <div class="ui orange basic label">Tenga en cuenta que ahora la llave del servidor no se sube con la solicitud de paquetes, si no que por única vez se sube en el piso de la escuela. Para editar el piso escolar y/o subir la llave, puede hacerlo desde la vista de detalle de la escuela.</div>
+    <div class="ui info message">Tenga en cuenta que ahora la llave del servidor no se sube con la solicitud de paquetes, si no que por única vez se sube en el piso de la escuela. Para editar el piso escolar y/o subir la llave, puede hacerlo desde la vista de detalle de la escuela.</div>
   {{/suite-grupo}}
 
 
   {{#suite-grupo numero=2 titulo="Paquetes"}}
-    <p> Por favor, cargar los datos <b>sin los "0" (ceros) de la izquierda</b>, <b>sin guiones</b> y <b>sin espacios</b>.<br>
-    <span class="ui red">En la columna TPMData, indicar con un <b>SI</b> o dejar en blanco, según corresponda.</span></p>
     <p>A continuación indique los paquetes a solicitar, puede copiar y pegar
       directamente aquí los datos desde excel o libre office:</p>
+    <div class="ui info message">
+      <ul>
+        <li>El NE son 20 caracteres hexadecimales, sin "0" (ceros), sin "-" (guiones) y sin espacios.</li>
+        <li>ID Hardware son 12 caracteres hexadecimales sin espacios.</li>
+        <li>En la columna TPMData, indicar con un SI o dejar en blanco según corresponda.</li>
+        <li>Si el NE es: 26083895E6DB81254058 es el de Plan Sarmiento y no podrá enviarse el paquete.</li>
+      </ul>
+    </div>
+
     {{#f.input label="Paquetes a solicitar" name="paquetes" as |f|}}
       {{suite-planilla columnas=model.columnas datos=f.value cuandoCambia=f.update}}
     {{/f.input}}
