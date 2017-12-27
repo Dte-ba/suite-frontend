@@ -83,7 +83,7 @@ export default Ember.Route.extend({
         },
         {
           atributo: "idhardware_ma",
-          titulo: "ID de hardware / Marca de Arranque"
+          titulo: "ID de hardware (MA)"
         },
         {
           atributo: "ne",
@@ -99,7 +99,7 @@ export default Ember.Route.extend({
           componente: "suite-detalle/estado-de-paquete"
         },
         {
-          titulo: "Descarga",
+          titulo: "Bajar",
           componente: "suite-detalle/zip-paquete"
         },
         {
