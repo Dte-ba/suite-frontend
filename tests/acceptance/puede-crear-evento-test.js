@@ -6,72 +6,46 @@ registerPowerSelectHelpers();
 
 moduleForAcceptance("Acceptance | puede crear evento");
 
-test("Puede crear un evento correctamente", function(assert) {
+test("Puede crear un evento correctamente", async function(assert) {
   cargarDatosDePrueba();
 
-  login();
+  await login();
+  await esperar(3);
 
-  andThen(function() {
-    esperar(3);
-  });
+  await click(".seccion-agenda");
 
-  andThen(function() {
-    click(".seccion-agenda");
-  });
+  assert.equal(currentURL(), "/app/agenda/index/lista");
 
-  andThen(function() {
-    assert.equal(currentURL(), "/app/agenda/index/lista");
-  });
+  await click("#crearEvento");
 
-  andThen(function() {
-    click("#crearEvento");
-  });
+  fillIn("[name='titulo']", "Evento de prueba");
+  await click("[type='submit']");
 
-  andThen(function() {
-    fillIn("[name='titulo']", "Evento de prueba");
-    click("[type='submit']");
-  });
+  // Hay exactamente 4 errores de validación.
+  assert.equal($(".field.error").length, 4);
 
-  andThen(function() {
-    // Hay exactamente 4 errores de validación.
-    assert.equal($(".field.error").length, 4);
+  // Luego se cargan datos válidos
+  fillIn("[placeholder='Seleccione hora']:first", "14:00");
+  fillIn("[placeholder='Seleccione hora']:last", "16:00");
 
-    // Luego se cargan datos válidos
-    fillIn("[placeholder='Seleccione hora']:first", "14:00");
-    fillIn("[placeholder='Seleccione hora']:last", "16:00");
+  fillIn("[name='cantidadDeParticipantes']", 0);
+  fillIn("[name='objetivo']", "Un objetivo de prueba");
 
-    fillIn("[name='cantidadDeParticipantes']", 0);
-    fillIn("[name='objetivo']", "Un objetivo de prueba");
+  await selectSearch(".selectorDePerfil", "demo");
 
-    selectSearch(".selectorDePerfil", "demo");
-  });
+  await selectChoose(".selectorDePerfil", "Nombre Apellido");
 
-  andThen(function() {
-    selectChoose(".selectorDePerfil", "Nombre Apellido");
-  });
+  await selectSearch(".selectorDeEscuela", "123123");
 
-  andThen(function() {
-    selectSearch(".selectorDeEscuela", "123123");
-  });
+  await selectChoose(".selectorDeEscuela", "Escuela N° 10 - General José de San Martín");
 
-  andThen(function() {
-    selectChoose(
-      ".selectorDeEscuela",
-      "Escuela N° 10 - General José de San Martín"
-    );
-  });
-
-  andThen(function() {
-    selectChoose(".selectorAgrupable", "Sin categoría");
-  });
+  await selectChoose(".selectorAgrupable", "Sin categoría");
 
   /* Con los datos cargados, tiene que permitir agendar */
-  andThen(function() {
-    clickSobreElTexto("Agendar");
-  });
+  await clickSobreElTexto("Agendar");
+
+  await esperar(3);
 
   /* Y el usuario debe quedar en la vista de detalle del evento */
-  andThen(function() {
-    assert.equal(currentURL(), "/app/agenda/detalle/1");
-  });
+  assert.equal(currentURL(), "/app/agenda/detalle/1");
 });

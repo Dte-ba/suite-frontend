@@ -3,15 +3,10 @@ import moduleForAcceptance from "suite-frontend/tests/helpers/module-for-accepta
 
 moduleForAcceptance("Acceptance | puede ingresar en pantalla login");
 
-test("visiting /app", function(assert) {
-  visit("/app");
-
-  andThen(function() {
-    assert.equal(currentURL(), "/login");
-    login();
-  });
-
-  andThen(function() {
-    assert.equal(currentURL(), "/app/escritorio");
-  });
+test("visiting /app", async function(assert) {
+  await visit("/app");
+  assert.equal(currentURL(), "/login");
+  await login();
+  await esperar();
+  assert.equal(currentURL(), "/app/escritorio");
 });
