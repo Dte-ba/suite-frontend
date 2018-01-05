@@ -1,0 +1,21 @@
+{{outlet}}
+
+{{#if tareaExportarInforme.isRunning}}
+
+  <h2>Exportando lista de paquetes ...</h2>
+
+  <p>{{suite-spinner}}</p>
+
+{{else if tareaExportarInforme.error}}
+
+  <div class="error">
+    {{tareaExportarInforme.error}}
+  </div>
+
+{{else}}
+
+  <h2>¡Listo!</h2>
+
+  <p>Se ha generado correctamente la lista de paquetes.</p>
+
+{{/if}}

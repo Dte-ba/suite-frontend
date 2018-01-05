@@ -14,6 +14,10 @@
     {{#suite-permiso permiso="paquetes.crear"}}
       <button class="ui button primario" {{action (route-action "crearPaquetesMasivos")}}><i class="ui plus icon"></i> Solicitar paquetes</button>
     {{/suite-permiso}}
+
+    {{#suite-permiso permiso="paquetes.exportar"}}
+      {{#link-to "app.paquetes.exportar.index" class="ui button primario "}}<i class="ui file icon"></i> Exportar paquetes{{/link-to}}
+    {{/suite-permiso}}
   </div>
 </div>
 {{suite-filtros/paquetes
