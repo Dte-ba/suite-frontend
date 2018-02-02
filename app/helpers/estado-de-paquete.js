@@ -8,7 +8,7 @@ export function estadoDePaquete(params /*, hash*/) {
   } else if (estado === "Pendiente") {
     estado = '<i class="ui yellow wait icon"></i>';
   } else if (estado === "EducAr") {
-    estado = '<i class="ui yellow wait icon"></i>';
+    estado = '<i class="ui blue location arrow icon"></i>';
   } else if (estado === "Devuelto") {
     estado = '<i class="ui green check icon"></i>';
   }
