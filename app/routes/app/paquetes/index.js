@@ -106,6 +106,10 @@ export default Ember.Route.extend({
           atributo: "comentario",
           titulo: "Comentarios"
         }
+        // {
+        //   atributo: "id",
+        //   titulo: "ID"
+        // }
       ]
     };
   },
