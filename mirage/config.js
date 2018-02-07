@@ -1,8 +1,9 @@
 export default function() {
   this.urlPrefix = "api";
-  //this.namespace = '';
+
   this.passthrough("https://sentry.io/**");
   this.timing = 1000;
+  this.logging = false;
 
   this.get("/eventos");
   this.get("/eventos/:id");

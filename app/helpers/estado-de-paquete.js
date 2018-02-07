@@ -6,9 +6,9 @@ export function estadoDePaquete(params /*, hash*/) {
   if (estado === "Objetado") {
     estado = '<i class="ui red chat icon"></i>';
   } else if (estado === "Pendiente") {
-    estado = '<i class="ui yellow wait icon"></i>';
+    estado = '<i class="ui orange wait icon"></i>';
   } else if (estado === "EducAr") {
-    estado = '<i class="ui yellow wait icon"></i>';
+    estado = '<i class="ui orange location arrow icon"></i>';
   } else if (estado === "Devuelto") {
     estado = '<i class="ui green check icon"></i>';
   }
