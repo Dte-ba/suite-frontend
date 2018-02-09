@@ -23,6 +23,13 @@
       Region
       {{item.localidad.distrito.region.numero}}
     </div>
+    <div class="ui basic tiny label">
+      {{#if item.piso.llave}}
+        <i class="ui blue file icon"></i>
+      {{else}}
+        <i class="ui red file icon"></i>
+      {{/if}}
+    </div>
   </div>
 
 

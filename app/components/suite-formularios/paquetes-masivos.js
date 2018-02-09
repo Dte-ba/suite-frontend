@@ -11,7 +11,6 @@ export default Ember.Component.extend({
       paquetes: modelo.get("paquetes"),
       fecha: modelo.get("fechaPedido")
     };
-
     try {
       let response = yield Ember.$.ajax({
         url: url,
