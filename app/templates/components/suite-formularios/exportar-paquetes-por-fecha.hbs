@@ -18,15 +18,20 @@
 
       <div class="cf mb3">
 
-        <div class="fl w-50">
+        <div class="fl w-33">
           {{#f.input label="Desde" required=true name="desde" as |f|}}
             {{suite-campo/fecha valor=f.value cuandoCambia=f.update}}
           {{/f.input}}
         </div>
 
-        <div class="fl w-50 pl3">
+        <div class="fl w-33 pl3">
           {{#f.input label="Hasta" required=true name="hasta" as |f|}}
             {{suite-campo/fecha valor=f.value cuandoCambia=f.update}}
+          {{/f.input}}
+        </div>
+        <div class="fl w-33 pl3">
+          {{#f.input label="Estado" required=true name="estado" as |f|}}
+            {{suite-selector/simple opciones=model.estadosDePaquete valor=f.value cuandoSelecciona=f.update}}
           {{/f.input}}
         </div>
 
