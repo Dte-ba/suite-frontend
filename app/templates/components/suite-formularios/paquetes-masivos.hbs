@@ -6,9 +6,9 @@
 
   {{#suite-grupo numero=1 titulo="Escuela"}}
     {{#f.input label="Escuela" name="escuela" required=true as |f|}}
-      {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
+      {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update contexto="paquetes"}}
     {{/f.input}}
-
+    <div class="ui negative message hidden" id="error-de-escuela"></div>
     <div class="ui info message">Tenga en cuenta que ahora la llave del servidor no se sube con la solicitud de paquetes, si no que por única vez se sube en el piso de la escuela. Para editar el piso escolar y/o subir la llave, puede hacerlo desde la vista de detalle de la escuela.</div>
   {{/suite-grupo}}
 
@@ -42,7 +42,7 @@
   {{/if}}
 
   {{#suite-grupo titulo=""}}
-    {{f.submit label=texto class="ui button green"}} {{yield}}
+    {{f.submit label=texto class="ui button green" id="solicitar-paquetes"}} {{yield}}
   {{/suite-grupo}}
 
 {{/validated-form}}
