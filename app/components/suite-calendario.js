@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   cargando: Ember.computed.alias("tareaSolicitarEventos.last.isRunning"),
   fc: null,
   perfil: null,
-  perfilPreseleccionado: null,
+  perfilPreSeleccionado: null,
 
   tareaSolicitarEventos: task(function*(fecha_inicio, fecha_fin, callback) {
     let formato = "YYYY-MM-DD";
@@ -24,8 +24,8 @@ export default Ember.Component.extend({
     let base = ENV.API_URL;
     let url = "";
 
-    if (this.get("perfilPreseleccionado.id")) {
-      let idPerfil = this.get("perfilPreseleccionado.id");
+    if (this.get("perfilPreSeleccionado.id")) {
+      let idPerfil = this.get("perfilPreSeleccionado.id");
       url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&perfil=${idPerfil}&region=${numeroDeRegion}`;
     } else {
       url = `${base}/api/eventos/agenda?inicio=${i}&fin=${f}&region=${numeroDeRegion}`;
@@ -57,7 +57,7 @@ export default Ember.Component.extend({
     };
 
     this.set("region", this.get("perfilService").obtenerRegion());
-    this.set("perfilPreseleccionado", this.get("perfilService.miPerfil"));
+    this.set("perfilPreSeleccionado", this.get("perfilService.miPerfil"));
 
     var permiso = this.get("perfilService").tienePermiso("perfil.global");
     var limite = false;
@@ -149,7 +149,7 @@ export default Ember.Component.extend({
       this.actualizar();
     },
     cuandoSeleccionaResponsable(responsable) {
-      this.set("perfilPreseleccionado", responsable);
+      this.set("perfilPreSeleccionado", responsable);
       this.actualizar();
     }
   }
