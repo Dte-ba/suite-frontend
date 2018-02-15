@@ -105,6 +105,9 @@ Router.map(function() {
       this.route("detalle", { path: "edicion/:validacion_id" });
       this.route("crear");
       this.route("editar", { path: "editar/:validacion_id" });
+      this.route('exportar', function() {
+        this.route('exportar');
+      });
     });
     this.route("programas", function() {
       this.route("detalle", { path: "detalle/:programa_id" });
