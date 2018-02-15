@@ -15,9 +15,8 @@
       <button class='ui button primario' {{action (route-action "crearUnaValidacionNueva")}}><i class="ui plus icon"></i> Nueva validación</button>
     {{/suite-permiso}}
     {{#suite-permiso permiso="validaciones.editar"}}
-      <button class='ui button primario' {{action (route-action "exportarValidaciones")}}><i class="ui plus icon"></i> Exportar validaciones</button>
+      {{#link-to "app.validaciones.exportar.index" class="ui button primario "}}<i class="ui file icon"></i> Exportar validaciones{{/link-to}}
     {{/suite-permiso}}
-
   </div>
 </div>
 
