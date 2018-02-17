@@ -22,12 +22,13 @@
   </div>
 </div>
 
-{{suite-filtros/personas filtro=filtro alIngresarFiltro=(route-action "alIngresarFiltro")}}
 
-{{suite-tabla
-  pagina=model.pagina
-  columnas=model.columnas
-  tarea=model.tareaPersonas
-  paginacion=true
-  cuandoCambiaPagina=(route-action "cuandoCambiaPagina")
+{{suite-tablas/personas
+
+  pagina=pagina
+  filtro=filtro
+
+  tarea=obtenerListaDePersonas
+  alLimpiarTodosLosParametros=(action "limpiarParametros")
+
 }}

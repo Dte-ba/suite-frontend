@@ -868,3 +868,15 @@ ol.qunit-assert-list table {
 .no-pointer-events {
   pointer-events: none;
 }
+
+.disabled {
+  pointer-events: none;
+}
+
+.lato {
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.no-outline:focus {
+  outline: 0;
+}
