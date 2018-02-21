@@ -67,8 +67,8 @@ Router.map(function() {
       this.route("edicion", { path: "edicion/:perfil_id" });
       this.route("informe", { path: "informe/:perfil_id" });
       this.route("clave", { path: "clave/:perfil_id" });
-      this.route('informes', function() {
-        this.route('exportar');
+      this.route("informes", function() {
+        this.route("exportar");
       });
     });
 
@@ -105,8 +105,8 @@ Router.map(function() {
       this.route("detalle", { path: "edicion/:validacion_id" });
       this.route("crear");
       this.route("editar", { path: "editar/:validacion_id" });
-      this.route('exportar', function() {
-        this.route('exportar');
+      this.route("exportar", function() {
+        this.route("exportar");
       });
     });
     this.route("programas", function() {
@@ -116,9 +116,9 @@ Router.map(function() {
       this.route("crear");
       this.route("crearMasivo");
       this.route("admin");
-      this.route('informes');
-      this.route('exportar', function() {
-        this.route('exportar');
+      this.route("informes");
+      this.route("exportar", function() {
+        this.route("exportar");
       });
     });
     this.route("grupos", function() {
@@ -128,6 +128,10 @@ Router.map(function() {
     this.route("pisos", function() {
       this.route("crear");
       this.route("editar", { path: "editar/:piso_id" });
+    });
+
+    this.route("contactos", function() {
+      this.route("edicion", { path: "edicion/:contacto_id" });
     });
   });
 

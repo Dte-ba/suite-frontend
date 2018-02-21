@@ -1,0 +1,7 @@
+{{yield}}
+
+{{#if contacto.last.isError}}
+  <div class="suite-detalle-contacto-error ">
+    {{contacto.last.error}}
+  </div>
+{{/if}}

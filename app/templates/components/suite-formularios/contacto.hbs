@@ -1,0 +1,47 @@
+{{#validated-form
+  model        = (changeset model model.validaciones)
+  on-submit    = tareaGuardar
+  submit-label = texto as |f|
+}}
+
+{{#suite-grupo numero=1 titulo="Datos personales"}}
+
+
+  {{f.input label="Nombre" name="nombre"}}
+
+  {{#f.input label="Escuela" name="escuela" required=true as |f|}}
+    {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
+  {{/f.input}}
+
+  {{#f.input label="Cargo" name="cargo" as |f|}}
+    {{suite-selector/simple opciones=model.opciones.cargos valor=f.value cuandoSelecciona=f.update}}
+  {{/f.input}}
+
+
+  {{f.input label="Teléfono" name="telefono_particular"}}
+  {{f.input label="Celular " name="telefono_celular"}}
+  {{f.input label="Email" name="email"}}
+
+
+
+{{/suite-grupo}}
+
+{{#suite-grupo titulo=""}}
+  {{f.submit label=texto class="ui button green"}} {{yield}}
+
+  {{#if error}}
+    <div class="ui negative message">
+      {{#each error.errors as |error|}}
+        <li><strong>{{error.source.pointer}}</strong> - {{error.detail}}</li>
+      {{/each}}
+
+      {{#each error.payload.errors.errors as |error|}}
+        <li><strong>{{error.source.pointer}}</strong> - {{error.detail}}</li>
+      {{/each}}
+
+    </div>
+  {{/if}}
+
+{{/suite-grupo}}
+
+{{/validated-form}}
