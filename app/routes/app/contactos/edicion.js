@@ -16,10 +16,10 @@ export default Ember.Route.extend({
   },
   actions: {
     regresar(model) {
-      return this.transitionTo("app.personas.detalle", model.get("id"));
+      return this.transitionTo("app.contactos.detalle", model.get("id"));
     },
     cancelar(model) {
-      return this.transitionTo("app.personas.detalle", model.get("id"));
+      return this.transitionTo("app.contactos.detalle", model.get("id"));
     }
   }
 });

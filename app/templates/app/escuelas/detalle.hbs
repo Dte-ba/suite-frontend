@@ -130,6 +130,10 @@
                 <td class="five wide"><b>Horario:</b></td>
                 <td class="eleven wide">{{contacto.horario}}</td>
               </tr>
+              <tr>
+                <td class="sixteen wide">{{#link-to "app.contactos.edicion" contacto class="ui button primario"}}<i class="ui edit icon"></i> Editar{{/link-to}}
+                </td>
+              </tr>
               <br>
             {{/each}}
           </tbody>

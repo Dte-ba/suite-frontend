@@ -132,6 +132,7 @@ Router.map(function() {
 
     this.route("contactos", function() {
       this.route("edicion", { path: "edicion/:contacto_id" });
+      this.route("detalle", { path: "detalle/:contacto_id" });
     });
   });
 

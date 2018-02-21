@@ -1,8 +1,8 @@
 import { moduleFor, test } from "ember-qunit";
 
 moduleFor(
-  "route:app/contactos/edicion",
-  "Unit | Route | app/contactos/edicion",
+  "route:app/contactos/detalle",
+  "Unit | Route | app/contactos/detalle",
   {
     // Specify the other units that are required for this test.
     needs: ["service:analytics", "service:perfil", "service:notificador"]

@@ -1,5 +1,4 @@
 import Ember from "ember";
-import ENV from "suite-frontend/config/environment";
 import { task, timeout } from "ember-concurrency";
 
 export default Ember.Component.extend({
@@ -14,8 +13,6 @@ export default Ember.Component.extend({
 
       if (model.get("id")) {
         yield model.save();
-      } else {
-        yield contacto.save();
       }
 
       if (this.get("cuandoGuarda")) {
