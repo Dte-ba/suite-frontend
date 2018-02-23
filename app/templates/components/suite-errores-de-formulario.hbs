@@ -1,0 +1,13 @@
+{{yield}}
+
+
+
+<div class="ui red message">
+  <ul class="list">
+    {{#each errores as |error|}}
+      {{#each error.validation as |detalle|}}
+        <li><strong>{{error.key}}</strong>: {{detalle}}</li>
+      {{/each}}
+    {{/each}}
+  </ul>
+</div>
