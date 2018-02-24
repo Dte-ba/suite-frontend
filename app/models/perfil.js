@@ -95,7 +95,7 @@ export default DS.Model.extend({
       if (direccionTorre === "") {
         direccionTorre = "";
       } else {
-        direccionTorre = "- Torre ${direccionTorre}";
+        direccionTorre = `- Torre ${direccionTorre}`;
       }
 
       let localidad = this.get("localidad.nombre");
