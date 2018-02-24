@@ -1,10 +1,15 @@
 {{outlet}}
 
+{{suite-boton-trabajo autodescargar=true autoiniciar=true texto="Generar informe" accion=(action "generarInforme")}}
+
+<!--
 {{#if tareaExportarInforme.isRunning}}
 
   <h2>Generando informe ...</h2>
 
   <p>{{suite-spinner}}</p>
+
+
 
 {{else if tareaExportarInforme.error}}
 
@@ -19,3 +24,4 @@
   <p>Se ha generado correctamente el informe.</p>
 
 {{/if}}
+-->

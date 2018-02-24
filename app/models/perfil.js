@@ -1,9 +1,6 @@
 import DS from "ember-data";
 import Ember from "ember";
-import {
-  validatePresence,
-  validateLength
-} from "ember-changeset-validations/validators";
+import { validatePresence, validateLength } from "ember-changeset-validations/validators";
 
 export default DS.Model.extend({
   // 1) Datos Personales
@@ -77,34 +74,25 @@ export default DS.Model.extend({
     return `${nombre} ${apellido}`;
   }),
 
-  direccionCompleta: Ember.computed(
-    "direccionCalle",
-    "direccionAltura",
-    "direccionPiso",
-    "direccionDepto",
-    "direccionTorre",
-    "localidad.{nombre}",
-    "codigoPostal",
-    function() {
-      let direccionCalle = this.get("direccionCalle") || "";
-      let direccionAltura = this.get("direccionAltura") || "";
-      let direccionPiso = this.get("direccionPiso") || "";
-      let direccionDepto = this.get("direccionDepto") || "";
-      let direccionTorre = this.get("direccionTorre") || "";
+  direccionCompleta: Ember.computed("direccionCalle", "direccionAltura", "direccionPiso", "direccionDepto", "direccionTorre", "localidad.{nombre}", "codigoPostal", function() {
+    let direccionCalle = this.get("direccionCalle") || "";
+    let direccionAltura = this.get("direccionAltura") || "";
+    let direccionPiso = this.get("direccionPiso") || "";
+    let direccionDepto = this.get("direccionDepto") || "";
+    let direccionTorre = this.get("direccionTorre") || "";
 
-      if (direccionTorre === "") {
-        direccionTorre = "";
-      } else {
-        direccionTorre = "- Torre ${direccionTorre}";
-      }
-
-      let localidad = this.get("localidad.nombre");
-
-      let codigoPostal = this.get("codigoPostal");
-
-      return `${direccionCalle} ${direccionAltura} - Piso ${direccionPiso} - Dpto ${direccionDepto} ${direccionTorre} - ${localidad} - ${codigoPostal}`;
+    if (direccionTorre === "") {
+      direccionTorre = "";
+    } else {
+      direccionTorre = "- Torre ${direccionTorre}";
     }
-  ),
+
+    let localidad = this.get("localidad.nombre");
+
+    let codigoPostal = this.get("codigoPostal");
+
+    return `${direccionCalle} ${direccionAltura} - Piso ${direccionPiso} - Dpto ${direccionDepto} ${direccionTorre} - ${localidad} - ${codigoPostal}`;
+  }),
 
   validaciones: {
     nombre: [validatePresence(true), validateLength({ min: 2 })],
