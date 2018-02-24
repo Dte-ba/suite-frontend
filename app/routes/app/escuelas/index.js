@@ -81,7 +81,7 @@ export default Ember.Route.extend({
         },
         {
           atributo: "numero_de_region",
-          titulo: "Region"
+          titulo: "Región"
         },
         {
           atributo: "localidad.nombre",
