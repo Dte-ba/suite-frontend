@@ -25,6 +25,10 @@ export default Ember.Route.extend({
       {
         titulo: "Email",
         id: "email"
+      },
+      {
+        titulo: "Horario",
+        id: "horario"
       }
     ]);
 
