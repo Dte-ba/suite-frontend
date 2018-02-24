@@ -27,10 +27,7 @@
         <button class="ui button disabled">No puede realizar acciones sobre una escuela conformada</button>
       {{else}}
 
-        {{#if model.puedeEditarDentroDeLaRegion}}
-          <button class="ui primario button" {{action (route-action "crearEventoParaEstaEscuela")}}><i class='ui plus icon'></i> Agendar acción</button>
-        {{/if}}
-
+        
         {{#if model.puedeEditarDentroDeLaRegion}}
 
           {{#suite-permiso permiso="escuelas.editar"}}
@@ -48,6 +45,10 @@
           {{#suite-permiso permiso="validaciones.crear"}}
             <button class='ui button primario' {{action (route-action "crearValidacionParaEstaEscuela")}}><i class="ui plus icon"></i> Nueva validación</button>
           {{/suite-permiso}}
+          
+          {{#if model.puedeEditarDentroDeLaRegion}}
+            <button class="ui primario button" {{action (route-action "crearEventoParaEstaEscuela")}}><i class='ui plus icon'></i> Agendar acción</button>
+          {{/if}}
 
         {{/if}}
 
