@@ -7,9 +7,9 @@ export default Ember.Controller.extend({
 
   actions: {
     generarInforme() {
-      let { region_id, desde, hasta } = this.get("model.params");
+      let { region, desde, hasta } = this.get("model.params");
 
-      let url = `api/trabajos/informe_de_perfil_por_region?region_id=${region_id}&desde=${desde}&hasta=${hasta}`;
+      let url = `api/trabajos/informe_de_perfil_por_region?region=${region}&desde=${desde}&hasta=${hasta}`;
       return this.get("ajax").request(`${ENV.API_URL}/${url}`);
     }
   }

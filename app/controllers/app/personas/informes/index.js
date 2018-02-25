@@ -3,6 +3,7 @@ import QueryParams from "ember-parachute";
 
 let mesPasado = moment()
   .subtract(1, "months")
+  .startOf("month")
   .format("YYYY-MM-DD");
 let finDelMesPasado = moment()
   .subtract(1, "months")

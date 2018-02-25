@@ -3,6 +3,7 @@ import QueryParams from "ember-parachute";
 
 let mesPasado = moment()
   .subtract(1, "months")
+  .startOf("month")
   .format("YYYY-MM-DD");
 let finDelMesPasado = moment()
   .subtract(1, "months")
@@ -10,7 +11,7 @@ let finDelMesPasado = moment()
   .format("YYYY-MM-DD");
 
 export const parametros = new QueryParams({
-  perfil: { defaultValue: null, refresh: true, replace: true },
+  region: { defaultValue: null, refresh: true, replace: true },
   desde: { defaultValue: mesPasado, refresh: true, replace: true },
   hasta: { defaultValue: finDelMesPasado, refresh: true, replace: true }
 });
