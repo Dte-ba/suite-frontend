@@ -70,7 +70,10 @@ Router.map(function() {
       this.route("informes", function() {
         this.route("exportar", { path: "exportar/:perfil_id/:desde/:hasta" });
       });
-      this.route('exportar');
+      this.route("informesPorRegion", function() {
+        this.route("exportar", { path: "exportar/:region_id/:desde/:hasta" });
+      });
+      this.route("exportar");
     });
 
     this.route("agenda", function() {
