@@ -27,7 +27,7 @@
         <button class="ui button disabled">No puede realizar acciones sobre una escuela conformada</button>
       {{else}}
 
-        
+
         {{#if model.puedeEditarDentroDeLaRegion}}
 
           {{#suite-permiso permiso="escuelas.editar"}}
@@ -45,7 +45,7 @@
           {{#suite-permiso permiso="validaciones.crear"}}
             <button class='ui button primario' {{action (route-action "crearValidacionParaEstaEscuela")}}><i class="ui plus icon"></i> Nueva validación</button>
           {{/suite-permiso}}
-          
+
           {{#if model.puedeEditarDentroDeLaRegion}}
             <button class="ui primario button" {{action (route-action "crearEventoParaEstaEscuela")}}><i class='ui plus icon'></i> Agendar acción</button>
           {{/if}}
@@ -106,6 +106,7 @@
       <div class="seven wide column">
         <table class="ui very basic compact table tabla-definicion tabla-detalle-personas">
           <tbody>
+            <tr><td>{{#link-to "app.contactos.crear" class="ui button primario"}}<i class="ui add icon"></i> Agregar contacto{{/link-to}}</td></tr>
             {{#each model.contactos as |contacto|}}
               <tr>
                 <td class="five wide"><b>Nombre:</b></td>

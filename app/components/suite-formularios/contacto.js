@@ -7,11 +7,22 @@ export default Ember.Component.extend({
   error: "",
   idPerfil: null,
 
-  tareaGuardar: task(function*(model) {
+  tareaGuardar: task(function*(model, transition) {
     try {
       yield timeout(2000);
 
       if (model.get("id")) {
+        yield model.save();
+      } else {
+        let valores = {
+          nombre: model.get("nombre"),
+          escuela: model.get("escuela"),
+          cargo: model.get("cargo"),
+          telefono: model.get("telefono_particular"),
+          celular: model.get("telefono_celular"),
+          email: model.get("email"),
+          horario: model.get("horario")
+        };
         yield model.save();
       }
 
