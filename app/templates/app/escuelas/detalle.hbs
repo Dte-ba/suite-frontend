@@ -27,10 +27,7 @@
         <button class="ui button disabled">No puede realizar acciones sobre una escuela conformada</button>
       {{else}}
 
-        {{#if model.puedeEditarDentroDeLaRegion}}
-          <button class="ui primario button" {{action (route-action "crearEventoParaEstaEscuela")}}><i class='ui plus icon'></i> Agendar acción</button>
-        {{/if}}
-
+        
         {{#if model.puedeEditarDentroDeLaRegion}}
 
           {{#suite-permiso permiso="escuelas.editar"}}
@@ -48,6 +45,10 @@
           {{#suite-permiso permiso="validaciones.crear"}}
             <button class='ui button primario' {{action (route-action "crearValidacionParaEstaEscuela")}}><i class="ui plus icon"></i> Nueva validación</button>
           {{/suite-permiso}}
+          
+          {{#if model.puedeEditarDentroDeLaRegion}}
+            <button class="ui primario button" {{action (route-action "crearEventoParaEstaEscuela")}}><i class='ui plus icon'></i> Agendar acción</button>
+          {{/if}}
 
         {{/if}}
 
@@ -116,11 +117,11 @@
               </tr>
               <tr>
                 <td class="five wide"><b>Teléfono particular:</b></td>
-                <td class="eleven wide">{{contacto.telefono-particular}}</td>
+                <td class="eleven wide">{{contacto.telefono_particular}}</td>
               </tr>
               <tr>
                 <td class="five wide"><b>Teléfono celular:</b></td>
-                <td class="eleven wide">{{contacto.telefono-celular}}</td>
+                <td class="eleven wide">{{contacto.telefono_celular}}</td>
               </tr>
               <tr>
                 <td class="five wide"><b>Email:</b></td>
@@ -129,6 +130,10 @@
               <tr>
                 <td class="five wide"><b>Horario:</b></td>
                 <td class="eleven wide">{{contacto.horario}}</td>
+              </tr>
+              <tr>
+                <td class="sixteen wide">{{#link-to "app.contactos.edicion" contacto class="ui button primario"}}<i class="ui edit icon"></i> Editar{{/link-to}}
+                </td>
               </tr>
               <br>
             {{/each}}

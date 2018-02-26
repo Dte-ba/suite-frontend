@@ -868,3 +868,33 @@ ol.qunit-assert-list table {
 .no-pointer-events {
   pointer-events: none;
 }
+
+.disabled {
+  pointer-events: none;
+}
+
+.lato {
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+.no-outline:focus {
+  outline: 0;
+}
+
+.unselectable {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.width-animated {
+  -webkit-transition: width 0.1s linear;
+  -moz-transition: width 0.1s linear;
+  -o-transition: width 0.1s linear;
+  transition: width 0.1s linear;
+}
+
+.min-height-4 {
+  height: 8rem;
+}

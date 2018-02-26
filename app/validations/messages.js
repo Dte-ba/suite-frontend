@@ -1,5 +1,5 @@
 export default {
-  invalid: "{description} is inválido",
+  invalid: "{description} no es inválido",
   empty: "{description} no puede quedar vacío",
   blank: "{description} debe quedar en blanco",
   present: "{description} no puede quedar en blanco",

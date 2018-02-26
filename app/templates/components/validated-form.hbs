@@ -1,0 +1,16 @@
+{{yield (hash
+  model=model
+  input=(component 'validated-input'
+    model=model
+    submitted=submitted
+    config=config
+  )
+  submit=(component 'validated-button'
+    class    = submitClass
+    type     = "submit"
+    disabled = submitTask.isRunning
+    label    = _submitLabel
+  )
+)}}
+
+{{suite-errores-de-formulario model=model form=this}}

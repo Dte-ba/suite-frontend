@@ -1,0 +1,16 @@
+{{outlet}}
+
+{{suite-titulo titulo="Edición de contacto"}}
+
+{{#suite-formularios/contacto
+  model           = model
+  cuandoGuarda    = (route-action "regresar" model)
+  texto = 'Guardar Contacto'
+  editar = true
+}}
+
+<button class="ui cancelar button" {{action (route-action "cancelar" model)}}>Cancelar</button>
+
+{{suite-detalle-de-contacto tarea=model.tareaGuardar}}
+
+{{/suite-formularios/contacto}}

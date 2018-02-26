@@ -68,7 +68,7 @@ export default Ember.Route.extend({
         },
         {
           atributo: "localidad.distrito.region.numero",
-          titulo: "Region",
+          titulo: "Región",
           promesa: "localidad.distrito.region"
         },
         {

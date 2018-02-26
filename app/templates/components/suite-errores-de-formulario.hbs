@@ -1,0 +1,17 @@
+{{yield}}
+
+<div class="mt3 min-height-5 mb2">
+{{#if submitted}}
+  {{#if errores}}
+    <div class="ui red message">
+      <ul class="list">
+        {{#each errores as |error|}}
+          {{#each error.validation as |detalle|}}
+            <li>El "{{error.key}}" {{detalle}}</li>
+          {{/each}}
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+{{/if}}
+</div>
