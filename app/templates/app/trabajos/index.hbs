@@ -1,0 +1,9 @@
+{{outlet}}
+
+
+{{suite-boton-trabajo texto="Ejecutar la tarea Sumar" accion=(action "sumar")}}
+{{suite-boton-trabajo texto="Generar informe" accion=(action "generarInforme")}}
+
+{{#each model as |tarea|}}
+  <div>{{tarea.id}} - {{tarea.nombre}}</div>
+{{/each}}

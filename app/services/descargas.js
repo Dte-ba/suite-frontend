@@ -29,5 +29,14 @@ export default Ember.Service.extend({
     });
 
     return promesa;
+  },
+
+  iniciarDesdeURL(url) {
+    const dl = document.createElement("a");
+    dl.href = url;
+    dl.target = "_blank";
+    dl.download = true;
+    document.body.appendChild(dl);
+    dl.click();
   }
 });
