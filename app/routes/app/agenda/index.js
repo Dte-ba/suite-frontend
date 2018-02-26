@@ -10,8 +10,8 @@ export default Ember.Route.extend({
   ajax: Ember.inject.service(),
 
   obtenerEstadisticas: task(function*() {
-    let i = "2017-01-01";
-    let f = "2017-12-31";
+    let i = "2018-01-01";
+    let f = "2018-12-31";
     let perfil = this.get("perfil");
     let perfilId = perfil.data.idPerfil;
     let region = perfil.data.region;
@@ -44,5 +44,6 @@ export default Ember.Route.extend({
     editarUnEvento(eventoSeleccionado) {
       return this.transitionTo("app.agenda.editar", eventoSeleccionado.id);
     }
+
   }
 });
