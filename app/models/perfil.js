@@ -96,18 +96,10 @@ export default DS.Model.extend({
       }
 
       let localidad = this.get("localidad.nombre");
-
       let codigoPostal = this.get("codigoPostal");
 
-      return `${direccionCalle} ${direccionAltura} - Piso ${direccionPiso} - Dpto ${direccionDepto} ${direccionTorre} - ${localidad} - ${codigoPostal}`;
-    }
-
-    let localidad = this.get("localidad.nombre");
-
-    let codigoPostal = this.get("codigoPostal");
-
-    return `${direccionCalle} ${direccionAltura} - Piso ${direccionPiso} - Dpto ${direccionDepto} ${direccionTorre} - ${localidad} - ${codigoPostal}`;
-  }),
+			return `${direccionCalle} ${direccionAltura} - Piso ${direccionPiso} - Dpto ${direccionDepto} ${direccionTorre} - ${localidad} - ${codigoPostal}`;
+    }),
 
   validaciones: {
     nombre: [validatePresence(true), validateLength({ min: 2 })],
