@@ -33,8 +33,33 @@
         <div class="ui red label">Acción finalizada</div>
       {{else if model.puedeEditar}}
         {{#link-to "app.agenda.editar" model class="ui button primario"}}Editar{{/link-to}}
-      {{else}}
       {{/if}}
+
+      <!-- Si tiene el permiso para eliminar el evento, muestro el botón  Eliminar
+      Y el modal para eliminarlo  
+      -->
+      {{#suite-permiso permiso="agenda.eliminar"}}
+        {{#ember-remodal title='¡Aviso!' as |m|}}
+          {{#m.open}}
+            <button class="ui button primario">Eliminar</button>
+          {{/m.open}}
+          <div class="content">
+            <p>Está por eliminar la acción: {{model.titulo}} - {{model.escuela.cue}} </p>
+            <p>¿Está seguro que quiere eliminarla?</p>
+          </div>
+
+          <div class="actions">
+            {{#m.cancel}}
+              <button class="ui button primario">Cancelar</button>
+            {{/m.cancel}}
+
+            {{#m.confirm}}
+              <button class="ui button primario" {{action "eliminar" model}}>Confirmar</button>
+            {{/m.confirm}}
+          </div>
+
+        {{/ember-remodal}}
+      {{/suite-permiso}}
     </div>
   </div>
 
