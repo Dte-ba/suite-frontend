@@ -78,7 +78,10 @@ export default function() {
           "paquetes.listar": true,
           "validaciones.listar": true,
           "perfil.global": true,
-          "personas.verinformes": true
+          "personas.verinformes": true,
+          "personas.crear": true,
+          "personas.editar": true,
+          "personas.eliminar": true
         }
       }
     };

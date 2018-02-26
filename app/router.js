@@ -68,8 +68,12 @@ Router.map(function() {
       this.route("informe", { path: "informe/:perfil_id" });
       this.route("clave", { path: "clave/:perfil_id" });
       this.route("informes", function() {
-        this.route("exportar");
+        this.route("exportar", { path: "exportar/:perfil_id/:desde/:hasta" });
       });
+      this.route("informesPorRegion", function() {
+        this.route("exportar", { path: "exportar/:region/:desde/:hasta" });
+      });
+      this.route("exportar");
     });
 
     this.route("agenda", function() {
@@ -134,6 +138,7 @@ Router.map(function() {
       this.route("edicion", { path: "edicion/:contacto_id" });
       this.route("detalle", { path: "detalle/:contacto_id" });
     });
+    this.route("trabajos", function() {});
   });
 
   this.route("tablas", function() {

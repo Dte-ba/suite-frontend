@@ -7,7 +7,7 @@ export default Ember.Component.extend({
   listo: false,
 
   formulario: {
-    perfil_id: null,
+    region_id: null,
     desde: null,
     hasta: null
   },
@@ -15,21 +15,21 @@ export default Ember.Component.extend({
   validaciones: {
     desde: [validatePresence(true)],
     hasta: [validatePresence(true)],
-    perfil: [validatePresence(true)]
+    region: [validatePresence(true)]
   },
 
   willInsertElement() {
-    let idPerfil = this.get("perfil_id");
+    let idRegion = this.get("region_id");
 
-    this.set("formulario.perfil_id", this.get("perfil_id"));
+    this.set("formulario.region_id", this.get("region_id"));
     this.set("formulario.desde", this.get("desde"));
     this.set("formulario.hasta", this.get("hasta"));
 
-    if (idPerfil) {
+    if (idRegion) {
       this.get("store")
-        .findRecord("perfil", idPerfil)
+        .findRecord("region", idRegion)
         .then(data => {
-          this.set("formulario.perfil", data);
+          this.set("formulario.region", data);
           this.set("listo", true);
         });
     } else {
