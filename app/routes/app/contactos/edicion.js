@@ -1,11 +1,11 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
-  requiere: "personas.editar",
+  requiere: "contacto.editar",
   perfil: Ember.inject.service(),
 
   afterModel(model) {
-    if (!this.get("perfil").tienePermiso("personas.editar")) {
+    if (!this.get("perfil").tienePermiso("contacto.editar")) {
       this.transitionTo("/app/");
     } else {
       model.set("opciones", {
@@ -16,7 +16,8 @@ export default Ember.Route.extend({
   },
   actions: {
     regresar(model) {
-      return this.transitionTo("app.contactos.detalle", model.get("id"));
+      let escuela_id = model.get("escuela");
+      return this.transitionTo("app.escuelas.detalle", escuela_id);
     },
     cancelar(model) {
       return this.transitionTo("app.contactos.detalle", model.get("id"));

@@ -102,44 +102,31 @@
       <div class="four wide column">
         <div class="suite-grupo-numero">4</div>
         <div class="suite-grupo-titulo">Personal</div>
+        {{#suite-permiso permiso="contacto.crear"}}
+          <button class='ui button primario' {{action (route-action "crearContactoParaEstaEscuela")}}><i class="ui plus icon"></i> Agregar contacto</button>
+        {{/suite-permiso}}
       </div>
-      <div class="seven wide column">
-        <table class="ui very basic compact table tabla-definicion tabla-detalle-personas">
-          <tbody>
-            <tr><td>{{#link-to "app.contactos.crear" class="ui button primario"}}<i class="ui add icon"></i> Agregar contacto{{/link-to}}</td></tr>
-            {{#each model.contactos as |contacto|}}
-              <tr>
-                <td class="five wide"><b>Nombre:</b></td>
-                <td class="eleven wide">{{contacto.nombre}}</td>
-              </tr>
-              <tr>
-                <td class="five wide"><b>Cargo:</b></td>
-                <td class="eleven wide">{{contacto.cargo.nombre}}</td>
-              </tr>
-              <tr>
-                <td class="five wide"><b>Teléfono particular:</b></td>
-                <td class="eleven wide">{{contacto.telefono_particular}}</td>
-              </tr>
-              <tr>
-                <td class="five wide"><b>Teléfono celular:</b></td>
-                <td class="eleven wide">{{contacto.telefono_celular}}</td>
-              </tr>
-              <tr>
-                <td class="five wide"><b>Email:</b></td>
-                <td class="eleven wide">{{contacto.email}}</td>
-              </tr>
-              <tr>
-                <td class="five wide"><b>Horario:</b></td>
-                <td class="eleven wide">{{contacto.horario}}</td>
-              </tr>
-              <tr>
-                <td class="sixteen wide">{{#link-to "app.contactos.edicion" contacto class="ui button primario"}}<i class="ui edit icon"></i> Editar{{/link-to}}
-                </td>
-              </tr>
-              <br>
-            {{/each}}
-          </tbody>
-        </table>
+      <div class="twelve wide column">
+        <div class="ui two cards">
+          {{#each model.contactos as |contacto|}}
+            <div class="ui card">
+              <div class="content">
+                <div class="header">{{contacto.nombre}}</div>
+              </div>
+              <div class="content">
+                <h6 class="ui header">{{contacto.cargo.nombre}}</h6>
+                <div class="meta"><i class="ui phone icon"></i> {{#if contacto.telefono_particular}}{{contacto.telefono_particular}}{{else}}<i class="ui minus grey icon"></i>{{/if}}</div>
+                <div class="meta"><i class="ui mobile alternate icon"></i> {{#if contacto.telefono_celular}}{{contacto.telefono_celular}}{{else}}<i class="ui minus grey icon"></i>{{/if}}</div>
+                <div class="meta"><i class="ui envelope icon"></i> {{#if contacto.email}}{{contacto.email}}{{else}}<i class="ui minus grey icon"></i>{{/if}}</div>
+                <div class="meta"><i class="ui clock icon"></i> {{#if contacto.horario}}{{contacto.horario}}{{else}}<i class="ui minus grey icon"></i>{{/if}}</div>
+
+              </div>
+              {{#suite-permiso permiso="contacto.editar"}}
+                  {{#link-to "app.contactos.edicion" contacto class="ui bottom attached button primario"}}<i class="ui edit icon"></i> Editar{{/link-to}}
+              {{/suite-permiso}}
+            </div>
+          {{/each}}
+        </div>
       </div>
     </div>
     {{/if}}
