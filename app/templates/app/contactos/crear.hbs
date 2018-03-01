@@ -1,0 +1,13 @@
+{{outlet}}
+
+{{#suite-formularios/contacto
+  model        = (changeset model model.validaciones)
+  cuandoGuarda = (route-action "verDetalle")
+  texto = 'Crear Contacto'
+}}
+
+<button class="ui cancelar button" {{action (route-action "cancelar")}}>Cancelar</button>
+
+{{suite-detalle-de-contacto tarea=model.tareaGuardar}}
+
+{{/suite-formularios/contacto}}

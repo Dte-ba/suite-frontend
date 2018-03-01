@@ -13,6 +13,8 @@ export default Ember.Component.extend({
 
       if (model.get("id")) {
         yield model.save();
+      } else {
+        yield model.save();
       }
 
       if (this.get("cuandoGuarda")) {
