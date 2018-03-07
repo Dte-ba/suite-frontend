@@ -95,6 +95,11 @@ export default Ember.Route.extend({
           fecha: true
         },
         {
+          atributo: "fechaEnvio",
+          titulo: "Enviado",
+          fecha: true
+        },
+        {
           titulo: "Estado",
           componente: "suite-detalle/estado-de-paquete"
         },
