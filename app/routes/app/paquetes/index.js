@@ -32,7 +32,6 @@ export default Ember.Route.extend({
 
     let url = ENV.API_URL + "/api/paquetes/estadistica";
     let resultado = yield this.get("ajax").request(url);
-    console.log(resultado);
     return resultado;
   }).drop(),
 
