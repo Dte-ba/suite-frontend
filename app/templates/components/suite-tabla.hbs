@@ -32,11 +32,23 @@
               {{/if}}
             {{else}}
               {{#if columna.fecha}}
-                {{suite-fecha fecha=(get col.row columna.atributo)}}
+                {{#if (get col.row columna.atributo)}}
+                  {{suite-fecha fecha=(get col.row columna.atributo)}}
+                {{else}}
+                  <i class="ui minus grey icon"></i>
+                {{/if}}
               {{else if columna.fechaHora}}
-                {{suite-detalle/fecha-acciones-lista fecha=(get col.row columna.atributo)}}
+                {{#if (get col.row columna.atributo)}}
+                  {{suite-detalle/fecha-acciones-lista fecha=(get col.row columna.atributo)}}
+                {{else}}
+                  <i class="ui minus grey icon"></i>
+                {{/if}}
               {{else}}
-                {{get col.row columna.atributo}}
+                {{#if (get col.row columna.atributo)}}
+                  {{get col.row columna.atributo}}
+                {{else}}
+                  <i class="ui minus grey icon"></i>
+                {{/if}}
               {{/if}}
 
             {{/if}}

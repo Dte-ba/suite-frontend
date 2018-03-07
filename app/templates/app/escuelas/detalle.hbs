@@ -97,7 +97,7 @@
 
 
     {{/suite-detalle}}
-    {{#if model.contactos}}
+
     <div class="ui row segment">
       <div class="four wide column">
         <div class="suite-grupo-numero">4</div>
@@ -108,6 +108,7 @@
       </div>
       <div class="twelve wide column">
         <div class="ui two cards">
+              {{#if model.contactos}}
           {{#each model.contactos as |contacto|}}
             <div class="ui card">
               <div class="content">
@@ -126,10 +127,12 @@
               {{/suite-permiso}}
             </div>
           {{/each}}
+          {{else}}
+            <div class="ui info message">No hay contactos registrados para esta escuela.</div>
+          {{/if}}
         </div>
       </div>
     </div>
-    {{/if}}
 
 
 

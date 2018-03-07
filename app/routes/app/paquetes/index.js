@@ -26,8 +26,13 @@ export default Ember.Route.extend({
   }).drop(),
 
   obtenerEstadisticas: task(function*() {
+    let query = {};
+    query.inicio = "2018-01-01";
+    query.fin = "2018-12-31";
+
     let url = ENV.API_URL + "/api/paquetes/estadistica";
     let resultado = yield this.get("ajax").request(url);
+    console.log(resultado);
     return resultado;
   }).drop(),
 
@@ -92,6 +97,11 @@ export default Ember.Route.extend({
         {
           atributo: "fechaPedido",
           titulo: "Pedido",
+          fecha: true
+        },
+        {
+          atributo: "fechaEnvio",
+          titulo: "Enviado",
           fecha: true
         },
         {
