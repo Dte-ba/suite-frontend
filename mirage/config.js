@@ -70,6 +70,7 @@ export default function() {
         permisos: {
           "agenda.listar": true,
           "agenda.crear": true,
+          "agenda.eliminar": true,
           "tareas.listar": true,
           "escuelas.listar": true,
           "escuelas.crear": true,
