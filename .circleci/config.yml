@@ -6,7 +6,6 @@ jobs:
     steps:
       - checkout
       - run: yarn install
-      - run: sudo npm install -g ember-cli
       - run: yarn test
   deploy:
     docker:
