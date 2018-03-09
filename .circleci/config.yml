@@ -6,7 +6,8 @@ jobs:
     steps:
       - checkout
       - run: make iniciar
-      - run: make test
+      - run: sudo npm install -g ember-cli
+      - run: ember test
   deploy:
     docker:
       - image: circleci/node:8.9.4-stretch-browsers
