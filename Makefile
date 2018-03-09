@@ -36,4 +36,7 @@ deploy_a_produccion:
 	@cd suite2; git add .; git config user.email "hugoruscitti@gmail.com"; git config user.name "Hugo Ruscitti"; git commit -am 'rebuild' --allow-empty; git push -f
 
 test:
+	node -v
+	npm -v
+	${EMBER} --version
 	${EMBER} test
