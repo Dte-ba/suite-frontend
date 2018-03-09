@@ -16,14 +16,6 @@ module.exports = function(defaults) {
     },
     fingerprint: {
       enabled: true
-    },
-    SemanticUI: {
-      import: {
-        css: true,
-        javascript: true,
-        images: true,
-        fonts: true
-      }
     }
   });
 
@@ -32,7 +24,6 @@ module.exports = function(defaults) {
 
   app.import("vendor/handsontable.full.min.css");
   app.import("vendor/handsontable.full.min.js");
-  app.import("bower_components/handsontable/dist/handsontable.full.js");
 
   app.import("vendor/roboto/Roboto-Bold.ttf");
   app.import("vendor/roboto/Roboto-Light.ttf");
@@ -43,8 +34,11 @@ module.exports = function(defaults) {
   app.import("vendor/jquery.timepicker.min.js");
   app.import("vendor/jquery.timepicker.css");
 
-  app.import("bower_components/fullcalendar/dist/fullcalendar.js");
-  app.import("bower_components/fullcalendar/dist/fullcalendar.css");
+  app.import("node_modules/fullcalendar/dist/fullcalendar.js");
+  app.import("node_modules/fullcalendar/dist/fullcalendar.css");
+
+  app.import("node_modules/semantic-ui-calendar/dist/calendar.css");
+  app.import("node_modules/semantic-ui-calendar/dist/calendar.js");
 
   return app.toTree();
 };

@@ -1,8 +1,7 @@
 export default function() {
   this.urlPrefix = "api";
 
-  this.passthrough("https://sentry.io/**");
-  this.timing = 1000;
+  this.timing = 200;
   this.logging = false;
 
   this.get("/eventos");

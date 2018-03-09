@@ -36,29 +36,26 @@
       {{/if}}
 
       <!-- Si tiene el permiso para eliminar el evento, muestro el botón  Eliminar
-      Y el modal para eliminarlo  
+      Y el modal para eliminarlo
       -->
       {{#suite-permiso permiso="agenda.eliminar"}}
-        {{#ember-remodal title='¡Aviso!' as |m|}}
-          {{#m.open}}
-            <button class="ui button primario">Eliminar</button>
-          {{/m.open}}
+
+        <button class="ui button primario" {{action (mut mostrarDialogo) true}}>Eliminar</button>
+
+        {{#suite-modal mostrar=mostrarDialogo}}
+          <h1>¡Aviso!</h1>
+
           <div class="content">
             <p>Está por eliminar la acción: {{model.titulo}} - {{model.escuela.cue}} </p>
             <p>¿Está seguro que quiere eliminarla?</p>
           </div>
 
-          <div class="actions">
-            {{#m.cancel}}
-              <button class="ui button primario">Cancelar</button>
-            {{/m.cancel}}
-
-            {{#m.confirm}}
-              <button class="ui button primario" {{action "eliminar" model}}>Confirmar</button>
-            {{/m.confirm}}
+          <div class="actions mt4">
+            <button class="ui button primario" {{action (mut mostrarDialogo) false}}>Cancelar</button>
+            <button class="ui button primario" {{action "eliminar" model}}>Confirmar</button>
           </div>
+        {{/suite-modal}}
 
-        {{/ember-remodal}}
       {{/suite-permiso}}
     </div>
   </div>
