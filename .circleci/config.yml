@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run: yarn install
       - run: sudo npm install -g ember-cli
-      - run: ember test
+      - run: yarn test
   deploy:
     docker:
       - image: circleci/node:8.9.4-stretch-browsers
