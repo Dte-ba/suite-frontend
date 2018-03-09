@@ -1,0 +1,27 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.9.4-stretch-browsers
+    steps:
+      - checkout
+      - run: make iniciar
+      - run: make test
+  deploy:
+    docker:
+      - image: circleci/node:8.9.4-stretch-browsers
+    steps:
+      - checkout
+      - run: make iniciar
+      - run: make test
+workflows:
+  version: 2
+  compilar-y-subir:
+    jobs:
+      - build
+      - deploy:
+          filters:
+            tags:
+              only: /^v\d+.\d+.\d+/
+            branches:
+              ignore: /.*/
