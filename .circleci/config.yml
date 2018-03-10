@@ -12,8 +12,8 @@ jobs:
       - image: circleci/node:8.9.4-stretch-browsers
     steps:
       - checkout
-      - run: make iniciar
-      - run: make test
+      - run: yarn install
+      - run: yarn test
 workflows:
   version: 2
   compilar-y-subir:

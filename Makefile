@@ -21,11 +21,14 @@ comandos:
 
 
 iniciar:
-	npm install
+	yarn install
+
+test:
+	yarn test
 
 deploy_a_produccion:
 	rm -rf dist
-	@SUITE_API_URL="http://suite-backend.enjambrelab.com.ar" ${EMBER} build --prod
+	@SUITE_API_URL="http://suite-backend.enjambrelab.com.ar" yarn build --prod
 	@echo "Compilando aplicación en modo producción"
 	@rm -rf suite2
 	@echo "Clonando repositorio para realizar el deploy."
@@ -35,8 +38,3 @@ deploy_a_produccion:
 	@echo "Realizando deploy..."
 	@cd suite2; git add .; git config user.email "hugoruscitti@gmail.com"; git config user.name "Hugo Ruscitti"; git commit -am 'rebuild' --allow-empty; git push -f
 
-test:
-	node -v
-	npm -v
-	${EMBER} --version
-	${EMBER} test
