@@ -13,12 +13,6 @@ module.exports = function(environment) {
       includeFontAwesome: true
     },
 
-    sentry: {
-      dsn: process.env.SUITE_SENTRY_URL,
-      globalErrorCatching: false,
-      development: environment !== "production" // Sentry se activa solo en modo producción
-    },
-
     contentSecurityPolicy: {
       "script-src": "'self' 'unsafe-inline' 'unsafe-eval' cdn.ravenjs.com",
       "img-src": "data: app.getsentry.com"

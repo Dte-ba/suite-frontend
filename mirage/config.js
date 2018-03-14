@@ -1,8 +1,7 @@
 export default function() {
   this.urlPrefix = "api";
 
-  this.passthrough("https://sentry.io/**");
-  this.timing = 1000;
+  this.timing = 200;
   this.logging = false;
 
   this.get("/eventos");
@@ -70,6 +69,7 @@ export default function() {
         permisos: {
           "agenda.listar": true,
           "agenda.crear": true,
+          "agenda.eliminar": true,
           "tareas.listar": true,
           "escuelas.listar": true,
           "escuelas.crear": true,
