@@ -38,3 +38,5 @@ deploy_a_produccion:
 	@echo "Realizando deploy..."
 	@cd suite2; git add .; git config user.email "hugoruscitti@gmail.com"; git config user.name "Hugo Ruscitti"; git commit -am 'rebuild' --allow-empty; git push -f
 
+version:
+	${EMBER} release
