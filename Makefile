@@ -16,6 +16,7 @@ comandos:
 	@echo ""
 	@echo "    ${G}iniciar${N}               Instala todas las dependencias."
 	@echo "    ${G}test${N}                  Ejecuta los tests."
+	@echo "    ${G}version${N}               Incrementa la versión y ejecuta el deploy en circle.ci."
 	@echo "    ${G}deploy_a_produccion${N}   Sube la aplicación compilada a producción."
 	@echo ""
 
@@ -24,7 +25,7 @@ iniciar:
 	yarn install
 
 test:
-	yarn test
+	${EMBER} test
 
 deploy_a_produccion:
 	rm -rf dist
