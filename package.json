@@ -73,7 +73,7 @@
     "tachyons": "4.9.0"
   },
   "engines": {
-    "node": "8.9.4"
+    "node": "8"
   },
   "private": true,
   "dependencies": {
