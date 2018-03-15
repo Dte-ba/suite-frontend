@@ -42,6 +42,10 @@ export default Ember.Service.extend({
     return this.get("data.permisos")["perfil.global"];
   }),
 
+  version: Ember.computed("data.version", function() {
+    return this.get("data.version");
+  }),
+
   obtenerRegion() {
     return this.get("miPerfil.region");
   },
