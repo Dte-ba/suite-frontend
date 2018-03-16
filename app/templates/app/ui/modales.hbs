@@ -3,11 +3,7 @@
 <h1>Modales</h1>
 
 <p>Para incluir diálogos modales
-estamos usando <code>ember-remodal</code>, así que
-podemos usar y tomar ideas del
-<a href="http://sethbrasile.github.io/ember-remodal/" target="_blank">sitio oficial del complemento</a>
-para incluir en suite.</p>
-
+estamos usando un componente propio llamado <code>suite-modal</code>.</p>
 
 <p>Por ejemplo, el siguiente botón abre un dialogo
   modal muy sencillo:</p>
@@ -15,7 +11,7 @@ para incluir en suite.</p>
 <p><button class="ui button" {{action "abrirModalConPreferenciasDeUsuario"}}>Abrir preferencias de usuario</button></p>
 
 
-{{#ember-remodal forService=true name='modalConPreferenciasDeUsuario'}}
+{{#suite-modal mostrar=mostrarDialogo}}
   <h1>Preferencias de usuario</h1>
 
   <p>Este es un dialogo modal ilustrativo, no altera ninguna
@@ -32,5 +28,4 @@ para incluir en suite.</p>
   <p class="modal-barra-de-botones">
     <button class="ui button" {{action "cerrarDialogo"}}>Guardar</button>
   </p>
-
-{{/ember-remodal}}
+{{/suite-modal}}

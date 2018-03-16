@@ -39,10 +39,6 @@ path:hover {
   width: 100% !important;
 }
 
-.ember-remodal {
-  text-align: left;
-}
-
 .modal-barra-de-botones {
   text-align: right;
   padding-top: 4em;
