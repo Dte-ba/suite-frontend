@@ -582,12 +582,7 @@ iframe.mapa {
 }
 
 .login-contenedor {
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 47%,
-    rgba(237, 237, 237, 1) 100%
-  );
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -919,4 +914,11 @@ pre {
 
 .roboto {
   font-family: "Roboto Light";
+}
+
+.suite-container {
+  max-width: 1280px;
+  margin: auto;
+  padding-left: 1em;
+  padding-right: 1em;
 }
