@@ -18,3 +18,5 @@ yarn-error.log
 testem.log
 *.swp
 .DS_Store
+
+dump.rdb
