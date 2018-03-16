@@ -113,7 +113,7 @@ export default Ember.Component.extend({
           element.append('<i class="ui blue file icon"></i>');
         } else {
           element.addClass("evento-sin-acta");
-          element.append('<i class="ui red file icon"></i>');
+          element.append('<i class="ui red file outline icon"></i>');
         }
         if (evento.traslado === true) {
           element.append('<i class="ui grey car icon"></i>');
