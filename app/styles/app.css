@@ -56,6 +56,12 @@ path:hover {
   height: 64px;
 }
 
+th {
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+}
+
 th.table-header {
   cursor: pointer !important;
 }
@@ -576,7 +582,12 @@ iframe.mapa {
 }
 
 .login-contenedor {
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(246, 246, 246, 1) 47%,
+    rgba(237, 237, 237, 1) 100%
+  );
   position: fixed;
   top: 0;
   bottom: 0;
@@ -865,6 +876,13 @@ ol.qunit-assert-list table {
   overflow: auto;
 }
 
+pre {
+  white-space: pre-wrap; /* css-3 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word;
+}
 .no-pointer-events {
   pointer-events: none;
 }
