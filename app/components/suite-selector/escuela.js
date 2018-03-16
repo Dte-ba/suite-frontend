@@ -17,6 +17,10 @@ export default Ember.Component.extend({
       query.localidad__distrito__region__numero = region.get("numero");
     }
 
+    let contexto = this.get("contexto");
+    if (contexto === "paquetes") {
+      query.programa = "Conectar Igualdad";
+    }
     return this.get("store").query("escuela", query);
   }),
 
