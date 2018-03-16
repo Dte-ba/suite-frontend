@@ -6,11 +6,11 @@
     {{suite-tabla-error-de-api error=tarea.last.error}}
   {{else}}
 
-    {{#data-table data=tarea.lastSuccessful.value.data classNames='ui celled striped table selectable' as |t|}}
+    {{#data-table data=tarea.lastSuccessful.value.data classNames='ui celled striped table selectable dt--fixed' as |t|}}
 
       {{#each columnas as |columna|}}
 
-        {{#t.column propertyName=columna.atributo defaultHeader=true name=columna.titulo as |col|}}
+        {{#t.column class="elipsis truncate" propertyName=columna.atributo defaultHeader=true name=columna.titulo as |col|}}
 
           {{#suite-ajustar-celda centrar=columna.centrar ajustar=columna.ajustar}}
 
