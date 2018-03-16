@@ -1,9 +1,12 @@
 {{yield}}
 
 {{#suite-promesa promesa=model.escuela}}
-  {{#ui-popup content=model.escuela.nombre position='bottom left'}}
-    {{#link-to 'app.escuelas.detalle' model.escuela}}
-      {{model.escuela.cue}}
-    {{/link-to}}
-  {{/ui-popup}}
+  {{#link-to 'app.escuelas.detalle' model.escuela}}
+    {{model.escuela.cue}}
+  {{/link-to}}
+
+  {{#suite-popup mostrar=debeMostrarPopup}}
+    {{model.escuela.nombre}}
+  {{/suite-popup}}
+
 {{/suite-promesa}}

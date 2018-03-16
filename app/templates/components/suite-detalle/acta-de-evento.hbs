@@ -4,16 +4,25 @@
   <div class="ui active inline mini loader"></div>
 {{else}}
   {{#if model.actaLegacy}}
-    {{#ui-popup content="Ver acta" position='bottom left'}}
-      <a href="http://media-suite.dtelab.com.ar/agenda/agendafiles/{{model.legacyId}}_{{model.actaLegacy}}" target="_blank"><i class="blue file icon"></i></a>
-    {{/ui-popup}}
+    <a href="http://media-suite.dtelab.com.ar/agenda/agendafiles/{{model.legacyId}}_{{model.actaLegacy}}" target="_blank"><i class="blue file icon"></i></a>
+
+    {{#suite-popup mostrar=debeMostrarPopup}}
+      Ver acta
+    {{/suite-popup}}
   {{else if model.acta}}
-    {{#ui-popup content="Ver acta" position='bottom left'}}
-      <a href={{model.acta}} target="_blank"><i class="blue file icon"></i></a>
-    {{/ui-popup}}
+
+    <a href={{model.acta}} target="_blank"><i class="blue file icon"></i></a>
+
+    {{#suite-popup mostrar=debeMostrarPopup}}
+      Ver acta
+    {{/suite-popup}}
+
   {{else}}
-    {{#ui-popup content="Sin acta" position='bottom left'}}
-      <i class="red outline file icon"></i>
-    {{/ui-popup}}
+    <i class="red outline file icon"></i>
+
+    {{#suite-popup mostrar=debeMostrarPopup}}
+      Sin acta
+    {{/suite-popup}}
+
   {{/if}}
 {{/if}}
