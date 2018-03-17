@@ -87,7 +87,6 @@ th.table-header {
 body > .ember-view {
   height: 100%;
   font-size: 100%;
-  overflow: hidden;
 }
 
 .login-page {

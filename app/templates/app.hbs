@@ -1,33 +1,23 @@
-<div class="fixed bg-black white top-0 left-0 right-0  z-max" >
-  {{suite-barra-de-navegacion nombre=sesion.nombre cuandoQuiereCerrarSesion=(action "logout")}}
-</div>
-
-<div class="ui pushable segment component context">
-
-  {{#ui-sidebar class="inverted menu left inline vertical" context=".component.context" id="sub-sidebar"}}
-    {{suite-lista-de-rutas}}
-  {{/ui-sidebar}}
-
-    <div class="ui suite-container main">
+{{suite-barra-de-navegacion nombre=sesion.nombre cuandoQuiereCerrarSesion=(action "logout")}}
 
 
-      {{#bread-crumbs tagName='div' class="ui" crumbClass="section" linkable=true as |component cow|}}
 
-        {{#bread-crumb route=cow breadCrumbs=component}}
-          {{#if cow.title}}
-            {{cow.title}}
-          {{else}}
-            {{cow.name}} ({{cow.age}}) says {{cow.says}}
-          {{/if}}
-        {{/bread-crumb}}
-      {{/bread-crumbs}}
+<div class="ui suite-container main">
 
-      {{outlet}}
+  {{#bread-crumbs tagName='div' class="ui" crumbClass="section" linkable=true as |component cow|}}
+    {{#bread-crumb route=cow breadCrumbs=component}}
+      {{#if cow.title}}
+        {{cow.title}}
+      {{else}}
+        {{cow.name}} ({{cow.age}}) says {{cow.says}}
+      {{/if}}
+    {{/bread-crumb}}
+  {{/bread-crumbs}}
+
+  {{outlet}}
 
 
-      <div class="footer">
-      </div>
-
-    </div>
+  <div class="footer">
+  </div>
 
 </div>

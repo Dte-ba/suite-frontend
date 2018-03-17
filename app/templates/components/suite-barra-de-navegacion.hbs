@@ -1,10 +1,14 @@
 {{#if media.isMobile}}
 
-  <div class="ui sidebar inverted vertical menu">
-    {{suite-lista-de-rutas}}
-  </div>
+  {{#if sidebarVisible}}
+    <div class="bg-black-50 z-max fixed absolute--fill center" {{action "ocultarSidebar"}}>
+      <div class="ui fixed inverted vertical menu" style="bottom: 0" {{action "ocultarSidebar"}}>
+        {{suite-lista-de-rutas}}
+      </div>
+    </div>
+  {{/if}}
 
-  <a class="launch icon item" {{action 'toggle' 'sub-sidebar'}}>
+  <a class="launch icon item" {{action 'mostrarSidebar'}}>
     <i class="content icon"></i>
   </a>
 
