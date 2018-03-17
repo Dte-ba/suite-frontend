@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   nombreCompleto: Ember.computed.alias("perfil.nombreCompleto"),
   rol: Ember.computed.alias("perfil.rol"),
   region: Ember.computed.alias("perfil.region"),
-  sidebarVisible: true,
+  sidebarVisible: false,
 
   actions: {
     mostrarSidebar() {
