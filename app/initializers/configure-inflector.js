@@ -1,11 +1,11 @@
-import Ember from "ember";
 import config from "../config/environment";
+import Inflector from "ember-inflector";
 
 let initializer = {
   name: "configure-inflector",
 
   initialize: function() {
-    const inflector = Ember.Inflector.inflector;
+    const inflector = Inflector.inflector;
 
     inflector.irregular("region", "regiones");
     inflector.irregular("distrito", "distritos");
