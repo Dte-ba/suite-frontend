@@ -44,11 +44,28 @@
                   <i class="ui minus grey icon"></i>
                 {{/if}}
               {{else}}
-                {{#if (get col.row columna.atributo)}}
-                  {{get col.row columna.atributo}}
+
+
+                {{#if columna.promesa}}
+                  {{#if (is-pending (get col.row columna.promesa))}}
+                  {{else}}
+                    {{#if (get col.row columna.atributo)}}
+                      {{get col.row columna.atributo}}
+                    {{else}}
+                      <i class="ui minus grey icon"></i>
+                    {{/if}}
+                  {{/if}}
                 {{else}}
-                  <i class="ui minus grey icon"></i>
+
+                  {{#if (get col.row columna.atributo)}}
+                    {{get col.row columna.atributo}}
+                  {{else}}
+                    <i class="ui minus grey icon"></i>
+                  {{/if}}
+
                 {{/if}}
+
+
               {{/if}}
 
             {{/if}}
