@@ -252,6 +252,10 @@ body > .ember-view {
   border-radius: 50%;
 }
 
+.barra-de-navegacion {
+  z-index: 200 !important;
+}
+
 .barra-de-navegacion .item,
 .barra-de-navegacion .item.active.ember-transitioning-out {
   border-bottom: 3px solid #333333;
