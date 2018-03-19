@@ -922,3 +922,7 @@ pre {
   padding-left: 1em;
   padding-right: 1em;
 }
+
+.outline {
+  outline: 0 !important;
+}
