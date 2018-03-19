@@ -632,10 +632,6 @@ iframe.mapa {
   overflow: hidden;
 }
 
-.cancelar {
-  background: none !important;
-}
-
 .ember-power-select-search-input:focus {
   outline: 0;
   border: 1px solid #85b7d9;
