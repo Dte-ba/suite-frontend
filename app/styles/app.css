@@ -512,6 +512,7 @@ iframe.mapa {
   padding: 2em;
   text-align: center;
   min-height: 150px;
+  z-index: 50;
 }
 
 .w100 {
