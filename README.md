@@ -3,6 +3,18 @@
 [![CircleCI](https://circleci.com/gh/Dte-ba/suite-frontend.svg?style=svg)](https://circleci.com/gh/Dte-ba/suite-frontend)
 
 
+## Requerimientos
+
+Este proyecto necesita que el equipo sobre el que se va a desarrollar
+tenga instalado node 8 y yarn.
+
+Para instalar yarn asegurate de ejecutar este comando:
+
+```
+npm install -g yarn
+```
+
+
 ## ¿Cómo iniciar el proyecto?
 
 Cloná el repositorio y después ejecutá los siguientes
