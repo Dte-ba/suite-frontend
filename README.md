@@ -9,7 +9,7 @@ Cloná el repositorio y después ejecutá los siguientes
 comandos:
 
 ```
-npm install
+yarn install
 ```
 
 Luego, para lanzar la aplicación con datos de prueba ejecutá el comando:
