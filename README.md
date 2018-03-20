@@ -8,10 +8,8 @@
 Cloná el repositorio y después ejecutá los siguientes
 comandos:
 
-
 ```
 npm install
-bower install
 ```
 
 Luego, para lanzar la aplicación con datos de prueba ejecutá el comando:
@@ -37,17 +35,9 @@ ember serve --proxy http://127.0.0.1:8000
 Para realizar el deploy de la aplicación estamos usando dokku sobre
 el dominio http://dtelab.com.ar
 
-No hace falta realizar el deploy a mano, porque se hace directamente
-desde circle.ci una vez que corren bien los test. Pero si querés
-realizarlo de forma local hay que ejecutar estos pasos:
+Los test y el deploy se ejecutan sobre circle.ci, pero el deploy
+se ejecuta solamente cuando se encuentra un tag nuevo.
 
-```
-git remote add dokku dokku@dtelab.com.ar:testing-suite
-```
-
-y luego ejecutar
-
-```
-git push dokku master
-```
-
+Así que para realizar un deploy te recomendamos usar el comando
+"make version", que se encarga de incrementar la versión del proyecto
+y subir los tags que van a iniciar el deploy.
