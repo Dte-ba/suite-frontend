@@ -11,7 +11,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     // Emitiendo un mensaje para indicar que se están ocultando deprecation
     // messages de ember-data. Estos mensajes se ocultan desde el archivo
     // "config/deprecation-workflow.js".
+    /* eslint-disable no-console */
     console.log("Ocultando deprecations messages de ember-data");
+    /* eslint-enable no-console */
 
     this.get("analytics").inicializar();
     moment.locale("es");
