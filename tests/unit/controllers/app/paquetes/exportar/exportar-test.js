@@ -9,7 +9,7 @@ moduleFor(
       "service:analytics",
       "service:notificador",
       "service:perfil",
-      "service:descargas"
+      "service:ajax"
     ]
   }
 );

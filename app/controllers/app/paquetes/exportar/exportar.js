@@ -1,6 +1,6 @@
 import Ember from "ember";
 import QueryParams from "ember-parachute";
-import { task } from "ember-concurrency";
+import ENV from "suite-frontend/config/environment";
 
 export const parametros = new QueryParams({
   desde: {
@@ -21,7 +21,7 @@ export const parametros = new QueryParams({
 });
 
 export default Ember.Controller.extend(parametros.Mixin, {
-  descargas: Ember.inject.service(),
+  ajax: Ember.inject.service(),
 
   reset(isExiting) {
     if (isExiting) {
@@ -29,16 +29,12 @@ export default Ember.Controller.extend(parametros.Mixin, {
     }
   },
 
-  setup() {
-    this.get("tareaExportarInforme").perform();
-  },
+  actions: {
+    exportarPaquetes() {
+      let { desde, hasta, estado } = this.getProperties("desde", "hasta", "estado");
 
-  tareaExportarInforme: task(function*() {
-    let { estado, desde, hasta } = this.get("allQueryParams");
-
-    let url = `/api/paquetes/export?inicio=${desde}&fin=${hasta}&estado=${estado}`;
-    let nombre = `paquetes_${estado}_${desde}_${hasta}.xls`;
-
-    return yield this.get("descargas").iniciar(url, nombre);
-  }).drop()
+      let url = `api/trabajos/exportar_paquetes?inicio=${desde}&fin=${hasta}&estado=${estado}`;
+      return this.get("ajax").request(`${ENV.API_URL}/${url}`);
+    }
+  }
 });
