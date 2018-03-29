@@ -8,6 +8,11 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   routeAfterAuthentication: "app",
 
   beforeModel() {
+    // Emitiendo un mensaje para indicar que se están ocultando deprecation
+    // messages de ember-data. Estos mensajes se ocultan desde el archivo
+    // "config/deprecation-workflow.js".
+    console.log("Ocultando deprecations messages de ember-data");
+
     this.get("analytics").inicializar();
     moment.locale("es");
   },
