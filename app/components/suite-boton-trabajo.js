@@ -8,9 +8,10 @@ export default Ember.Component.extend({
   progreso: 0,
   resultado: 0,
   archivo: null,
-  detalle: [],
+  detalle: null,
   autoiniciar: false,
   autodescargar: false,
+  detalleDelError: null,
 
   width: Ember.computed("progreso", function() {
     let progreso = this.get("progreso");
@@ -18,6 +19,7 @@ export default Ember.Component.extend({
   }),
 
   didInsertElement() {
+    this.set("detalle", []);
     if (this.get("autoiniciar")) {
       this.send("crearTarea");
     }
@@ -41,6 +43,11 @@ export default Ember.Component.extend({
       this.set("detalle", data.detalle);
       this.set("archivo", data.archivo);
 
+      if (data.error) {
+        this.set("detalleDelError", data.error);
+        throw Error(data.error);
+      }
+
       if (data.resultado) {
         this.set("progreso", 100);
 
@@ -55,6 +62,7 @@ export default Ember.Component.extend({
 
   actions: {
     crearTarea() {
+      this.set("detalle", []);
       this.get("trabajo").perform();
     },
     descargar() {
