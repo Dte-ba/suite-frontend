@@ -1,0 +1,18 @@
+{{#validated-form
+  model        = (changeset model model.validaciones)
+  on-submit    = tareaGuardar
+  submit-label = texto as |f|
+}}
+
+  {{#suite-grupo numero=1 titulo="Datos básicos"}}
+    {{#f.input label="Archivo .zip recibido de educ.ar" name="archivo" required=true as |f|}}
+      {{suite-campo/llave archivos=f.value cuandoTerminaDeSubir=f.update}}
+    {{/f.input}}
+  {{/suite-grupo}}
+
+  {{#suite-grupo titulo=""}}
+    {{f.submit label="Comenzar distribución" class="ui button green"}} {{yield}}
+    {{#link-to "app.paquetes.index" class="ui button"}}Cancelar{{/link-to}}
+  {{/suite-grupo}}
+
+{{/validated-form}}

@@ -123,6 +123,9 @@ Router.map(function() {
       this.route("informes");
       this.route("exportar", function() {
         this.route("exportar");
+        this.route("distribuir", function() {
+          this.route("distribuir", { path: "distribuir/:distribucion_de_paquete_id" });
+        });
       });
     });
     this.route("grupos", function() {
@@ -137,7 +140,7 @@ Router.map(function() {
     this.route("contactos", function() {
       this.route("edicion", { path: "edicion/:contacto_id" });
       this.route("detalle", { path: "detalle/:contacto_id" });
-      this.route('crear');
+      this.route("crear");
     });
     this.route("trabajos", function() {});
   });
