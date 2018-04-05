@@ -16,6 +16,7 @@ export default DS.Model.extend({
   fechaDevolucion: DS.attr("string"),
   idDevolucion: DS.attr("string"),
   leido: DS.attr("boolean"),
+  zipDevolucion: DS.attr("string"),
 
   idhardware_ma: Ember.computed("idHardware", "marcaDeArranque", function() {
     let idhardware = this.get("idHardware");
