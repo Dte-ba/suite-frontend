@@ -1,0 +1,24 @@
+<div class="ba pa2 mb3 b--light-gray bg-black-05 flex">
+  {{#each filtros as |filtro|}}
+
+    {{component filtro.componente
+      nombre=filtro.nombre
+      etiqueta=filtro.etiqueta
+      deshabilitado=filtro.deshabilitado
+      valor=(get (get this 'parametros') filtro.nombre)
+      accion=(action 'cambiar' filtro.nombre)
+      etiquetaTodos=filtro.etiquetaTodos
+    }}
+
+  {{else}}
+    No has especificado los filtros
+  {{/each}}
+
+  {{yield}}
+
+  <div class="pl2">
+    <div class="f7 gray ttc unselectable">Acciones</div>
+    {{suite-boton accion=limpiarParametros texto="Limpiar filtros"}}
+  </div>
+
+</div>

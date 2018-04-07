@@ -2,6 +2,7 @@ import Ember from "ember";
 
 export default Ember.Component.extend({
   valorLocal: "",
+  soloIcono: false,
 
   didInsertElement() {
     let valorIngresado = this.get("valor");

@@ -25,7 +25,15 @@
   </div>
 </div>
 
-{{suite-filtros/escuelas
+{{suite-filtros
+  filtros=filtros
+  accion=(action 'cambiarParametro')
+  limpiarParametros=(action 'limpiarParametros')
+
+  parametros=allQueryParams
+}}
+
+{{!suite-filtros/escuelas
   filtro=model.filtro
   region=model.region
   deshabilitarSeleccionDeRegion=model.deshabilitarSeleccionDeRegion
@@ -34,9 +42,11 @@
 }}
 
 {{suite-tabla
-  pagina=model.pagina
+  ordenamiento=ordenamiento
+  cuandoCambiaOrdenamiento=(action "cuandoCambiaOrdenamiento")
+  pagina=pagina
   columnas=model.columnas
-  tarea=model.tareaEscuelas
+  tarea=tarea
   paginacion=true
-  cuandoCambiaPagina=(route-action "cuandoCambiaPagina")
+  cuandoCambiaPagina=(action "cuandoCambiaPagina")
 }}

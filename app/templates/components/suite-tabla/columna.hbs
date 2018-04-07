@@ -1,0 +1,15 @@
+{{#if columna.ordenamiento}}
+  <div class="pointer unselectable" {{action "cambiarOrden"}}>
+    {{#if asc}}
+      <i class='sort down icon'></i>
+    {{else if desc}}
+      <i class='sort up icon'></i>
+    {{else}}
+      <i class='sort gray icon'></i>
+    {{/if}}
+    {{columna.titulo}}
+  </div>
+
+{{else}}
+  {{columna.titulo}}
+{{/if}}

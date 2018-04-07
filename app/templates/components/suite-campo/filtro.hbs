@@ -1,4 +1,10 @@
 <div class="ui action input">
   {{input class='filtro' value=valorLocal type="text" placeholder=ayuda enter=(action alBuscar valorLocal)}}
-  <button class="ui button buscar" onclick={{action alBuscar valorLocal}}><i class="search icon"></i> Buscar</button>
+  <button class="ui button buscar" onclick={{action alBuscar valorLocal}}>
+    {{#if soloIcono}}
+      <i class="search icon" style='margin: 0'></i>
+    {{else}}
+      <i class="search icon"></i> Buscar
+    {{/if}}
+  </button>
 </div>
