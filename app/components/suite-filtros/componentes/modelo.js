@@ -1,5 +1,5 @@
 import Ember from "ember";
-import { task, timeout } from "ember-concurrency";
+import { task } from "ember-concurrency";
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
@@ -43,6 +43,7 @@ export default Ember.Component.extend({
   didInsertElement() {
     this.get("tarea").perform();
   },
+
   actions: {
     cuandoSelecciona(registro) {
       this.get("accion")(registro.get("id"));
