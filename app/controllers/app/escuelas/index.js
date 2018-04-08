@@ -12,7 +12,9 @@ export const parametros = new QueryParams({
   tipoDeGestion: { defaultValue: "", refresh: true, replace: true },
   ordenamiento: { defaultValue: "", refresh: true, replace: true },
   piso: { defaultValue: "", refresh: true, replace: true },
-  llave: { defaultValue: "", refresh: true, replace: true }
+  llave: { defaultValue: "", refresh: true, replace: true },
+  distrito: { defaultValue: "", refresh: true, replace: true },
+  localidad: { defaultValue: "", refresh: true, replace: true }
 });
 
 export default Ember.Controller.extend(parametros.Mixin, {
@@ -57,6 +59,11 @@ export default Ember.Controller.extend(parametros.Mixin, {
         componente: "suite-filtros/componentes/modelo",
         deshabilitado: false,
         etiquetaTodos: "Todos",
+        fila: 1
+      },
+      {
+        componente: "suite-filtros/componentes/distritoLocalidad",
+        deshabilitado: false,
         fila: 1
       },
       {

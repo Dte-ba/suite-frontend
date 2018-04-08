@@ -1,0 +1,58 @@
+<div class="w-60 flex">
+
+  <div class="w-50 pl2">
+    <div class="f7 gray ttc unselectable">Distrito</div>
+
+    {{#if cargandoDistritos}}
+      <div class="o-50 ember-power-select-trigger ember-basic-dropdown-trigger disabled">
+        <div class="tc">
+          <div class="ui active inline mini loader"></div>
+        </div>
+      </div>
+    {{else}}
+
+      {{#power-select
+        options=tarea.last.value
+        selected=valorComoObjeto
+        disabled=deshabilitado
+        searchEnabled=true
+        searchField=atributoPrimario
+        onchange=(action "cuandoSeleccionaLocalidad")
+        as |opcion|
+      }}
+        {{get opcion "nombre"}}
+      {{/power-select}}
+
+    {{/if}}
+
+  </div>
+
+
+  <div class="w-50 pl2">
+    <div class="f7 gray ttc unselectable">Localidad</div>
+
+    {{#if cargando}}
+      <div class="o-50 ember-power-select-trigger ember-basic-dropdown-trigger disabled">
+        <div class="tc">
+          <div class="ui active inline mini loader"></div>
+        </div>
+      </div>
+    {{else}}
+
+      {{#power-select
+        options=tarea.last.value
+        selected=valorComoObjeto
+        disabled=deshabilitado
+        searchEnabled=true
+        searchField=atributoPrimario
+        onchange=(action "cuandoSeleccionaLocalidad")
+        as |opcion|
+      }}
+        {{get opcion "nombre"}}
+      {{/power-select}}
+
+    {{/if}}
+
+  </div>
+
+</div>

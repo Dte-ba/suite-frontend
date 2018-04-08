@@ -10,8 +10,10 @@
           deshabilitado=filtro.deshabilitado
           valor=(get (get this 'parametros') filtro.nombre)
           accion=(action 'cambiar' filtro.nombre)
+          parametros=parametros
           etiquetaTodos=filtro.etiquetaTodos
         }}
+
       {{/each}}
     </div>
 
