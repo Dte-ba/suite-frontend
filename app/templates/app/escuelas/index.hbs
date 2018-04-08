@@ -27,18 +27,11 @@
 
 {{suite-filtros
   filtros=filtros
+  parametros=allQueryParams
+
   accion=(action 'cambiarParametro')
   limpiarParametros=(action 'limpiarParametros')
-
-  parametros=allQueryParams
-}}
-
-{{!suite-filtros/escuelas
-  filtro=model.filtro
-  region=model.region
-  deshabilitarSeleccionDeRegion=model.deshabilitarSeleccionDeRegion
-  cuandoSeleccionaRegion=(route-action "cuandoSeleccionaRegion")
-  alIngresarFiltro=(route-action "alIngresarFiltro")
+  tareaExportar=exportarConFiltros
 }}
 
 {{suite-tabla
@@ -48,5 +41,6 @@
   columnas=model.columnas
   tarea=tarea
   paginacion=true
+
   cuandoCambiaPagina=(action "cuandoCambiaPagina")
 }}

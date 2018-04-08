@@ -15,6 +15,8 @@ export const parametros = new QueryParams({
 
 export default Ember.Controller.extend(parametros.Mixin, {
   filtros: null,
+  perfil: Ember.inject.service(),
+  descargas: Ember.inject.service(),
 
   setup() {
     this.definirFiltros();
@@ -22,6 +24,17 @@ export default Ember.Controller.extend(parametros.Mixin, {
   },
 
   definirFiltros() {
+    let soloSuRegion = !this.get("perfil").tienePermiso("perfil.global");
+
+    if (soloSuRegion) {
+      this.set(
+        "region",
+        this.get("perfil")
+          .obtenerRegion()
+          .get("id")
+      );
+    }
+
     this.set("filtros", [
       {
         nombre: "busqueda",
@@ -32,7 +45,7 @@ export default Ember.Controller.extend(parametros.Mixin, {
       {
         nombre: "region",
         componente: "suite-filtros/componentes/modelo",
-        deshabilitado: false,
+        deshabilitado: soloSuRegion,
         etiquetaTodos: "Todas"
       },
       {
@@ -69,6 +82,21 @@ export default Ember.Controller.extend(parametros.Mixin, {
   },
 
   tarea: task(function*() {
+    let query = yield this.get("crearDiccionarioQuery").perform();
+    let data = yield this.store.query("escuela", query);
+    let meta = data.get("meta");
+
+    return { data, meta };
+  }),
+
+  exportarConFiltros: task(function*() {
+    let query = yield this.get("crearDiccionarioQuery").perform();
+
+    let url = `/api/escuelas/export`;
+    yield this.get("descargas").iniciar(url, "escuelas.xls", query);
+  }),
+
+  crearDiccionarioQuery: task(function*() {
     let query = {};
 
     query.conformada = false;
@@ -100,10 +128,7 @@ export default Ember.Controller.extend(parametros.Mixin, {
       query.sort = this.get("ordenamiento");
     }
 
-    let data = yield this.store.query("escuela", query);
-    let meta = data.get("meta");
-
-    return { data, meta };
+    return query;
   }).drop(),
 
   actualizar() {

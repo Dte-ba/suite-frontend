@@ -1,4 +1,4 @@
-<div class="ba pa2 mb3 b--light-gray bg-black-05 flex">
+<div class="ba pa2 b--light-gray bg-black-05 flex">
   {{#each filtros as |filtro|}}
 
     {{component filtro.componente
@@ -16,9 +16,13 @@
 
   {{yield}}
 
-  <div class="pl2">
-    <div class="f7 gray ttc unselectable">Acciones</div>
-    {{suite-boton accion=limpiarParametros texto="Limpiar filtros"}}
-  </div>
+</div>
 
+<div class="mb3 flex pt2">
+  <div class="flex1"></div>
+  <div class="f7 pa2 gray ttc unselectable">Acciones</div>
+  <div class="tr">
+    {{suite-boton accion=limpiarParametros texto="Limpiar filtros"}}
+    {{suite-boton-tarea tarea=tareaExportar texto='Exportar planilla' textoAlternativo="Exportando ..."}}
+  </div>
 </div>

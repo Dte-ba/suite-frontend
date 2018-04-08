@@ -5,7 +5,6 @@ import ENV from "suite-frontend/config/environment";
 export default Ember.Route.extend({
   requiere: "escuelas.listar",
   ajax: Ember.inject.service(),
-  perfilService: Ember.inject.service("perfil"),
   descargas: Ember.inject.service(),
 
   tareaExportarEscuelas: task(function*() {
@@ -20,26 +19,9 @@ export default Ember.Route.extend({
   }).drop(),
 
   model() {
-    let soloSuRegion = !this.get("perfilService").tienePermiso("perfil.global");
-    let regionPreSeleccionada = null;
-
-    if (soloSuRegion) {
-      regionPreSeleccionada = this.get("perfilService").obtenerRegion();
-    } else {
-      regionPreSeleccionada = Ember.Object.create({
-        nombre: "Todas las regiones",
-        numero: ""
-      });
-    }
-
     return {
       estadisticas: this.get("obtenerEstadisticas").perform({}),
       tareaExportar: this.get("tareaExportarEscuelas"),
-
-      /* valores a utilizar como filtros */
-      deshabilitarSeleccionDeRegion: soloSuRegion,
-
-      region: regionPreSeleccionada,
 
       columnas: [
         {
