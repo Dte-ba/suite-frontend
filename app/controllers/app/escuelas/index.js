@@ -42,45 +42,57 @@ export default Ember.Controller.extend(parametros.Mixin, {
         nombre: "busqueda",
         componente: "suite-filtros/componentes/input",
         etiqueta: "CUE o nombre",
-        deshabilitado: false
+        deshabilitado: false,
+        fila: 1
       },
       {
         nombre: "region",
         componente: "suite-filtros/componentes/modelo",
         deshabilitado: soloSuRegion,
-        etiquetaTodos: "Todas"
+        etiquetaTodos: "Todas",
+        fila: 1
       },
       {
         nombre: "programa",
         componente: "suite-filtros/componentes/modelo",
         deshabilitado: false,
-        etiquetaTodos: "Todos"
+        etiquetaTodos: "Todos",
+        fila: 1
       },
       {
         nombre: "modalidad",
         componente: "suite-filtros/componentes/modelo",
         deshabilitado: false,
-        etiquetaTodos: "Todas"
+        etiquetaTodos: "Todas",
+        fila: 1
       },
       {
         nombre: "tipoDeGestion",
         componente: "suite-filtros/componentes/modelo",
         deshabilitado: false,
-        etiquetaTodos: "Todos"
+        etiquetaTodos: "Todos",
+        fila: 1
       },
       {
         nombre: "nivel",
         componente: "suite-filtros/componentes/modelo",
         deshabilitado: false,
-        etiquetaTodos: "Todos"
+        etiquetaTodos: "Todos",
+        fila: 2
       },
       {
         nombre: "piso",
-        componente: "suite-filtros/componentes/estadoPiso"
+        componente: "suite-filtros/componentes/estadoPiso",
+        fila: 2
       },
       {
         nombre: "llave",
-        componente: "suite-filtros/componentes/llave"
+        componente: "suite-filtros/componentes/llave",
+        fila: 2
+      },
+      {
+        componente: "suite-filtros/componentes/espacio",
+        fila: 2
       }
     ]);
   },
