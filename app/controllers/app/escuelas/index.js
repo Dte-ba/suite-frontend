@@ -10,7 +10,8 @@ export const parametros = new QueryParams({
   region: { defaultValue: "", refresh: true, replace: true },
   nivel: { defaultValue: "", refresh: true, replace: true },
   tipoDeGestion: { defaultValue: "", refresh: true, replace: true },
-  ordenamiento: { defaultValue: "", refresh: true, replace: true }
+  ordenamiento: { defaultValue: "", refresh: true, replace: true },
+  piso: { defaultValue: "", refresh: true, replace: true }
 });
 
 export default Ember.Controller.extend(parametros.Mixin, {
@@ -71,6 +72,10 @@ export default Ember.Controller.extend(parametros.Mixin, {
         componente: "suite-filtros/componentes/modelo",
         deshabilitado: false,
         etiquetaTodos: "Todos"
+      },
+      {
+        nombre: "piso",
+        componente: "suite-filtros/componentes/estadoPiso"
       }
     ]);
   },
@@ -126,6 +131,10 @@ export default Ember.Controller.extend(parametros.Mixin, {
 
     if (this.get("ordenamiento")) {
       query.sort = this.get("ordenamiento");
+    }
+
+    if (this.get("piso")) {
+      query.piso = this.get("piso");
     }
 
     return query;

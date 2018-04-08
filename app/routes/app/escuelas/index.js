@@ -43,22 +43,26 @@ export default Ember.Route.extend({
         {
           atributo: "localidad.nombre",
           titulo: "Localidad",
-          promesa: "localidad"
+          promesa: "localidad",
+          ordenamiento: "localidad__nombre"
         },
         {
           atributo: "localidad.distrito.nombre",
           titulo: "Distrito",
-          promesa: "localidad.distrito"
+          promesa: "localidad.distrito",
+          ordenamiento: "localidad__distrito__nombre"
         },
         {
           atributo: "modalidad.nombre",
           titulo: "Modalidad",
-          promesa: "modalidad"
+          promesa: "modalidad",
+          ordenamiento: "modalidad__nombre"
         },
         {
           atributo: "nivel.nombre",
           titulo: "Nivel",
-          promesa: "nivel"
+          promesa: "nivel",
+          ordenamiento: "nivel__nombre"
         },
         {
           atributo: "programas",
@@ -73,7 +77,8 @@ export default Ember.Route.extend({
         {
           atributo: "piso.estado",
           titulo: "Piso",
-          template: "suite-tabla/celda-pisos"
+          template: "suite-tabla/celda-pisos",
+          ordenamiento: "piso__estado"
         },
         {
           atributo: "piso.llave",
