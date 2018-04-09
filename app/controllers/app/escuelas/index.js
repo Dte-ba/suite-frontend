@@ -55,6 +55,11 @@ export default Ember.Controller.extend(parametros.Mixin, {
         fila: 1
       },
       {
+        componente: "suite-filtros/componentes/distritoLocalidad",
+        deshabilitado: false,
+        fila: 1
+      },
+      {
         nombre: "programa",
         componente: "suite-filtros/componentes/modelo",
         deshabilitado: false,
@@ -62,23 +67,18 @@ export default Ember.Controller.extend(parametros.Mixin, {
         fila: 1
       },
       {
-        componente: "suite-filtros/componentes/distritoLocalidad",
-        deshabilitado: false,
-        fila: 1
-      },
-      {
         nombre: "modalidad",
         componente: "suite-filtros/componentes/modelo",
         deshabilitado: false,
         etiquetaTodos: "Todas",
-        fila: 1
+        fila: 2
       },
       {
         nombre: "tipoDeGestion",
         componente: "suite-filtros/componentes/modelo",
         deshabilitado: false,
         etiquetaTodos: "Todos",
-        fila: 1
+        fila: 2
       },
       {
         nombre: "nivel",
@@ -163,6 +163,14 @@ export default Ember.Controller.extend(parametros.Mixin, {
 
     if (this.get("llave")) {
       query.llave = this.get("llave");
+    }
+
+    if (this.get("distrito")) {
+      query.distrito = this.get("distrito");
+    }
+
+    if (this.get("localidad")) {
+      query.localidad = this.get("localidad");
     }
 
     return query;
