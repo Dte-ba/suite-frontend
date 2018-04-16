@@ -29,7 +29,7 @@ test:
 
 deploy_a_produccion:
 	rm -rf dist
-	@SUITE_API_URL="http://suite-backend.enjambrelab.com.ar" yarn build --prod
+	@SUITE_API_URL="http://suite-backend.dtelab.com.ar" yarn build --prod
 	@echo "Compilando aplicación en modo producción"
 	@rm -rf suite2
 	@echo "Clonando repositorio para realizar el deploy."
