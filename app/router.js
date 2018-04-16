@@ -153,6 +153,7 @@ Router.map(function() {
   this.route("logout");
 
   this.route("validaciones", function() {});
+  this.route('migracion');
 });
 
 export default Router;

@@ -19,6 +19,10 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     moment.locale("es");
   },
 
+  activate() {
+    return this.transitionTo("migracion");
+  },
+
   model() {
     return this.store.findAll("sesion").then(data => {
       if (data.get("length") === 0) {
