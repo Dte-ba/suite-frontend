@@ -119,7 +119,6 @@ Router.map(function() {
     this.route("paquetes", function() {
       this.route("crear");
       this.route("crearMasivo");
-      this.route("admin");
       this.route("informes");
       this.route("exportar", function() {
         this.route("exportar");
