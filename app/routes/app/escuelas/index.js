@@ -17,7 +17,10 @@ export default Ember.Route.extend({
     query.page = model.pagina;
     query.query = model.filtro;
 
-    query.localidad__distrito__region__numero = Ember.get(model, "region.numero");
+    query.localidad__distrito__region__numero = Ember.get(
+      model,
+      "region.numero"
+    );
 
     let data = yield this.store.query("escuela", query);
     let meta = data.get("meta");
@@ -31,13 +34,24 @@ export default Ember.Route.extend({
   }).drop(),
 
   obtenerEstadisticas: task(function*() {
-    let url = ENV.API_URL + "/api/escuelas/estadistica";
+    let region = this.get("perfilService").obtenerRegion();
+    let url = "";
+    if (region && region.get("numero") != "27") {
+      url =
+        ENV.API_URL +
+        "/api/escuelas/estadistica?localidad__distrito__region__numero=" +
+        region.get("numero");
+    } else {
+      url = ENV.API_URL + "/api/escuelas/estadistica";
+    }
+
     let resultado = yield this.get("ajax").request(url);
     return resultado;
   }).drop(),
 
   actualizar() {
     this.get("obtenerEscuelas").perform();
+    this.get("obtenerEstadisticas").perform();
   },
 
   afterModel() {
