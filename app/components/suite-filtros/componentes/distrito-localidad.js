@@ -4,9 +4,7 @@ import { task, timeout } from "ember-concurrency";
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   tagName: "",
-  cargandoDistritos: true,
-  distritos: [],
-  localidades: [],
+  soloSuRegion: false,
 
   opcionTodas: Ember.Object.create({
     nombre: "Todas",
@@ -36,64 +34,97 @@ export default Ember.Component.extend({
     }
   }),
 
+  region: Ember.computed.alias("parametros.region"),
+  regionComoObjeto: Ember.computed("region", function() {
+    if (this.get("region")) {
+      return this.get("store").find("region", this.get("region"));
+    } else {
+      return this.get("opcionTodas");
+    }
+  }),
+
   noHaSeleccionadoDistrito: Ember.computed("parametros.distrito", function() {
     return !this.get("distrito");
   }),
 
-  tareaCargarDistritos: task(function*() {
-    this.set("cargandoDistritos", true);
-    let distritos = [this.get("opcionTodos")];
+  tareaRegiones: task(function*() {
+    let regiones = [this.get("opcionTodas")];
 
-    let data = yield this.get("store").query("distrito", {
+    yield timeout(500);
+
+    let data = yield this.get("store").query("region", {
       page_size: 500
     });
 
     data.map(d => {
-      distritos.pushObject(d);
+      regiones.pushObject(d);
     });
 
-    this.set("distritos", distritos);
-    this.set("cargandoDistritos", false);
+    return regiones;
   }).drop(),
 
-  tareaCargarLocalidades: task(function*() {
-    this.set("cargandoLocalidades", true);
-    let data = [this.get("opcionTodas")];
+  tareaDistritos: task(function*() {
+    let distritos = [this.get("opcionTodos")];
 
-    yield timeout(2000);
+    yield timeout(500);
 
-    let localidades = yield this.get("store").query("localidad", {
-      page_size: 500,
-      distrito: this.get("distrito")
-    });
+    if (this.get("region")) {
+      let data = yield this.get("store").query("distrito", {
+        page_size: 500,
+        region: this.get("region")
+      });
 
-    localidades.map(l => {
-      data.pushObject(l);
-    });
+      data.map(d => {
+        distritos.pushObject(d);
+      });
+    } else {
+      distritos.pushObject({ nombre: "Seleccione región para ver más opciones.", disabled: true });
+    }
 
-    this.set("localidades", data);
-    this.set("cargandoLocalidades", false);
+    return distritos;
+  }).drop(),
+
+  tareaLocalidades: task(function*() {
+    let localidades = [this.get("opcionTodas")];
+
+    yield timeout(500);
+
+    if (this.get("distrito")) {
+      let data = yield this.get("store").query("localidad", {
+        page_size: 500,
+        distrito: this.get("distrito")
+      });
+
+      data.map(l => {
+        localidades.pushObject(l);
+      });
+    } else {
+      localidades.pushObject({ nombre: "Seleccione distrito para ver más opciones.", disabled: true });
+    }
+
+    return localidades;
   }).drop(),
 
   didInsertElement() {
-    this.get("tareaCargarDistritos").perform();
-
-    if (this.get("distrito")) {
-      this.get("tareaCargarLocalidades").perform();
-    } else {
-      this.set("localidades", [this.get("opcionTodas")]);
-    }
+    this.get("tareaRegiones").perform();
+    this.get("tareaDistritos").perform();
+    this.get("tareaLocalidades").perform();
   },
 
   actions: {
+    cuandoSeleccionaRegion(region) {
+      this.get("accionCompleta")("region", region.get("id"));
+      this.get("accionCompleta")("distrito", "");
+      this.get("accionCompleta")("localidad", "");
+      this.get("tareaDistritos").perform();
+    },
+
     cuandoSeleccionaDistrito(distrito) {
       let id = distrito.get("id");
-      this.get("accionCompleta")("distrito", id);
 
-      if (id) {
-        this.get("accionCompleta")("localidad", "");
-        this.get("tareaCargarLocalidades").perform();
-      }
+      this.get("accionCompleta")("distrito", id);
+      this.get("accionCompleta")("localidad", "");
+      this.get("tareaLocalidades").perform();
     },
 
     cuandoSeleccionaLocalidad(localidad) {

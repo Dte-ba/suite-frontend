@@ -1,9 +1,9 @@
-<div class="w-60 flex">
+<div class="flex flex1">
 
   <div class="w-50 pl2">
-    <div class="pl1 f7 gray ttc unselectable">Distrito</div>
+    <div class="pl1 f7 gray ttc unselectable">Región</div>
 
-    {{#if cargandoDistritos}}
+    {{#if tareaRegiones.last.isRunning}}
       <div class="o-50 ember-power-select-trigger ember-basic-dropdown-trigger disabled">
         <div class="tc">
           <div class="ui active inline mini loader"></div>
@@ -12,7 +12,34 @@
     {{else}}
 
       {{#power-select
-        options=distritos
+        options=tareaRegiones.last.value
+        selected=regionComoObjeto
+        disabled=soloSuRegion
+        searchEnabled=true
+        searchField='nombre'
+        onchange=(action "cuandoSeleccionaRegion")
+        as |opcion|
+      }}
+        {{get opcion "nombre"}}
+      {{/power-select}}
+
+    {{/if}}
+
+  </div>
+
+  <div class="w-50 pl2">
+    <div class="pl1 f7 gray ttc unselectable">Distrito</div>
+
+    {{#if tareaDistritos.last.isRunning}}
+      <div class="o-50 ember-power-select-trigger ember-basic-dropdown-trigger disabled">
+        <div class="tc">
+          <div class="ui active inline mini loader"></div>
+        </div>
+      </div>
+    {{else}}
+
+      {{#power-select
+        options=tareaDistritos.last.value
         selected=distritoComoObjeto
         disabled=deshabilitado
         searchEnabled=true
@@ -31,7 +58,7 @@
   <div class="w-50 pl2">
     <div class="pl1 f7 gray ttc unselectable">Localidad</div>
 
-    {{#if cargandoLocalidades}}
+    {{#if tareaLocalidades.last.isRunning}}
       <div class="o-50 ember-power-select-trigger ember-basic-dropdown-trigger disabled">
         <div class="tc">
           <div class="ui active inline mini loader"></div>
@@ -40,7 +67,7 @@
     {{else}}
 
       {{#power-select
-        options=localidades
+        options=tareaLocalidades.last.value
         selected=localidadComoObjeto
         disabled=false
         searchEnabled=true

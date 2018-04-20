@@ -48,14 +48,8 @@ export default Ember.Controller.extend(parametros.Mixin, {
         fila: 1
       },
       {
-        nombre: "region",
-        componente: "suite-filtros/componentes/modelo",
-        deshabilitado: soloSuRegion,
-        etiquetaTodos: "Todas",
-        fila: 1
-      },
-      {
         componente: "suite-filtros/componentes/distritoLocalidad",
+        soloSuRegion: soloSuRegion,
         deshabilitado: false,
         fila: 1
       },
@@ -64,7 +58,7 @@ export default Ember.Controller.extend(parametros.Mixin, {
         componente: "suite-filtros/componentes/modelo",
         deshabilitado: false,
         etiquetaTodos: "Todos",
-        fila: 1
+        fila: 2
       },
       {
         nombre: "modalidad",
@@ -95,10 +89,6 @@ export default Ember.Controller.extend(parametros.Mixin, {
       {
         nombre: "llave",
         componente: "suite-filtros/componentes/llave",
-        fila: 2
-      },
-      {
-        componente: "suite-filtros/componentes/espacio",
         fila: 2
       }
     ]);

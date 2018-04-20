@@ -1,4 +1,5 @@
 <div class="ba pb2 pr2 b--light-gray bg-black-05 flex flex-column">
+
   {{#each filtrosAgrupadosPorFilas as |filtrosPorFilas|}}
 
     <div class="flex pt2">
@@ -9,6 +10,7 @@
           etiqueta=filtro.etiqueta
           deshabilitado=filtro.deshabilitado
           valor=(get (get this 'parametros') filtro.nombre)
+          soloSuRegion=filtro.soloSuRegion
           accion=(action 'cambiar' filtro.nombre)
           accionCompleta=accion
           parametros=parametros
