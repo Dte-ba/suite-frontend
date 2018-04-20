@@ -20,7 +20,7 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
   },
 
   afterModel(model) {
-    if (!this.get("perfil").tienePermiso("personas.crear")) {
+    if (!this.get("perfil").tienePermiso("contacto.crear")) {
       this.transitionTo("/app/");
     } else {
       model.set("opciones", {
