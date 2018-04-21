@@ -1,26 +1,28 @@
 <div class="ba pb2 pr2 b--light-gray bg-black-05 flex flex-column">
 
-  {{#each filtrosAgrupadosPorFilas as |filtrosPorFilas|}}
 
-    <div class="flex pt2">
-      {{#each filtrosPorFilas as |filtro|}}
+    {{#each filtrosAgrupadosPorFilas as |filtrosPorFilas|}}
 
-        {{component filtro.componente
-          nombre=filtro.nombre
-          etiqueta=filtro.etiqueta
-          deshabilitado=filtro.deshabilitado
-          valor=(get (get this 'parametros') filtro.nombre)
-          soloSuRegion=filtro.soloSuRegion
-          accion=(action 'cambiar' filtro.nombre)
-          accionCompleta=accion
-          parametros=parametros
-          etiquetaTodos=filtro.etiquetaTodos
-        }}
+      <div class="flex pt2">
+        {{#each filtrosPorFilas as |filtro|}}
 
-      {{/each}}
-    </div>
+          {{component filtro.componente
+            nombre=filtro.nombre
+            etiqueta=filtro.etiqueta
+            deshabilitado=filtro.deshabilitado
+            valor=(get (get this 'parametros') filtro.nombre)
+            soloSuRegion=filtro.soloSuRegion
+            accion=(action 'cambiar' filtro.nombre)
+            accionCompleta=accion
+            parametros=parametros
+            etiquetaTodos=filtro.etiquetaTodos
+          }}
 
-  {{/each}}
+        {{/each}}
+      </div>
+
+    {{/each}}
+
 
   {{yield}}
 </div>
@@ -35,6 +37,15 @@
   <div class="flex1"></div>
   <div class="f7 pa2 gray ttc unselectable">Acciones</div>
   <div class="tr">
+
+    {{#if mostrarFiltrosAvanzados}}
+      {{suite-boton accion=alOcultarFiltros texto="Ocultar filtros avanzados"}}
+    {{else}}
+      {{suite-boton accion=alMostrarFiltros texto="Mostrar filtros avanzados"}}
+    {{/if}}
+
+
+
     {{suite-boton accion=limpiarParametros texto="Limpiar filtros"}}
     {{suite-boton-tarea tarea=tareaExportar texto='Exportar planilla' textoAlternativo="Exportando ..."}}
   </div>

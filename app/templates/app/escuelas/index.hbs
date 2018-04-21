@@ -28,7 +28,11 @@
 {{suite-filtros
   filtros=filtros
   parametros=allQueryParams
+  mostrarFiltrosAvanzados=mostrarFiltrosAvanzados
 
+  alMostrarFiltros=(action (mut mostrarFiltrosAvanzados) true)
+  alOcultarFiltros=(action 'limpiarParametros')
+  
   accion=(action 'cambiarParametro')
   limpiarParametros=(action 'limpiarParametros')
   tareaExportar=exportarConFiltros

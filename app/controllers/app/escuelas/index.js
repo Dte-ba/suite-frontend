@@ -14,7 +14,8 @@ export const parametros = new QueryParams({
   piso: { defaultValue: "", refresh: true, replace: true },
   llave: { defaultValue: "", refresh: true, replace: true },
   distrito: { defaultValue: "", refresh: true, replace: true },
-  localidad: { defaultValue: "", refresh: true, replace: true }
+  localidad: { defaultValue: "", refresh: true, replace: true },
+  mostrarFiltrosAvanzados: { defaultValue: "", refresh: true, replace: true }
 });
 
 export default Ember.Controller.extend(parametros.Mixin, {
@@ -132,7 +133,7 @@ export default Ember.Controller.extend(parametros.Mixin, {
     }
 
     if (this.get("programa")) {
-      query.programa = this.get("programa");
+      query.programa_in = this.get("programa");
     }
 
     if (this.get("nivel")) {
