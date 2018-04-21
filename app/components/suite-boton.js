@@ -10,6 +10,7 @@ export default Ember.Component.extend({
     unselectable
     truncate
     no-outline
+    hover-bg-light-gray
   `,
   ejecutando: false,
 
