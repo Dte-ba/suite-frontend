@@ -1,6 +1,21 @@
 {{outlet}}
 
-{{suite-filtros/eventos
+{{suite-filtros
+  filtros=filtros
+  parametros=allQueryParams
+  mostrarFiltrosAvanzados=mostrarFiltrosAvanzados
+
+  alMostrarFiltros=(action (mut mostrarFiltrosAvanzados) true)
+  alOcultarFiltros=(action 'limpiarParametros')
+
+  accion=(action 'cambiarParametro')
+  limpiarParametros=(action 'limpiarParametros')
+  tareaExportar=exportarConFiltros
+}}
+
+<div class="ba bg-yellow">SEPARADOR</div>
+
+{{!suite-filtros/eventos
   filtro=model.filtro
   region=model.region
   perfil=model.perfil
@@ -11,10 +26,14 @@
 }}
 
 {{suite-tabla
-  pagina=model.pagina
+  pagina=pagina
+
+  ordenamiento=ordenamiento
+  cuandoCambiaOrdenamiento=(action "cuandoCambiaOrdenamiento")
+
   columnas=model.columnas
   tarea=model.tareaEventos
   paginacion=true
-  cuandoCambiaPagina=(route-action "cuandoCambiaPagina")
-  cuandoCambiaLimite=(route-action "cuandoCambiaLimite")
+  cuandoCambiaPagina=(action "cuandoCambiaPagina")
+  cuandoCambiaLimite=(action "cuandoCambiaLimite")
 }}
