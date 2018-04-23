@@ -16,6 +16,7 @@ jobs:
       - run: yarn test
       - run: echo -e "Host dtelab.com.ar\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
       - run: make deploy_a_produccion
+      - run: ls dist/
 workflows:
   version: 2
   compilar-y-subir:
