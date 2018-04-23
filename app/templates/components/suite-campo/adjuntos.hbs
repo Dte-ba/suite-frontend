@@ -2,6 +2,7 @@
   multiple="true"
   onchange={{action "upload"}}
   accept="image/png,image/jpeg"
+  ondrop="alert('Por favor seleccione el archivo desde el botón Elegir archivos');return false;"
   type="file"/>
 
 {{#if archivos}}
