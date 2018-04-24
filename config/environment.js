@@ -15,6 +15,7 @@ module.exports = function(environment) {
 
     contentSecurityPolicy: {
       "script-src": "'self' 'unsafe-inline' 'unsafe-eval' cdn.ravenjs.com",
+      'connect-src': ["'self'", "suite-backend.dtelab.com.ar"],
       "img-src": "data: app.getsentry.com"
     },
 
