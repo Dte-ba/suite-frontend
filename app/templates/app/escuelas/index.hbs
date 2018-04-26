@@ -1,9 +1,11 @@
 <div class="ui grid">
   <div class="five wide column">
     {{suite-titulo titulo="Escuelas"}}
-    {{#if model.region.numero}}
-      <div class="ui basic label">Región {{model.region.numero}}</div>
+
+    {{#if region}}
+      <div class="ui basic label">Región {{region}}</div>
     {{/if}}
+    
     {{#link-to "app.escuelas.todas"}}Todas las de la provincia{{/link-to}}
   </div>
   <div class="eleven wide column">
@@ -35,7 +37,7 @@
 
   alMostrarFiltros=(action (mut mostrarFiltrosAvanzados) true)
   alOcultarFiltros=(action 'limpiarParametros')
-  
+
   accion=(action 'cambiarParametro')
   limpiarParametros=(action 'limpiarParametros')
   tareaExportar=exportarConFiltros

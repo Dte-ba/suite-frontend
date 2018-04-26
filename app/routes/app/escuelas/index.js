@@ -6,6 +6,7 @@ export default Ember.Route.extend({
   requiere: "escuelas.listar",
   ajax: Ember.inject.service(),
   descargas: Ember.inject.service(),
+  perfilService: Ember.inject.service("perfil"),
 
   tareaExportarEscuelas: task(function*() {
     let url = `/api/escuelas/export`;
