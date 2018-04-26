@@ -94,6 +94,12 @@
 
   {{/suite-grupo}}
 
+  {{#if error}}
+    <div class="ui negative message">
+      <p>{{error}}</p>
+
+    </div>
+  {{/if}}
 
   {{#suite-grupo titulo=""}}
     {{f.submit label=texto class="ui button green"}} {{yield}}
