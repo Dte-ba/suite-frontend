@@ -28,18 +28,26 @@
   </div>
 </div>
 
-{{suite-filtros/escuelas
-  filtro=model.filtro
-  region=model.region
-  deshabilitarSeleccionDeRegion=model.deshabilitarSeleccionDeRegion
-  cuandoSeleccionaRegion=(route-action "cuandoSeleccionaRegion")
-  alIngresarFiltro=(route-action "alIngresarFiltro")
+{{suite-filtros
+  filtros=filtros
+  parametros=allQueryParams
+  mostrarFiltrosAvanzados=mostrarFiltrosAvanzados
+
+  alMostrarFiltros=(action (mut mostrarFiltrosAvanzados) true)
+  alOcultarFiltros=(action 'limpiarParametros')
+  
+  accion=(action 'cambiarParametro')
+  limpiarParametros=(action 'limpiarParametros')
+  tareaExportar=exportarConFiltros
 }}
 
 {{suite-tabla
-  pagina=model.pagina
+  ordenamiento=ordenamiento
+  cuandoCambiaOrdenamiento=(action "cuandoCambiaOrdenamiento")
+  pagina=pagina
   columnas=model.columnas
-  tarea=model.tareaEscuelas
+  tarea=tarea
   paginacion=true
-  cuandoCambiaPagina=(route-action "cuandoCambiaPagina")
+
+  cuandoCambiaPagina=(action "cuandoCambiaPagina")
 }}

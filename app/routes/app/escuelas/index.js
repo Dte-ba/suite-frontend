@@ -5,28 +5,7 @@ import ENV from "suite-frontend/config/environment";
 export default Ember.Route.extend({
   requiere: "escuelas.listar",
   ajax: Ember.inject.service(),
-  perfilService: Ember.inject.service("perfil"),
   descargas: Ember.inject.service(),
-
-  obtenerEscuelas: task(function*() {
-    let query = {};
-
-    let model = this.modelFor(this.routeName);
-
-    query.conformada = false;
-    query.page = model.pagina;
-    query.query = model.filtro;
-
-    query.localidad__distrito__region__numero = Ember.get(
-      model,
-      "region.numero"
-    );
-
-    let data = yield this.store.query("escuela", query);
-    let meta = data.get("meta");
-
-    return { data, meta };
-  }).drop(),
 
   tareaExportarEscuelas: task(function*() {
     let url = `/api/escuelas/export`;
@@ -37,10 +16,7 @@ export default Ember.Route.extend({
     let region = this.get("perfilService").obtenerRegion();
     let url = "";
     if (region && region.get("numero") != "27") {
-      url =
-        ENV.API_URL +
-        "/api/escuelas/estadistica?localidad__distrito__region__numero=" +
-        region.get("numero");
+      url = ENV.API_URL + "/api/escuelas/estadistica?localidad__distrito__region__numero=" + region.get("numero");
     } else {
       url = ENV.API_URL + "/api/escuelas/estadistica";
     }
@@ -49,73 +25,51 @@ export default Ember.Route.extend({
     return resultado;
   }).drop(),
 
-  actualizar() {
-    this.get("obtenerEscuelas").perform();
-    this.get("obtenerEstadisticas").perform();
-  },
-
-  afterModel() {
-    this.actualizar();
-  },
-
   model() {
-    let soloSuRegion = !this.get("perfilService").tienePermiso("perfil.global");
-    let regionPreSeleccionada = null;
-
-    if (soloSuRegion) {
-      regionPreSeleccionada = this.get("perfilService").obtenerRegion();
-    } else {
-      regionPreSeleccionada = Ember.Object.create({
-        nombre: "Todas las regiones",
-        numero: ""
-      });
-    }
-
     return {
       estadisticas: this.get("obtenerEstadisticas").perform({}),
-      tareaEscuelas: this.get("obtenerEscuelas"),
       tareaExportar: this.get("tareaExportarEscuelas"),
-
-      /* valores a utilizar como filtros */
-      pagina: 1,
-      filtro: "",
-      deshabilitarSeleccionDeRegion: soloSuRegion,
-
-      region: regionPreSeleccionada,
 
       columnas: [
         {
           atributo: "nombre",
           titulo: "Nombre",
-          ruta: "app.escuelas.detalle"
+          ruta: "app.escuelas.detalle",
+          ordenamiento: "nombre"
         },
         {
           atributo: "cue",
-          titulo: "CUE"
+          titulo: "CUE",
+          ordenamiento: "cue"
         },
         {
           atributo: "numero_de_region",
-          titulo: "Región"
+          titulo: "Región",
+          ordenamiento: "localidad__distrito__region__numero"
         },
         {
           atributo: "localidad.nombre",
           titulo: "Localidad",
-          promesa: "localidad"
+          promesa: "localidad",
+          ordenamiento: "localidad__nombre"
         },
         {
           atributo: "localidad.distrito.nombre",
           titulo: "Distrito",
-          promesa: "localidad.distrito"
+          promesa: "localidad.distrito",
+          ordenamiento: "localidad__distrito__nombre"
         },
         {
           atributo: "modalidad.nombre",
           titulo: "Modalidad",
-          promesa: "modalidad"
+          promesa: "modalidad",
+          ordenamiento: "modalidad__nombre"
         },
         {
           atributo: "nivel.nombre",
           titulo: "Nivel",
-          promesa: "nivel"
+          promesa: "nivel",
+          ordenamiento: "nivel__nombre"
         },
         {
           atributo: "programas",
@@ -123,9 +77,15 @@ export default Ember.Route.extend({
           template: "suite-tabla/celda-programas"
         },
         {
+          atributo: "tipoDeGestion.nombre",
+          titulo: "Gestión",
+          promesa: "tipoDeGestion"
+        },
+        {
           atributo: "piso.estado",
           titulo: "Piso",
-          template: "suite-tabla/celda-pisos"
+          template: "suite-tabla/celda-pisos",
+          ordenamiento: "piso__estado"
         },
         {
           atributo: "piso.llave",
@@ -141,25 +101,8 @@ export default Ember.Route.extend({
     };
   },
   actions: {
-    alIngresarFiltro(valor) {
-      let model = this.modelFor(this.routeName);
-      Ember.set(model, "filtro", valor);
-      Ember.set(model, "pagina", 1);
-      this.actualizar();
-    },
     crearUnaEscuelaNueva() {
       return this.transitionTo("app.escuelas.crear");
-    },
-    cuandoCambiaPagina(pagina) {
-      let model = this.modelFor(this.routeName);
-      Ember.set(model, "pagina", pagina);
-      this.actualizar();
-    },
-    cuandoSeleccionaRegion(region) {
-      let model = this.modelFor(this.routeName);
-      Ember.set(model, "region", region);
-      Ember.set(model, "pagina", 1);
-      this.actualizar();
     },
     exportarEscuelas() {
       return this.get("tareaExportarEscuelas").perform();

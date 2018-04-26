@@ -1,0 +1,16 @@
+{{yield}}
+
+{{#if tarea.last.isRunning}}
+
+  <button class="{{estilo}} disabled o-50" disabled type="button" name="button">
+    <div class="ui active inline mini loader"></div>
+    {{textoAlternativo}}
+  </button>
+
+{{else}}
+
+  <button class="{{estilo}}" {{action (perform tarea)}} type="button" name="button">
+    {{texto}}
+  </button>
+  
+{{/if}}

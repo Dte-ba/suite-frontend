@@ -67,7 +67,8 @@ export default Ember.Route.extend({
           // componente: "suite-detalle/fecha-acciones-lista"
           atributo: "fecha_inicio",
           fechaHora: true,
-          centrar: true
+          centrar: true,
+          ordenamiento: "fecha"
         },
         {
           titulo: "Fin",
@@ -80,27 +81,32 @@ export default Ember.Route.extend({
           titulo: "Título",
           atributo: "titulo",
           ruta: "app.agenda.detalle",
-          ajustar: true
+          ajustar: true,
+          ordenamiento: "titulo"
         },
         {
           titulo: "Región",
           atributo: "escuela.localidad.distrito.region.numero",
-          centrar: true
+          centrar: true,
+          ordenamiento: "escuela__localidad__distrito__region__numero"
         },
         {
           titulo: "Distrito",
           atributo: "escuela.localidad.distrito.nombre",
-          centrar: true
+          centrar: true,
+          ordenamiento: "distrito"
         },
         {
           titulo: "CUE",
-          componente: "suite-detalle/cue"
+          componente: "suite-detalle/cue",
+          ordenamiento: "escuela_id"
         },
         {
           titulo: "Responsable",
           componente: "suite-detalle/responsable",
           centrar: true,
-          ajustar: false
+          ajustar: false,
+          ordenamiento: "responsable"
         },
         {
           titulo: "Acta",
@@ -110,7 +116,8 @@ export default Ember.Route.extend({
         {
           titulo: "Traslado",
           componente: "suite-detalle/traslado",
-          centrar: true
+          centrar: true,
+          ordenamiento: "requiere_traslado"
         }
       ]
     };

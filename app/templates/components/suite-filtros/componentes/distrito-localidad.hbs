@@ -1,0 +1,85 @@
+<div class="flex flex1">
+
+  <div class="w-50 pl2">
+    <div class="pl1 f7 gray ttc unselectable">Región</div>
+
+    {{#if tareaRegiones.last.isRunning}}
+      <div class="o-50 ember-power-select-trigger ember-basic-dropdown-trigger disabled">
+        <div class="tc">
+          <div class="ui active inline mini loader"></div>
+        </div>
+      </div>
+    {{else}}
+
+      {{#power-select
+        options=tareaRegiones.last.value
+        selected=regionComoObjeto
+        disabled=soloSuRegion
+        searchEnabled=true
+        searchField='nombre'
+        onchange=(action "cuandoSeleccionaRegion")
+        as |opcion|
+      }}
+        {{get opcion "nombre"}}
+      {{/power-select}}
+
+    {{/if}}
+
+  </div>
+
+  <div class="w-50 pl2">
+    <div class="pl1 f7 gray ttc unselectable">Distrito</div>
+
+    {{#if tareaDistritos.last.isRunning}}
+      <div class="o-50 ember-power-select-trigger ember-basic-dropdown-trigger disabled">
+        <div class="tc">
+          <div class="ui active inline mini loader"></div>
+        </div>
+      </div>
+    {{else}}
+
+      {{#power-select
+        options=tareaDistritos.last.value
+        selected=distritoComoObjeto
+        disabled=deshabilitado
+        searchEnabled=true
+        searchField='nombre'
+        onchange=(action "cuandoSeleccionaDistrito")
+        as |opcion|
+      }}
+        {{get opcion "nombre"}}
+      {{/power-select}}
+
+    {{/if}}
+
+  </div>
+
+
+  <div class="w-50 pl2">
+    <div class="pl1 f7 gray ttc unselectable">Localidad</div>
+
+    {{#if tareaLocalidades.last.isRunning}}
+      <div class="o-50 ember-power-select-trigger ember-basic-dropdown-trigger disabled">
+        <div class="tc">
+          <div class="ui active inline mini loader"></div>
+        </div>
+      </div>
+    {{else}}
+
+      {{#power-select
+        options=tareaLocalidades.last.value
+        selected=localidadComoObjeto
+        disabled=false
+        searchEnabled=true
+        searchField='nombre'
+        onchange=(action "cuandoSeleccionaLocalidad")
+        as |opcion|
+      }}
+        {{get opcion "nombre"}}
+      {{/power-select}}
+
+    {{/if}}
+
+  </div>
+
+</div>

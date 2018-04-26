@@ -1,0 +1,29 @@
+<div class="w-30 pl2">
+
+  <div class="">
+    <div class="pl1 f7 gray ttc unselectable">{{nombre}}</div>
+
+    {{#if cargando}}
+      <div class="o-50 ember-power-select-trigger ember-basic-dropdown-trigger disabled">
+        <div class="tc">
+          <div class="ui active inline mini loader"></div>
+        </div>
+      </div>
+    {{else}}
+
+      {{#power-select
+        options=tarea.last.value
+        selected=valorComoObjeto
+        disabled=deshabilitado
+        searchEnabled=true
+        searchField=atributoPrimario
+        onchange=(action "cuandoSelecciona")
+        as |opcion|
+      }}
+        {{get opcion "nombre"}}
+      {{/power-select}}
+
+    {{/if}}
+
+  </div>
+</div>

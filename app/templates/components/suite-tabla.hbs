@@ -10,69 +10,75 @@
 
       {{#each columnas as |columna|}}
 
-        {{#t.column class="elipsis truncate" propertyName=columna.atributo defaultHeader=true name=columna.titulo as |col|}}
+        {{#t.column class="elipsis truncate" propertyName=columna.atributo defaultHeader=false name=columna.titulo as |col|}}
 
-          {{#suite-ajustar-celda centrar=columna.centrar ajustar=columna.ajustar}}
-
-          {{#if columna.template}}
-            {{component columna.template valor=(get col.row columna.atributo)}}
-          {{else if columna.componente}}
-            {{component columna.componente model=col.row}}
+          {{#if col.header}}
+            {{suite-tabla/columna ordenamiento=ordenamiento columna=columna accion=cuandoCambiaOrdenamiento}}
           {{else}}
 
-            {{#if columna.promesa}}
-              {{suite-espera-promesa promesa=(get col.row columna.promesa)}}
-            {{/if}}
+            {{#suite-ajustar-celda centrar=columna.centrar ajustar=columna.ajustar}}
 
-            {{#if columna.ruta}}
-              {{#if columna.promesa}}
-                {{#link-to columna.ruta (get col.row columna.promesa)}} {{get col.row columna.atributo}} {{/link-to}}
-              {{else}}
-                {{#link-to columna.ruta col.row}} {{get col.row columna.atributo}} {{/link-to}}
-              {{/if}}
+            {{#if columna.template}}
+              {{component columna.template valor=(get col.row columna.atributo)}}
+            {{else if columna.componente}}
+              {{component columna.componente model=col.row}}
             {{else}}
-              {{#if columna.fecha}}
-                {{#if (get col.row columna.atributo)}}
-                  {{suite-fecha fecha=(get col.row columna.atributo)}}
+
+              {{#if columna.promesa}}
+                {{suite-espera-promesa promesa=(get col.row columna.promesa)}}
+              {{/if}}
+
+              {{#if columna.ruta}}
+                {{#if columna.promesa}}
+                  {{#link-to columna.ruta (get col.row columna.promesa)}} {{get col.row columna.atributo}} {{/link-to}}
                 {{else}}
-                  <i class="ui minus grey icon"></i>
-                {{/if}}
-              {{else if columna.fechaHora}}
-                {{#if (get col.row columna.atributo)}}
-                  {{suite-detalle/fecha-acciones-lista fecha=(get col.row columna.atributo)}}
-                {{else}}
-                  <i class="ui minus grey icon"></i>
+                  {{#link-to columna.ruta col.row}} {{get col.row columna.atributo}} {{/link-to}}
                 {{/if}}
               {{else}}
-
-
-                {{#if columna.promesa}}
-                  {{#if (is-pending (get col.row columna.promesa))}}
+                {{#if columna.fecha}}
+                  {{#if (get col.row columna.atributo)}}
+                    {{suite-fecha fecha=(get col.row columna.atributo)}}
                   {{else}}
+                    <i class="ui minus grey icon"></i>
+                  {{/if}}
+                {{else if columna.fechaHora}}
+                  {{#if (get col.row columna.atributo)}}
+                    {{suite-detalle/fecha-acciones-lista fecha=(get col.row columna.atributo)}}
+                  {{else}}
+                    <i class="ui minus grey icon"></i>
+                  {{/if}}
+                {{else}}
+
+
+                  {{#if columna.promesa}}
+                    {{#if (is-pending (get col.row columna.promesa))}}
+                    {{else}}
+                      {{#if (get col.row columna.atributo)}}
+                        {{get col.row columna.atributo}}
+                      {{else}}
+                        <i class="ui minus grey icon"></i>
+                      {{/if}}
+                    {{/if}}
+                  {{else}}
+
                     {{#if (get col.row columna.atributo)}}
                       {{get col.row columna.atributo}}
                     {{else}}
                       <i class="ui minus grey icon"></i>
                     {{/if}}
-                  {{/if}}
-                {{else}}
 
-                  {{#if (get col.row columna.atributo)}}
-                    {{get col.row columna.atributo}}
-                  {{else}}
-                    <i class="ui minus grey icon"></i>
                   {{/if}}
+
 
                 {{/if}}
-
 
               {{/if}}
 
             {{/if}}
 
+            {{/suite-ajustar-celda}}
           {{/if}}
 
-          {{/suite-ajustar-celda}}
         {{/t.column}}
 
       {{else}}

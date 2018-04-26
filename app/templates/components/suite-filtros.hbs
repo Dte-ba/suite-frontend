@@ -1,0 +1,56 @@
+<div class="ba pb2 pr2 b--light-gray bg-black-05 flex flex-column">
+
+
+    {{#each filtrosAgrupadosPorFilas as |filtrosPorFilas|}}
+
+      <div class="flex pt2">
+        {{#each filtrosPorFilas as |filtro|}}
+
+          {{component filtro.componente
+            nombre=filtro.nombre
+            etiqueta=filtro.etiqueta
+            deshabilitado=filtro.deshabilitado
+            valor=(get (get this 'parametros') filtro.nombre)
+            soloSuRegion=filtro.soloSuRegion
+            accion=(action 'cambiar' filtro.nombre)
+            accionCompleta=accion
+            parametros=parametros
+            etiquetaTodos=filtro.etiquetaTodos
+          }}
+
+        {{/each}}
+      </div>
+
+    {{/each}}
+
+
+  {{yield}}
+</div>
+
+
+{{#unless filtros}}
+  No has especificado los filtros
+{{/unless}}
+
+
+<div class="mb3 flex pt2">
+  <div class="flex1"></div>
+  <div class="f7 pa2 gray ttc unselectable">Acciones</div>
+  <div class="tr">
+
+    {{#if mostrarFiltrosAvanzados}}
+      {{suite-boton accion=alOcultarFiltros texto="Ocultar filtros avanzados"}}
+    {{else}}
+      {{suite-boton accion=alMostrarFiltros texto="Mostrar filtros avanzados"}}
+    {{/if}}
+
+
+
+    {{suite-boton accion=limpiarParametros texto="Limpiar filtros"}}
+
+    {{#if tareaExportar}}
+      {{suite-boton-tarea tarea=tareaExportar texto='Exportar planilla' textoAlternativo="Exportando ..."}}
+    {{/if}}
+
+  </div>
+</div>

@@ -4,11 +4,13 @@ import ENV from "suite-frontend/config/environment";
 export default Ember.Service.extend({
   ajax: Ember.inject.service(),
 
-  iniciar(url, nombre) {
+  iniciar(url, nombre, parametros) {
     let base = ENV.API_URL;
+    parametros = parametros || {};
 
     let promesa = this.get("ajax").raw(`${base}${url}`, {
       dataType: "binary",
+      data: parametros,
       xhrFields: {
         responseType: "blob"
       }
