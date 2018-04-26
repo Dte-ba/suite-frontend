@@ -1,6 +1,13 @@
 import Ember from "ember";
 import QueryParams from "ember-parachute";
-import { task } from "ember-concurrency";
+import { task, timeout } from "ember-concurrency";
+
+const fechaDesde = moment(new Date())
+  .startOf("year")
+  .format("YYYY-MM-DD");
+const fechaHasta = moment(new Date())
+  .endOf("year")
+  .format("YYYY-MM-DD");
 
 export const parametros = new QueryParams({
   pagina: { defaultValue: 1, refresh: true, replace: true },
@@ -12,6 +19,12 @@ export const parametros = new QueryParams({
   region: { defaultValue: "", refresh: true, replace: true },
   distrito: { defaultValue: "", refresh: true, replace: true },
   localidad: { defaultValue: "", refresh: true, replace: true },
+
+  responsable: { defaultValue: "", refresh: true, replace: true },
+  participante: { defaultValue: "", refresh: true, replace: true },
+
+  desde: { defaultValue: fechaDesde, refresh: true, replace: true },
+  hasta: { defaultValue: fechaHasta, refresh: true, replace: true },
 
   mostrarFiltrosAvanzados: { defaultValue: "", refresh: true, replace: true }
 });
@@ -47,6 +60,16 @@ export default Ember.Controller.extend(parametros.Mixin, {
         soloSuRegion: soloSuRegion,
         deshabilitado: false,
         fila: 1
+      },
+      {
+        componente: "suite-filtros/componentes/responsableParticipante",
+        deshabilitado: false,
+        fila: 2
+      },
+      {
+        componente: "suite-filtros/componentes/intervaloDeFechas",
+        deshabilitado: false,
+        fila: 2
       }
     ]);
   },
@@ -59,12 +82,6 @@ export default Ember.Controller.extend(parametros.Mixin, {
 
   tarea: task(function*() {
     let query = yield this.get("crearDiccionarioQuery").perform();
-
-    //query.escuela__localidad__distrito__region__numero = Ember.get(model, "region.numero");
-
-    //if (model.perfil && model.perfil.id) {
-    //  query.perfil = model.perfil.id;
-    //}
 
     let data = yield this.store.query("evento", query);
     let meta = data.get("meta");
@@ -82,20 +99,23 @@ export default Ember.Controller.extend(parametros.Mixin, {
   crearDiccionarioQuery: task(function*() {
     let query = {};
 
+    yield timeout(10);
+
     query.page = this.get("pagina");
     query.query = this.get("busqueda");
     query.page_size = this.get("limite");
 
-    /*
-    if (this.get("region")) {
-      let region = yield this.store.find("region", this.get("region"));
-      query.localidad__distrito__region__numero = region.get("numero");
-    }
+    query.responsable__id = this.get("responsable");
+    query.perfil = this.get("participante");
+    query.escuela__localidad = this.get("localidad");
+    query.escuela__localidad__distrito = this.get("distrito");
+    query.escuela__localidad__distrito__region = this.get("region");
 
-    */
+    query.desde = this.get("desde");
+    query.hasta = this.get("hasta");
 
     if (this.get("ordenamiento")) {
-      query.sort = this.get("ordenamiento");
+      query.ordering = this.get("ordenamiento");
     }
 
     return query;

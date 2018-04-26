@@ -47,6 +47,10 @@
 
 
     {{suite-boton accion=limpiarParametros texto="Limpiar filtros"}}
-    {{suite-boton-tarea tarea=tareaExportar texto='Exportar planilla' textoAlternativo="Exportando ..."}}
+
+    {{#if tareaExportar}}
+      {{suite-boton-tarea tarea=tareaExportar texto='Exportar planilla' textoAlternativo="Exportando ..."}}
+    {{/if}}
+
   </div>
 </div>

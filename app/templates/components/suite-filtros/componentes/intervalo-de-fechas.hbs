@@ -1,0 +1,13 @@
+<div class="flex flex1">
+
+  <div class="w-50 pl2">
+    <div class="pl1 f7 gray ttc unselectable">Desde</div>
+    {{suite-campo/fecha fecha=parametros.desde cuandoCambia=(action "cuandoCambiaDesde")}}
+  </div>
+
+  <div class="w-50 pl2">
+    <div class="pl1 f7 gray ttc unselectable">Hasta</div>
+    {{suite-campo/fecha fecha=parametros.hasta cuandoCambia=(action "cuandoCambiaHasta")}}
+  </div>
+
+</div>

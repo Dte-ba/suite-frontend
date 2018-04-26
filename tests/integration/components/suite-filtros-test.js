@@ -6,7 +6,10 @@ moduleForComponent("suite-filtros", "Integration | Component | suite filtros", {
 });
 
 test("it renders", function(assert) {
-  this.render(hbs`{{suite-filtros}}`);
+  this.set("filtros", []);
+
+  this.render(hbs`{{suite-filtros filtros=filtros}}`);
+
   assert.ok(
     this.$()
       .text()

@@ -10,19 +10,6 @@
 
   accion=(action 'cambiarParametro')
   limpiarParametros=(action 'limpiarParametros')
-  tareaExportar=exportarConFiltros
-}}
-
-<div class="ba bg-yellow">SEPARADOR</div>
-
-{{!suite-filtros/eventos
-  filtro=model.filtro
-  region=model.region
-  perfil=model.perfil
-  deshabilitarSeleccionDeRegion=model.deshabilitarSeleccionDeRegion
-  cuandoSeleccionaRegion=(route-action "cuandoSeleccionaRegion")
-  cuandoSeleccionaResponsable=(route-action "cuandoSeleccionaResponsable")
-  alIngresarFiltro=(route-action "alIngresarFiltro")
 }}
 
 {{suite-tabla
@@ -32,7 +19,7 @@
   cuandoCambiaOrdenamiento=(action "cuandoCambiaOrdenamiento")
 
   columnas=model.columnas
-  tarea=model.tareaEventos
+  tarea=tarea
   paginacion=true
   cuandoCambiaPagina=(action "cuandoCambiaPagina")
   cuandoCambiaLimite=(action "cuandoCambiaLimite")
