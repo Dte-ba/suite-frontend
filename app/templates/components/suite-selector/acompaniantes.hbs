@@ -1,11 +1,13 @@
 {{yield}}
 
+<div class="flex">
+
 {{#power-select-multiple
   disabled=disabled
   search=(perform buscarPersonas)
   selected=valor
   placeholder="Buscar acompañantes..."
-  class="selectorDeAcompaniantes"
+  class="selectorDeAcompaniantes w-100"
   tagName='div'
   onchange=(action "cuandoSeleccionaPerfil")
   as |item|
@@ -24,3 +26,9 @@
     </div>
   </div>
 {{/power-select-multiple}}
+
+  <div class="ml2 v-mid pt1">
+    {{suite-boton-tarea tarea=tareaAsignarEquipo texto='Asignar a todo el equipo' textoAlternativo="Asignando ..."}}
+  </div>
+
+</div>

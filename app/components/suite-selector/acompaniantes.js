@@ -22,6 +22,15 @@ export default Ember.Component.extend({
     return this.get("store").query("perfil", query);
   }),
 
+  tareaAsignarEquipo: task(function*() {
+    yield timeout(500);
+    let region = this.get("perfilService").obtenerRegion();
+
+    let perfiles = yield this.get("store").findAll("perfil", { region: region, page_size: 5000 });
+
+    this.send("cuandoSeleccionaPerfil", perfiles);
+  }),
+
   actions: {
     cuandoSeleccionaPerfil(perfil) {
       this.set("valor", perfil);

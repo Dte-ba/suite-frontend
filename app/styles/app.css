@@ -596,12 +596,7 @@ iframe.mapa {
 }
 
 .login-contenedor {
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(246, 246, 246, 1) 47%,
-    rgba(237, 237, 237, 1) 100%
-  );
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -647,7 +642,6 @@ iframe.mapa {
 }
 
 .ember-basic-dropdown-trigger {
-  height: 38px;
   overflow: hidden;
 }
 
@@ -804,7 +798,7 @@ iframe.mapa {
   border-radius: 2px;
   color: #333;
   background-color: #fbfbfb;
-  margin: -3px 6px 2px 3px;
+  margin: -3px 6px 8px 3px;
 }
 
 .suite-planilla {
