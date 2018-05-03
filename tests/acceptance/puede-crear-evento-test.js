@@ -21,8 +21,8 @@ test("Puede crear un evento correctamente", async function(assert) {
   fillIn("[name='titulo']", "Evento de prueba");
   await click("[type='submit']");
 
-  // Hay exactamente 4 errores de validación.
-  assert.equal($(".field.error").length, 4);
+  // Hay exactamente 3 errores de validación.
+  assert.equal($(".field.error").length, 3);
 
   // Luego se cargan datos válidos
   fillIn("[placeholder='Seleccione hora']:first", "14:00");

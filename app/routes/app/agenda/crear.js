@@ -3,6 +3,8 @@ import QueryParamsResetRouteMixin from "ember-query-params-reset/mixins/query-pa
 
 export default Ember.Route.extend(QueryParamsResetRouteMixin, {
   requiere: "agenda.crear",
+  perfil: Ember.inject.service(),
+
   queryParams: {
     escuela_id: {}
   },
@@ -10,13 +12,16 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
   model(params) {
     let hoy = moment().format("YYYY-MM-DD");
     let ahoraInicio = moment().format("HH:mm:ss");
-    let ahoraFin = moment().add(1, "s").format("HH:mm:ss");
+    let ahoraFin = moment()
+      .add(1, "s")
+      .format("HH:mm:ss");
     let opciones = {
       fecha: hoy,
       fechaFin: hoy,
       inicio: ahoraInicio,
       fin: ahoraFin,
-      cantidadDeParticipantes: 0
+      cantidadDeParticipantes: 0,
+      responsable: this.get("perfil.miPerfil")
     };
 
     if (params.escuela_id) {
@@ -30,10 +35,7 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
 
   afterModel(model) {
     model.set("buscarPersonas", this.get("buscarPersonas"));
-    model.set(
-      "categorias",
-      this.store.query("categoriaDeEvento", { page_size: 3000 })
-    );
+    model.set("categorias", this.store.query("categoriaDeEvento", { page_size: 3000 }));
   },
 
   actions: {
