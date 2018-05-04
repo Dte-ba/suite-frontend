@@ -1,0 +1,20 @@
+{{yield}}
+
+<p>Por favor seleccione el perfil de usuario que quiere simular.</p>
+
+<div class="mw6">
+  {{suite-selector/perfil cuandoSelecciona=(action 'cuandoSeleccionaPerfil')}}
+</div>
+
+
+<div class="mv3">
+  {{#if perfil}}
+    {{#link-to "app.escritorio" (query-params perfilInspeccionado=perfil.id) class="ui button primario"}}Simular acceso{{/link-to}}
+  {{else}}
+    <button class="ui disabled button">Simular acceso</button>
+  {{/if}}
+</div>
+
+<p>Tenga en cuenta que tendrá acceso solamente a las secciones que puede
+  ver ese usuario y toda operación que realice será registrada como una
+  operación de ese usuario.</p>

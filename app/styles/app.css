@@ -643,6 +643,7 @@ iframe.mapa {
 
 .ember-basic-dropdown-trigger {
   overflow: hidden;
+  min-height: 38px;
 }
 
 .ember-power-select-search-input:focus {

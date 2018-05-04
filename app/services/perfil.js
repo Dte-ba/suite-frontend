@@ -18,8 +18,13 @@ export default Ember.Service.extend({
   }),
 
   // Se llamará desde la ruta principal app (archivo "app/routes/app.js")
-  cargar() {
+  cargar(perfilInspeccionado) {
     let url = ENV.API_URL + "/api/mi-perfil";
+
+    if (perfilInspeccionado) {
+      url = `${ENV.API_URL}/api/mi-perfil?perfilInspeccionado=${perfilInspeccionado}`;
+    }
+
     return this.get("ajax")
       .request(url)
       .then(response => {
@@ -35,7 +40,11 @@ export default Ember.Service.extend({
 
   /* Retorna true, false o undefined para el tipo de permiso solicitado */
   tienePermiso(permiso) {
-    return this.get("data.permisos")[permiso];
+    if (this.get("data.permisos")) {
+      return this.get("data.permisos")[permiso];
+    } else {
+      return false;
+    }
   },
 
   tienePermisoGlobal: Ember.computed("data.permisos", function() {

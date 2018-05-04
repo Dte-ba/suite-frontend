@@ -6,10 +6,15 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   breadCrumb: null,
   perfil: Ember.inject.service(),
   authenticationRoute: "login",
+  queryParams: {
+    perfilInspeccionado: {
+      refreshModel: true
+    }
+  },
 
-  model() {
+  model(params) {
     return this.get("perfil")
-      .cargar()
+      .cargar(params.perfilInspeccionado)
       .catch(error => this.logoutIfInvalidSession(error));
   },
 
@@ -19,6 +24,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       regiones: this.get("store").findAll("region")
     });
   },
+
   logoutIfInvalidSession(error) {
     if (error instanceof UnauthorizedError) {
       this.transitionTo("logout");

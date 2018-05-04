@@ -1,6 +1,21 @@
-{{suite-barra-de-navegacion nombre=sesion.nombre cuandoQuiereCerrarSesion=(action "logout")}}
+{{#if perfilInspeccionado}}
+  <div class="pt4 mt4 bg-lightest-blue tr pr2 fixed w-100 pa2 z-max bb b--gray unselectable roboto">
+    {{suite-barra-de-navegacion nombre=sesion.nombre cuandoQuiereCerrarSesion=(action "logout")}}
+
+    Cuidado, estás viendo la suite simulando el perfil de <strong>{{perfil.nombreCompleto}}</strong>.
+    <br/>
+    Pulsá {{#link-to "logout"}}<strong>salir</strong>{{/link-to}} para regresar a tu cuenta.
+  </div>
+{{else}}
+  {{suite-barra-de-navegacion nombre=sesion.nombre cuandoQuiereCerrarSesion=(action "logout")}}
+{{/if}}
 
 
+{{#if perfilInspeccionado}}
+<div class="h3">
+  asdasd
+</div>
+{{/if}}
 
 <div class="ui suite-container main">
 

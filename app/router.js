@@ -74,6 +74,7 @@ Router.map(function() {
         this.route("exportar", { path: "exportar/:region/:desde/:hasta" });
       });
       this.route("exportar");
+      this.route('simular');
     });
 
     this.route("agenda", function() {

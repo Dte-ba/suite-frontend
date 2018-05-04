@@ -17,8 +17,9 @@
 
   {{/link-to}}
 
-
-
+  {{#if puedeSimularAcceso}}
+    {{#link-to 'app.personas.simular' tagName='div' class='item'}}Simular accesso como otro usuario{{/link-to}}
+  {{/if}}
 
   <div class="divider"></div>
   <div class="item" {{action 'invalidateSession'}}>Cerrar sesión</div>
