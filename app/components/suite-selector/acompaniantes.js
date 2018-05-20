@@ -24,9 +24,11 @@ export default Ember.Component.extend({
 
   tareaAsignarEquipo: task(function*() {
     yield timeout(500);
-    let region = this.get("perfilService").obtenerRegion();
+    let region = this.get("perfilService")
+      .obtenerRegion()
+      .get("numero");
 
-    let perfiles = yield this.get("store").findAll("perfil", { region: region, page_size: 5000 });
+    let perfiles = yield this.get("store").query("perfil", { region__numero: region });
 
     this.send("cuandoSeleccionaPerfil", perfiles);
   }),
