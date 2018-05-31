@@ -15,7 +15,7 @@ module.exports = function(environment) {
 
     contentSecurityPolicy: {
       "script-src": "'self' 'unsafe-inline' 'unsafe-eval' cdn.ravenjs.com",
-      'connect-src': ["'self'", "suite-backend.dtelab.com.ar"],
+      "connect-src": ["'self'", "suite-backend.dtelab.com.ar"],
       "img-src": "data: app.getsentry.com"
     },
 
@@ -47,7 +47,10 @@ module.exports = function(environment) {
         error: "error"
       }
     },
-    "ember-simple-auth": {}
+    "ember-simple-auth": {},
+    "ember-d3": {
+      bundle: true
+    }
   };
 
   ENV["g-map"] = {

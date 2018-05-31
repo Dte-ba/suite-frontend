@@ -3,8 +3,14 @@
       <img class="ui centered image" src="imagenes/logo-suite.png">
   </div>
 </div>
-
+<div class="ui equal width grid">
+  <div class="ui column">
+    {{suite-graficos/suite-bars data=model.escuelasPorPrograma.data}}
+  </div>
+  <div class="ui column">
+    {{suite-graficos/suite-pie-chart data=model.escuelasPorPrograma.data}}
+  </div>
+</div>
 {{outlet}}
-
 
 {{suite-version}}

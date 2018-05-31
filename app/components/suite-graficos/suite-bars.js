@@ -1,49 +1,54 @@
-import Ember from 'ember';
-import { select } from 'd3-selection';
-import { scaleLinear, scaleBand, scaleOrdinal } from 'd3-scale';
+import Ember from "ember";
+import d3 from "d3";
 
 export default Ember.Component.extend({
-
-  validaciones: [
-    { name: 'Objetadas', count: 300 },
-    { name: 'Pendientes', count: 750 },
-    { name: 'Aprobadas', count: 2500 }
-  ],
-
   didInsertElement() {
-    let color = scaleOrdinal(["#ff0000", "#00ff00", "#0000ff"]);
+    console.log(this.get("data"));
+    let color = d3.scaleOrdinal(["#d4145a", "#d4145a", "#d4145a"]);
 
-    let validacionCounts = this.get('validaciones').map(validacion => validacion.count);
-    let yScale = scaleLinear()
-      .domain([0, Math.max(...validacionCounts) ])
-      .range([0, 130]);
+    let validacionCounts = this.get("data").map(validacion => validacion.count);
 
-    let xScale = scaleBand()
-      .domain(this.get('validaciones').map(validacion => validacion.name))
-      .range([ 0, 300])
-      .paddingInner(0.12);
+    let dataCount = this.get("data").length;
+    let xScale = d3
+      .scaleLinear()
+      .domain([0, Math.max(...validacionCounts)])
+      .range([0.5, 400]);
 
-    let svg = select(this.$('svg')[0]);
+    let yScale = d3
+      .scaleBand()
+      .domain(this.get("data").map(validacion => validacion.name))
+      .range([0, 250])
+      .paddingInner(0);
 
-    svg.selectAll('rect').data(this.get('validaciones'))
+    let svg = d3.select(this.$("svg")[0]);
+
+    svg
+      .selectAll("rect")
+      .data(this.get("data"))
       .enter()
-      .append('rect')
-      .attr('width', xScale.bandwidth())
-      .attr('height', validacion => yScale(validacion.count))
-      .attr('x', validacion => xScale(validacion.name))
-      .attr('y', validacion => 150 - yScale(validacion.count))
-      .attr("fill", color((validacion, index) => index))
+      .append("rect")
+      .attr("width", validacion => xScale(validacion.count))
+      // .attr("height", yScale.bandwidth())
+      .attr("height", 8)
+      .attr("y", validacion => yScale(validacion.name) + 35)
+      .attr("x", validacion => 15)
+      .attr("fill", color((validacion, index) => index));
 
-    // let text = svg.selectAll('text')
-    //   .data(this.get('validaciones'))
-    //   .enter()
-    //   .append('text')
-    //   .attr("x", validacion => xScale(validacion.name))
-    //   .attr("y", function(d) { return 15; })
-    //   .text( validacion => validacion.name)
-    //   .attr("font-family", "sans-serif")
-    //   .attr("font-size", "14px")
-    //   .attr("fill", "#666");
+    let text = svg
+      .selectAll("text")
+      .data(this.get("data"))
+      .enter()
+      .append("text")
+      .attr("y", validacion => yScale(validacion.name) + 30)
+      .attr("x", function(d) {
+        return 15;
+      })
+      .text(validacion => validacion.name + " (" + validacion.count + ")")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", "14px")
+      .attr("fill", "#666");
 
+    svg.attr("height", 100 * dataCount);
+    svg.attr("width", "100%");
   }
 });
