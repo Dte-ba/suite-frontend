@@ -3,7 +3,7 @@ import d3 from "d3";
 
 export default Ember.Component.extend({
   didInsertElement() {
-    console.log(this.get("data"));
+    //console.log(this.get("data"));
     let color = d3.scaleOrdinal(["#d4145a", "#d4145a", "#d4145a"]);
 
     let validacionCounts = this.get("data").map(validacion => validacion.count);
@@ -31,16 +31,16 @@ export default Ember.Component.extend({
       // .attr("height", yScale.bandwidth())
       .attr("height", 8)
       .attr("y", validacion => yScale(validacion.name) + 35)
-      .attr("x", validacion => 15)
-      .attr("fill", color((validacion, index) => index));
+      .attr("x", () => 15)
+      .attr("fill", color((_, index) => index));
 
-    let text = svg
+    svg
       .selectAll("text")
       .data(this.get("data"))
       .enter()
       .append("text")
       .attr("y", validacion => yScale(validacion.name) + 30)
-      .attr("x", function(d) {
+      .attr("x", function() {
         return 15;
       })
       .text(validacion => validacion.name + " (" + validacion.count + ")")
