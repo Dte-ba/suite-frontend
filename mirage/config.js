@@ -57,6 +57,27 @@ export default function() {
     }
   });
 
+  this.get("/escuelas/escuelas_por_programa", {
+    data: [
+      {
+        count: 3830,
+        name: "Conectar Igualdad"
+      },
+      {
+        count: 26,
+        name: "Responsabilidad Empresarial"
+      },
+      {
+        count: 3799,
+        name: "Primaria Digital"
+      },
+      {
+        count: 1002,
+        name: "Escuelas del Futuro"
+      }
+    ]
+  });
+
   this.get("/mi-perfil", (/*schema, request*/) => {
     return {
       data: {

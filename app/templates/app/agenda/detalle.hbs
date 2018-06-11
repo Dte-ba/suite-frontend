@@ -51,8 +51,8 @@
           </div>
 
           <div class="actions mt4">
-            <button class="ui button primario" {{action (mut mostrarDialogo) false}}>Cancelar</button>
-            <button class="ui button primario" {{action "eliminar" model}}>Confirmar</button>
+            <button class="ui button" {{action (mut mostrarDialogo) false}}>Cancelar</button>
+            <button class="ui red button" {{action "eliminar" model}}>Confirmar</button>
           </div>
         {{/suite-modal}}
 

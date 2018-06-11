@@ -1,5 +1,4 @@
 import Ember from "ember";
-import { task } from "ember-concurrency";
 import ENV from "suite-frontend/config/environment";
 
 export default Ember.Route.extend({
@@ -7,9 +6,7 @@ export default Ember.Route.extend({
 
   model() {
     return Ember.RSVP.hash({
-      escuelasPorPrograma: this.get("ajax").request(
-        ENV.API_URL + "/api/escuelas/escuelas_por_programa"
-      )
+      escuelasPorPrograma: this.get("ajax").request(`${ENV.API_URL}/api/escuelas/escuelas_por_programa`)
     });
   }
 });
