@@ -23,6 +23,28 @@
         {{#suite-permiso permiso="tareas.editar"}}
           {{#link-to "app.tareas.editar" model class="ui button primario"}}Editar{{/link-to}}
         {{/suite-permiso}}
+
+        {{#suite-permiso permiso="tareas.eliminar"}}
+
+          <button data-test-eliminar class="ui button primario" {{action (mut mostrarDialogo) true}}>Eliminar</button>
+
+          {{#suite-modal mostrar=mostrarDialogo}}
+            <h1>¡Aviso!</h1>
+
+            <div class="content">
+              <p>Está por eliminar la tarea: {{model.titulo}}</p>
+              <p>¿Está seguro que quiere eliminarla?</p>
+            </div>
+
+            <div class="actions mt4">
+              <button class="ui button" {{action (mut mostrarDialogo) false}}>Cancelar</button>
+              <button class="ui red button" data-test-confirmar {{action "eliminar" model}}>Confirmar</button>
+            </div>
+          {{/suite-modal}}
+
+        {{/suite-permiso}}
+
+
     </div>
   </div>
 

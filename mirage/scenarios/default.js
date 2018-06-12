@@ -42,7 +42,7 @@ export default function(server) {
     distrito: distrito
   });
 
-  server.create("escuela", {
+  let escuela_1 = server.create("escuela", {
     CUE: "123123",
     nombre: "Escuela N° 10 - General José de San Martín",
     direccion: "Av. Montevideo y El Ombú",
@@ -61,7 +61,7 @@ export default function(server) {
     conformada: false
   });
 
-  server.create("perfil", {
+  let perfil = server.create("perfil", {
     nombre: "Usuario",
     apellido: "Ejemplo"
   });
@@ -86,5 +86,26 @@ export default function(server) {
 
   server.create("motivoDeConformacion", {
     nombre: "Comparten Piso"
+  });
+
+  let estado_abierto = server.create("estadoDeTarea", {
+    nombre: "Abierto"
+  });
+
+  let prioridad_media = server.create("prioridadDeTarea", {
+    id: 1,
+    nombre: "Media"
+  });
+
+  server.create("tarea", {
+    titulo: "Escuela del Futuro",
+    fechaDeAlta: "2018-06-01",
+    descripcion: "Reunión los directivos del establecimientos para pautar metodología de trabajo con el kit kano.Y determinar como se realizará la planificación situada con el RIED.",
+
+    estadoDeTarea: estado_abierto,
+    escuela: escuela_1,
+    prioridadDeTarea: prioridad_media,
+    autor: perfil,
+    responsable: perfil
   });
 }

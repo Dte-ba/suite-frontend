@@ -32,6 +32,13 @@ export default function() {
   this.post("/estado-de-tareas");
   this.patch("/estado-de-tareas/:id");
 
+  this.get("/prioridad-de-tareas");
+  this.get("/prioridad-de-tareas/:id");
+  this.put("/prioridad-de-tareas/:id");
+  this.del("/prioridad-de-tareas/:id");
+  this.post("/prioridad-de-tareas");
+  this.patch("/prioridad-de-tareas/:id");
+
   this.get("/tareas");
   this.get("/tareas/:id");
   this.put("/tareas/:id");
@@ -102,7 +109,8 @@ export default function() {
           "personas.verinformes": true,
           "personas.crear": true,
           "personas.editar": true,
-          "personas.eliminar": true
+          "personas.eliminar": true,
+          "tareas.eliminar": true
         }
       }
     };
