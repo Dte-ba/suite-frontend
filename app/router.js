@@ -74,7 +74,7 @@ Router.map(function() {
         this.route("exportar", { path: "exportar/:region/:desde/:hasta" });
       });
       this.route("exportar");
-      this.route('simular');
+      this.route("simular");
     });
 
     this.route("agenda", function() {
@@ -124,9 +124,12 @@ Router.map(function() {
       this.route("exportar", function() {
         this.route("exportar");
         this.route("distribuir", function() {
-          this.route("distribuir", { path: "distribuir/:distribucion_de_paquete_id" });
+          this.route("distribuir", {
+            path: "distribuir/:distribucion_de_paquete_id"
+          });
         });
       });
+      this.route("objetarMasivo");
     });
     this.route("grupos", function() {
       this.route("detalle", { path: "detalle/:group_id" });
@@ -153,7 +156,7 @@ Router.map(function() {
   this.route("logout");
 
   this.route("validaciones", function() {});
-  this.route('migracion');
+  this.route("migracion");
 });
 
 export default Router;

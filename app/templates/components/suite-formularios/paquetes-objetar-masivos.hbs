@@ -1,0 +1,30 @@
+{{#validated-form
+  model        = model
+  on-submit    = objetarPaquetes
+  submit-label = texto as |f|
+}}
+
+  {{#suite-grupo numero=1 titulo="Paquetes"}}
+    <p>A continuación indique los paquetes a Objetar:</p>
+
+    {{#f.input label="Paquetes a objetar" name="paquetes" as |f|}}
+      {{suite-planilla-objetados columnas=model.columnas datos=f.value cuandoCambia=f.update}}
+    {{/f.input}}
+  {{/suite-grupo}}
+
+  {{#if error}}
+    <div class="ui negative message">
+      <p>{{error}}, hay {{errores.length}} errores:</p>
+
+<pre class='overflow'>{{#each errores as |mensaje|}}{{mensaje}}
+{{/each}}
+</pre>
+
+    </div>
+  {{/if}}
+
+  {{#suite-grupo titulo=""}}
+    {{f.submit label=texto class="ui button green" id="objetar-paquetes"}} {{yield}}
+  {{/suite-grupo}}
+
+{{/validated-form}}

@@ -19,7 +19,9 @@
       {{#link-to "app.paquetes.exportar.index" class="ui button primario "}}<i class="ui file icon"></i> Exportar paquetes{{/link-to}}
       {{#link-to "app.paquetes.exportar.distribuir.index" class="ui button primario "}}<i class="ui folder open icon"></i> Distribuir paquetes{{/link-to}}
     {{/suite-permiso}}
-
+    {{#suite-permiso permiso="paquetes.objetar"}}
+      {{#link-to "app.paquetes.objetarMasivo" class="ui button primario "}}<i class="ui chat icon"></i> Objetar paquetes{{/link-to}}
+    {{/suite-permiso}}
 
   </div>
 </div>
