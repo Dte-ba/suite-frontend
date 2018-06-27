@@ -5,7 +5,7 @@
 {{else}}
   {{#if model.zipDevolucion}}
     {{#ui-popup content="descargar" position='bottom left'}}
-      <a href={{model.zipDevolucion}} target=_blank><i class="ui file icon"></i></a>
+      <a href={{model.zipDevolucion}} {{action "marcarComoDescargado" model}} target=_blank><i class="ui file icon"></i></a>
     {{/ui-popup}}
   {{/if}}
 {{/if}}
