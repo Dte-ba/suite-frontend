@@ -28,7 +28,8 @@ export default Ember.Component.extend({
       .obtenerRegion()
       .get("numero");
 
-    let perfiles = yield this.get("store").query("perfil", { region__numero: region });
+    let perfiles = yield this.get("store").query("perfil", { activos: true, page_size: 500, region__numero: region });
+    // GET perfiles?activos=true&page_size=500&region__numero=?
 
     this.send("cuandoSeleccionaPerfil", perfiles);
   }),

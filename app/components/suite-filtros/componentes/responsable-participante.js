@@ -52,6 +52,7 @@ export default Ember.Component.extend({
 
     if (region) {
       let data = yield this.get("store").query("perfil", {
+        activos: true,
         page_size: 500,
         region__id: region
       });
