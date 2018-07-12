@@ -1,0 +1,26 @@
+<div class="w5 pl2">
+  <div class="pl1 f7 gray ttc unselectable">Región</div>
+
+  {{#if tareaRegiones.last.isRunning}}
+    <div class="o-50 ember-power-select-trigger ember-basic-dropdown-trigger disabled">
+      <div class="tc">
+        <div class="ui active inline mini loader"></div>
+      </div>
+    </div>
+  {{else}}
+
+    {{#power-select
+      options=tareaRegiones.last.value
+      selected=regionComoObjeto
+      disabled=soloSuRegion
+      searchEnabled=true
+      searchField='nombre'
+      onchange=(action "cuandoSeleccionaRegion")
+      as |opcion|
+    }}
+      {{get opcion "nombre"}}
+    {{/power-select}}
+
+  {{/if}}
+
+</div>

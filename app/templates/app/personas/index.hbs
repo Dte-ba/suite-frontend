@@ -23,13 +23,21 @@
   </div>
 </div>
 
+{{suite-filtros
+  filtros=filtros
+  parametros=allQueryParams
 
-{{suite-tablas/personas
+  accion=(action 'cambiarParametro')
+  limpiarParametros=(action 'limpiarParametros')
+}}
 
+{{suite-tabla
+  ordenamiento=ordenamiento
+  cuandoCambiaOrdenamiento=(action "cuandoCambiaOrdenamiento")
   pagina=pagina
-  filtro=filtro
+  columnas=columnas
+  tarea=tarea
+  paginacion=true
 
-  tarea=obtenerListaDePersonas
-  alLimpiarTodosLosParametros=(action "limpiarParametros")
-
+  cuandoCambiaPagina=(action "cuandoCambiaPagina")
 }}

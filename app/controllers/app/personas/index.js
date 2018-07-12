@@ -5,10 +5,15 @@ import { task } from "ember-concurrency";
 export const parametros = new QueryParams({
   perfil: { refresh: true, replace: true, defaultValue: null },
   pagina: { refresh: true, replace: true, defaultValue: 1 },
-  filtro: { refresh: true, replace: true, defaultValue: "" }
+  busqueda: { defaultValue: null, refresh: true, replace: true },
+  region: { defaultValue: "", refresh: true, replace: true },
+  ordenamiento: { defaultValue: "", refresh: true, replace: true }
 });
 
 export default Ember.Controller.extend(parametros.Mixin, {
+  filtros: null,
+  columnas: null,
+
   reset(_, isExiting) {
     if (isExiting) {
       this.resetQueryParams();
@@ -16,33 +21,120 @@ export default Ember.Controller.extend(parametros.Mixin, {
   },
 
   setup() {
+    this.definirFiltros();
+    this.definirColumnas();
     this.actualizar();
+  },
+
+  definirColumnas() {
+    this.set("columnas", [
+      {
+        atributo: "nombreCompleto",
+        titulo: "Apellido y nombre",
+        ruta: "app.personas.detalle",
+        ordenamiento: "nombre"
+      },
+      {
+        atributo: "region.numero",
+        titulo: "Región",
+        ordenamiento: "region__numero"
+      },
+      {
+        atributo: "cargo.nombre",
+        titulo: "Cargo"
+      },
+      {
+        atributo: "cuit",
+        titulo: "CUIL/CUIT"
+      },
+      {
+        atributo: "emailLaboral",
+        titulo: "Email Laboral"
+      },
+      {
+        titulo: "Grupo",
+        componente: "suite-detalle/group",
+        ordenamiento: "group__name"
+      },
+      {
+        titulo: "Contrato",
+        componente: "suite-detalle/contrato"
+      },
+      {
+        atributo: "fechaDeIngreso",
+        titulo: "Fecha de Ingreso",
+        fecha: true
+      }
+    ]);
+  },
+
+  definirFiltros() {
+    this.set("filtros", [
+      {
+        nombre: "busqueda",
+        componente: "suite-filtros/componentes/input",
+        etiqueta: "Nombre / DNI / cargo",
+        deshabilitado: false,
+        fila: 1
+      },
+      {
+        nombre: "region",
+        componente: "suite-filtros/componentes/region",
+        etiqueta: "Region",
+        deshabilitado: false,
+        fila: 1
+      }
+    ]);
   },
 
   queryParamsDidChange() {
     this.actualizar();
   },
 
-  actualizar() {
-    this.get("obtenerListaDePersonas").perform();
-  },
+  tarea: task(function*() {
+    let query = yield this.get("crearDiccionarioQuery").perform();
+    let data = yield this.store.query("perfil", query);
+    let meta = data.get("meta");
 
-  obtenerListaDePersonas: task(function*() {
+    return { data, meta };
+  }),
+
+  crearDiccionarioQuery: task(function*() {
     let query = {};
-    let parametros = this.get("allQueryParams");
 
     query.activos = true;
-    query.page = parametros.pagina;
-    query.query = parametros.filtro;
+    query.page = this.get("pagina");
+    query.query = this.get("busqueda");
 
-    let data = yield this.get("store").query("perfil", query);
-    let meta = data.get("meta");
-    return { data, meta };
+    if (this.get("ordenamiento")) {
+      query.sort = this.get("ordenamiento");
+    }
+
+    if (this.get("region")) {
+      let region = yield this.store.find("region", this.get("region"));
+      query.region = region.get("numero");
+    }
+
+    return query;
   }).drop(),
 
+  actualizar() {
+    this.get("tarea").perform();
+  },
+
   actions: {
+    cambiarParametro(parametro, valor) {
+      this.set("pagina", 1);
+      this.set(parametro, valor);
+    },
     limpiarParametros() {
       this.resetQueryParams();
+    },
+    cuandoCambiaPagina(pagina) {
+      this.set("pagina", pagina);
+    },
+    cuandoCambiaOrdenamiento(ordenamiento) {
+      this.set("ordenamiento", ordenamiento);
     }
   }
 });

@@ -15,7 +15,7 @@ test("visiting /puede-buscar-personas-y-observar-que-conserva-filtros", async fu
   fillIn(".filtro", "persona");
   await click(".buscar");
 
-  assert.equal(currentURL(), "/app/personas?filtro=persona");
+  assert.equal(currentURL(), "/app/personas?busqueda=persona");
 
   // Pulsa la primer celda, con el nombre del usuario.
   await clickSobreElTexto("Apellido, Nombre");
