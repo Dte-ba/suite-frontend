@@ -110,6 +110,7 @@ export default function() {
           "personas.crear": true,
           "personas.editar": true,
           "personas.eliminar": true,
+          "personas.verdetalle": true,
           "tareas.eliminar": true
         }
       }
