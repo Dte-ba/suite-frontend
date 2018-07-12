@@ -7,11 +7,15 @@ export default Ember.Component.extend({
     let url = `${ENV.API_URL}/api/paquetes/importacionMasiva`;
 
     let datos = {
-      escuela: modelo.get("escuela"),
+      escuela: modelo.get("escuela").toJSON(),
       paquetes: modelo.get("paquetes"),
       fecha: modelo.get("fechaPedido")
     };
     try {
+      // TODO: hack porque algunas escuelas tiene cargada una URL
+      //       como dirección
+      datos.escuela.direccion = "";
+
       let response = yield Ember.$.ajax({
         url: url,
         type: "POST",
