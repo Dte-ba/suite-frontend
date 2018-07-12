@@ -1,10 +1,12 @@
 import Ember from "ember";
 
 export default Ember.Route.extend({
-  requiere: "personas.listar",
+  requiere: "personas.verdetalle",
   breadCrumb: { title: "Detalle de usuario" },
+  perfil: Ember.inject.service(),
 
   afterModel(model) {
+    this.evitarQuePuedaVerOtroPerfil(model);
     model.set("filaDatosAdministrativos", [
       {
         titulo: "Grupo en la SUITE",
@@ -90,5 +92,15 @@ export default Ember.Route.extend({
     ]);
 
     return model;
+  },
+  evitarQuePuedaVerOtroPerfil(model) {
+    if (!this.get("perfil").tienePermiso("perfil.global")) {
+      let perfil = this.get("perfil");
+      if (model.get("id") !== perfil.miPerfil.id) {
+        let m = "No puede ver este perfil porque no es el titular.";
+        this.get("notificador").error(m);
+        return this.transitionTo("app.escritorio");
+      }
+    }
   }
 });
