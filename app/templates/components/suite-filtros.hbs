@@ -38,11 +38,13 @@
   <div class="f7 pa2 gray ttc unselectable">Acciones</div>
   <div class="tr">
 
+  {{#if tieneFiltrosAvanzadosParaMostrar}}
     {{#if mostrarFiltrosAvanzados}}
       {{suite-boton accion=alOcultarFiltros texto="Ocultar filtros avanzados"}}
     {{else}}
       {{suite-boton accion=alMostrarFiltros texto="Mostrar filtros avanzados"}}
     {{/if}}
+  {{/if}}
 
 
 

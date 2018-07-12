@@ -3,6 +3,10 @@ import Ember from "ember";
 export default Ember.Component.extend({
   tagName: "",
 
+  tieneFiltrosAvanzadosParaMostrar: Ember.computed("filtros", function() {
+    return this.get("filtros").filterBy("fila", 2).length > 0;
+  }),
+
   filtrosAgrupadosPorFilas: Ember.computed("filtros", "mostrarFiltrosAvanzados", function() {
     let filtros = this.get("filtros") || [];
 
