@@ -22,12 +22,16 @@
     </div>
   </div>
 
-<div class="mt2 pa2 overflow-auto ba {{if trabajo.last.isError 'b--red red' 'b--light-gray'}}">
+<div class="mt2 pa2 overflow-auto ba {{if trabajo.last.isError 'b--red orange' 'b--light-gray'}}">
   {{#each detalle as |linea|}}
-    <div class='f6'>{{linea}}</div>
+    <div class='f6 monospace'>{{colorear linea}}</div>
   {{else}}
     <div class='f6'>Aguardando por recursos para iniciar ...</div>
   {{/each}}
+
+  {{#if trabajo.last.isRunning}}
+    <div class='f6 pt3'>{{suite-spinner}}</div>
+  {{/if}}
 
   {{#if trabajo.last.isError}}
     <div class='f6'><strong>Ha Ocurrido un error:</strong> {{detalleDelError}}</div>
