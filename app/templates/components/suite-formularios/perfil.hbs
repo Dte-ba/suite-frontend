@@ -37,13 +37,26 @@
 
 {{#suite-grupo numero=2 titulo="Datos administrativos"}}
 
+  {{#f.input label="Sistema que utiliza" name="aplicaciones" required=true as |f|}}
+    {{suite-selector/programas opciones=model.opciones.aplicaciones valor=f.value cuandoSelecciona=f.update}}
+  {{/f.input}}
+
   {{#f.input label="Región" name="region" as |f|}}
     {{suite-selector/simple opciones=model.opciones.regiones valor=f.value cuandoSelecciona=f.update}}
   {{/f.input}}
 
-  {{#f.input label="Rol en la SUITE" name="group" as |f|}}
-    {{suite-selector/simple opciones=model.opciones.groups valor=f.value cuandoSelecciona=f.update}}
-  {{/f.input}}
+  {{#each model.aplicaciones as |a|}}
+    {{#if (eq a.nombre "SUITE")}}
+      {{#f.input label="Rol en la SUITE" name="group" as |f|}}
+        {{suite-selector/simple opciones=model.opciones.groups valor=f.value cuandoSelecciona=f.update}}
+      {{/f.input}}
+    {{/if}}
+    {{#if (eq a.nombre "Robótica")}}
+      {{#f.input label="Rol en Robótica" name="group" as |f|}}
+        PLACEHOLDER PARA ROLES DE APP ROBÓTICA
+      {{/f.input}}
+    {{/if}}
+  {{/each}}
 
   {{#f.input label="Cargo" name="cargo" as |f|}}
     {{suite-selector/simple opciones=model.opciones.cargos valor=f.value cuandoSelecciona=f.update}}

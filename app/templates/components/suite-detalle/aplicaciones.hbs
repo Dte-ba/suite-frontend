@@ -1,0 +1,11 @@
+{{yield}}
+
+{{#suite-promesa promesa=model.aplicaciones}}
+  {{#each model.aplicaciones as |p|}}
+    {{p.nombre}}
+    <!-- {{#link-to 'app.aplicaciones.detalle' p}}{{p.nombre}}{{/link-to}} -->
+    {{#unless (eq p model.aplicaciones.lastObject)}}, {{/unless}}
+  {{else}}
+    Sin sistema asignado
+  {{/each}}
+{{/suite-promesa}}

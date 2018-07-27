@@ -9,6 +9,10 @@ export default Ember.Route.extend({
     this.evitarQuePuedaVerOtroPerfil(model);
     model.set("filaDatosAdministrativos", [
       {
+        titulo: "Sistema/s que utiliza",
+        componente: "suite-detalle/aplicaciones"
+      },
+      {
         titulo: "Grupo en la SUITE",
         componente: "suite-detalle/group"
       },

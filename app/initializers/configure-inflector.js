@@ -37,6 +37,8 @@ let initializer = {
 
     inflector.irregular("tarea", "tareas");
     inflector.irregular("group", "groups");
+
+    inflector.irregular("aplicacion", "aplicaciones");
   }
 };
 

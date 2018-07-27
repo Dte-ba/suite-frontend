@@ -15,10 +15,9 @@ export default Ember.Component.extend({
       if (model.get("id")) {
         yield model.save();
       } else {
-
         // Si es la primera vez que pulsa "Save" en un perfil nuevo (sin id),
         // se asume que tiene que crear antes el usuario.
-        if (!this.get('idPerfil')) {
+        if (!this.get("idPerfil")) {
           let url = `${ENV.API_URL}/api/users/create_user`;
 
           var resultado = yield this.get("ajax").request(url, {
@@ -29,15 +28,18 @@ export default Ember.Component.extend({
             }
           });
 
-          this.set('idPerfil', resultado.data.idPerfil);
+          this.set("idPerfil", resultado.data.idPerfil);
         }
 
         // Se obtiene el perfil recién generado desde django.
-        var perfil = yield this.get('store').findRecord('perfil', this.get('idPerfil'));
+        var perfil = yield this.get("store").findRecord(
+          "perfil",
+          this.get("idPerfil")
+        );
 
         // Se cargan los atributos del formulario sobre el registro asociado al backend.
         // (model es un objeto ember-changeset, por eso se pueden obtener las propiedades con 'cast()')
-        perfil.setProperties(model.cast())
+        perfil.setProperties(model.cast());
 
         yield perfil.save();
       }
@@ -46,7 +48,7 @@ export default Ember.Component.extend({
         this.get("cuandoGuarda")();
       }
 
-      this.set('error', "");
+      this.set("error", "");
     } catch (e) {
       this.set("error", e);
       throw new Error(e);

@@ -12,6 +12,7 @@ export default Ember.Route.extend({
         regiones: this.store.query("region", { page_size: 3000 }),
         cargos: this.store.findAll("cargo"),
         contratos: this.store.findAll("contrato"),
+        aplicaciones: this.store.findAll("aplicacion"),
         groups: this.store.findAll("group")
       });
       model.set("usuario", model);
