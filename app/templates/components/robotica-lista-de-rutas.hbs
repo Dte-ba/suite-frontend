@@ -1,0 +1,5 @@
+{{yield}}
+
+{{#suite-permiso permiso="escuelas.listar"}}
+  {{#link-to "robotica.escuelas.index" (query-params filtro="" pagina=1) class="item" current-when="robotica.escuelas"}}<i class="university icon"></i> Escuelas{{/link-to}}
+{{/suite-permiso}}

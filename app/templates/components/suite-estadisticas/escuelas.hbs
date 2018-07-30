@@ -3,21 +3,24 @@
     tarea=tarea
     atributo="data.abiertas"
 }}
+{{#if robotica}}
 
-{{suite-estadistica-numerica
-    titulo="Piso sin funcionar"
-    tarea=tarea
-    atributo="data.pisoRoto"
-}}
+{{else}}
+  {{suite-estadistica-numerica
+      titulo="Piso sin funcionar"
+      tarea=tarea
+      atributo="data.pisoRoto"
+  }}
 
-{{suite-estadistica-numerica
-    titulo="Sin Llave"
-    tarea=tarea
-    atributo="data.sinLlave"
-}}
+  {{suite-estadistica-numerica
+      titulo="Sin Llave"
+      tarea=tarea
+      atributo="data.sinLlave"
+  }}
 
-{{suite-estadistica-numerica
-    titulo="Escuelas del futuro"
-    tarea=tarea
-    atributo="data.escuelasDelFuturo"
-}}
+  {{suite-estadistica-numerica
+      titulo="Escuelas del futuro"
+      tarea=tarea
+      atributo="data.escuelasDelFuturo"
+  }}
+{{/if}}

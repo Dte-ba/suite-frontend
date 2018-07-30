@@ -157,8 +157,12 @@ Router.map(function() {
 
   this.route("validaciones", function() {});
   this.route("migracion");
-  this.route('robotica', function() {});
-  this.route('home');
+  this.route("robotica", function() {
+    this.route("escuelas", function() {
+      this.route("detalle", { path: "detalle/:escuela_id" });
+    });
+  });
+  this.route("home");
 });
 
 export default Router;

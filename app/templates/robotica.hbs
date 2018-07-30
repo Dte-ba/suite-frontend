@@ -1,4 +1,3 @@
-{{outlet}}
 {{#if perfilInspeccionado}}
   <div class="pt4 mt4 bg-lightest-blue tr pr2 fixed w-100 pa2 z-max bb b--gray unselectable roboto">
     {{suite-barra-de-navegacion robotica=true nombre=sesion.nombre cuandoQuiereCerrarSesion=(action "logout")}}
@@ -10,3 +9,6 @@
 {{else}}
   {{suite-barra-de-navegacion robotica=true nombre=sesion.nombre cuandoQuiereCerrarSesion=(action "logout")}}
 {{/if}}
+<div class="ui suite-container main">
+  {{outlet}}
+</div>

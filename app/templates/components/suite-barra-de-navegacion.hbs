@@ -5,7 +5,7 @@
       <div class="bg-black-50 z-max fixed absolute--fill center" {{action "ocultarSidebar"}}>
         <div class="ui fixed inverted vertical menu" style="bottom: 0" {{action "ocultarSidebar"}}>
           {{#if robotica}}
-
+            {{robotica-lista-de-rutas}}
           {{else}}
             {{suite-lista-de-rutas}}
           {{/if}}
@@ -24,7 +24,7 @@
       {{#link-to "robotica.index" tagName="div" class="item logo-container" current-when="index"}}
         ROBOTICA
       {{/link-to}}
-      <!-- Lista de rutas de robótica -->
+      {{robotica-lista-de-rutas}}
     {{else}}
       {{#link-to "app.escritorio.index" tagName="div" class="item logo-container" current-when="index"}}
         <img class="isologo" src="/logotipo.png">
