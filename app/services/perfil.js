@@ -22,7 +22,9 @@ export default Ember.Service.extend({
     let url = ENV.API_URL + "/api/mi-perfil";
 
     if (perfilInspeccionado) {
-      url = `${ENV.API_URL}/api/mi-perfil?perfilInspeccionado=${perfilInspeccionado}`;
+      url = `${
+        ENV.API_URL
+      }/api/mi-perfil?perfilInspeccionado=${perfilInspeccionado}`;
     }
 
     return this.get("ajax")
@@ -55,6 +57,14 @@ export default Ember.Service.extend({
     return this.get("data.version");
   }),
 
+  tieneAccesoASuite: Ember.computed("data.tieneAccesoASuite", function() {
+    return this.get("data.tieneAccesoASuite");
+  }),
+
+  tieneAccesoARobotica: Ember.computed("data.tieneAccesoARobotica", function() {
+    return this.get("data.tieneAccesoARobotica");
+  }),
+
   obtenerRegion() {
     return this.get("miPerfil.region");
   },
@@ -79,7 +89,9 @@ export default Ember.Service.extend({
 
   puedeEditarLaAccion(accion_id) {
     let perfil_id = this.get("miPerfil.id");
-    let url = `${ENV.API_URL}/api/perfiles/${perfil_id}/puede-editar-la-accion?accion_id=${accion_id}`;
+    let url = `${
+      ENV.API_URL
+    }/api/perfiles/${perfil_id}/puede-editar-la-accion?accion_id=${accion_id}`;
 
     return this.get("ajax")
       .request(url)

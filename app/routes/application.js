@@ -5,7 +5,7 @@ import moment from "moment";
 export default Ember.Route.extend(ApplicationRouteMixin, {
   sesion: Ember.inject.service(),
   analytics: Ember.inject.service(),
-  routeAfterAuthentication: "app",
+  routeAfterAuthentication: "home",
 
   beforeModel() {
     // Emitiendo un mensaje para indicar que se están ocultando deprecation

@@ -17,8 +17,16 @@
 
   {{/link-to}}
 
+  {{#if perfil.tieneAccesoASuite}}
+    {{#link-to 'app.escritorio.index' tagName='div' class='item'}}Ingresar a SUITE{{/link-to}}
+  {{/if}}
+
+  {{#if perfil.tieneAccesoARobotica}}
+    {{#link-to 'robotica.index' tagName='div' class='item'}}Ingresar a Robótica{{/link-to}}
+  {{/if}}
+
   {{#if puedeSimularAcceso}}
-    {{#link-to 'app.personas.simular' tagName='div' class='item'}}Simular accesso como otro usuario{{/link-to}}
+    {{#link-to 'app.personas.simular' tagName='div' class='item'}}Simular acceso como otro usuario{{/link-to}}
   {{/if}}
 
   <div class="divider"></div>

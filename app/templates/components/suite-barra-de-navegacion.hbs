@@ -1,34 +1,48 @@
-{{#if media.isMobile}}
+<div class="ui fixed menu {{if robotica "" "inverted"}} barra-de-navegacion z-max">
+  {{#if media.isMobile}}
 
-  {{#if sidebarVisible}}
-    <div class="bg-black-50 z-max fixed absolute--fill center" {{action "ocultarSidebar"}}>
-      <div class="ui fixed inverted vertical menu" style="bottom: 0" {{action "ocultarSidebar"}}>
-        {{suite-lista-de-rutas}}
+    {{#if sidebarVisible}}
+      <div class="bg-black-50 z-max fixed absolute--fill center" {{action "ocultarSidebar"}}>
+        <div class="ui fixed inverted vertical menu" style="bottom: 0" {{action "ocultarSidebar"}}>
+          {{#if robotica}}
+
+          {{else}}
+            {{suite-lista-de-rutas}}
+          {{/if}}
+        </div>
       </div>
-    </div>
+    {{/if}}
+
+    <a class="launch icon item" {{action 'mostrarSidebar'}}>
+      <i class="content icon"></i>
+    </a>
+
+  {{else}}
+
+    {{#if robotica}}
+
+      {{#link-to "robotica.index" tagName="div" class="item logo-container" current-when="index"}}
+        ROBOTICA
+      {{/link-to}}
+      <!-- Lista de rutas de robótica -->
+    {{else}}
+      {{#link-to "app.escritorio.index" tagName="div" class="item logo-container" current-when="index"}}
+        <img class="isologo" src="/logotipo.png">
+      {{/link-to}}
+      {{suite-lista-de-rutas}}
+    {{/if}}
+
+
   {{/if}}
 
-  <a class="launch icon item" {{action 'mostrarSidebar'}}>
-    <i class="content icon"></i>
-  </a>
+  {{yield}}
 
-{{else}}
-
-  {{#link-to "app.escritorio.index" tagName="div" class="item logo-container" current-when="index"}}
-    <img class="isologo" src="/logotipo.png">
-  {{/link-to}}
-
-  {{suite-lista-de-rutas}}
-
-{{/if}}
-
-{{yield}}
-
-<div class="right menu">
-  {{suite-usuario
-      nombreCompleto=nombreCompleto
-      rol=rol
-      region=region
-      cuandoQuiereCerrarSesion=cuandoQuiereCerrarSesion
-  }}
+  <div class="right menu">
+    {{suite-usuario
+        nombreCompleto=nombreCompleto
+        rol=rol
+        region=region
+        cuandoQuiereCerrarSesion=cuandoQuiereCerrarSesion
+    }}
+  </div>
 </div>

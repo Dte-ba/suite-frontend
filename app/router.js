@@ -157,6 +157,8 @@ Router.map(function() {
 
   this.route("validaciones", function() {});
   this.route("migracion");
+  this.route('robotica', function() {});
+  this.route('home');
 });
 
 export default Router;

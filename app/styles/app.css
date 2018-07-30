@@ -283,6 +283,10 @@ body > .ember-view {
   border-bottom: 3px solid #c7e235;
 }
 
+.barra-de-navegacion .menu .item.active {
+  border: none !important;
+}
+
 .ui.button.primario {
   background-color: #adc12e;
   color: white;
@@ -599,7 +603,12 @@ iframe.mapa {
 }
 
 .login-contenedor {
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 47%, rgba(237, 237, 237, 1) 100%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(246, 246, 246, 1) 47%,
+    rgba(237, 237, 237, 1) 100%
+  );
   position: fixed;
   top: 0;
   bottom: 0;
