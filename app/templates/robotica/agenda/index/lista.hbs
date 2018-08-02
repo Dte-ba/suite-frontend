@@ -1,0 +1,26 @@
+{{outlet}}
+
+{{suite-filtros
+  filtros=filtros
+  parametros=allQueryParams
+  mostrarFiltrosAvanzados=mostrarFiltrosAvanzados
+
+  alMostrarFiltros=(action (mut mostrarFiltrosAvanzados) true)
+  alOcultarFiltros=(action 'limpiarParametros')
+
+  accion=(action 'cambiarParametro')
+  limpiarParametros=(action 'limpiarParametros')
+}}
+
+{{suite-tabla
+  pagina=pagina
+
+  ordenamiento=ordenamiento
+  cuandoCambiaOrdenamiento=(action "cuandoCambiaOrdenamiento")
+
+  columnas=model.columnas
+  tarea=tarea
+  paginacion=true
+  cuandoCambiaPagina=(action "cuandoCambiaPagina")
+  cuandoCambiaLimite=(action "cuandoCambiaLimite")
+}}

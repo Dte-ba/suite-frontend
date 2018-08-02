@@ -1,0 +1,22 @@
+{{outlet}}
+
+<h2>Editar un taller</h2>
+
+{{#suite-formularios/evento-de-robotica
+  model        = (changeset model model.validaciones)
+  cuandoGuarda = (route-action "verDetalle")
+  texto = 'Guardar taller'
+  editar = true
+}}
+
+<button class="ui button" {{action (route-action "cancelar") model}}>Cancelar</button>
+
+{{/suite-formularios/evento-de-robotica}}
+
+{{#if errors}}
+  <div class="ui negative message">
+    {{#each errors as |error|}}
+      <p><strong>{{error.campo}}</strong> - {{error.detalle}}</p>
+    {{/each}}
+  </div>
+{{/if}}

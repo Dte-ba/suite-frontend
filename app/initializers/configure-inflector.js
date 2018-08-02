@@ -39,6 +39,11 @@ let initializer = {
     inflector.irregular("group", "groups");
 
     inflector.irregular("aplicacion", "aplicaciones");
+
+    inflector.irregular("evento-de-robotica", "eventos-de-robotica");
+    inflector.irregular("taller-de-robotica", "talleres-de-robotica");
+    inflector.irregular("area-de-robotica", "areas-de-robotica");
+    inflector.irregular("curso-de-robotica", "cursos-de-robotica");
   }
 };
 

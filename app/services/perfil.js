@@ -98,5 +98,18 @@ export default Ember.Service.extend({
       .then(response => {
         return response.data.puedeEditar;
       });
+  },
+
+  puedeEditarElTaller(taller_id) {
+    let perfil_id = this.get("miPerfil.id");
+    let url = `${
+      ENV.API_URL
+    }/api/perfiles/${perfil_id}/puede-editar-el-taller?taller_id=${taller_id}`;
+
+    return this.get("ajax")
+      .request(url)
+      .then(response => {
+        return response.data.puedeEditar;
+      });
   }
 });

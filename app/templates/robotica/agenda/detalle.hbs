@@ -1,0 +1,70 @@
+{{outlet}}
+<div class="ui stackable grid">
+
+  <div class="ui row middle aligned segment">
+    <div class="sixteen wide column">
+      <h3 class="ui header">
+        {{model.titulo.nombre}} - {{model.escuela.cue}}
+      </h3>
+    </div>
+  </div>
+
+  <div class="ui equal width row middle aligned segment">
+    <div class="column">
+      {{suite-estado-de-acta evento=model mostrarEtiqueta=true}}
+    </div>
+  </div>
+  <div class="ui equal width row segment">
+    <div class="column">
+      {{#if model.acta}}
+        <div class="ui red label">Acción finalizada</div>
+      {{else if model.puedeEditar}}
+        {{#link-to "robotica.agenda.editar" model class="ui button primario"}}Editar{{/link-to}}
+      {{/if}}
+
+      <!-- Si tiene el permiso para eliminar el evento, muestro el botón  Eliminar
+      Y el modal para eliminarlo
+      -->
+      {{#suite-permiso permiso="agenda.eliminar"}}
+
+        <button class="ui button primario" {{action (mut mostrarDialogo) true}}>Eliminar</button>
+
+        {{#suite-modal mostrar=mostrarDialogo}}
+          <h1>¡Aviso!</h1>
+
+          <div class="content">
+            <p>Está por eliminar la acción: {{model.titulo}} - {{model.escuela.cue}} </p>
+            <p>¿Está seguro que quiere eliminarla?</p>
+          </div>
+
+          <div class="actions mt4">
+            <button class="ui button" {{action (mut mostrarDialogo) false}}>Cancelar</button>
+            <button class="ui red button" {{action "eliminar" model}}>Confirmar</button>
+          </div>
+        {{/suite-modal}}
+
+      {{/suite-permiso}}
+    </div>
+  </div>
+
+      {{suite-detalle
+          numero="1"
+          titulo="Datos del taller"
+          model=model
+          filas=model.filaDatosDeAccion
+      }}
+      {{suite-detalle
+          numero="2"
+          titulo="Participantes"
+          model=model
+          filas=model.filaUsuarios
+      }}
+      {{suite-detalle
+          numero="3"
+          titulo="Se realizará en"
+          model=model
+          filas=model.filaEscuela
+      }}
+
+
+  </div>

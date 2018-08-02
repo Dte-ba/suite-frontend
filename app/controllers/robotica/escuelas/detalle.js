@@ -6,7 +6,10 @@ export default Ember.Controller.extend({
       alert("Debo crear contacto");
     },
     crearEventoParaEstaEscuela() {
-      alert("Debo crear un evento");
+      let model = this.get("model");
+      return this.transitionToRoute("robotica.agenda.crear", {
+        queryParams: { escuela_id: model.id }
+      });
     }
   }
 });

@@ -1,0 +1,95 @@
+{{#validated-form
+  model        = model
+  on-submit    = tareaGuardar
+  submit-label = texto as |f|
+}}
+
+  {{#suite-grupo numero=1 titulo="Datos del taller"}}
+
+      {{#f.input label="Título del taller" required=true name="titulo" as |f|}}
+        {{suite-selector/simple opciones=model.talleres valor=f.value cuandoSelecciona=f.update}}
+      {{/f.input}}
+
+      {{#f.input label="Curso y sección en que se dicta" required=true name="curso" as |f|}}
+        {{suite-selector/simple opciones=model.cursos valor=f.value cuandoSelecciona=f.update}}
+      {{/f.input}}
+
+      {{#f.input label="Área en que se dicta" required=true name="areaEnQueSeDicta" as |f|}}
+        {{suite-selector/simple opciones=model.areas valor=f.value cuandoSelecciona=f.update}}
+      {{/f.input}}
+
+
+    <div class="ui two column grid">
+      <div class="column">
+        {{#f.input label="Fecha de inicio" required=true name="fecha" as |f|}}
+          {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
+        {{/f.input}}
+      </div>
+
+      <div class="column">
+        {{#f.input label="Hora de inicio" required=true name="inicio" as |f|}}
+          {{suite-campo/hora hora=f.value cuandoCambia=f.update}}
+        {{/f.input}}
+      </div>
+    </div>
+
+
+    <div class="ui two column grid">
+      <div class="column">
+        {{#f.input label="Fecha de finalización" required=true name="fechaFin" as |f|}}
+          {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
+        {{/f.input}}
+      </div>
+
+      <div class="column">
+        {{#f.input label="Hora de finalización" required=true name="fin" as |f|}}
+          {{suite-campo/hora hora=f.value cuandoCambia=f.update}}
+        {{/f.input}}
+      </div>
+    </div>
+
+
+    {{#if editar}}
+
+      {{#f.input label="Archivos de minuta o acta" name="acta" as |f|}}
+        {{suite-campo/adjuntos archivos=f.value cuandoTerminaDeSubir=f.update}}
+        <div class="ui pointing orange basic label">
+          <b>IMPORTANTE: </b>Al subir un acta, la acción será considerada como finalizada y no podrá volver a editarse. <br>
+          Sólo se permiten archivos JPG y se puede subir más de un archivo. El resultado será un PDF.<br>
+          La carga de archivos puede demorar unos minutos.
+        </div>
+      {{/f.input}}
+
+      {{f.input type="textarea" label="Minuta" name="minuta"}}
+    {{/if}}
+
+  {{/suite-grupo}}
+
+
+  {{#suite-grupo numero=2 titulo="¿Quiénes participan?"}}
+
+    {{#f.input label="Tallerista" required=true name="tallerista" as |f|}}
+      {{suite-selector/perfil valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
+
+    {{f.input label="Cant. alumnos" required=true name="cantidadDeAlumnos"}}
+
+    {{f.input label="Docente a cargo del curso" required=true name="docenteACargo"}}
+
+  {{/suite-grupo}}
+
+
+  {{#suite-grupo numero=3 titulo="¿Dónde se realizará?"}}
+
+    {{#f.input label="Escuela" required=true name="escuela" as |f|}}
+      {{suite-selector/escuela valor=f.value cuandoSelecciona=f.update}}
+    {{/f.input}}
+
+  {{/suite-grupo}}
+
+  {{#suite-grupo titulo=""}}
+    {{f.submit label=texto class="ui button green"}} {{yield}}
+  {{/suite-grupo}}
+
+
+{{/validated-form}}

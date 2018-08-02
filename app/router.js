@@ -161,6 +161,14 @@ Router.map(function() {
     this.route("escuelas", function() {
       this.route("detalle", { path: "detalle/:escuela_id" });
     });
+    this.route("agenda", function() {
+      this.route("index", function() {
+        this.route("lista");
+      });
+      this.route("crear");
+      this.route("detalle", { path: "detalle/:evento_de_robotica_id" });
+      this.route("editar", { path: "editar/:evento_de_robotica_id" });
+    });
   });
   this.route("home");
 });

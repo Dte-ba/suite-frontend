@@ -1,5 +1,13 @@
 {{yield}}
 
+{{#suite-permiso permiso="agenda.listar"}}
+  {{#if veLista}}
+    {{#link-to "robotica.agenda.index.lista" class="item seccion-agenda" current-when="robotica.agenda"}}<i class="calendar icon"></i> Talleres{{/link-to}}
+  {{else}}
+    {{#link-to "robotica.agenda.index" class="item seccion-agenda" current-when="robotica.agenda"}}<i class="calendar icon"></i> Talleres{{/link-to}}
+  {{/if}}
+{{/suite-permiso}}
+
 {{#suite-permiso permiso="escuelas.listar"}}
   {{#link-to "robotica.escuelas.index" (query-params filtro="" pagina=1) class="item" current-when="robotica.escuelas"}}<i class="university icon"></i> Escuelas{{/link-to}}
 {{/suite-permiso}}
