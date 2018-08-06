@@ -38,10 +38,8 @@ Ember.Router.reopen({
 
     this.get("analytics").notifificarTransicion(this.get("url"));
 
-    if ($(".ui.pushable")[0]) {
-      if (haCambiadoDeRuta) {
-        $(".ui.pushable")[0].scrollTop = 0;
-      }
+    if (haCambiadoDeRuta) {
+      $("html")[0].scrollTop = 0;
     }
 
     this.set("rutaAnterior", rutaActual);
