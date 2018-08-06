@@ -13,6 +13,7 @@ export default Ember.Component.extend({
     var query = { search: term };
 
     query.activos = true;
+    query.suite = true;
 
     if (soloSuRegion) {
       let region = this.get("perfilService").obtenerRegion();
@@ -28,8 +29,7 @@ export default Ember.Component.extend({
       .obtenerRegion()
       .get("numero");
 
-    let perfiles = yield this.get("store").query("perfil", { activos: true, page_size: 500, region__numero: region });
-    // GET perfiles?activos=true&page_size=500&region__numero=?
+    let perfiles = yield this.get("store").query("perfil", { activos: true, suite: true, page_size: 500, region__numero: region });
 
     this.send("cuandoSeleccionaPerfil", perfiles);
   }),
