@@ -14,10 +14,7 @@ export default Ember.Route.extend({
     query.query = model.filtro;
     query.page_size = model.limite || 15;
 
-    query.escuela__localidad__distrito__region__numero = Ember.get(
-      model,
-      "region.numero"
-    );
+    query.escuela__localidad__distrito__region__numero = Ember.get(model, "region.numero");
 
     if (model.perfil && model.perfil.id) {
       query.perfil = model.perfil.id;
@@ -66,19 +63,10 @@ export default Ember.Route.extend({
 
       columnas: [
         {
-          titulo: "Inicio",
-          // componente: "suite-detalle/fecha-acciones-lista"
-          atributo: "fecha_inicio",
-          fechaHora: true,
+          titulo: "Fecha",
+          atributo: "fechaFormateada",
           centrar: true,
           ordenamiento: "fecha"
-        },
-        {
-          titulo: "Fin",
-          // componente: "suite-detalle/fecha-acciones-lista"
-          atributo: "fecha_fin",
-          fechaHora: true,
-          centrar: true
         },
         {
           titulo: "Título",

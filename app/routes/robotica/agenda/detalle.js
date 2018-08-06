@@ -8,14 +8,8 @@ export default Ember.Route.extend({
   afterModel(model) {
     model.set("filaDatosDeAccion", [
       {
-        titulo: "Inicio",
-        fechaHora: true,
-        id: "fecha_inicio"
-      },
-      {
-        titulo: "Fin",
-        fechaHora: true,
-        id: "fecha_fin"
+        titulo: "Fecha",
+        id: "fechaFormateada"
       },
       {
         titulo: "Titulo",

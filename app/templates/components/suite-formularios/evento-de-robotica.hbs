@@ -31,7 +31,8 @@
     {{f.input label="Docente a cargo del curso" required=true name="docente_a_cargo"}}
 
 
-    <div class="ui two column grid">
+    <div class="ui three column grid">
+
       <div class="column">
         {{#f.input label="Fecha" required=true name="fecha" as |f|}}
           {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
@@ -43,27 +44,18 @@
           {{suite-campo/hora hora=f.value cuandoCambia=f.update}}
         {{/f.input}}
       </div>
-    </div>
-
-
-    <div class="ui two column grid">
-      <div class="column">
-        {{#f.input label="Fecha de finalización" required=true name="fechaFin" as |f|}}
-          {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
-        {{/f.input}}
-      </div>
 
       <div class="column">
         {{#f.input label="Hora de finalización" required=true name="fin" as |f|}}
           {{suite-campo/hora hora=f.value cuandoCambia=f.update}}
         {{/f.input}}
       </div>
-    </div>
 
+    </div>
 
     {{#if editar}}
 
-      {{#f.input label="Archivos de minuta o acta" name="acta" as |f|}}
+      {{#f.input label="Archivos de minuta o acta" class="pt3" name="acta" as |f|}}
         {{#if model.acta}}
           Archivo actual: <a href="{{model.acta}}" target="_blank">{{model.acta}}</a>
         {{/if}}

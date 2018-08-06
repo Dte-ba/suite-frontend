@@ -1,39 +1,11 @@
 import DS from "ember-data";
 import Ember from "ember";
-import {
-  validatePresence,
-  validateNumber
-} from "ember-changeset-validations/validators";
+import { validatePresence, validateNumber } from "ember-changeset-validations/validators";
 
-/* Valida de las fechas y horas de un evento sean correctas.
-   Para que una fecha sea correcta tiene que suceder esto:
-
-      - caso 1: si fecha y fecha son del mismo dia, la hora no puede ser la misma.
-      - caso 2: si fecha y fecha son del mismo dia, la hora de inicio no puede ser
-                superior a la hora de finalización
-      - caso 3: si las fechas son diferentes, la fecha de inicio tiene que ser
-                siempre anterior a la fecha de finalización.
-*/
-function validateFechas() {
+function validarHorarios() {
   return (key, newValue, oldValue, changes, content) => {
-    let { fecha, fechaFin, inicio, fin } = changes;
+    let { inicio, fin } = changes;
     let model = content.get("_internalModel").record;
-
-    if (key === "fecha") {
-      fecha = newValue;
-    } else {
-      if (!fecha) {
-        fecha = model.get("fecha");
-      }
-    }
-
-    if (key === "fechaFin") {
-      fechaFin = newValue;
-    } else {
-      if (!fechaFin) {
-        fechaFin = model.get("fechaFin");
-      }
-    }
 
     if (key === "inicio") {
       inicio = newValue;
@@ -51,22 +23,15 @@ function validateFechas() {
       }
     }
 
-    if (fecha === fechaFin) {
-      if (inicio && fin) {
-        /* Caso 1: No pueden tener la misma hora. */
-        if (inicio === fin) {
-          return "El horario de inicio y fin no puede ser el mismo.";
-        }
-
-        /* Caso 2: La hora de fin debe ser mayor a la hora de inicio. */
-        if (inicio > fin) {
-          return "La hora de inicio no puede superar la hora de fin.";
-        }
+    if (inicio && fin) {
+      /* Caso 1: No pueden tener la misma hora. */
+      if (inicio === fin) {
+        return "El horario de inicio y fin no puede ser el mismo.";
       }
-    } else {
-      /* Caso 3: la fecha de inicio tiene que ser anterior a la fecha de fin. */
-      if (fecha > fechaFin) {
-        return "La fecha de inicio debe ser anterior a la fecha de fin.";
+
+      /* Caso 2: La hora de fin debe ser mayor a la hora de inicio. */
+      if (inicio > fin) {
+        return "La hora de inicio no puede superar la hora de fin.";
       }
     }
 
@@ -105,8 +70,8 @@ function validateCerrarEvento() {
 }
 
 export default DS.Model.extend({
+  fechaFormateada: DS.attr("string"), // solo lectura, se usa en la lista de eventos.
   fecha: DS.attr("string"),
-  fechaFin: DS.attr("string"),
   inicio: DS.attr("string"),
   fin: DS.attr("string"),
   minuta: DS.attr("string"),
@@ -147,9 +112,8 @@ export default DS.Model.extend({
 
   validaciones: {
     titulo: [validatePresence(true)],
-    fecha: [validatePresence(true), validateFechas()],
-    fechaFin: [validatePresence(true)],
-    inicio: [validatePresence(true), validateFechas()],
+    fecha: [validatePresence(true)],
+    inicio: [validatePresence(true), validarHorarios()],
     fin: [validatePresence(true)],
     curso: [validatePresence(true)],
     tallerista: [validatePresence(true)],
