@@ -17,12 +17,16 @@
 
   {{/link-to}}
 
-  {{#if perfil.tieneAccesoASuite}}
-    {{#link-to 'app.escritorio.index' tagName='div' class='item'}}Ingresar a SUITE{{/link-to}}
-  {{/if}}
+  {{#if perfil.tieneAccesoAAmbosSistemas}}
 
-  {{#if perfil.tieneAccesoARobotica}}
-    {{#link-to 'robotica.index' tagName='div' class='item'}}Ingresar a Robótica{{/link-to}}
+    {{#if perfil.tieneAccesoASuite}}
+      {{#link-to 'app.escritorio.index' tagName='div' class='item'}}Ingresar a SUITE{{/link-to}}
+    {{/if}}
+
+    {{#if perfil.tieneAccesoARobotica}}
+      {{#link-to 'robotica.index' tagName='div' class='item'}}Ingresar a Robótica{{/link-to}}
+    {{/if}}
+    
   {{/if}}
 
   {{#if puedeSimularAcceso}}
