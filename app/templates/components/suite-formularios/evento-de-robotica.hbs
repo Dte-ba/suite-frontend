@@ -11,7 +11,7 @@
     {{/f.input}}
 
     {{#f.input label="Tallerista" required=true name="tallerista" as |f|}}
-      {{suite-selector/perfil valor=f.value cuandoSelecciona=f.update}}
+      {{suite-selector/perfil soloRobotica=true valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
     {{#f.input label="Título del taller" required=true name="titulo" as |f|}}

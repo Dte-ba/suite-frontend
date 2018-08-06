@@ -4,6 +4,8 @@ import { task, timeout } from "ember-concurrency";
 export default Ember.Component.extend({
   store: Ember.inject.service(),
   perfilService: Ember.inject.service("perfil"),
+  soloRobotica: false,
+  soloSuite: true,
 
   buscarPersonas: task(function*(term) {
     yield timeout(200);
@@ -13,6 +15,14 @@ export default Ember.Component.extend({
     var query = { search: term };
 
     query.activos = true;
+
+    if (this.get("soloRobotica")) {
+      query.robotica = true;
+    }
+
+    if (this.get("soloSuite")) {
+      query.suite = true;
+    }
 
     if (soloSuRegion) {
       let region = this.get("perfilService").obtenerRegion();
