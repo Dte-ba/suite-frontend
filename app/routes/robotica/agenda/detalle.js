@@ -65,7 +65,7 @@ export default Ember.Route.extend({
       },
       {
         titulo: "Nombre",
-        componente: "suite-detalle/escuela"
+        componente: "suite-detalle/escuela-robotica"
       },
       {
         titulo: "Distrito",
