@@ -101,7 +101,7 @@ export default Ember.Route.extend({
         },
         {
           titulo: "CUE",
-          componente: "suite-detalle/cue",
+          componente: "suite-detalle/cue-robotica",
           ordenamiento: "escuela_id"
         },
         {
