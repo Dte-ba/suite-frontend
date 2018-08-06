@@ -11,6 +11,10 @@
 
   <div class="ui equal width row segment">
     <div class="column">
+      <div class="fr pr4">
+        {{suite-estado-de-acta evento=model mostrarEtiqueta=true}}
+      </div>
+
       {{#if model.cerrarEvento}}
         <div class="ui red label">Evento finalizado</div>
       {{else if model.puedeEditar}}
@@ -37,9 +41,10 @@
             <button class="ui red button" {{action "eliminar" model}}>Confirmar</button>
           </div>
         {{/suite-modal}}
-
       {{/suite-permiso}}
-            {{suite-estado-de-acta evento=model mostrarEtiqueta=true}}
+
+
+
     </div>
   </div>
 
