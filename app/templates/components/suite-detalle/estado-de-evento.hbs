@@ -1,0 +1,7 @@
+{{yield}}
+
+{{#if (is-pending model.cerrarEvento)}}
+  <div class="ui active inline mini loader"></div>
+{{else}}
+  {{estado-de-evento model.cerrarEvento}}
+{{/if}}

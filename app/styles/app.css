@@ -21,6 +21,10 @@ path:hover {
 svg text {
   fill: #000;
 }
+
+.invisible {
+  display: none;
+}
 /*
 
 .column {
@@ -263,9 +267,13 @@ body > .ember-view {
   z-index: 200 !important;
 }
 
+.inverted.barra-de-navegacion .item,
+.inverted.barra-de-navegacion .item.active.ember-transitioning-out {
+  border-bottom: 3px solid #333333;
+}
 .barra-de-navegacion .item,
 .barra-de-navegacion .item.active.ember-transitioning-out {
-  border-bottom: 3px solid #333333;
+  border-bottom: 3px solid #fff;
 }
 
 .ui.inverted.menu .active.item,
@@ -273,6 +281,11 @@ body > .ember-view {
   border-bottom: 3px solid #c7e235;
   color: #c7e235 !important;
   background: none;
+}
+
+.active.item,
+.barra-de-navegacion .item.ember-transitioning-in {
+  border-bottom: 3px solid #c7e235;
 }
 
 .barra-de-navegacion a.item:hover {

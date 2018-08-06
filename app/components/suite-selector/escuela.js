@@ -21,6 +21,9 @@ export default Ember.Component.extend({
     if (contexto === "paquetes") {
       query.programa = "Conectar Igualdad";
     }
+    if (contexto === "robotica") {
+      query.nivel__nombre = "Primaria";
+    }
     return this.get("store").query("escuela", query);
   }),
 

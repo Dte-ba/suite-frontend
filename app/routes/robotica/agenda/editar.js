@@ -17,7 +17,7 @@ export default Ember.Route.extend({
     );
     model.set("areas", this.store.query("areaDeRobotica", { page_size: 3000 }));
 
-    if (model.get("acta") || model.get("actaLegacy")) {
+    if (model.get("cerrarEvento") === true) {
       this.get("notificador").error("No se puede editar un taller finalizado.");
       this.transitionTo("robotica.agenda.detalle", model.get("id"));
     }

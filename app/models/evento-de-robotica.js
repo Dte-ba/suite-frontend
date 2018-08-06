@@ -73,6 +73,36 @@ function validateFechas() {
     return true;
   };
 }
+function validateCerrarEvento() {
+  return (key, newValue, oldValue, changes, content) => {
+    let { acta, cerrarEvento } = changes;
+    let model = content.get("_internalModel").record;
+
+    if (key === "acta") {
+      acta = newValue;
+    } else {
+      if (!acta) {
+        acta = model.get("acta");
+      }
+    }
+
+    if (key === "cerrarEvento") {
+      cerrarEvento = newValue;
+    } else {
+      if (!cerrarEvento) {
+        cerrarEvento = model.get("cerrarEvento");
+      }
+    }
+
+    if (cerrarEvento === true) {
+      if (!acta) {
+        return "No se puede cerrar un evento sin acta.";
+      }
+    }
+
+    return true;
+  };
+}
 
 export default DS.Model.extend({
   fecha: DS.attr("string"),
@@ -84,9 +114,10 @@ export default DS.Model.extend({
   areaEnQueSeDicta: DS.belongsTo("area-de-robotica"),
   curso: DS.belongsTo("curso-de-robotica"),
   cantidadDeAlumnos: DS.attr("string"),
-  docenteACargo: DS.attr("string"),
+  docente_a_cargo: DS.attr("string"),
 
   acta: DS.attr(),
+  cerrarEvento: DS.attr("boolean"),
 
   tallerista: DS.belongsTo("perfil"),
   escuela: DS.belongsTo("escuela"),
@@ -122,7 +153,9 @@ export default DS.Model.extend({
     fin: [validatePresence(true)],
     curso: [validatePresence(true)],
     tallerista: [validatePresence(true)],
+    docente_a_cargo: [validatePresence(true)],
     escuela: [validatePresence(true)],
+    cerrarEvento: [validateCerrarEvento()],
     // minuta: [validatePresence(true)],
     cantidadDeAlumnos: [
       validateNumber({

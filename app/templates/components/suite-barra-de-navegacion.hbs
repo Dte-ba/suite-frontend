@@ -21,12 +21,12 @@
 
     {{#if robotica}}
 
-      {{#link-to "robotica.index" tagName="div" class="item logo-container" current-when="index"}}
+      {{#link-to "robotica.index" tagName="div" class="item logo-container" current-when="login"}}
         <img class="isologo" height="36" src="/logotipo-robotica.png">
       {{/link-to}}
       {{robotica-lista-de-rutas}}
     {{else}}
-      {{#link-to "app.escritorio.index" tagName="div" class="item logo-container" current-when="index"}}
+      {{#link-to "app.escritorio.index" tagName="div" class="item logo-container" current-when="login"}}
         <img class="isologo" src="/logotipo.png">
       {{/link-to}}
       {{suite-lista-de-rutas}}

@@ -115,6 +115,11 @@ export default Ember.Route.extend({
           titulo: "Acta",
           componente: "suite-detalle/acta-de-evento",
           centrar: true
+        },
+        {
+          titulo: "Estado",
+          componente: "suite-detalle/estado-de-evento",
+          centrar: true
         }
       ]
     };

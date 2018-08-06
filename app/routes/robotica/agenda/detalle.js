@@ -45,6 +45,10 @@ export default Ember.Route.extend({
         componente: "suite-detalle/tallerista"
       },
       {
+        titulo: "Docente a cargo",
+        id: "docente_a_cargo"
+      },
+      {
         titulo: "Cantidad de alumnos que participan",
         id: "cantidadDeAlumnos"
       }

@@ -9,15 +9,10 @@
     </div>
   </div>
 
-  <div class="ui equal width row middle aligned segment">
-    <div class="column">
-      {{suite-estado-de-acta evento=model mostrarEtiqueta=true}}
-    </div>
-  </div>
   <div class="ui equal width row segment">
     <div class="column">
-      {{#if model.acta}}
-        <div class="ui red label">Acción finalizada</div>
+      {{#if model.cerrarEvento}}
+        <div class="ui red label">Evento finalizado</div>
       {{else if model.puedeEditar}}
         {{#link-to "robotica.agenda.editar" model class="ui button primario"}}Editar{{/link-to}}
       {{/if}}
@@ -44,6 +39,7 @@
         {{/suite-modal}}
 
       {{/suite-permiso}}
+            {{suite-estado-de-acta evento=model mostrarEtiqueta=true}}
     </div>
   </div>
 
