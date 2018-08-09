@@ -19,14 +19,18 @@
 
   {{#if perfil.tieneAccesoAAmbosSistemas}}
 
-    {{#if perfil.tieneAccesoASuite}}
-      {{#link-to 'app.escritorio.index' tagName='div' class='item'}}Ingresar a SUITE{{/link-to}}
+    {{#if (not-eq aplicacionActual "app")}}
+      {{#if perfil.tieneAccesoASuite}}
+        {{#link-to 'app.escritorio.index' tagName='div' class='item'}}Ingresar a SUITE{{/link-to}}
+      {{/if}}
     {{/if}}
 
-    {{#if perfil.tieneAccesoARobotica}}
-      {{#link-to 'robotica.index' tagName='div' class='item'}}Ingresar a Robótica{{/link-to}}
+    {{#if (not-eq aplicacionActual "robotica")}}
+      {{#if perfil.tieneAccesoARobotica}}
+        {{#link-to 'robotica.index' tagName='div' class='item'}}Ingresar a Robótica{{/link-to}}
+      {{/if}}
     {{/if}}
-    
+
   {{/if}}
 
   {{#if puedeSimularAcceso}}

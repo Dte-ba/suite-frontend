@@ -11,6 +11,14 @@ export default Ember.Component.extend({
   }),
 
   didInsertElement() {
+    var ruta = Ember.getOwner(this).lookup("controller:application")
+      .currentPath;
+    if (ruta) {
+      var aplicacionActual = ruta.split(".")[0];
+    } else {
+      aplicacionActual = "";
+    }
+    this.set("aplicacionActual", aplicacionActual);
     this.$().dropdown({});
   },
 
