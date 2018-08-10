@@ -14,7 +14,7 @@
   as |item|
 }}
   {{item.nombre}} {{item.apellido}} <small class="gray">DNI: {{item.dni}}</small>
-
+{{#unless soloRobotica}}
   <div class="etiquetas-a-derecha">
 
     <div class="ui basic tiny label">
@@ -27,7 +27,7 @@
       {{item.region.numero}}
     </div>
   </div>
-
+{{/unless}}
 
 
 {{/power-select}}

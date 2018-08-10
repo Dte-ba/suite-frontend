@@ -1,6 +1,10 @@
 import DS from "ember-data";
 import Ember from "ember";
-import { validatePresence, validateNumber } from "ember-changeset-validations/validators";
+import {
+  validatePresence,
+  validateNumber,
+  validateLength
+} from "ember-changeset-validations/validators";
 
 function validarHorarios() {
   return (key, newValue, oldValue, changes, content) => {
@@ -78,6 +82,7 @@ export default DS.Model.extend({
   titulo: DS.belongsTo("taller-de-robotica"),
   areaEnQueSeDicta: DS.belongsTo("area-de-robotica"),
   curso: DS.belongsTo("curso-de-robotica"),
+  seccion: DS.belongsTo("seccion-de-robotica"),
   cantidadDeAlumnos: DS.attr("string"),
   docente_a_cargo: DS.attr("string"),
 
@@ -87,6 +92,8 @@ export default DS.Model.extend({
   tallerista: DS.belongsTo("perfil"),
   escuela: DS.belongsTo("escuela"),
   resumenParaCalendario: DS.attr("string"),
+  fechaDeCreacion: DS.attr("string"),
+  fechaDeUltimaModificacion: DS.attr("string"),
 
   fecha_inicio: Ember.computed("fecha", "inicio", function() {
     let fecha = this.get("fecha");
@@ -116,6 +123,7 @@ export default DS.Model.extend({
     inicio: [validatePresence(true), validarHorarios()],
     fin: [validatePresence(true)],
     curso: [validatePresence(true)],
+    seccion: [validatePresence(true)],
     tallerista: [validatePresence(true)],
     docente_a_cargo: [validatePresence(true)],
     escuela: [validatePresence(true)],
@@ -126,6 +134,12 @@ export default DS.Model.extend({
         positive: true,
         integer: true,
         message: "Tiene que ser un número"
+      }),
+      validatePresence(true),
+      validateLength({
+        min: 1,
+        max: 40,
+        message: "No puede ser menor a 1 ni mayor a 40"
       })
     ]
   }

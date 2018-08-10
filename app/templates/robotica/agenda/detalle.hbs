@@ -12,6 +12,12 @@
   <div class="ui equal width row segment">
     <div class="column">
       <div class="fr pr4">
+        Creado: {{moment-format model.fechaDeCreacion 'DD/MM/YYYY H:m'}}
+      </div>
+      <div class="fr pr4">
+        Última modificación: {{moment-format model.fechaDeUltimaModificacion 'DD/MM/YYYY H:m'}}
+      </div>
+      <div class="fr pr4">
         {{suite-estado-de-acta evento=model mostrarEtiqueta=true}}
       </div>
 

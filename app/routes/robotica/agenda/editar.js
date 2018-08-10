@@ -15,6 +15,10 @@ export default Ember.Route.extend({
       "cursos",
       this.store.query("cursoDeRobotica", { page_size: 3000 })
     );
+    model.set(
+      "secciones",
+      this.store.query("seccionDeRobotica", { page_size: 3000 })
+    );
     model.set("areas", this.store.query("areaDeRobotica", { page_size: 3000 }));
 
     if (model.get("cerrarEvento") === true) {

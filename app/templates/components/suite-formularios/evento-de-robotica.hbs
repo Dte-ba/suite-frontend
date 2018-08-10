@@ -14,17 +14,26 @@
       {{suite-selector/perfil soloRobotica=true valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
-    {{#f.input label="Título del taller" required=true name="titulo" as |f|}}
-      {{suite-selector/simple opciones=model.talleres valor=f.value cuandoSelecciona=f.update}}
-    {{/f.input}}
-
     {{#f.input label="Área en que se dicta" required=true name="areaEnQueSeDicta" as |f|}}
       {{suite-selector/simple opciones=model.areas valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
 
-    {{#f.input label="Curso y sección en que se dicta" required=true name="curso" as |f|}}
-      {{suite-selector/simple opciones=model.cursos valor=f.value cuandoSelecciona=f.update}}
+    {{#f.input label="Título del taller" required=true name="titulo" as |f|}}
+      {{suite-selector/simple opciones=model.talleres valor=f.value cuandoSelecciona=f.update}}
     {{/f.input}}
+
+    <div class="ui equal width stackable grid">
+      <div class="column">
+        {{#f.input label="Curso en que se dicta" required=true name="curso" as |f|}}
+          {{suite-selector/simple opciones=model.cursos valor=f.value cuandoSelecciona=f.update}}
+        {{/f.input}}
+      </div>
+      <div class="column">
+        {{#f.input label="Sección en que se dicta" required=true name="seccion" as |f|}}
+          {{suite-selector/simple opciones=model.secciones valor=f.value cuandoSelecciona=f.update}}
+        {{/f.input}}
+      </div>
+    </div>
 
     {{f.input label="Cant. alumnos" required=true name="cantidadDeAlumnos"}}
 
@@ -67,7 +76,7 @@
         </div>
       {{/f.input}}
 
-      {{f.input type="textarea" label="Minuta" name="minuta"}}
+      {{f.input type="textarea" label="Observaciones" name="minuta"}}
 
       {{f.input type="checkbox" label="Finalizar el evento" name="cerrarEvento"}}
       <div class="ui pointing orange basic label">Si finaliza el evento, no podrá volver a editarlo.</div>

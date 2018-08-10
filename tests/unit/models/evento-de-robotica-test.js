@@ -5,6 +5,7 @@ moduleForModel("evento-de-robotica", "Unit | Model | evento de robotica", {
     "model:curso-de-robotica",
     "model:taller-de-robotica",
     "model:area-de-robotica",
+    "model:seccion-de-robotica",
     "model:perfil",
     "model:escuela"
   ]

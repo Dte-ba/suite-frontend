@@ -22,7 +22,7 @@ export default Ember.Route.extend({
         "/api/escuelas/estadistica?nivel=2&localidad__distrito__region__numero=" +
         region.get("numero");
     } else {
-      url = ENV.API_URL + "/api/escuelas/estadistica?nivel=2";
+      url = ENV.API_URL + "/api/escuelas/estadistica?nivel=2&robotica=true";
     }
 
     let resultado = yield this.get("ajax").request(url);
@@ -64,43 +64,10 @@ export default Ember.Route.extend({
           ordenamiento: "localidad__distrito__nombre"
         },
         {
-          atributo: "modalidad.nombre",
-          titulo: "Modalidad",
-          promesa: "modalidad",
-          ordenamiento: "modalidad__nombre"
-        },
-        {
-          atributo: "nivel.nombre",
-          titulo: "Nivel",
-          promesa: "nivel",
-          ordenamiento: "nivel__nombre"
-        },
-        {
           atributo: "programas",
           titulo: "Programas",
           template: "suite-tabla/celda-programas"
-        },
-        {
-          atributo: "tipoDeGestion.nombre",
-          titulo: "Gestión",
-          promesa: "tipoDeGestion"
         }
-        // {
-        //   atributo: "piso.estado",
-        //   titulo: "Piso",
-        //   template: "suite-tabla/celda-pisos",
-        //   ordenamiento: "piso__estado"
-        // },
-        // {
-        //   atributo: "piso.llave",
-        //   titulo: "Llave",
-        //   template: "suite-tabla/celda-llave"
-        // },
-        // {
-        //   atributo: "estadoDeEscuela",
-        //   titulo: "",
-        //   template: "suite-tabla/celda-estado-de-escuela"
-        // }
       ]
     };
   },

@@ -120,6 +120,7 @@ export default Ember.Controller.extend(parametros.Mixin, {
     let query = {};
 
     query.conformada = false;
+    query.robotica = true;
     query.page = this.get("pagina");
     query.query = this.get("busqueda");
 
