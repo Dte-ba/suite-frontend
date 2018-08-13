@@ -1,0 +1,21 @@
+{{yield}}
+
+{{#formulario.input label="Área en que se dicta" required=true name="areaEnQueSeDicta" as |field|}}
+
+  {{suite-selector/simple
+    opciones=areas
+    valor=field.value
+    cuandoSelecciona=(action "alCambiarArea" field.update)}}
+
+{{/formulario.input}}
+
+{{#formulario.input label="Título del taller" required=true name="titulo" as |f|}}
+
+  {{suite-selector/simple
+    placeholder=placeholder
+    deshabilitado=inhabilitarTaller
+    opciones=talleresFiltradosPorArea
+    valor=f.value
+    cuandoSelecciona=f.update}}
+
+{{/formulario.input}}

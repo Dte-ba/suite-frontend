@@ -35,18 +35,8 @@ export default Ember.Route.extend(QueryParamsResetRouteMixin, {
 
   afterModel(model) {
     model.set("buscarPersonas", this.get("buscarPersonas"));
-    model.set(
-      "talleres",
-      this.store.query("tallerDeRobotica", { page_size: 3000 })
-    );
-    model.set(
-      "cursos",
-      this.store.query("cursoDeRobotica", { page_size: 3000 })
-    );
-    model.set(
-      "secciones",
-      this.store.query("seccionDeRobotica", { page_size: 3000 })
-    );
+    model.set("cursos", this.store.query("cursoDeRobotica", { page_size: 3000 }));
+    model.set("secciones", this.store.query("seccionDeRobotica", { page_size: 3000 }));
     model.set("areas", this.store.query("areaDeRobotica", { page_size: 3000 }));
   },
 
