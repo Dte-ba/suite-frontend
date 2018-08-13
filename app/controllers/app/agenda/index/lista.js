@@ -39,13 +39,20 @@ export default Ember.Controller.extend(parametros.Mixin, {
     this.actualizar();
   },
 
-  definirFiltros() {
+  definirFiltrosPorOmision() {
     let perfil = this.get("perfil");
     let soloSuRegion = !perfil.tienePermiso("perfil.global");
 
     if (soloSuRegion) {
       this.set("region", perfil.obtenerRegion().get("id"));
     }
+  },
+
+  definirFiltros() {
+    let perfil = this.get("perfil");
+    let soloSuRegion = !perfil.tienePermiso("perfil.global");
+
+    this.definirFiltrosPorOmision();
 
     this.set("filtros", [
       {
@@ -126,7 +133,17 @@ export default Ember.Controller.extend(parametros.Mixin, {
   },
 
   queryParamsDidChange() {
+    this.prevenirParametrosProhibidos();
     this.actualizar();
+  },
+
+  prevenirParametrosProhibidos() {
+    let perfil = this.get("perfil");
+    let soloSuRegion = !perfil.tienePermiso("perfil.global");
+
+    if (soloSuRegion) {
+      this.set("region", perfil.obtenerRegion().get("id"));
+    }
   },
 
   actions: {
@@ -136,6 +153,7 @@ export default Ember.Controller.extend(parametros.Mixin, {
     },
     limpiarParametros() {
       this.resetQueryParams();
+      this.definirFiltrosPorOmision();
     },
     cuandoCambiaPagina(pagina) {
       this.set("pagina", pagina);
