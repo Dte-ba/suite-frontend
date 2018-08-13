@@ -119,6 +119,7 @@ export default DS.Model.extend({
 
   validaciones: {
     titulo: [validatePresence(true)],
+    areaEnQueSeDicta: [validatePresence(true)],
     fecha: [validatePresence(true)],
     inicio: [validatePresence(true), validarHorarios()],
     fin: [validatePresence(true)],
@@ -133,14 +134,11 @@ export default DS.Model.extend({
       validateNumber({
         positive: true,
         integer: true,
-        message: "Tiene que ser un número"
+        gte: 1,
+        lte: 40,
+        message: "Tiene que ser un número mayor a 1 y menor a 40."
       }),
-      validatePresence(true),
-      validateLength({
-        min: 1,
-        max: 40,
-        message: "No puede ser menor a 1 ni mayor a 40"
-      })
+      validatePresence(true)
     ]
   }
 });
