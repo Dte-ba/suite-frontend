@@ -52,7 +52,11 @@
           {{/if}}
 
           {{#if model.puedeEditarDentroDeLaRegion}}
-            <button class="ui primario button" {{action crearEventoParaEstaEscuela}}><i class='ui plus icon'></i> Agendar acción</button>
+            {{#if robotica}}
+              <button class="ui primario button" {{action crearEventoParaEstaEscuela}}><i class='ui plus icon'></i> Agendar taller</button>
+            {{else}}
+              <button class="ui primario button" {{action crearEventoParaEstaEscuela}}><i class='ui plus icon'></i> Agendar acción</button>
+            {{/if}}
           {{/if}}
 
         {{/if}}
