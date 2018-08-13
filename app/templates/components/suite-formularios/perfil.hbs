@@ -73,10 +73,14 @@
   {{/f.input}}
 
   {{f.input label="Expediente " name="expediente"}}
-  {{f.input label="Fecha de Ingreso " name="fechaDeIngreso"}}
-  {{#f.input label="Fecha de Renuncia " name="fechaDeRenuncia" as |f|}}
+  {{#f.input label="Fecha de Ingreso " name="fechaDeIngreso" as |f|}}
    {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
   {{/f.input}}
+  {{#if editar}}
+    {{#f.input label="Fecha de Renuncia " name="fechaDeRenuncia" as |f|}}
+     {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
+    {{/f.input}}
+  {{/if}}
 
 
   {{#if editar}}
