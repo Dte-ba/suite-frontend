@@ -2,8 +2,7 @@ import DS from "ember-data";
 import Ember from "ember";
 import {
   validatePresence,
-  validateNumber,
-  validateLength
+  validateNumber
 } from "ember-changeset-validations/validators";
 
 function validarHorarios() {
