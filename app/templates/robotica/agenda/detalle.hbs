@@ -32,13 +32,13 @@
       -->
       {{#suite-permiso permiso="agenda.eliminar"}}
 
-        <button class="ui button primario" {{action (mut mostrarDialogo) true}}>Eliminar</button>
+        <button class="ui red button" {{action (mut mostrarDialogo) true}}>Eliminar</button>
 
         {{#suite-modal mostrar=mostrarDialogo}}
           <h1>¡Aviso!</h1>
 
           <div class="content">
-            <p>Está por eliminar la acción: {{model.titulo}} - {{model.escuela.cue}} </p>
+            <p>Está por eliminar el taller: {{model.titulo.nombre}} - {{model.escuela.cue}} </p>
             <p>¿Está seguro que quiere eliminarla?</p>
           </div>
 
