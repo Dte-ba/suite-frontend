@@ -12,11 +12,19 @@ Ember.Route.reopen({
 
   beforeModel(transition) {
     let permisoQueRequiere = this.get("requiere");
+    let requierePerfil = this.get("requierePerfil");
 
     if (permisoQueRequiere) {
       if (!this.get("perfil").tienePermiso(permisoQueRequiere)) {
         this.get("notificador").error("No tiene permisos para ingresar aquí.");
-        return this.transitionTo("app");
+        return this.transitionTo("home");
+      }
+    }
+
+    if (requierePerfil) {
+      if (!this.get("perfil").tieneAccesoAlModo(requierePerfil)) {
+        this.get("notificador").error("No tiene permisos para ingresar aquí.");
+        return this.transitionTo("home");
       }
     }
 
@@ -167,7 +175,7 @@ Router.map(function() {
       this.route("detalle", { path: "detalle/:evento_de_robotica_id" });
       this.route("editar", { path: "editar/:evento_de_robotica_id" });
     });
-    this.route('ayuda', function() {});
+    this.route("ayuda", function() {});
   });
   this.route("home");
 });

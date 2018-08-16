@@ -6,6 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   breadCrumb: null,
   perfil: Ember.inject.service(),
   authenticationRoute: "login",
+  requierePerfil: "suite",
   queryParams: {
     perfilInspeccionado: {
       refreshModel: true

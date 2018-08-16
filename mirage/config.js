@@ -11,6 +11,13 @@ export default function() {
   this.post("/eventos");
   this.patch("/eventos/:id");
 
+  this.get("/eventos-de-robotica");
+  this.get("/eventos-de-robotica/:id");
+  this.put("/eventos-de-robotica/:id");
+  this.del("/eventos-de-robotica/:id");
+  this.post("/eventos-de-robotica");
+  this.patch("/eventos-de-robotica/:id");
+
   this.get("/users");
   this.get("/users/:id");
   this.put("/users/:id");
@@ -93,6 +100,8 @@ export default function() {
         grupos: [{ nombre: "Coordinador", id: 1 }],
         idPerfil: 1,
         idRegion: 2,
+        tieneAccesoARobotica: false,
+        tieneAccesoASuite: true,
         nombre: "Hugo",
         permisos: {
           "agenda.listar": true,

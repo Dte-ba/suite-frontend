@@ -6,6 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   breadCrumb: null,
   perfil: Ember.inject.service(),
   authenticationRoute: "login",
+  requierePerfil: "robotica",
   queryParams: {
     perfilInspeccionado: {
       refreshModel: true
@@ -20,10 +21,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   afterModel() {
     return Ember.RSVP.hash({
-      region: this.get("store").findRecord(
-        "region",
-        this.get("perfil.data.idRegion")
-      ),
+      region: this.get("store").findRecord("region", this.get("perfil.data.idRegion")),
       regiones: this.get("store").findAll("region")
     });
   },

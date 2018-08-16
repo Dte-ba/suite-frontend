@@ -65,6 +65,18 @@ export default Ember.Service.extend({
 
   tieneAccesoAAmbosSistemas: Ember.computed.and("tieneAccesoASuite", "tieneAccesoARobotica"),
 
+  tieneAccesoAlModo(modo) {
+    if (modo === "robotica") {
+      return this.get("tieneAccesoARobotica");
+    }
+
+    if (modo == "suite") {
+      return this.get("tieneAccesoASuite");
+    }
+
+    throw new Error(`Modo no esperado: ${modo}`);
+  },
+
   obtenerRegion() {
     return this.get("miPerfil.region");
   },
