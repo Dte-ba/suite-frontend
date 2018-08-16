@@ -1,0 +1,28 @@
+<div class="flex flex1">
+
+  <div class="w-50 pl2">
+    <div class="pl1 f7 gray ttc unselectable">Tallerista</div>
+
+    {{#if tarea.last.isRunning}}
+      <div class="o-50 ember-power-select-trigger ember-basic-dropdown-trigger disabled">
+        <div class="tc">
+          <div class="ui active inline mini loader"></div>
+        </div>
+      </div>
+    {{else}}
+
+      {{#power-select
+        options=tarea.last.value
+        selected=responsableComoObjeto
+        searchEnabled=true
+        searchField='nombreApellido'
+        onchange=(action "cuandoSeleccionaResponsable")
+        as |opcion|
+      }}
+        {{get opcion "nombreApellido"}}
+      {{/power-select}}
+
+    {{/if}}
+
+  </div>
+</div>

@@ -62,12 +62,12 @@ export default Ember.Controller.extend(parametros.Mixin, {
         fila: 1
       },
       {
-        componente: "suite-filtros/componentes/responsableParticipante",
+        componente: "suite-filtros/componentes/intervaloDeFechas",
         deshabilitado: false,
         fila: 2
       },
       {
-        componente: "suite-filtros/componentes/intervaloDeFechas",
+        componente: "suite-filtros/componentes/tallerista",
         deshabilitado: false,
         fila: 2
       }
@@ -105,7 +105,7 @@ export default Ember.Controller.extend(parametros.Mixin, {
     query.query = this.get("busqueda");
     query.page_size = this.get("limite");
 
-    query.responsable__id = this.get("responsable");
+    query.tallerista__id = this.get("responsable");
     query.perfil = this.get("participante");
     query.escuela__localidad = this.get("localidad");
     query.escuela__localidad__distrito = this.get("distrito");
