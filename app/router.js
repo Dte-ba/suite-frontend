@@ -167,6 +167,7 @@ Router.map(function() {
       this.route("detalle", { path: "detalle/:evento_de_robotica_id" });
       this.route("editar", { path: "editar/:evento_de_robotica_id" });
     });
+    this.route('ayuda', function() {});
   });
   this.route("home");
 });
