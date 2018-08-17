@@ -19,7 +19,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       .catch(error => this.logoutIfInvalidSession(error));
   },
 
-  afterModel() {
+  afterModel(transition) {
+    this._super(transition);
+
     return Ember.RSVP.hash({
       region: this.get("store").findRecord("region", this.get("perfil.data.idRegion")),
       regiones: this.get("store").findAll("region")
