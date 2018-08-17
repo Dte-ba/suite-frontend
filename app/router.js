@@ -10,20 +10,20 @@ Ember.Route.reopen({
   perfil: Ember.inject.service(),
   notificador: Ember.inject.service(),
 
-  beforeModel(transition) {
+  afterModel(transition) {
     let permisoQueRequiere = this.get("requiere");
     let requierePerfil = this.get("requierePerfil");
 
     if (permisoQueRequiere) {
       if (!this.get("perfil").tienePermiso(permisoQueRequiere)) {
-        this.get("notificador").error("No tiene permisos para ingresar aquí.");
+        this.get("notificador").error(`No tiene permisos para ingresar aquí (${permisoQueRequiere}).`);
         return this.transitionTo("home");
       }
     }
 
     if (requierePerfil) {
       if (!this.get("perfil").tieneAccesoAlModo(requierePerfil)) {
-        this.get("notificador").error("No tiene permisos para ingresar aquí.");
+        this.get("notificador").error(`No tiene permisos para acceder a ${requierePerfil}.`);
         return this.transitionTo("home");
       }
     }
