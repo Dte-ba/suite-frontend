@@ -78,7 +78,10 @@ export default Ember.Component.extend({
         distritos.pushObject(d);
       });
     } else {
-      distritos.pushObject({ nombre: "Seleccione región para ver más opciones.", disabled: true });
+      distritos.pushObject({
+        nombre: "Seleccione región para ver más opciones.",
+        disabled: true
+      });
     }
 
     return distritos;
@@ -99,7 +102,10 @@ export default Ember.Component.extend({
         localidades.pushObject(l);
       });
     } else {
-      localidades.pushObject({ nombre: "Seleccione distrito para ver más opciones.", disabled: true });
+      localidades.pushObject({
+        nombre: "Seleccione distrito para ver más opciones.",
+        disabled: true
+      });
     }
 
     return localidades;
