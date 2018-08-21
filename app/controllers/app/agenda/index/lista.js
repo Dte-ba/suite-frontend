@@ -116,7 +116,7 @@ export default Ember.Controller.extend(parametros.Mixin, {
     query.perfil = this.get("participante");
     query.escuela__localidad = this.get("localidad");
     query.escuela__localidad__distrito = this.get("distrito");
-    query.escuela__localidad__distrito__region__numero = this.get("region");
+    query.region = this.get("region");
 
     query.desde = this.get("desde");
     query.hasta = this.get("hasta");

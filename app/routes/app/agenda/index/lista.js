@@ -86,9 +86,9 @@ export default Ember.Route.extend({
         },
         {
           titulo: "Región",
-          atributo: "escuela.localidad.distrito.region.numero",
+          atributo: "region",
           centrar: true,
-          ordenamiento: "escuela__localidad__distrito__region__numero"
+          ordenamiento: "region"
         },
         {
           titulo: "Distrito",

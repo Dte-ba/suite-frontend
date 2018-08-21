@@ -1,10 +1,6 @@
 import DS from "ember-data";
 import Ember from "ember";
-import {
-  validatePresence,
-  validateLength,
-  validateNumber
-} from "ember-changeset-validations/validators";
+import { validatePresence, validateLength, validateNumber } from "ember-changeset-validations/validators";
 
 /* Valida de las fechas y horas de un evento sean correctas.
    Para que una fecha sea correcta tiene que suceder esto:
@@ -84,6 +80,7 @@ export default DS.Model.extend({
   fin: DS.attr("string"),
   objetivo: DS.attr("string"),
   minuta: DS.attr("string"),
+  region: DS.attr("string"),
   actaLegacy: DS.attr("string"),
   categoria: DS.belongsTo("categoria-de-evento"),
   cantidadDeParticipantes: DS.attr("string"),
