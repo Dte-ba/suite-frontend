@@ -37,7 +37,11 @@ export default Ember.Component.extend({
   region: Ember.computed.alias("parametros.region"),
   regionComoObjeto: Ember.computed("region", function() {
     if (this.get("region")) {
-      return this.get("store").find("region", this.get("region"));
+      return this.get("store")
+        .query("region", { numero: this.get("region") })
+        .then(data => {
+          return data.get("firstObject");
+        });
     } else {
       return this.get("opcionTodas");
     }
@@ -119,7 +123,7 @@ export default Ember.Component.extend({
 
   actions: {
     cuandoSeleccionaRegion(region) {
-      this.get("accionCompleta")("region", region.get("id"));
+      this.get("accionCompleta")("region", region.get("numero"));
       this.get("accionCompleta")("distrito", "");
       this.get("accionCompleta")("localidad", "");
       this.get("tareaDistritos").perform();
