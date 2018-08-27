@@ -3,52 +3,204 @@ import d3 from "d3";
 
 export default Ember.Component.extend({
   didInsertElement() {
-    //console.log(this.get("data"));
-    let color = d3.scaleOrdinal(["#d4145a", "#d4145a", "#d4145a"]);
+    var data = this.get("data");
+    var sort = this.get("sort");
+    var labelY = this.get("labelY");
+    var itemCount = data.length;
 
-    let validacionCounts = this.get("data").map(validacion => validacion.count);
+    var color = d3
+      .scaleOrdinal()
+      .range([
+        "#3366cc",
+        "#dc3912",
+        "#ff9900",
+        "#109618",
+        "#990099",
+        "#0099c6",
+        "#dd4477",
+        "#66aa00",
+        "#b82e2e",
+        "#316395",
+        "#994499",
+        "#22aa99",
+        "#aaaa11",
+        "#6633cc",
+        "#e67300",
+        "#8b0707",
+        "#651067",
+        "#329262",
+        "#5574a6",
+        "#3b3eac"
+      ]);
 
-    let dataCount = this.get("data").length;
-    let xScale = d3
-      .scaleLinear()
-      .domain([0, Math.max(...validacionCounts)])
-      .range([0.5, 400]);
+    if (sort === "asc") {
+      data = data.sort(function(a, b) {
+        return d3.ascending(a.count, b.count);
+      });
+    } else if (sort === "desc") {
+      data = data.sort(function(a, b) {
+        return d3.descending(a.count, b.count);
+      });
+    } else if (sort === "alfa-desc") {
+      data = data.sort(function(a, b) {
+        return d3.descending(a.name, b.name);
+      });
+    } else {
+      data = data;
+    }
 
-    let yScale = d3
+    var svgHeight = 25 * itemCount;
+
+    // set the dimensions and margins of the graph
+    var margin = { top: 20, right: 20, bottom: 50, left: 300 },
+      width = 700 - margin.left - margin.right,
+      height = svgHeight - margin.top - margin.bottom;
+
+    // set the ranges
+    var y = d3
       .scaleBand()
-      .domain(this.get("data").map(validacion => validacion.name))
-      .range([0, 250])
-      .paddingInner(0);
+      .range([height, 0])
+      .padding(0.1);
 
-    let svg = d3.select(this.$("svg")[0]);
+    var x = d3.scaleLinear().range([0, width]);
 
+    // append the svg object to the body of the page
+    // append a 'group' element to 'svg'
+    // moves the 'group' element to the top left margin
+    var svg = d3
+      .select(this.$("svg")[0])
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var tooltip = d3
+      .select("body")
+      .append("div")
+      .attr("class", "toolTip");
+
+    // format the data
+    data.forEach(function(d) {
+      d.porcentaje = +d.porcentaje;
+    });
+
+    // Scale the range of the data in the domains
+    x.domain([
+      0,
+      100
+      // d3.max(data, function(d) {
+      //   return d.count;
+      // })
+    ]);
+    y.domain(
+      data.map(function(d) {
+        return d.name;
+      })
+    );
+    //y.domain([0, d3.max(data, function(d) { return d.count; })]);
+
+    // append the rectangles for the bar chart
     svg
-      .selectAll("rect")
-      .data(this.get("data"))
+      .selectAll(".bar")
+      .data(data)
       .enter()
       .append("rect")
-      .attr("width", validacion => xScale(validacion.count))
-      // .attr("height", yScale.bandwidth())
-      .attr("height", 8)
-      .attr("y", validacion => yScale(validacion.name) + 35)
-      .attr("x", () => 15)
-      .attr("fill", color((_, index) => index));
+      .attr("class", "bar")
+      //.attr("x", function(d) { return x(d.count); })
+      .attr("width", function(d) {
+        return x(d.porcentaje);
+      })
+      .attr("y", function(d) {
+        return y(d.name);
+      })
+      .attr("height", y.bandwidth())
+      .attr("fill", "#e60052")
+      .on("mousemove", function(d) {
+        tooltip
+          .style("left", d3.event.pageX - 50 + "px")
+          .style("top", d3.event.pageY - 70 + "px")
+          .style("display", "inline-block")
+          .html(
+            d.name +
+              "<br> <b>" +
+              d.count +
+              "</b> Museos <br> <b>" +
+              d.porcentaje +
+              "%</b>"
+          );
+      })
+      .on("mouseout", function(d) {
+        tooltip.style("display", "none");
+      });
 
+    // add the x Axis
     svg
+      .append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
       .selectAll("text")
-      .data(this.get("data"))
+      .attr("font-family", "Lato")
+      .attr("font-size", "16px");
+
+    // Referencia Eje X
+    svg
+      .append("text")
+      .attr(
+        "transform",
+        "translate(" + width / 2 + " ," + (height + margin.top + 20) + ")"
+      )
+      .style("text-anchor", "middle")
+      .attr("font-family", "Lato")
+      .attr("font-size", "16px")
+      .attr("fill", "#000")
+      .text("%");
+
+    // add the y Axis
+    svg
+      .append("g")
+      .call(d3.axisLeft(y))
+      .selectAll("text")
+      .attr("font-family", "Lato")
+      .attr("font-size", "16px");
+
+    // Referencia Eje Y
+    svg
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x", 0 - height / 2)
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .attr("font-family", "Lato")
+      .attr("font-size", "16px")
+      .attr("fill", "#000")
+      .text(labelY);
+
+    // Info sobre barras
+    svg
+      .append("g")
+      .attr("id", "count")
+      .selectAll("text")
+      .data(data)
       .enter()
       .append("text")
-      .attr("y", validacion => yScale(validacion.name) + 30)
-      .attr("x", function() {
-        return 15;
+      .attr("fill", "#000")
+      .attr("font-family", "Lato")
+      .attr("font-size", "16px")
+      .attr("height", y.bandwidth())
+      .attr("y", function(d) {
+        return y(d.name) + 13;
       })
-      .text(validacion => validacion.name + " (" + validacion.count + ")")
-      .attr("font-family", "sans-serif")
-      .attr("font-size", "14px")
-      .attr("fill", "#666");
-
-    svg.attr("height", 100 * dataCount);
-    svg.attr("width", "100%");
+      .attr("x", function(d) {
+        if (x(d.porcentaje) != 0) {
+          return x(d.porcentaje) + 5;
+        }
+      })
+      .attr("height", y.bandwidth())
+      .text(function(d) {
+        if (x(d.porcentaje) != 0) {
+          return d.porcentaje + "%";
+        }
+      });
   }
 });

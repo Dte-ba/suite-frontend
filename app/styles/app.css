@@ -7,19 +7,15 @@ body {
   padding-bottom: 5em;
 }
 
-path:hover {
+/* path:hover {
   fill: red !important;
-}
+} */
 
 .footer {
 }
 
 .pusher {
   width: calc(100vw - 34px);
-}
-
-svg text {
-  fill: #000;
 }
 
 .invisible {
@@ -32,6 +28,22 @@ svg text {
 }
 
 */
+/* Reportes */
+.toolTip {
+  position: absolute;
+  display: none;
+  min-width: 80px;
+  height: auto;
+  background: none repeat scroll 0 0 #ffffff;
+  border: 1px solid #6f257f;
+  padding: 14px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.tick text {
+  font-family: "Lato" !important;
+}
 
 .logo-container {
   height: 50px;

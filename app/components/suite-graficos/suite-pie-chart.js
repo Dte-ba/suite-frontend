@@ -3,62 +3,191 @@ import d3 from "d3";
 
 export default Ember.Component.extend({
   didInsertElement() {
-    var _svg = d3.select(this.$("svg")[0]);
+    var dataset = this.get("data");
+    var tipo = this.get("tipo");
+    var leyenda = this.get("leyenda");
+    var titulo = this.get("titulo");
 
-    let width = 200;
-    let height = 200;
-    let radius = Math.min(width, height) / 2;
+    console.log(dataset);
 
-    let dataset = this.get("data");
+    dataset = dataset.sort(function(a, b) {
+      return d3.descending(a.porcentaje, b.porcentaje);
+    });
+    var width = 700,
+      height = 300,
+      radius = Math.min(width, height) / 2;
 
-    let g = _svg
-      .append("g")
-      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    var tooltip = d3
+      .select("body")
+      .append("div")
+      .attr("class", "toolTip");
 
-    var _arc = d3
-      .arc()
-      .innerRadius(0)
-      .outerRadius(radius);
+    var color = d3
+      .scaleOrdinal()
+      .range([
+        "#3366cc",
+        "#dc3912",
+        "#ff9900",
+        "#109618",
+        "#990099",
+        "#0099c6",
+        "#dd4477",
+        "#66aa00",
+        "#b82e2e",
+        "#316395",
+        "#994499",
+        "#22aa99",
+        "#aaaa11",
+        "#6633cc",
+        "#e67300",
+        "#8b0707",
+        "#651067",
+        "#329262",
+        "#5574a6",
+        "#3b3eac"
+      ]);
 
-    let label = d3
-      .arc()
-      .innerRadius(0)
-      .outerRadius(radius);
-
-    var _pie = d3
+    var pie = d3
       .pie()
       .value(function(d) {
-        return d.count;
+        return d.porcentaje;
       })
-      .sort(null);
+      .sort(function(a, b) {
+        return a.porcentaje - b.porcentaje;
+      });
 
-    var color = d3.scaleOrdinal().range(["#00f", "#33f", "#66f", "#88f"]);
+    var piedata = pie(dataset);
 
-    var _path = g
+    var arc = d3.arc();
+
+    if (tipo === "donut") {
+      arc
+        .innerRadius(radius - 80)
+        .outerRadius(radius - 40)
+        .padAngle(0.02)
+        .padRadius(100)
+        .cornerRadius(4);
+    } else {
+      arc.innerRadius(0).outerRadius(radius - 50);
+    }
+
+    var svg = d3
+      .select(this.$("svg")[0])
+      .attr("width", width)
+      .attr("height", height)
+      .append("g")
+      .attr("transform", "translate(" + width / 4 + "," + height / 2 + ")");
+
+    var path = svg
       .selectAll("path")
-      .data(_pie(dataset))
-      .enter();
-
-    _path
+      .data(piedata)
+      .enter()
       .append("path")
-      .attr("d", _arc)
+      .attr("d", arc)
       .attr("fill", function(d) {
         return color(d.data.name);
+      })
+      .on("mousemove", function(d) {
+        tooltip
+          .style("left", d3.event.pageX - 50 + "px")
+          .style("top", d3.event.pageY - 70 + "px")
+          .style("display", "inline-block")
+          .html(
+            d.data.name +
+              "<br> <b>" +
+              d.data.count +
+              "</b> Talleres <br> <b>" +
+              d.data.porcentaje +
+              "%</b>"
+          );
+      })
+      .on("mouseout", function(d) {
+        tooltip.style("display", "none");
       });
 
-    _path
+    svg
+      .selectAll("text")
+      .data(piedata)
+      .enter()
       .append("text")
-      .attr("font-family", "sans-serif")
-      .attr("font-size", "14px")
-      .attr("fill", "#000")
-      .attr("dy", "0.35em")
-      .attr("transform", function(d) {
-        let posicion = label.centroid(d);
-        return `translate(${posicion})`;
-      })
-      .text(function(d) {
-        return d.data.name;
+      .style("text-anchor", "middle")
+      .style("alignment-baseline", "middle")
+      .each(function(d) {
+        var centroid = arc.centroid(d);
+        d3.select(this)
+          .attr("x", centroid[0])
+          .attr("y", centroid[1])
+          .style("font-family", "Lato")
+          .style("fill", "#fff")
+          // .attr("dy", "0.33em")
+          .text(function(d) {
+            if (d.data.porcentaje != 0) {
+              return d.data.porcentaje + "%";
+            }
+          });
       });
+
+    if (leyenda === "false") {
+    } else {
+      var referencias = svg
+        .append("g")
+        .attr("id", "referencias")
+        .attr("width", width)
+        .attr("height", height)
+        .attr("transform", "translate(-20, -95)");
+
+      referencias
+        .selectAll("rect")
+        .data(piedata)
+        .enter()
+        .append("rect")
+        .attr("width", 12)
+        .attr("height", 8)
+        .attr("fill", function(d) {
+          return color(d.data.name);
+        })
+        .attr("x", 150)
+        .attr("y", function(d, i) {
+          return i * 20;
+        });
+
+      referencias
+        .selectAll("text")
+        .data(piedata)
+        .enter()
+        .append("text")
+        .style("fill", "#444")
+        .style("font-family", "Lato")
+        .text(function(d) {
+          var texto = d.data.name;
+          if (leyenda === "full") {
+            texto =
+              texto + " - " + d.data.porcentaje + "% (" + d.data.count + ")";
+          }
+          return texto;
+        })
+        .attr("x", 170)
+        .attr("y", function(d, i) {
+          return i * 20 + 10;
+        });
+    }
+
+    var title = svg
+      .append("g")
+      .attr("id", "titulo")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("transform", "translate(0, -100)");
+    title
+      .append("text")
+      .attr("fill", "#333")
+      .text(titulo)
+      .style("text-anchor", "middle")
+      .style("font-family", "Lato")
+      .style("font-size", "16px")
+      .attr("fill", "#000")
+      .attr("x", 0)
+      .attr("y", -20);
 
     this.$().transition("fade in");
   }
