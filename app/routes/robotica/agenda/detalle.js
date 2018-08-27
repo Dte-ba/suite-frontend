@@ -24,6 +24,10 @@ export default Ember.Route.extend({
         id: "curso.nombre"
       },
       {
+        titulo: "Sección",
+        id: "seccion.nombre"
+      },
+      {
         titulo: "Minuta",
         id: "minuta"
       },
