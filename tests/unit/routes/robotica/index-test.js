@@ -2,7 +2,12 @@ import { moduleFor, test } from "ember-qunit";
 
 moduleFor("route:robotica/index", "Unit | Route | robotica/index", {
   // Specify the other units that are required for this test.
-  needs: ["service:analytics", "service:perfil", "service:notificador"]
+  needs: [
+    "service:analytics",
+    "service:perfil",
+    "service:notificador",
+    "service:ajax"
+  ]
 });
 
 test("it exists", function(assert) {

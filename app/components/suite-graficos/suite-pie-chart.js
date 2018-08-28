@@ -8,8 +8,6 @@ export default Ember.Component.extend({
     var leyenda = this.get("leyenda");
     var titulo = this.get("titulo");
 
-    console.log(dataset);
-
     dataset = dataset.sort(function(a, b) {
       return d3.descending(a.porcentaje, b.porcentaje);
     });
@@ -78,8 +76,8 @@ export default Ember.Component.extend({
       .append("g")
       .attr("transform", "translate(" + width / 4 + "," + height / 2 + ")");
 
-    var path = svg
-      .selectAll("path")
+    var path = svg.selectAll("path");
+    path
       .data(piedata)
       .enter()
       .append("path")
@@ -101,7 +99,7 @@ export default Ember.Component.extend({
               "%</b>"
           );
       })
-      .on("mouseout", function(d) {
+      .on("mouseout", function() {
         tooltip.style("display", "none");
       });
 
@@ -114,7 +112,8 @@ export default Ember.Component.extend({
       .style("alignment-baseline", "middle")
       .each(function(d) {
         var centroid = arc.centroid(d);
-        d3.select(this)
+        d3
+          .select(this)
           .attr("x", centroid[0])
           .attr("y", centroid[1])
           .style("font-family", "Lato")
@@ -127,8 +126,7 @@ export default Ember.Component.extend({
           });
       });
 
-    if (leyenda === "false") {
-    } else {
+    if (leyenda != "false") {
       var referencias = svg
         .append("g")
         .attr("id", "referencias")
