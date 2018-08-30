@@ -15,6 +15,7 @@ comandos:
 	@echo "  ${Y}Generales de la aplicación${N}"
 	@echo ""
 	@echo "    ${G}iniciar${N}               Instala todas las dependencias."
+	@echo "    ${G}ejecutar${N}              Ejecuta la aplicación en modo desarrollo."
 	@echo "    ${G}test${N}                  Ejecuta los tests."
 	@echo "    ${G}version${N}               Incrementa la versión y ejecuta el deploy en circle.ci."
 	@echo "    ${G}deploy_a_produccion${N}   Sube la aplicación compilada a producción."
@@ -23,6 +24,9 @@ comandos:
 
 iniciar:
 	yarn install
+
+ejecutar:
+	ember s --proxy http://127.0.0.1:8000
 
 test:
 	${EMBER} test
