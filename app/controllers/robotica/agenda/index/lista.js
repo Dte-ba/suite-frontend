@@ -26,6 +26,9 @@ export const parametros = new QueryParams({
   desde: { defaultValue: fechaDesde, refresh: true, replace: true },
   hasta: { defaultValue: fechaHasta, refresh: true, replace: true },
 
+  desdeCreacion: { defaultValue: fechaDesde, refresh: true, replace: true },
+  hastaCreacion: { defaultValue: fechaHasta, refresh: true, replace: true },
+
   mostrarFiltrosAvanzados: { defaultValue: "", refresh: true, replace: true }
 });
 
@@ -64,6 +67,15 @@ export default Ember.Controller.extend(parametros.Mixin, {
       {
         componente: "suite-filtros/componentes/intervaloDeFechas",
         deshabilitado: false,
+        fila: 2
+      },
+      {
+        componente: "suite-filtros/componentes/intervaloDeFechas",
+        deshabilitado: false,
+        etiquetaDesde: "Creación desde",
+        etiquetaHasta: "Creacion hasta",
+        atributoDesde: "desdeCreacion",
+        atributoHasta: "hastaCreacion",
         fila: 2
       },
       {
@@ -113,6 +125,9 @@ export default Ember.Controller.extend(parametros.Mixin, {
 
     query.desde = this.get("desde");
     query.hasta = this.get("hasta");
+
+    query.desde_creacion = this.get("desdeCreacion");
+    query.hasta_creacion = this.get("hastaCreacion");
 
     if (this.get("ordenamiento")) {
       query.ordering = this.get("ordenamiento");
