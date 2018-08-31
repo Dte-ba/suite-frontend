@@ -115,7 +115,8 @@ export default DS.Model.extend({
     cargo: [validatePresence(true)],
     group: [validatePresence(true)],
     contrato: [validatePresence(true)],
-    region: [validatePresence(true)]
+    region: [validatePresence(true)],
+    aplicaciones: [validatePresence(true)]
   },
 
   validacionesDeClave: {
