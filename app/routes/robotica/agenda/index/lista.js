@@ -14,7 +14,10 @@ export default Ember.Route.extend({
     query.query = model.filtro;
     query.page_size = model.limite || 15;
 
-    query.escuela__localidad__distrito__region__numero = Ember.get(model, "region.numero");
+    query.escuela__localidad__distrito__region__numero = Ember.get(
+      model,
+      "region.numero"
+    );
 
     if (model.perfil && model.perfil.id) {
       query.perfil = model.perfil.id;
@@ -108,6 +111,12 @@ export default Ember.Route.extend({
           titulo: "Estado",
           componente: "suite-detalle/estado-de-evento",
           centrar: true
+        },
+        {
+          titulo: "Fecha de carga",
+          atributo: "fechaDeCreacionFormateada",
+          centrar: true,
+          ordenamiento: "fecha_de_creacion"
         }
       ]
     };

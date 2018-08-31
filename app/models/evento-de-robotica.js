@@ -74,6 +74,7 @@ function validateCerrarEvento() {
 
 export default DS.Model.extend({
   fechaFormateada: DS.attr("string"), // solo lectura, se usa en la lista de eventos.
+  fechaDeCreacionFormateada: DS.attr("string"), // solo lectura, se usa en la lista de eventos.
   fecha: DS.attr("string"),
   inicio: DS.attr("string"),
   fin: DS.attr("string"),
