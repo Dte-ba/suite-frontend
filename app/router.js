@@ -170,6 +170,7 @@ Router.map(function() {
     this.route("agenda", function() {
       this.route("index", function() {
         this.route("lista");
+        this.route('calendario');
       });
       this.route("crear");
       this.route("detalle", { path: "detalle/:evento_de_robotica_id" });

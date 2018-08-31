@@ -1,0 +1,23 @@
+{{outlet}}
+
+{{#suite-calendario-robotica
+    mostrarFinesDeSemana=model.mostrarFinesDeSemana
+    perfil=model.perfil.miPerfil
+    region=model.perfil.data.region
+    rol=model.perfil.rol
+    permisoGlobal=model.perfil.tienePermisoGlobal
+}}
+
+  <div class='calendario__mostrar_fines_de_semana'>
+    <label>
+      {{input type="checkbox"
+      id="checkbox-policy"
+      name="checkboxPolicy"
+      class="ui checkbox"
+      checked=model.mostrarFinesDeSemana
+    }}
+    Mostrar fines de semana
+    </label>
+  </div>
+
+{{/suite-calendario-robotica}}
