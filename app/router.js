@@ -175,6 +175,9 @@ Router.map(function() {
       this.route("crear");
       this.route("detalle", { path: "detalle/:evento_de_robotica_id" });
       this.route("editar", { path: "editar/:evento_de_robotica_id" });
+      this.route('exportar', function() {
+        this.route('exportar');
+      });
     });
     this.route("ayuda", function() {});
   });

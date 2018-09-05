@@ -13,6 +13,10 @@
     {{#suite-permiso permiso="agenda.crear"}}
       <button id="crearEvento" class="ui button primario " {{action (route-action "crearUnEventoNuevo")}}><i class="ui plus icon"></i> Nuevo Taller</button>
     {{/suite-permiso}}
+    {{#suite-permiso permiso="agenda.exportar"}}
+      {{#link-to 'robotica.agenda.exportar' class="ui button primario "}}
+        <i class="ui plus icon"></i> Exportar talleres{{/link-to}}
+    {{/suite-permiso}}
   </div>
 </div>
 
