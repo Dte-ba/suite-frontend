@@ -13,7 +13,8 @@ let finDelMesPasado = moment()
 export const parametros = new QueryParams({
   region: { defaultValue: null, refresh: true, replace: true },
   desde: { defaultValue: mesPasado, refresh: true, replace: true },
-  hasta: { defaultValue: finDelMesPasado, refresh: true, replace: true }
+  hasta: { defaultValue: finDelMesPasado, refresh: true, replace: true },
+  aplicacion: { defaultValue: null, refresh: true, replace: true }
 });
 
 export default Ember.Controller.extend(parametros.Mixin, {
@@ -29,9 +30,16 @@ export default Ember.Controller.extend(parametros.Mixin, {
       this.set("desde", datos.get("desde"));
       this.set("hasta", datos.get("hasta"));
       this.set("region", datos.get("region.numero"));
+      this.set("aplicacion", datos.get("aplicacion"));
 
       Ember.run.later(() => {
-        this.transitionToRoute("app.personas.informesPorRegion.exportar", datos.get("region.numero"), datos.get("desde"), datos.get("hasta"));
+        this.transitionToRoute(
+          "app.personas.informesPorRegion.exportar",
+          datos.get("region.numero"),
+          datos.get("desde"),
+          datos.get("hasta"),
+          datos.get("aplicacion")
+        );
       });
     }
   }

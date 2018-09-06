@@ -24,6 +24,7 @@ export default Ember.Component.extend({
     this.set("formulario.perfil_id", this.get("perfil_id"));
     this.set("formulario.desde", this.get("desde"));
     this.set("formulario.hasta", this.get("hasta"));
+    this.set("formulario.aplicacion", this.get("aplicacion"));
 
     if (idPerfil) {
       this.get("store")

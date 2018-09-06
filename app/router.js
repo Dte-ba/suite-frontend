@@ -16,14 +16,18 @@ Ember.Route.reopen({
 
     if (permisoQueRequiere) {
       if (!this.get("perfil").tienePermiso(permisoQueRequiere)) {
-        this.get("notificador").error(`No tiene permisos para ingresar aquí (${permisoQueRequiere}).`);
+        this.get("notificador").error(
+          `No tiene permisos para ingresar aquí (${permisoQueRequiere}).`
+        );
         return this.transitionTo("home");
       }
     }
 
     if (requierePerfil) {
       if (!this.get("perfil").tieneAccesoAlModo(requierePerfil)) {
-        this.get("notificador").error(`No tiene permisos para acceder a ${requierePerfil}.`);
+        this.get("notificador").error(
+          `No tiene permisos para acceder a ${requierePerfil}.`
+        );
         return this.transitionTo("home");
       }
     }
@@ -74,10 +78,14 @@ Router.map(function() {
       this.route("informe", { path: "informe/:perfil_id" });
       this.route("clave", { path: "clave/:perfil_id" });
       this.route("informes", function() {
-        this.route("exportar", { path: "exportar/:perfil_id/:desde/:hasta" });
+        this.route("exportar", {
+          path: "exportar/:perfil_id/:desde/:hasta/:aplicacion"
+        });
       });
       this.route("informesPorRegion", function() {
-        this.route("exportar", { path: "exportar/:region/:desde/:hasta" });
+        this.route("exportar", {
+          path: "exportar/:region/:desde/:hasta/:aplicacion"
+        });
       });
       this.route("exportar");
       this.route("simular");
@@ -170,16 +178,28 @@ Router.map(function() {
     this.route("agenda", function() {
       this.route("index", function() {
         this.route("lista");
-        this.route('calendario');
+        this.route("calendario");
       });
       this.route("crear");
       this.route("detalle", { path: "detalle/:evento_de_robotica_id" });
       this.route("editar", { path: "editar/:evento_de_robotica_id" });
-      this.route('exportar', function() {
-        this.route('exportar');
+      this.route("exportar", function() {
+        this.route("exportar");
       });
     });
     this.route("ayuda", function() {});
+    this.route("informes", function() {
+      this.route("persona", function() {
+        this.route("exportar", {
+          path: "exportar/:perfil_id/:desde/:hasta/:aplicacion"
+        });
+      });
+      this.route("region", function() {
+        this.route("exportar", {
+          path: "exportar/:region/:desde/:hasta/:aplicacion"
+        });
+      });
+    });
   });
   this.route("home");
 });

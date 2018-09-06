@@ -24,6 +24,7 @@ export default Ember.Component.extend({
     this.set("formulario.region_id", this.get("region_id"));
     this.set("formulario.desde", this.get("desde"));
     this.set("formulario.hasta", this.get("hasta"));
+    this.set("formulario.aplicacion", this.get("aplicacion"));
 
     if (idRegion) {
       this.get("store")

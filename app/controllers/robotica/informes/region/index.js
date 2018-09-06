@@ -11,9 +11,10 @@ let finDelMesPasado = moment()
   .format("YYYY-MM-DD");
 
 export const parametros = new QueryParams({
-  perfil: { defaultValue: null, refresh: true, replace: true },
+  region: { defaultValue: null, refresh: true, replace: true },
   desde: { defaultValue: mesPasado, refresh: true, replace: true },
-  hasta: { defaultValue: finDelMesPasado, refresh: true, replace: true }
+  hasta: { defaultValue: finDelMesPasado, refresh: true, replace: true },
+  aplicacion: { defaultValue: null, refresh: true, replace: true }
 });
 
 export default Ember.Controller.extend(parametros.Mixin, {
@@ -28,13 +29,13 @@ export default Ember.Controller.extend(parametros.Mixin, {
       // Preservará los parámetros dentro de esta ruta que se abandona.
       this.set("desde", datos.get("desde"));
       this.set("hasta", datos.get("hasta"));
-      this.set("perfil", datos.get("perfil.id"));
+      this.set("region", datos.get("region.numero"));
       this.set("aplicacion", datos.get("aplicacion"));
 
       Ember.run.later(() => {
         this.transitionToRoute(
-          "app.personas.informes.exportar",
-          datos.get("perfil.id"),
+          "robotica.informes.region.exportar",
+          datos.get("region.numero"),
           datos.get("desde"),
           datos.get("hasta"),
           datos.get("aplicacion")

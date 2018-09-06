@@ -16,8 +16,16 @@
         submit-label = texto as |f|
       }}
 
+      <div class="dn">
+        {{f.input label="Aplicacion" required=true name="aplicacion"}}
+      </div>
+
         {{#f.input label="Persona" required=true name="perfil" as |f|}}
-          {{suite-selector/perfil valor=f.value cuandoSelecciona=f.update}}
+          {{#if (eq aplicacion "robotica")}}
+            {{suite-selector/perfil valor=f.value cuandoSelecciona=f.update soloRobotica=true soloSuite=false}}
+          {{else}}
+            {{suite-selector/perfil valor=f.value cuandoSelecciona=f.update soloRobotica=false soloSuite=true}}
+          {{/if}}
         {{/f.input}}
 
       <div class="cf mb3">

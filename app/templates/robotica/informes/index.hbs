@@ -1,0 +1,14 @@
+<div class="ui grid">
+  <div class="five wide column">
+    {{suite-titulo titulo="Informes"}}
+  </div>
+</div>
+
+<div class="ui divider"></div>
+
+<div class="">
+  {{#link-to "robotica.informes.persona" class="ui button primario"}}<i class="ui user icon"></i> Generar informe por persona{{/link-to}}
+  {{#link-to "robotica.informes.region" class="ui button primario"}}<i class="ui users icon"></i> Genera infome por región{{/link-to}}
+</div>
+
+{{outlet}}

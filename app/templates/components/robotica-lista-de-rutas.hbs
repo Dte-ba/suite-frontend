@@ -11,3 +11,7 @@
 {{#suite-permiso permiso="escuelas.listar"}}
   {{#link-to "robotica.escuelas.index" (query-params filtro="" pagina=1) class="item" current-when="robotica.escuelas"}}<i class="university icon"></i> Escuelas{{/link-to}}
 {{/suite-permiso}}
+
+{{#suite-permiso permiso="perfil.global"}}
+  {{#link-to "robotica.informes.index" class="item" current-when="robotica.informes"}}<i class="file icon"></i> Informes{{/link-to}}
+{{/suite-permiso}}

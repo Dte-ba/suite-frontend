@@ -33,7 +33,7 @@ export default Ember.Controller.extend(parametros.Mixin, {
 
       Ember.run.later(() => {
         this.transitionToRoute(
-          "app.personas.informes.exportar",
+          "robotica.informes.persona.exportar",
           datos.get("perfil.id"),
           datos.get("desde"),
           datos.get("hasta"),

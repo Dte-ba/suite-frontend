@@ -16,6 +16,10 @@
         submit-label = texto as |f|
       }}
 
+        <div class="dn">
+          {{f.input label="Aplicacion" required=true name="aplicacion"}}
+        </div>
+
         {{#f.input label="Region" required=true name="region" as |f|}}
           {{suite-selector/region valor=f.value cuandoSelecciona=f.update}}
         {{/f.input}}
