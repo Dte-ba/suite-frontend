@@ -57,6 +57,14 @@
     </div>
 
     {{#if editar}}
+      <div class="ui grid">
+        <div class="column">
+          {{f.input type="radioGroup" label="¿Se pudo realizar el taller?" name="seDioElTaller" options=model.opcionesCierre }}
+          {{#if (eq model.seDioElTaller "No")}}
+            {{f.input label="¿Cuál fue el motivo por el que no se pudo dar el taller?" name="motivo"}}
+          {{/if}}
+        </div>
+      </div>
 
       {{#f.input label="Archivos de minuta o acta" class="pt3" name="acta" as |f|}}
         {{#if model.acta}}

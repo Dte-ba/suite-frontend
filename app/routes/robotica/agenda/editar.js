@@ -20,6 +20,10 @@ export default Ember.Route.extend({
       this.store.query("seccionDeRobotica", { page_size: 3000 })
     );
     model.set("areas", this.store.query("areaDeRobotica", { page_size: 3000 }));
+    model.set("opcionesCierre", [
+      { key: "Si", label: "Sí" },
+      { key: "No", label: "No" }
+    ]);
 
     if (model.get("cerrarEvento") === true) {
       this.get("notificador").error("No se puede editar un taller finalizado.");

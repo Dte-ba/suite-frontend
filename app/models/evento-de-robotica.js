@@ -95,6 +95,9 @@ export default DS.Model.extend({
   fechaDeCreacion: DS.attr("string"),
   fechaDeUltimaModificacion: DS.attr("string"),
 
+  seDioElTaller: DS.attr("string"),
+  motivo: DS.attr("string"),
+
   fecha_inicio: Ember.computed("fecha", "inicio", function() {
     let fecha = this.get("fecha");
     let hora = this.get("inicio");
