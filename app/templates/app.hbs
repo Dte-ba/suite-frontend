@@ -12,18 +12,7 @@
 
 <div class="ui suite-container main">
 
-  {{#bread-crumbs tagName='div' class="ui" crumbClass="section" linkable=true as |component cow|}}
-    {{#bread-crumb route=cow breadCrumbs=component}}
-      {{#if cow.title}}
-        {{cow.title}}
-      {{else}}
-        {{cow.name}} ({{cow.age}}) says {{cow.says}}
-      {{/if}}
-    {{/bread-crumb}}
-  {{/bread-crumbs}}
-
   {{outlet}}
-
 
   <div class="footer">
   </div>
