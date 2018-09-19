@@ -43,7 +43,7 @@ function validarHorarios() {
 }
 function validateCerrarEvento() {
   return (key, newValue, oldValue, changes, content) => {
-    let { acta, cerrarEvento } = changes;
+    let { acta, cerrarEvento, seDioElTaller, motivo } = changes;
     let model = content.get("_internalModel").record;
 
     if (key === "acta") {
@@ -62,9 +62,33 @@ function validateCerrarEvento() {
       }
     }
 
+    if (key === "seDioElTaller") {
+      seDioElTaller = newValue;
+    } else {
+      if (!seDioElTaller) {
+        seDioElTaller = model.get("seDioElTaller");
+      }
+    }
+    if (key === "motivo") {
+      motivo = newValue;
+    } else {
+      if (!motivo) {
+        motivo = model.get("motivo");
+      }
+    }
+
     if (cerrarEvento === true) {
       if (!acta) {
         return "No se puede cerrar un evento sin acta.";
+      }
+      if (!seDioElTaller) {
+        return "No se puede cerrar un evento sin indicar si se dió el taller o no.";
+      } else {
+        if (seDioElTaller === "No") {
+          if (!motivo) {
+            return "Debe especificar el motivo por el cuál no se dió el taller.";
+          }
+        }
       }
     }
 
