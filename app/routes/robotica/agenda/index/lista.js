@@ -113,6 +113,11 @@ export default Ember.Route.extend({
           centrar: true
         },
         {
+          titulo: "Se dió el taller?",
+          atributo: "seDioElTaller",
+          centrar: true
+        },
+        {
           titulo: "Fecha de carga",
           atributo: "fechaDeCreacionFormateada",
           centrar: true,

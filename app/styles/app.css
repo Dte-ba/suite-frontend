@@ -514,6 +514,10 @@ iframe.mapa {
   height: 100% !important;
 }
 
+#map {
+  min-height: 350px;
+}
+
 .suite-tabla {
   position: relative;
 }

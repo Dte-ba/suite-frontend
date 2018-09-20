@@ -28,6 +28,10 @@ export default Ember.Route.extend({
         id: "seccion.nombre"
       },
       {
+        titulo: "Estado",
+        componente: "suite-detalle/estado-de-evento-robotica"
+      },
+      {
         titulo: "Minuta",
         id: "minuta"
       },
