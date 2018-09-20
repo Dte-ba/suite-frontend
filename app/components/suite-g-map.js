@@ -31,7 +31,7 @@ export default Ember.Component.extend({
             // var lat = results[0].geometry.location.lat();
             // var lng = results[0].geometry.location.lng();
 
-            var marker = new google.maps.Marker({
+            /*var marker = */ new google.maps.Marker({
               map: resultsMap,
               position: results[0].geometry.location
             });

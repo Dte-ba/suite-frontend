@@ -9,7 +9,8 @@ module.exports = {
     cargarDatosDePrueba: true,
     selectSearch: true,
     selectChoose: true,
-    ga: true
+    ga: true,
+    google: true
   },
   root: true,
   parserOptions: {
