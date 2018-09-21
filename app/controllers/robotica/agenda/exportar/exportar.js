@@ -12,6 +12,11 @@ export const parametros = new QueryParams({
     defaultValue: null,
     refresh: true,
     replace: true
+  },
+  criterio: {
+    defaultValue: null,
+    refresh: true,
+    replace: true
   }
 });
 
@@ -29,10 +34,10 @@ export default Ember.Controller.extend(parametros.Mixin, {
   },
 
   tareaExportarTaller: task(function*() {
-    let { desde, hasta } = this.get("allQueryParams");
+    let { desde, hasta, criterio } = this.get("allQueryParams");
 
-    let url = `/api/eventos-de-robotica/export?inicio=${desde}&fin=${hasta}`;
-    let nombre = `talleresDeRobotica_${desde}_${hasta}.xls`;
+    let url = `/api/eventos-de-robotica/export?inicio=${desde}&fin=${hasta}&criterio=${criterio}`;
+    let nombre = `talleresDeRobotica_por_${criterio}_${desde}_${hasta}.xls`;
 
     return yield this.get("descargas").iniciar(url, nombre);
   }).drop()

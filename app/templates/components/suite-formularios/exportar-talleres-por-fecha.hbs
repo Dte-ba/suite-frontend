@@ -30,6 +30,12 @@
           {{/f.input}}
         </div>
 
+        <div class="fl w-33 pl3">{{log model.criteriosDeExportacion}}
+          {{#f.input label="Criterio" required=true name="criterio" as |f|}}
+            {{suite-selector/simple opciones=model.criteriosDeExportacion valor=f.value cuandoSelecciona=f.update}}
+          {{/f.input}}
+        </div>
+
       </div>
 
         {{f.submit label=texto class="ui button green"}} {{yield}}
