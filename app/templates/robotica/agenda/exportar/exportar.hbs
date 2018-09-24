@@ -1,22 +1,3 @@
 {{outlet}}
 
-{{#if tareaExportarTaller.isRunning}}
-
-  <h2>Exportando lista de talleres ...</h2>
-
-  <p>{{suite-spinner}}</p>
-
-{{else if tareaExportarTaller.error}}
-
-  <div class="error">
-    {{tareaExportarTaller.error}}
-  </div>
-
-{{else}}
-
-  <h2>¡Listo!</h2>
-
-  <p>Se ha generado correctamente la lista de talleres.</p>
-  {{#link-to 'robotica.agenda.index.lista' class="ui positive button"}}Volver{{/link-to}}
-
-{{/if}}
+{{suite-boton-trabajo autodescargar=true autoiniciar=true texto="Exportar talleres" accion=(action "exportarTalleres")}}

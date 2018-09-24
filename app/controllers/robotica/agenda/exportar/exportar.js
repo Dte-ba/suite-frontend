@@ -1,6 +1,6 @@
 import Ember from "ember";
 import QueryParams from "ember-parachute";
-import { task } from "ember-concurrency";
+import ENV from "suite-frontend/config/environment";
 
 export const parametros = new QueryParams({
   desde: {
@@ -21,7 +21,7 @@ export const parametros = new QueryParams({
 });
 
 export default Ember.Controller.extend(parametros.Mixin, {
-  descargas: Ember.inject.service(),
+  ajax: Ember.inject.service(),
 
   reset(isExiting) {
     if (isExiting) {
@@ -29,16 +29,16 @@ export default Ember.Controller.extend(parametros.Mixin, {
     }
   },
 
-  setup() {
-    this.get("tareaExportarTaller").perform();
-  },
+  actions: {
+    exportarTalleres() {
+      let { desde, hasta, criterio } = this.getProperties(
+        "desde",
+        "hasta",
+        "criterio"
+      );
 
-  tareaExportarTaller: task(function*() {
-    let { desde, hasta, criterio } = this.get("allQueryParams");
-
-    let url = `/api/eventos-de-robotica/export?inicio=${desde}&fin=${hasta}&criterio=${criterio}`;
-    let nombre = `talleresDeRobotica_por_${criterio}_${desde}_${hasta}.xls`;
-
-    return yield this.get("descargas").iniciar(url, nombre);
-  }).drop()
+      let url = `api/trabajos/exportar_talleres_de_robotica?inicio=${desde}&fin=${hasta}&criterio=${criterio}`;
+      return this.get("ajax").request(`${ENV.API_URL}/${url}`);
+    }
+  }
 });

@@ -11,7 +11,8 @@ export default Ember.Component.extend({
 
   validaciones: {
     desde: [validatePresence(true)],
-    hasta: [validatePresence(true)]
+    hasta: [validatePresence(true)],
+    criterio: [validatePresence(true)]
   },
 
   willInsertElement() {
