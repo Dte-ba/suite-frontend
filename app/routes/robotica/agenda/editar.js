@@ -25,7 +25,10 @@ export default Ember.Route.extend({
       { key: "No", label: "No" }
     ]);
 
-    if (model.get("cerrarEvento") === true) {
+    if (
+      model.get("cerrarEvento") === true &&
+      this.get("perfil.rol") != "Administrador"
+    ) {
       this.get("notificador").error("No se puede editar un taller finalizado.");
       this.transitionTo("robotica.agenda.detalle", model.get("id"));
     }
