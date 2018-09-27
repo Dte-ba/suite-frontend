@@ -160,6 +160,8 @@ Router.map(function() {
       this.route("crear");
     });
     this.route("trabajos", function() {});
+
+    this.route('boards', function() {});
   });
 
   this.route("tablas", function() {

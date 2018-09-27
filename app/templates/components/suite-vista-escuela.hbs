@@ -8,15 +8,26 @@
     </div>
   </div>
 
-  <div class="ui equal width row middle aligned segment">
-    <div class="column">
-      {{estado-de-escuela model.estado label="True"}}
-    </div>
-    <div class="column">
-      {{suite-detalle/estado-conformacion model=model}}
-    </div>
-    <div class="column">
-      {{estado-de-piso model.piso.estado label="True"}}
+  <div class="ui row middle aligned segment">
+    <div class="sixteen wide column">
+      <div class="ui stackable grid">
+        <div class="three wide column">
+          {{estado-de-escuela model.estado label="True"}}
+        </div>
+        <div class="three wide column">
+          {{suite-detalle/estado-conformacion model=model}}
+        </div>
+        <div class="four wide column">
+          {{estado-de-piso model.piso.estado label="True"}}
+        </div>
+        <div class="six wide column">
+          {{#if model.perfilDeUltimaModificacion}}
+            Modificado el {{moment-format model.fechaDeUltimaModificacion "DD/MM/YYYY H:mm" }} por {{#link-to "app.personas.detalle" model.perfilDeUltimaModificacion}}
+                {{model.perfilDeUltimaModificacion.nombre}} {{model.perfilDeUltimaModificacion.apellido}} ({{model.perfilDeUltimaModificacion.region.numero}})
+              {{/link-to}}
+          {{/if}}
+        </div>
+      </div>
     </div>
   </div>
 

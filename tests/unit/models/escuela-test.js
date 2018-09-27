@@ -15,7 +15,8 @@ moduleForModel("escuela", "Unit | Model | escuela", {
     "model:evento",
     "model:motivoDeConformacion",
     "model:validacion",
-    "model:modalidad"
+    "model:modalidad",
+    "model:perfil"
   ]
 });
 

@@ -32,6 +32,9 @@ export default DS.Model.extend({
 
   observaciones: DS.attr("string"),
 
+  fechaDeUltimaModificacion: DS.attr("string"),
+  perfilDeUltimaModificacion: DS.belongsTo("perfil"),
+
   tieneDatosGeolocalizacion: Ember.computed("latitud", "longitud", function() {
     return this.get("latitud") && this.get("longitud");
   }),

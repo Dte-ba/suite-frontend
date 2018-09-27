@@ -3,6 +3,7 @@ import { task } from "ember-concurrency";
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
+  perfil: Ember.inject.service(),
   tareaGuardar: task(function*(modelo) {
     try {
       let piso = null;
@@ -19,6 +20,16 @@ export default Ember.Component.extend({
 
       let nivel = modelo.get("nivel");
       let modalidad = modelo.get("modalidad");
+      let perfil = this.get("perfil");
+      let idPerfil = perfil.get("miPerfil.id");
+      let perfilDeUltimaModificacion = this.get("store").findRecord(
+        "perfil",
+        idPerfil
+      );
+      yield modelo.set(
+        "perfilDeUltimaModificacion",
+        perfilDeUltimaModificacion
+      );
 
       if (
         nivel.get("nombre") === "Sin Nivel" &&
