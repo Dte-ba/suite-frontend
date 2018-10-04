@@ -19,8 +19,15 @@ const UiCalendarMoment = UiCalendarComponent.extend({
 
   willInitSemantic(settings) {
     this._super(...arguments);
+    let minDate = undefined;
+
+    if (this.get("min")) {
+      minDate = moment(this.get("min")).toDate();
+    }
+
     Ember.merge(settings, {
       text: this.get("localizedText"),
+      minDate: minDate,
       formatter: {
         date(date) {
           return date ? moment(date).format("L") : "";

@@ -38,7 +38,7 @@
 
       <div class="column">
         {{#f.input label="Fecha" required=true name="fecha" as |f|}}
-          {{suite-campo/fecha fecha=f.value cuandoCambia=f.update}}
+          {{suite-campo/fecha min='2018-08-15' fecha=f.value cuandoCambia=f.update}}
         {{/f.input}}
       </div>
 
