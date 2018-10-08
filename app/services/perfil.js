@@ -38,6 +38,8 @@ export default Ember.Service.extend({
       });
   },
 
+  image: Ember.computed.alias("miPerfil.image"),
+
   /* Retorna true, false o undefined para el tipo de permiso solicitado */
   tienePermiso(permiso) {
     if (this.get("data.permisos")) {

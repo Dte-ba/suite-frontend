@@ -1,6 +1,10 @@
 {{yield}}
-
-  {{ember-initials class="user-big-avatar icon" name=nombreCompleto size=20}}
+   
+     {{#if perfil.image}}
+          <img src={{perfil.image}} class="ui circular image avatar-img-small" size=10>
+      {{else}}
+          {{ember-initials class="user-big-avatar icon" name=nombreCompleto size=20}}
+      {{/if}}
 
 <div class="menu">
 

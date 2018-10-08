@@ -348,6 +348,12 @@ h2.suite-detalle {
   /*border-radius: 50%;*/
 }
 
+.avatar-img-small {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+
 .avatar-file-uploader label {
   display: block;
   width: 160px;
