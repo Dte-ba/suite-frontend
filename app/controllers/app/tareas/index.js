@@ -7,7 +7,7 @@ export const myQueryParams = new QueryParams({
   pagina: {
     defaultValue: 1,
     refresh: true,
-    replace: true
+    replace: false
   },
   filtro: {
     defaultValue: "",
@@ -15,13 +15,10 @@ export const myQueryParams = new QueryParams({
   },
   numeroDeRegion: {
     defaultValue: "",
-    refresh: true
+    refresh: true,
+    replace: false
   },
   estadoId: {
-    defaultValue: "",
-    refresh: true
-  },
-  deshabilitarSeleccionDeRegion: {
     defaultValue: "",
     refresh: true
   }
@@ -31,7 +28,9 @@ export default Ember.Controller.extend(myQueryParams.Mixin, {
   ajax: Ember.inject.service(),
   perfilService: Ember.inject.service("perfil"),
 
-  queryParamsChanged: Ember.computed.or("queryParamsState.{pagina,filtro}.changed"),
+  queryParamsChanged: Ember.computed.or(
+    "queryParamsState.{pagina,filtro}.changed"
+  ),
 
   estadisticas: Ember.computed(function() {
     return this.get("obtenerEstadisticas").perform({});
@@ -59,7 +58,8 @@ export default Ember.Controller.extend(myQueryParams.Mixin, {
     }
 
     if (queryParams.numeroDeRegion) {
-      query.escuela__localidad__distrito__region__numero = queryParams.numeroDeRegion;
+      query.escuela__localidad__distrito__region__numero =
+        queryParams.numeroDeRegion;
     }
 
     let data = yield this.get("store").query("tarea", query);
@@ -80,9 +80,21 @@ export default Ember.Controller.extend(myQueryParams.Mixin, {
       });
   },
 
-  todasLasRegiones: Ember.Object.create({ nombre: "Todas las regiones", numero: "" }),
+  todasLasRegiones: Ember.Object.create({
+    nombre: "Todas las regiones",
+    numero: ""
+  }),
 
   setup(/*params*/) {
+    this.definirFiltros();
+
+    /* Genera el combo de estados */
+    this.set("estados", this.obtenerOpcionesDeEstados());
+
+    this.actualizar();
+  },
+
+  definirFiltros() {
     let queryParams = this.get("allQueryParams");
 
     let soloSuRegion = !this.get("perfilService").tienePermiso("perfil.global");
@@ -90,17 +102,19 @@ export default Ember.Controller.extend(myQueryParams.Mixin, {
 
     this.set("filtro", queryParams.filtro);
 
-    /* Genera el combo de estados */
-    this.set("estados", this.obtenerOpcionesDeEstados());
-
     /* Pre-selecciona el estado de acuerdo al queryparam. */
     if (queryParams.estadoId) {
-      this.set("estado", this.get("store").findRecord("estadoDeTarea", queryParams.estadoId));
+      this.set(
+        "estado",
+        this.get("store").findRecord("estadoDeTarea", queryParams.estadoId)
+      );
     } else {
       this.set("estado", this.get("todosLosEstados"));
     }
 
     /* Si solo puede ver si región, ignora cualquier parámetro de la URL referida a la región. */
+    this.set("deshabilitarSeleccionDeRegion", soloSuRegion);
+
     if (soloSuRegion) {
       regionPreSeleccionada = this.get("perfilService").obtenerRegion();
       this.set("region", regionPreSeleccionada);
@@ -114,11 +128,11 @@ export default Ember.Controller.extend(myQueryParams.Mixin, {
         this.set("region", this.get("todasLasRegiones"));
       }
     }
-
-    this.actualizar();
   },
 
   queryParamsDidChange({ shouldRefresh /*queryParams*/ }) {
+    this.definirFiltros();
+
     if (shouldRefresh) {
       this.actualizar();
     }
