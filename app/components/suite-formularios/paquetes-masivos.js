@@ -3,13 +3,18 @@ import { task } from "ember-concurrency";
 import ENV from "suite-frontend/config/environment";
 
 export default Ember.Component.extend({
+  store: Ember.inject.service(),
+  perfil: Ember.inject.service(),
   solicitarPaquetes: task(function*(modelo) {
     let url = `${ENV.API_URL}/api/paquetes/importacionMasiva`;
+    let perfil = this.get("perfil");
+    let idPerfil = perfil.get("miPerfil.id");
 
     let datos = {
       escuela: modelo.get("escuela").toJSON(),
       paquetes: modelo.get("paquetes"),
-      fecha: modelo.get("fechaPedido")
+      fecha: modelo.get("fechaPedido"),
+      idPerfil: idPerfil
     };
     try {
       // TODO: hack porque algunas escuelas tiene cargada una URL
