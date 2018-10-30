@@ -11,10 +11,12 @@ moduleForComponent(
 
 test("it renders", function(assert) {
   this.set("cuandoSeleccionaRegion", function() {});
+  this.set("cuandoSeleccionaResponsable", function() {});
   this.set("alIngresarFiltro", function() {});
 
   this.render(hbs`{{suite-filtros/paquetes
     cuandoSeleccionaRegion=cuandoSeleccionaRegion
+    cuandoSeleccionaResponsable=cuandoSeleccionaResponsable
     alIngresarFiltro=alIngresarFiltro
   }}`);
 

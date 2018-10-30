@@ -1,0 +1,14 @@
+{{yield}}
+
+{{#if obtenerOpcionesParaSeleccionarPersonas.running}}
+corriendo
+{{else}}
+  {{suite-selector/simple
+    opciones=opciones
+    deshabilitado=deshabilitado
+    valor=valor
+    atributoPrimario="texto"
+    conBusqueda=true
+    searchEnabled=true
+    cuandoSelecciona=cuandoSelecciona}}
+{{/if}}
