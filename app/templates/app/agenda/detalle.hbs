@@ -1,83 +1,216 @@
 {{outlet}}
+
 <div class="ui stackable grid">
-
-  <div class="ui row middle aligned segment">
-    <div class="sixteen wide column">
-      <h3 class="ui header">
-        {{model.titulo}} - {{model.escuela.cue}}
-      </h3>
-    </div>
-  </div>
-
-  <div class="ui equal width row middle aligned segment">
-    <div class="column">
-      {{suite-estado-de-acta evento=model mostrarEtiqueta=true}}
-    </div>
-    <!-- <div class="column">
-      <i class="ui comment icon"></i> 3
-    </div> -->
-    <!-- <div class="column">
-      <i class="ui green check icon"></i> Autorizada
-    </div> -->
-    {{#if model.requiereTraslado}}
-      <div class="column">
-        <i class="ui grey car icon"></i> Requiere traslado
+  <div class="ui ten wide column">
+    <div class="ui fluid card">
+      <div class="content">
+        <div class="header">
+          {{model.titulo}}
+        </div>
       </div>
-    {{/if}}
-  </div>
-  <div class="ui equal width row segment">
-    <div class="column">
-      {{#if model.acta}}
-        <div class="ui red label">Acción finalizada</div>
-      {{else if model.actaLegacy}}
-        <div class="ui red label">Acción finalizada</div>
-      {{else if model.puedeEditar}}
-        {{#link-to "app.agenda.editar" model class="ui button primario"}}Editar{{/link-to}}
-      {{/if}}
-
-      <!-- Si tiene el permiso para eliminar el evento, muestro el botón  Eliminar
-      Y el modal para eliminarlo
-      -->
-      {{#suite-permiso permiso="agenda.eliminar"}}
-
-        <button class="ui button primario" {{action (mut mostrarDialogo) true}}>Eliminar</button>
-
-        {{#suite-modal mostrar=mostrarDialogo}}
-          <h1>¡Aviso!</h1>
-
-          <div class="content">
-            <p>Está por eliminar la acción: {{model.titulo}} - {{model.escuela.cue}} </p>
-            <p>¿Está seguro que quiere eliminarla?</p>
+      <div class="content">
+        <div class="ui horizontal divided list">
+          <div class="item">
+            {{#if model.acta}}
+              <i class="ui blue check icon"></i> Finalizado
+            {{else}}
+              <i class="ui orange time icon"></i> Abierto
+            {{/if}}
+          </div>
+          <div class="item">
+            {{#if model.acta}}
+               <a class="ui" href="{{model.acta}}" target="_blank" data-tooltip="Ver Acta">
+                 <i class="ui blue file icon"></i>Con Acta
+               </a>
+            {{else}}
+              <i class="ui red file icon"></i>Sin Acta
+            {{/if}}
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="ui large relaxed list">
+          <div class="item">
+            <i class="ui calendar plus icon"></i>
+            <div class="content">
+              <div class="header">
+                Inicio
+              </div>
+              {{moment-format model.fecha_inicio "DD/MM/YYYY HH:mm"}}
+            </div>
+          </div>
+          <div class="item">
+            <i class="ui calendar minus icon"></i>
+            <div class="content">
+              <div class="header">
+                Fin
+              </div>
+              {{moment-format model.fecha_fin "DD/MM/YYYY HH:mm"}}
+            </div>
+          </div>
+          <div class="item">
+            <i class="ui user icon"></i>
+            <div class="content">
+              <div class="header">
+                Responsable
+              </div>
+              {{model.responsable.nombreCompleto}}
+            </div>
+          </div>
+          <div class="item">
+            <i class="ui users icon"></i>
+            <div class="content">
+              <div class="header">
+                Acompañantes
+              </div>
+              {{#if model.acompaniantes}}
+                {{#each model.acompaniantes as |a|}}
+                  {{a.nombreCompleto}}
+                {{/each}}
+              {{else}}
+                Sin acompañantes
+              {{/if}}
+            </div>
+          </div>
+          {{#if model.requiereTraslado}}
+            <div class="item">
+              <i class="ui car icon"></i>
+              <div class="content">
+                <div class="header">
+                  Requiere traslado
+                </div>
+              </div>
+            </div>
+          {{/if}}
+        </div>
+      </div>
+      <div class="content">
+        <div class="ui large relaxed list">
+          <div class="item">
+            <i class="ui hashtag icon"></i>
+            <div class="content">
+              <div class="header">
+                Categoría
+              </div>
+              {{suite-promesa promesa=model.categoria atributo="nombre"}}
+            </div>
+          </div>
+          <div class="item">
+            <div class="header">
+              <i class="ui comment icon"></i>
+              Objetivo
+            </div>
+            <div class="ui message">
+              {{model.objetivo
+              }}
+            </div>
+          </div>
+          <div class="item">
+            <i class="ui users icon"></i>
+            <div class="content">
+              <div class="header">
+                Cantidad de participantes
+              </div>
+              {{model.cantidadDeParticipantes}}
+            </div>
           </div>
 
-          <div class="actions mt4">
-            <button class="ui button" {{action (mut mostrarDialogo) false}}>Cancelar</button>
-            <button class="ui red button" {{action "eliminar" model}}>Confirmar</button>
-          </div>
-        {{/suite-modal}}
+        </div>
+      </div>
 
-      {{/suite-permiso}}
+        <div class="content">
+          <div class="ui large relaxed list">
+            {{#if model.acta}}
+              <div class="item">
+                <i class="ui file icon"></i>
+                <div class="content">
+                  <div class="header">
+                    Acta
+                    </div>
+                    {{#if model.acta}}
+                       <a href="{{model.acta}}" target="_blank" title="Ver acta">Ver acta</a>
+                    {{else}}
+                      <i class="ui red file icon"></i> Sin acta
+                    {{/if}}
+                  </div>
+              </div>
+            {{/if}}
+            {{#if model.minuta}}
+              <div class="item">
+                <div class="header">
+                  <i class="ui comment icon"></i>
+                  Minuta
+                </div>
+                <div class="ui message">
+                  {{model.minuta}}
+                </div>
+              </div>
+            {{/if}}
+          </div>
+        </div>
+
+      <div class="content">
+          {{#if model.puedeEditar}}
+            {{#link-to "app.agenda.editar" model class="ui button primario"}}<i class="ui edit icon"></i>Editar{{/link-to}}
+          {{/if}}
+          <!-- Si tiene el permiso para eliminar el evento, muestro el botón  Eliminar
+          Y el modal para eliminarlo
+          -->
+          {{#suite-permiso permiso="agenda.eliminar"}}
+
+            <button class="ui red button" {{action (mut mostrarDialogo) true}}><i class="ui cancel icon"></i>Eliminar</button>
+
+            {{#suite-modal mostrar=mostrarDialogo}}
+              <h1>¡Aviso!</h1>
+
+              <div class="content">
+                <p>Está por eliminar el taller: {{model.titulo.nombre}} - {{model.escuela.cue}} </p>
+                <p>¿Está seguro que quiere eliminarla?</p>
+              </div>
+
+              <div class="actions mt4">
+                <button class="ui button" {{action (mut mostrarDialogo) false}}>Cancelar</button>
+                <button class="ui red button" {{action "eliminar" model}}>Confirmar</button>
+              </div>
+            {{/suite-modal}}
+          {{/suite-permiso}}
+      </div>
     </div>
   </div>
-
-      {{suite-detalle
-          numero="1"
-          titulo="Datos de la acción"
-          model=model
-          filas=model.filaDatosDeAccion
-      }}
-      {{suite-detalle
-          numero="2"
-          titulo="Responsable y acompañantes"
-          model=model
-          filas=model.filaUsuarios
-      }}
-      {{suite-detalle
-          numero="3"
-          titulo="Se realizará en"
-          model=model
-          filas=model.filaEscuela
-      }}
-
-
+  <div class="ui six wide column">
+    <div class="ui fluid card">
+      <div class="content">
+        {{#link-to 'app.escuelas.detalle' model.escuela class="header"}}{{model.escuela.nombre}}{{/link-to}}
+        <div class="meta">
+          <span class="address">{{model.escuela.direccion}}</span>
+        </div>
+        <div class="meta">
+          <span class="city">{{model.escuela.localidad.nombre}}, {{model.escuela.localidad.distrito.nombre}}</span>
+        </div>
+        <div class="meta">
+          <div class="ui gray label">
+            CUE
+            <div class="detail">
+              {{model.escuela.cue}}
+            </div>
+          </div>
+          <div class="ui gray label">
+            Región
+            <div class="detail">
+              {{model.escuela.localidad.distrito.region.numero}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="image">
+        {{#if model.escuela.tieneDatosGeolocalizacion}}
+          {{#g-map lat=model.escuela.latitud lng=model.escuela.longitud zoom=16 as |context|}}
+            {{g-map-marker context lat=model.escuela.latitud lng=model.escuela.longitud}}
+          {{/g-map}}
+        {{else}}
+          {{suite-g-map direccion=model.escuela.direccionGoogleMaps}}
+        {{/if}}
+      </div>
+    </div>
   </div>
+</div>

@@ -89,32 +89,68 @@ export default Ember.Component.extend({
 
       eventRender(evento, element) {
         let resumen = evento.resumen;
+        let traslado = resumen.traslado;
         let titulo = resumen.titulo;
         let categoria = resumen.categoria;
         let region = resumen.region;
+        let distrito = resumen.distrito;
+        let localidad = resumen.localidad;
         let escuela = resumen.escuela;
         let responsable = resumen.responsable;
+        let inicio = resumen.inicio;
+        let fin = resumen.fin;
 
         if (evento.resumen != "Sin resumen") {
-          element.html(`
-            <p class="evento-titulo">${titulo}</p>
-            <p class="">${categoria}</p>
-            <p class="evento-titulo">${region} - ${escuela}</p>
-            <p class="evento-titulo">${responsable}</p>
+          element.html(``);
+          if (evento.acta) {
+            element.addClass("evento-con-acta");
+            element.append(
+              '<div class="ui right corner label"><i class="ui blue file icon"></i></div>'
+            );
+          } else {
+            element.addClass("evento-sin-acta");
+            element.append(
+              '<div class="ui right corner label"><i class="ui red file outline icon"></i></div>'
+            );
+          }
+          let html_resumen = `<div class="ui tiny header">${titulo}</div>
+          <div class="ui relaxed divided list">
+            <div class="ui item">
+              <i class="ui calendar plus icon"></i>Inicio ${inicio}
+            </div>
+            <div class="ui item">
+              <i class="ui calendar minus icon"></i>Fin ${fin}
+            </div>
+            <div class="ui item">
+              <i class="ui hashtag icon"></i>${categoria}
+            </div>
+            <div class="ui item">
+              <i class="ui university icon"></i>${escuela}
+            </div>
+            <div class="ui item">
+              <i class="ui map marker icon"></i>${localidad}, ${distrito} (${region})
+            </div>
+            <div class="ui item">
+              <i class="ui user icon"></i> ${responsable}
+            </div>`;
+          if (traslado === true) {
+            html_resumen =
+              html_resumen +
+              `
+                  <div class="ui item">
+                    <i class="ui car icon"></i> Requiere traslado
+                  </div>`;
+          }
 
-          `);
+          html_resumen = html_resumen + `</div>`;
+
+          element.append(html_resumen);
         } else {
           element.html(`
             <p class="evento-titulo">${evento.title}</p>
             `);
         }
-        if (evento.acta) {
-          element.addClass("evento-con-acta");
-          element.append('<i class="ui blue file icon"></i>');
-        } else {
-          element.addClass("evento-sin-acta");
-          element.append('<i class="ui red file outline icon"></i>');
-        }
+
         if (evento.traslado === true) {
           element.append('<i class="ui grey car icon"></i>');
         }

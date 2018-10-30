@@ -71,7 +71,10 @@ export default DS.Model.extend({
     "localidad.{distrito}.{nombre}",
     function() {
       var direccion = this.get("direccion");
-      direccion = direccion.replace(/,/g, "");
+      if (direccion) {
+        direccion = direccion.replace(/,/g, "");
+      }
+
       var localidad = this.get("localidad.nombre");
       var distrito = this.get("localidad.distrito.nombre");
       return direccion + ", " + distrito + ", " + localidad + ", Buenos Aires";

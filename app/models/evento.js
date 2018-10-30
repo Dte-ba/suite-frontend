@@ -1,6 +1,10 @@
 import DS from "ember-data";
 import Ember from "ember";
-import { validatePresence, validateLength, validateNumber } from "ember-changeset-validations/validators";
+import {
+  validatePresence,
+  validateLength,
+  validateNumber
+} from "ember-changeset-validations/validators";
 
 /* Valida de las fechas y horas de un evento sean correctas.
    Para que una fecha sea correcta tiene que suceder esto:
