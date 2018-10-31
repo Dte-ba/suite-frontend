@@ -1,1 +1,9 @@
 <div id="map"></div>
+
+<div class="tc pa2 h2">
+  {{#if tareaObtenerDireccion.last.isRunning}}
+    Cargando ...
+  {{else if tareaObtenerDireccion.last.isError}}
+    <span class='red'>Falló la carga del mapa</span>
+  {{/if}}
+</div>

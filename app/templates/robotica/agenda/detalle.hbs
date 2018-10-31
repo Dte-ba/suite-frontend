@@ -222,7 +222,7 @@
             {{g-map-marker context lat=model.escuela.latitud lng=model.escuela.longitud}}
           {{/g-map}}
         {{else}}
-          {{suite-g-map direccion=model.escuela.direccionGoogleMaps}}
+          {{suite-g-map promesa=model.escuela direccion=model.escuela.direccionGoogleMaps}}
         {{/if}}
       </div>
     </div>
