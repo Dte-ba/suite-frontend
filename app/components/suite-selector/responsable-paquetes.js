@@ -67,7 +67,9 @@ export default Ember.Component.extend({
 
       let data = yield this.get("store").query("perfil", {
         page_size: 500,
-        region__numero: region
+        region__numero: region,
+        activos: true,
+        suite: true
       });
 
       data.map(e => {
