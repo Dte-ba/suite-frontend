@@ -93,6 +93,7 @@ export default Ember.Component.extend({
         let distrito = resumen.distrito;
         let localidad = resumen.localidad;
         let escuela = resumen.escuela;
+        let cue = resumen.cue;
         let tallerista = resumen.tallerista;
         let inicio = resumen.inicio;
         let fin = resumen.fin;
@@ -115,7 +116,7 @@ export default Ember.Component.extend({
             <div class="ui tiny header">${titulo}</div>
             <div class="ui relaxed divided list">
               <div class="ui item">
-                <i class="ui university icon"></i>${escuela}
+                <i class="ui university icon"></i>${escuela} - ${cue}
                 </div>
               <div class="ui item">
                 <i class="ui map marker icon"></i>${localidad}, ${distrito} (${region})
