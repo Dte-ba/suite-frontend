@@ -44,7 +44,9 @@ export default Ember.Controller.extend(parametros.Mixin, {
 
   definirFiltros() {
     let perfil = this.get("perfil");
-    let soloSuRegion = !perfil.tienePermiso("perfil.global");
+    let soloSuRegion =
+      !perfil.tienePermiso("perfil.global") &&
+      !perfil.tienePermiso("perfil.generar_informes");
 
     if (soloSuRegion) {
       this.set("region", perfil.obtenerRegion().get("id"));
