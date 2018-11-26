@@ -13,7 +13,7 @@ export default Ember.Component.extend({
     var geocoder = new google.maps.Geocoder();
 
     function geocodeAddress(geocoder, resultsMap, direccion) {
-      return new Ember.RSVP.Promise((success, reject) => {
+      return new Ember.RSVP.Promise((success /*, reject*/) => {
         geocoder.geocode(
           {
             address: direccion,
@@ -39,7 +39,7 @@ export default Ember.Component.extend({
 
               success(marker);
             } else {
-              reject("Hubo un problema tratando de encontrar la dirección.");
+              success("Hubo un problema tratando de encontrar la dirección.");
             }
           }
         );
@@ -54,6 +54,7 @@ export default Ember.Component.extend({
 
   tareaObtenerDireccion: task(function*() {
     let escuela = yield this.get("promesa");
+
     yield this.initMap(escuela.get("direccion"));
   })
 });
