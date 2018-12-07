@@ -96,11 +96,11 @@ export default Ember.Component.extend({
         return colors[i];
       });
 
-    var rect = groups
-      .selectAll("rect")
-      .data(function(d) {
-        return d;
-      })
+    var rect = groups.selectAll("rect").data(function(d) {
+      return d;
+    });
+
+    rect
       .enter()
       .append("rect")
       .attr("x", function(d) {
