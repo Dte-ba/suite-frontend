@@ -12,6 +12,16 @@ moduleForComponent(
 test("it renders", function(assert) {
   this.render(hbs`{{suite-formularios/login}}`);
 
-  assert.ok(this.$().text().indexOf("laboral") > -1, "Aparece especificado que tiene que usar el mail laboral.");
-  assert.ok(this.$().text().indexOf("Contraseña") > -1, "Pide contraseña");
+  assert.ok(
+    this.$()
+      .text()
+      .indexOf("Email") > -1,
+    "Aparece especificado que tiene que usar el mail laboral."
+  );
+  assert.ok(
+    this.$()
+      .text()
+      .indexOf("Contraseña") > -1,
+    "Pide contraseña"
+  );
 });

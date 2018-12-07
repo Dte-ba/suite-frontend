@@ -1,47 +1,67 @@
 {{yield}}
 
 {{#suite-animacion}}
-
-<div class="login-form">
-
-  <img class="logo-suite" src='/imagenes/logo-suite.png' width=200 height=114>
-
-  <div class="ui form">
-
-    <div class="field">
-      <label>Correo laboral  <span class='nota'>(cuenta abc)</span></label>
-      {{input id="name" disabled=tareaIngresar.last.isRunning value=usuario placeholder="Correo laboral" name='usuario'}}
-    </div>
-
-    <div class="field">
-      <label>Contraseña</label>
-
-      {{input id="password" disabled=submit.last.isRunning type="password" value=clave placeholder="Contraseña" name='clave'}}
-
-      <div class="login-checkbox">
-        {{ui-checkbox label="Hacer visible este campo" checked=mostrarClave onChange=(action "alternarMostrarClave")}}
+<div class="ui top attached right aligned segment suite-login-header">
+    <div class="ui small spaced image"><img src='/logos/dgcye.png' /></div>
+    <div class="ui small spaced image"><img src='/logos/bs-as-provincia.png' /></div>
+</div>
+<div class="ui basic fluid segment suite-login-fields-container">
+  <div class="ui three column centered grid suite-login-fields">
+    <div class="column">
+      <div class="ui grid">
+        <div class="ten wide column">
+          <img class="ui fluid image" src='/logos/logo-suite-login.png'>
+        </div>
+        <div class="column"></div>
       </div>
+      <div class="ui grid">
+        <div class="column">
+          <div class="ui form suite-login-form">
 
-    </div>
+            <div class="field">
+              <label>Email</label>
+              {{input id="name" disabled=tareaIngresar.last.isRunning value=usuario placeholder="Correo laboral" name='usuario'}}
+            </div>
 
-    {{#if tareaIngresar.last.isRunning}}
-      <button class="ui disabled button large fluid green"><div class="ui active inverted tiny inline loader"></div> Ingresando </button>
-    {{else}}
-      <button id="ingresar" class="ui button large fluid green" {{action 'ingresar'}}>Ingresar</button>
-    {{/if}}
+            <div class="field">
+              <label>Contraseña</label>
 
-    <div class='login-error'>
-      {{#if error}}
-        {{#suite-animacion}}
-          <p>{{error}}</p>
-        {{/suite-animacion}}
-      {{/if}}
-    </div>
+              {{input id="password" disabled=submit.last.isRunning type="password" value=clave placeholder="Contraseña" name='clave'}}
 
+              <div class="login-checkbox">
+                {{ui-checkbox label="Hacer visible este campo" checked=mostrarClave onChange=(action "alternarMostrarClave")}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
 </div>
+<div class="ui three column centered grid suite-login__panel">
+  <div class="column">
+    <div class="ui two column grid">
+      <div class="column"></div>
+      <div class="column">
+        {{#if tareaIngresar.last.isRunning}}
+          <button class="ui disabled button large fluid green"><div class="ui active inverted tiny inline loader"></div> Ingresando </button>
+        {{else}}
+          <button id="ingresar" class="ui button large fluid green" {{action 'ingresar'}}>Ingresar</button>
+        {{/if}}
+      </div>
+    </div>
+    <div class="ui grid">
+      <div class='login-error'>
+        {{#if error}}
+          {{#suite-animacion}}
+            <p>{{error}}</p>
+          {{/suite-animacion}}
+        {{/if}}
+      </div>
+    </div>
+    </div>
+  </div>
 </div>
-
     {{/suite-animacion}}
 
 <!-- Solo tiene que estar visible mientras depuramos la aplicación -->
-{{suite-depuracion-login}}
+{{!-- {{suite-depuracion-login}} --}}

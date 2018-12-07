@@ -6,7 +6,9 @@ export default Ember.Route.extend({
 
   model() {
     return Ember.RSVP.hash({
-      escuelasPorPrograma: this.get("ajax").request(`${ENV.API_URL}/api/escuelas/escuelas_por_programa`)
+      escuelasPorPrograma: this.get("ajax").request(
+        `${ENV.API_URL}/api/escuelas/escuelas_por_programa`
+      )
     });
   }
 });

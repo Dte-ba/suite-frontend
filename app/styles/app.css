@@ -21,6 +21,10 @@ body {
 .invisible {
   display: none;
 }
+
+.ui.green.button {
+  background-color: #9aca3c;
+}
 /*
 
 .column {
@@ -45,6 +49,23 @@ body {
   font-family: "Lato" !important;
 }
 
+.ui.segment.suite-login-header {
+  background: #9aca3c !important;
+  border: 0 !important;
+  -webkit-box-shadow: 0px 21px 21px 0px rgba(0, 0, 0, 0.05) !important;
+  -moz-box-shadow: 0px 21px 21px 0px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0px 21px 21px 0px rgba(0, 0, 0, 0.05) !important;
+  z-index: 1;
+}
+.suite-login__panel {
+  background: #fff;
+  padding-top: 1em;
+}
+
+.suite-login__panel button {
+  margin: 1px !important;
+  font-weight: 400 !important;
+}
 .logo-container {
   height: 50px;
   cursor: pointer;
@@ -353,7 +374,6 @@ h2.suite-detalle {
   height: 30px !important;
 }
 
-
 .avatar-file-uploader label {
   display: block;
   width: 160px;
@@ -617,27 +637,59 @@ iframe.mapa {
 }
 
 .login-contenedor {
-  background: radial-gradient(
+  /* background: radial-gradient(
     ellipse at center,
     rgba(255, 255, 255, 1) 0%,
     rgba(246, 246, 246, 1) 47%,
     rgba(237, 237, 237, 1) 100%
-  );
+  ); */
+  background: #fff;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  overflow-y: scroll;
 }
 
 .login-form {
   margin: auto;
-  padding: 1em;
+  /* padding: 1em; */
   width: 100%;
-  max-width: 300px;
+  /* max-width: 300px; */
   margin-top: 2em;
   text-align: center;
+  background: #9aca3c;
+}
+.ui.basic.segment.suite-login-fields-container {
+  margin: 0;
+}
+.suite-login-fields {
+  background: #9aca3c;
+  padding-top: 4em !important;
+}
+
+.ui.container.login-form-container {
+  text-align: center;
+}
+
+.login-form-fields {
+  max-width: 300px !important;
+}
+
+.ui.form.suite-login-form .field > label {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.ui.form.suite-login-form .field.field input {
+  background: #fff;
+  border-color: #dadada !important;
+  border-radius: 0.4rem;
+  height: 3.2rem;
+}
+
+.ui.form.suite-login-form .ui.checkbox label {
+  color: #fff;
 }
 
 .login-checkbox {
