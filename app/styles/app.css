@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,500,700");
+
 body {
   overflow-y: scroll;
+  font-family: "Din Next Rounded Regular";
 }
 
 .main {
-  padding-top: 5em;
+  padding-top: 6em;
   padding-bottom: 5em;
 }
 
@@ -13,7 +16,11 @@ body {
 
 .footer {
 }
-
+.ui.segment.suite-footer {
+  width: 100%;
+  bottom: 0;
+  background: #9aca3c !important;
+}
 .pusher {
   width: calc(100vw - 34px);
 }
@@ -22,8 +29,17 @@ body {
   display: none;
 }
 
+.ui.button {
+  font-family: "Din Next Rounded Regular";
+}
+
 .ui.green.button {
   background-color: #9aca3c;
+}
+
+.escritorio-robotica,
+.escritorio-suite {
+  min-height: 550px;
 }
 /*
 
@@ -151,7 +167,7 @@ body > .ember-view {
 
 /* Hace que la barra de navegación tenga color gris. */
 .ui.inverted.menu {
-  background: #333;
+  background: #414042;
 }
 
 .ui.menu .item > img:not(.ui) {
@@ -209,7 +225,8 @@ body > .ember-view {
 }
 
 .ui.table thead th {
-  background: #e9f8fd;
+  background: #e7f3d8;
+  color: #58595b;
 }
 
 .ui.table thead th.header-filter {
@@ -300,6 +317,10 @@ body > .ember-view {
   z-index: 200 !important;
 }
 
+.ui.fixed.menu.barra-de-navegacion {
+  border-top: 15px solid #9aca3c;
+}
+
 .inverted.barra-de-navegacion .item,
 .inverted.barra-de-navegacion .item.active.ember-transitioning-out {
   border-bottom: 3px solid #333333;
@@ -309,10 +330,14 @@ body > .ember-view {
   border-bottom: 3px solid #fff;
 }
 
+.ui.inverted.menu .item {
+  color: #fefefe !important;
+}
+
 .ui.inverted.menu .active.item,
 .barra-de-navegacion .item.ember-transitioning-in {
   border-bottom: 3px solid #c7e235;
-  color: #c7e235 !important;
+  color: #fefefe !important;
   background: none;
 }
 
@@ -334,7 +359,7 @@ body > .ember-view {
 }
 
 .ui.button.primario {
-  background-color: #adc12e;
+  background-color: #9aca3c;
   color: white;
 }
 
@@ -389,9 +414,11 @@ h2.suite-detalle {
   font-weight: 200;
   font-size: xx-large;
   margin-top: 0.25em;
-  font-family: "Roboto Light";
+  font-family: "Din Next Rounded Regular";
+  color: #58595b;
 }
 
+/* Roboto */
 @font-face {
   font-family: "Roboto Bold";
   src: url("/roboto/Roboto-Bold.ttf") format("truetype");
@@ -412,6 +439,28 @@ h2.suite-detalle {
   src: url("/roboto/Roboto-Light.ttf") format("truetype");
 }
 
+/* Din Next Rounded */
+
+@font-face {
+  font-family: "Din Next Rounded Bold";
+  src: url("/DinNextRounded/DINNEXTROUNDEDLTPRO-BOLD.OTF") format("opentype");
+}
+
+@font-face {
+  font-family: "Din Next Rounded Light";
+  src: url("/DinNextRounded/DINNEXTROUNDEDLTPRO-LIGHT.OTF") format("opentype");
+}
+
+@font-face {
+  font-family: "Din Next Rounded Medium";
+  src: url("/DinNextRounded/DINNEXTROUNDEDLTPRO-MEDIUM.OTF") format("opentype");
+}
+
+@font-face {
+  font-family: "Din Next Rounded Regular";
+  src: url("/DinNextRounded/DINNEXTROUNDEDLTPRO-REGULAR.OTF") format("opentype");
+}
+
 .a-derecha {
   text-align: right;
 }
@@ -429,11 +478,13 @@ h2.suite-detalle {
 }
 
 a.item {
-  font-family: "Roboto Light" !important;
+  font-family: "Din Next Rounded Regular" !important;
+  color: #58595b !important;
 }
 
 li.section {
-  font-family: "Roboto Light" !important;
+  font-family: "Din Next Rounded Regular" !important;
+  color: #58595b !important;
 }
 
 .models-table th.ui.form {
@@ -447,21 +498,21 @@ li.section {
 
 p {
   margin-top: 2em;
-  font-family: "Roboto Light" !important;
+  font-family: "Din Next Rounded Light" !important;
   font-size: medium;
   line-height: 1.7;
 }
 
 .suite-grupo {
   margin-top: 4em;
-  font-family: "Roboto Light";
+  font-family: "Din Next Rounded Light";
 }
 
 .suite-grupo-numero {
   color: gray;
   font-weight: bolder;
   font-size: 30pt;
-  font-family: "Roboto Light";
+  font-family: "Din Next Rounded Light";
   display: inline;
 }
 
@@ -747,16 +798,20 @@ iframe.mapa {
   text-transform: none;
   font-weight: 300;
   font-size: 1.3em;
+  font-family: "Din Next Rounded Light";
+  text-align: left;
+  color: #58595b;
 }
 
 .ui.statistics .statistics > .label,
 .ui.statistics .statistic > .label ~ .value {
-  font-family: "Roboto Light";
+  font-family: "Din Next Rounded Light";
+  text-align: left;
 }
 .ui.statistics .statistic > .label ~ .value {
   margin-top: 0.8rem;
   font-weight: 100;
-  color: #555;
+  color: #58595b;
 }
 
 /* Escritorio */
@@ -1021,4 +1076,10 @@ pre {
 
 .monospace {
   font-family: monospace;
+}
+
+.ui.card > .content > .header:not(.ui),
+.ui.cards > .card > .content > .header:not(.ui) {
+  font-family: "Din Next Rounded Regular" !important;
+  color: #58595b !important;
 }

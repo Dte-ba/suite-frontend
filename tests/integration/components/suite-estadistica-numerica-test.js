@@ -10,10 +10,10 @@ moduleForComponent(
 );
 
 test("it renders", function(assert) {
-  this.render(hbs`{{suite-estadistica-numerica
-    titulo="demo"
-  }}`);
-  ``;
-
-  assert.equal(this.$().text().trim(), "demo");
+  this.render(hbs`{{suite-estadistica-numerica}}`);
+  assert.ok(
+    this.$()
+      .text()
+      .trim()
+  );
 });

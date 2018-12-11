@@ -1,33 +1,33 @@
 {{#if media.isDesktop}}
-  {{#link-to "app.escritorio.index" class="item large screen only"}}<i class="bar chart icon"></i> Escritorio{{/link-to}}
+  {{#link-to "app.escritorio.index" class="item large screen only"}}Escritorio{{/link-to}}
 {{/if}}
 
 {{#suite-permiso permiso="agenda.listar"}}
   {{#if veLista}}
-    {{#link-to "app.agenda.index.lista" class="item seccion-agenda" current-when="app.agenda"}}<i class="calendar icon"></i> Acciones{{/link-to}}
+    {{#link-to "app.agenda.index.lista" class="item seccion-agenda" current-when="app.agenda"}}Acciones{{/link-to}}
   {{else}}
-    {{#link-to "app.agenda.index" class="item seccion-agenda" current-when="app.agenda"}}<i class="calendar icon"></i> Acciones{{/link-to}}
+    {{#link-to "app.agenda.index" class="item seccion-agenda" current-when="app.agenda"}}Acciones{{/link-to}}
   {{/if}}
 {{/suite-permiso}}
 
 {{#suite-permiso permiso="tareas.listar"}}
-  {{#link-to "app.tareas.index" (query-params filtro="" pagina=1) class="item seccion-tareas" current-when="app.tareas"}}<i class="tasks icon"></i> Tareas{{/link-to}}
+  {{#link-to "app.tareas.index" (query-params filtro="" pagina=1) class="item seccion-tareas" current-when="app.tareas"}}Tareas{{/link-to}}
 {{/suite-permiso}}
 
 {{#suite-permiso permiso="escuelas.listar"}}
-  {{#link-to "app.escuelas.index" (query-params filtro="" pagina=1) class="item" current-when="app.escuelas"}}<i class="university icon"></i> Escuelas{{/link-to}}
+  {{#link-to "app.escuelas.index" (query-params filtro="" pagina=1) class="item" current-when="app.escuelas"}}Escuelas{{/link-to}}
 {{/suite-permiso}}
 
 {{#suite-permiso permiso="paquetes.listar"}}
-  {{#link-to "app.paquetes.index" (query-params filtro="" pagina=1) class="item" current-when="app.paquetes"}}<i class="setting icon"></i> Paquetes{{/link-to}}
+  {{#link-to "app.paquetes.index" (query-params filtro="" pagina=1) class="item" current-when="app.paquetes"}}Paquetes{{/link-to}}
 {{/suite-permiso}}
 
 {{#suite-permiso permiso="validaciones.listar"}}
-  {{#link-to "app.validaciones.index" (query-params filtro="" pagina=1) class="item" current-when="app.validaciones"}}<i class="circle check icon"></i> Validaciones{{/link-to}}
+  {{#link-to "app.validaciones.index" (query-params filtro="" pagina=1) class="item" current-when="app.validaciones"}}Validaciones{{/link-to}}
 {{/suite-permiso}}
 
 {{#suite-permiso permiso="personas.listar"}}
-  {{#link-to "app.personas.index" class="item seccion-personas" current-when="app.personas"}}<i class="user icon"></i> Personas{{/link-to}}
+  {{#link-to "app.personas.index" class="item seccion-personas" current-when="app.personas"}}Personas{{/link-to}}
 {{/suite-permiso}}
 
 {{yield}}

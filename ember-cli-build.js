@@ -28,6 +28,11 @@ module.exports = function(defaults) {
   app.import("vendor/roboto/Roboto-Bold.ttf");
   app.import("vendor/roboto/Roboto-Light.ttf");
 
+  app.import("vendor/DinNextRounded/DINNEXTROUNDEDLTPRO-BOLD.OTF");
+  app.import("vendor/DinNextRounded/DINNEXTROUNDEDLTPRO-LIGHT.OTF");
+  app.import("vendor/DinNextRounded/DINNEXTROUNDEDLTPRO-MEDIUM.OTF");
+  app.import("vendor/DinNextRounded/DINNEXTROUNDEDLTPRO-REGULAR.OTF");
+
   app.import("vendor/daterangepicker.min.css");
   app.import("vendor/jquery.daterangepicker.js");
 
