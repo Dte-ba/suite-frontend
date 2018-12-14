@@ -13,11 +13,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
   afterModel() {
     if (this.get("perfil.tieneAccesoARobotica")) {
-      this.transitionTo("robotica.index");
+      this.transitionTo("robotica.agenda.index.lista");
     } else {
-
       if (this.get("perfil.tieneAccesoASuite")) {
-        this.transitionTo("app.escritorio.index");
+        this.transitionTo("app.agenda.index.lista");
       } else {
         this.get("notificador").error(`No tiene asignada ninguna aplicación`);
         Ember.run.later(() => {

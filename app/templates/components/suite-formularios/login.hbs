@@ -37,10 +37,12 @@
       </div>
   </div>
 </div>
-<div class="ui {{if media.isMobile "one" "three"}}  column centered grid suite-login__panel">
+<div class="ui three column centered grid suite-login__panel">
   <div class="column">
-    <div class="ui two column grid">
-      <div class="column"></div>
+    <div class="ui {{if media.isMobile "one" "two"}} column grid">
+      {{#unless media.isMobile}}
+        <div class="column"></div>
+      {{/unless}}
       <div class="column">
         {{#if tareaIngresar.last.isRunning}}
           <button class="ui disabled button large fluid green"><div class="ui active inverted tiny inline loader"></div> Ingresando </button>
