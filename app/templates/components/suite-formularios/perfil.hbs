@@ -5,6 +5,9 @@
 }}
 
 {{#suite-grupo numero=1 titulo="Datos personales"}}
+  {{#f.input label="Foto de perfil" name="image" as |f|}}
+    {{suite-campo/adjuntos archivos=f.value cuandoTerminaDeSubir=f.update}}
+  {{/f.input}}
 
   {{f.input label="Nombre" name="nombre"}}
   {{f.input label="Apellido" name="apellido"}}

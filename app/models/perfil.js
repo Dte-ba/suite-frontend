@@ -7,7 +7,7 @@ import {
 
 export default DS.Model.extend({
   // 1) Datos Personales
-  image: DS.attr("string"),
+  image: DS.attr(),
   nombre: DS.attr("string"),
   apellido: DS.attr("string"),
   fechadenacimiento: DS.attr("string"),
