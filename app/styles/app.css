@@ -334,6 +334,10 @@ body > .ember-view {
   color: #fefefe !important;
 }
 
+.ui.inverted.menu .item:first-child {
+  border-bottom: 0;
+}
+
 .ui.inverted.menu .active.item,
 .barra-de-navegacion .item.ember-transitioning-in {
   border-bottom: 3px solid #c7e235;
